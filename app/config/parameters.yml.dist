@@ -1,15 +1,19 @@
+# This file is auto-generated during the composer install
 parameters:
-    database_driver:   pdo_mysql
-    database_host:     127.0.0.1
-    database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    debug_email: bugs@sumocoders.be
 
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: sumo_saf2
+    database_user: sumo_saf2
+    database_password: H4pMcnbN3P9BbmPw
 
-    locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    mailer_transport: mail
+
+    locale: en
+
+    secret: ThisTokenIsNotSoSecretChangeIt
+
+    fallbacks:
+        - site_title: 'Our little framework'

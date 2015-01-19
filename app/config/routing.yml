@@ -1,0 +1,7 @@
+sumo_coders_framework_search:
+    resource: "@SumoCodersFrameworkSearchBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+sumo_coders_users_bundle:
+  resource: "@SumoCodersFrameworkUserBundle/Resources/config/routing.yml"
