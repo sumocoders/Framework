@@ -1,11 +1,13 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "sumocoders/framework",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "description": "The Sumocoders framework based on Symfony",
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
@@ -18,7 +20,17 @@
         "sensio/distribution-bundle": "2.3.*",
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "mopa/bootstrap-bundle": "3.*@dev",
+        "redexperts/errbit-bundle": "dev-master",
+        "emgiezet/errbit-php": "1.0.*@dev",
+
+        "sumocoders/framework-core-bundle": "dev-master",
+        "sumocoders/framework-error-bundle": "dev-master",
+        "sumocoders/framework-user-bundle": "dev-master",
+        "sumocoders/framework-search-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
@@ -45,9 +57,6 @@
         "symfony-web-dir": "web",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
-        },
-        "branch-alias": {
-            "dev-master": "2.3-dev"
         }
     }
 }
