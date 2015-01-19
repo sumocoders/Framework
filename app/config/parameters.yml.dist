@@ -1,13 +1,13 @@
 # This file is auto-generated during the composer install
 parameters:
-    debug_email: bugs@sumocoders.be
+    debug_email:
 
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: null
-    database_name: sumo_saf2
-    database_user: sumo_saf2
-    database_password: H4pMcnbN3P9BbmPw
+    database_name: framework
+    database_user: root
+    database_password:
 
     mailer_transport: mail
 
