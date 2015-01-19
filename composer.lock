@@ -1981,12 +1981,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "32f1d781cd496a3005f50f00019e1c1908ec185c"
+                "reference": "52b862022016c095b1ae445e1cd446d5530da4a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/32f1d781cd496a3005f50f00019e1c1908ec185c",
-                "reference": "32f1d781cd496a3005f50f00019e1c1908ec185c",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/52b862022016c095b1ae445e1cd446d5530da4a4",
+                "reference": "52b862022016c095b1ae445e1cd446d5530da4a4",
                 "shasum": ""
             },
             "require": {
@@ -2017,7 +2017,7 @@
                 "SumoCoders",
                 "search"
             ],
-            "time": "2015-01-19 10:01:05"
+            "time": "2015-01-19 15:42:08"
         },
         {
             "name": "sumocoders/framework-user-bundle",
