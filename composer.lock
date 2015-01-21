@@ -1886,12 +1886,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkCoreBundle.git",
-                "reference": "f6e203717bea4bdb96cdd25c1644db2c7aba2045"
+                "reference": "ff02b2f91d5925c1c82cc14b3bc23f2e953c7a51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkCoreBundle/zipball/f6e203717bea4bdb96cdd25c1644db2c7aba2045",
-                "reference": "f6e203717bea4bdb96cdd25c1644db2c7aba2045",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkCoreBundle/zipball/ff02b2f91d5925c1c82cc14b3bc23f2e953c7a51",
+                "reference": "ff02b2f91d5925c1c82cc14b3bc23f2e953c7a51",
                 "shasum": ""
             },
             "require": {
@@ -1927,7 +1927,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-01-19 10:18:45"
+            "time": "2015-01-21 09:05:21"
         },
         {
             "name": "sumocoders/framework-error-bundle",

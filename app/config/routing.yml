@@ -3,5 +3,10 @@ sumo_coders_framework_search:
     type:     annotation
     prefix:   /
 
+sumo_coders_framework_core:
+    resource: "@SumoCodersFrameworkCoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 sumo_coders_users_bundle:
   resource: "@SumoCodersFrameworkUserBundle/Resources/config/routing.yml"
