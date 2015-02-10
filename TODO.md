@@ -13,6 +13,7 @@
 * [ ] buttons in header: correct width
 * [ ] Tijs: make Data.js work again
 * [ ] Tijs: make Locale.js work again
+* [ ] Integrate https://github.com/stephenplusplus/grunt-wiredep
 
 # FrameworkCoreBundle
 
