@@ -2,6 +2,7 @@
 /web/css/
 /web/js/
 /web/*/locale.json
+/web/vendor
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
