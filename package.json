@@ -13,7 +13,10 @@
   },
   "homepage": "https://github.com/sumocoders/Framework",
   "devDependencies": {
+    "bower": "^1.3.12",
     "grunt": "^0.4.5",
-    "bower": "^1.3.12"
+    "grunt-contrib-compass": "^1.0.1",
+    "grunt-contrib-copy": "^0.7.0",
+    "load-grunt-tasks": "^3.1.0"
   }
 }
