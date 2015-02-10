@@ -42,3 +42,4 @@
 
 * [ ] Maybe create a gem
 * [ ] Port functionality from our existing gem into this gem
+* [ ] Upload files/folders generated through grunt into correct folder
