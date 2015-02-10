@@ -13,6 +13,7 @@
   },
   "homepage": "https://github.com/sumocoders/Framework",
   "devDependencies": {
+    "grunt": "^0.4.5",
     "bower": "^1.3.12"
   }
 }
