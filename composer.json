@@ -6,11 +6,26 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url" : "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkErrorBundle"
+        },
+        {
+            "type": "vcs",
+            "url" : "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkSearchBundle"
+        },
+        {
+            "type": "vcs",
+            "url" : "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkUserBundle"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.6.*",
+        "symfony/framework-bundle": "~2.3",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
@@ -25,21 +40,23 @@
         "mopa/bootstrap-bundle": "3.*@dev",
         "redexperts/errbit-bundle": "dev-master",
         "emgiezet/errbit-php": "1.0.*@dev",
+        "jms/i18n-routing-bundle": "1.*",
+        "jms/translation-bundle": "1.1.*",
+        "knplabs/knp-menu-bundle": "2.0.*@dev",
 
-        "sumocoders/framework-core-bundle": "dev-master",
         "sumocoders/framework-error-bundle": "dev-master",
         "sumocoders/framework-user-bundle": "dev-master",
         "sumocoders/framework-search-bundle": "dev-master"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "phpunit/phpunit": "4.1.*"
     },
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "app/console assetic:dump",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "npm install"
@@ -48,7 +65,6 @@
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "app/console assetic:dump",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
