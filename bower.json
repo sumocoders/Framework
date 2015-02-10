@@ -1,0 +1,17 @@
+{
+  "name": "framework",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sumocoders/Framework",
+  "authors": [
+    "Tijs Verkoyen <tijs@sumocoders.be>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/vendor/",
+    "test",
+    "tests"
+  ]
+}
