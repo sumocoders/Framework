@@ -53,12 +53,7 @@
         <script type="text/javascript" src="/vendor/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/vendor/modernizr/modernizr.js"></script>
-
-        {% javascripts output="/js/libs.js"
-            "@SumoCodersFrameworkCoreBundle/Resources/assets/js/libs/*"
-        %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+        <script type="text/javascript" src="/vendor/respond/dest/respond.min.js"></script>
 
         {% javascripts output="/js/sumo.js" "@SumoCodersFrameworkCoreBundle/Resources/assets/js/sumo_plugins.js" %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
