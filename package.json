@@ -1,0 +1,18 @@
+{
+  "name": "framework",
+  "version": "0.0.1",
+  "description": "This is the SumoCoders Symfony Framework.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sumocoders/Framework.git"
+  },
+  "author": "Tijs Verkoyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sumocoders/Framework/issues"
+  },
+  "homepage": "https://github.com/sumocoders/Framework",
+  "dependencies": {
+    "bower": "^1.3.12"
+  }
+}
