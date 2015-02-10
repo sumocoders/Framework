@@ -56,6 +56,24 @@ module.exports = (grunt) ->
           outputStyle: 'compressed'
           noLineComments: true
 
+    # Watch configuration
+    watch:
+      copy:
+        files: [
+          'src/**/Resources/assets/fonts/*',
+          'src/**/Resources/assets/images/**',
+          'src/**/Resources/assets/sass/**'
+        ]
+        tasks: [
+          'copyfiles'
+        ]
+      sass:
+        files: [
+          '<%= assetsPath %>/sass/**'
+        ]
+        tasks: [
+          'compass:dev'
+        ]
 
   # Load all grunt tasks
   require('load-grunt-tasks')(grunt);
@@ -69,8 +87,7 @@ module.exports = (grunt) ->
 
   # Default task(s)
   grunt.registerTask 'default', [
-    'copyfiles',
-    'compass:dev',
+    'watch'
   ]
 
   # Production task(s)
