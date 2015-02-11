@@ -1,12 +1,11 @@
-/assets/sass
-/web/*/locale.json
-/web/assets
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
 /app/logs/*
-/build/
-/vendor/
+/assets/sass
 /bin/
 /composer.phar
 /node_modules
+/vendor/
+/web/*/locale.json
+/web/assets
