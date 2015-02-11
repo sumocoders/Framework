@@ -2,6 +2,7 @@
 /app/cache/*
 /app/config/parameters.yml
 /app/logs/*
+/assets/coffee
 /assets/sass
 /bin/
 /composer.phar

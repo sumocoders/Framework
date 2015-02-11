@@ -25,6 +25,17 @@ module.exports = (grunt) ->
           uniqueFolderToSearchFor = '/images/'
           startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
           dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
+      js:
+        expand: true
+        dest: '<%= webAssetsPath %>/js/'
+        filter: 'isFile'
+        src:  [
+          'src/**/Resources/assets/js/**'
+        ]
+        rename: (dest, src) ->
+          uniqueFolderToSearchFor = '/js/'
+          startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
+          dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
       sass:
         expand: true
         dest: '<%= assetsPath %>/sass/'
@@ -36,6 +47,23 @@ module.exports = (grunt) ->
           uniqueFolderToSearchFor = '/sass/'
           startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
           dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
+      coffee:
+        expand: true
+        dest: '<%= assetsPath %>/coffee/'
+        filter: 'isFile'
+        src:  [
+          'src/**/Resources/assets/coffee/**'
+        ]
+        rename: (dest, src) ->
+          chunks = src.split('/')
+          newPathName = chunks[chunks.length - 1]
+
+          # prepend bundle if needed
+          for chunk in chunks
+            if chunk.indexOf('Bundle') != -1
+              newPathName = chunk.toLowerCase() + '.' + newPathName
+
+          dest + newPathName
 
     # Compass configuration
     compass:
@@ -57,12 +85,27 @@ module.exports = (grunt) ->
           outputStyle: 'compressed'
           noLineComments: true
 
-    # Watch configuration
+    # Coffee configuration
+    coffee:
+      dev:
+        expand: true
+        flatten: true
+        src: [
+          '<%= assetsPath %>/coffee/*.coffee'
+          '<%= assetsPath %>/coffee/**/*.coffee'
+        ],
+        dest: '<%= webAssetsPath %>/js/',
+        rename: (dest, src) ->
+          dest + src.replace('.coffee', '.js')
+
+  # Watch configuration
     watch:
       copy:
         files: [
-          'src/**/Resources/assets/fonts/*',
-          'src/**/Resources/assets/images/**',
+          'src/**/Resources/assets/coffee/**'
+          'src/**/Resources/assets/fonts/*'
+          'src/**/Resources/assets/images/**'
+          'src/**/Resources/assets/js/**'
           'src/**/Resources/assets/sass/**'
         ]
         tasks: [
@@ -81,9 +124,11 @@ module.exports = (grunt) ->
 
   # Private task(s)
   grunt.registerTask 'copyfiles', [
-    'copy:fonts',
-    'copy:images',
-    'copy:sass',
+    'copy:fonts'
+    'copy:js'
+    'copy:images'
+    'copy:sass'
+    'copy:coffee'
   ]
 
   # Default task(s)
@@ -95,4 +140,5 @@ module.exports = (grunt) ->
   grunt.registerTask 'build', [
     'copyfiles'
     'compass:prod'
+    'coffee'
   ]
