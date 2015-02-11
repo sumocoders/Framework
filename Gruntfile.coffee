@@ -3,19 +3,20 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
     assetsPath: 'assets'
+    webAssetsPath: 'web/assets'
 
     # Copy configuration
     copy:
       fonts:
         expand: true
         flatten: true
-        dest: '<%= assetsPath %>/fonts/'
+        dest: '<%= webAssetsPath %>/fonts/'
         src:  [
           'src/**/Resources/assets/fonts/*'
         ]
       images:
         expand: true
-        dest: '<%= assetsPath %>/images/'
+        dest: '<%= webAssetsPath %>/images/'
         filter: 'isFile'
         src:  [
           'src/**/Resources/assets/images/**'
@@ -42,9 +43,9 @@ module.exports = (grunt) ->
         require: [
           'compass_sumo'
         ]
-        cssDir: '<%= assetsPath %>/css'
-        fontsDir: '<%= assetsPath %>/fonts'
-        imagesDir: '<%= assetsPath %>/images'
+        cssDir: '<%= webAssetsPath %>/css'
+        fontsDir: '<%= webAssetsPath %>/fonts'
+        imagesDir: '<%= webAssetsPath %>/images'
         sassDir: '<%= assetsPath %>/sass'
         relativeAssets: true
         bundleExec: true

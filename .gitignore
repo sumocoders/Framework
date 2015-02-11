@@ -1,12 +1,6 @@
-/assets/css
-/assets/images
-/assets/fonts
 /assets/sass
-/web/bundles/
-/web/css/
-/web/js/
 /web/*/locale.json
-/web/vendor
+/web/assets
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
