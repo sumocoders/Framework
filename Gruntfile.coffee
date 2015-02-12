@@ -117,6 +117,14 @@ module.exports = (grunt) ->
 
     # Watch configuration
     watch:
+      # Watch the coffee files so we can (re)generate the js files
+      coffee:
+        files: [
+          '<%= assetsPath %>/coffee/**'
+        ]
+        tasks: [
+          'coffee'
+        ]
       # Watch the files to be copied
       copy:
         files: [
