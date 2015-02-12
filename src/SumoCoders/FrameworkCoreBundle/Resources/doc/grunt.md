@@ -92,9 +92,12 @@ When the sass/scss-files are compiled we use the
 
 ## Usage
 
-### While developingCreate a listener
+### While developing
 
     grunt
+    
+We have implemented live-reload, so your changes will be reloaded in the 
+browser. This will only happen in the dev-environment.
 
 ### Before launching your website
 
