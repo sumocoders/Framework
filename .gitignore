@@ -11,3 +11,4 @@
 /vendor/
 /web/*/locale.json
 /web/assets
+/web/bundles

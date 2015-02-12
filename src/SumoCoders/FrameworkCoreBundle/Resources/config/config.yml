@@ -42,6 +42,7 @@ framework:
   validation: { enable_annotations: true }
   templating:
     engines: ['twig']
+    assets_version_format: '%%s?v=%%s'
   default_locale:  "%locale%"
   trusted_hosts:   ~
   trusted_proxies: ~
@@ -54,6 +55,12 @@ twig:
   globals:
     fallbacks: "@framework.fallbacks"
     jsData: "@framework.jsData"
+
+# Assetic Configuration
+assetic:
+  debug:  "%kernel.debug%"
+  workers:
+    cache_busting: ~
 
 # Doctrine Configuration
 doctrine:

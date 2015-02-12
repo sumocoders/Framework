@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "66848457e0bdcc1cca27e9cdda7cbe77",
+    "hash": "0b9d4fc531adf4e25e5598dd826fe047",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1886,11 +1886,11 @@
             "source": {
                 "type": "git",
                 "url": "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkErrorBundle",
-                "reference": "a457e5ed6041aeecf40196d6422922302fc16513"
+                "reference": "40e612251edaf0b2399f2f7be8145075f808f78b"
             },
             "require": {
                 "php": ">=5.3.3",
-                "redexperts/errbit-bundle": "dev-master as 1.0"
+                "redexperts/errbit-bundle": "dev-master"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.1.*"
@@ -1915,7 +1915,7 @@
                 "Errbit",
                 "SumoCoders"
             ],
-            "time": "2015-01-16 14:59:03"
+            "time": "2015-01-19 09:42:11"
         },
         {
             "name": "sumocoders/framework-search-bundle",
@@ -1924,7 +1924,7 @@
             "source": {
                 "type": "git",
                 "url": "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkSearchBundle",
-                "reference": "50d649ded1a068bd9798ac2be2d2abbae70d0b6b"
+                "reference": "bad77b3d4b8c5b3215eb6f297a12317fbcf935fb"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -1952,7 +1952,7 @@
                 "Search",
                 "SumoCoders"
             ],
-            "time": "2015-02-10 13:12:41"
+            "time": "2015-02-10 14:28:45"
         },
         {
             "name": "sumocoders/framework-user-bundle",
@@ -1961,7 +1961,7 @@
             "source": {
                 "type": "git",
                 "url": "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkUserBundle",
-                "reference": "b4720905c9df3ea5936b3c3928dccfb2121069c1"
+                "reference": "5b6caa63c6c2f629aec94779ed4b19f5fb539d48"
             },
             "require": {
                 "friendsofsymfony/user-bundle": "~2.0@dev",
@@ -1988,7 +1988,7 @@
                 "Framework",
                 "SumoCoders"
             ],
-            "time": "2015-02-10 13:10:01"
+            "time": "2015-02-10 14:28:29"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3147,17 +3147,17 @@
         },
         {
             "name": "sensio/generator-bundle",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "target-dir": "Sensio/Bundle/GeneratorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "9e23fc3de265ae013690d84aab98e7a84f46edcd"
+                "reference": "4b09746520a826a7bf34a466ba31c7d8740fef7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/9e23fc3de265ae013690d84aab98e7a84f46edcd",
-                "reference": "9e23fc3de265ae013690d84aab98e7a84f46edcd",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/4b09746520a826a7bf34a466ba31c7d8740fef7e",
+                "reference": "4b09746520a826a7bf34a466ba31c7d8740fef7e",
                 "shasum": ""
             },
             "require": {
@@ -3191,7 +3191,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2015-01-13 07:33:46"
+            "time": "2015-02-11 07:21:23"
         }
     ],
     "aliases": [],
