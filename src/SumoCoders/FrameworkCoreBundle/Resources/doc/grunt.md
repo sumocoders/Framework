@@ -21,12 +21,12 @@ After that the files will be compiled into `web/assets/js`.
 
 ### Fonts
 
-We will look into all bundles in the `src`-folder for all the ttf and oft-files
+We will look into all bundles in the `src`-folder for all the ttf and otf-files
 in the `Resources/assets/fonts`-folder, these files will be copied to 
 `assets/fonts`-folder in the root directory. When this is done all the other 
 formats (eot, svg, ttf, woff) are created in the `web/assets/fonts`-folder.
 
-You can link to the font-files with the compass-shortcurt font-dir('filename') 
+You can link to the font-files with the compass-shortcurt font-url('filename') 
 in your scss-files.
 
 
@@ -48,7 +48,7 @@ We will look into all bundles in the `src`-folder for all files in the
 *Important*: make sure you don't have duplicate filenames as the files will be 
 overwritten.
 
-You can link to the font-files with the compass-shortcurt image-dir('filename')
+You can link to the font-files with the compass-shortcurt image-url('filename')
 in your scss-files.
 
 When running `grunt build` the images will be optimized for web with the 
