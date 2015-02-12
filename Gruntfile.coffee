@@ -10,7 +10,7 @@ module.exports = (grunt) ->
       fonts:
         expand: true
         flatten: true
-        dest: '<%= webAssetsPath %>/fonts/'
+        dest: '<%= assetsPath %>/fonts/'
         src:  [
           'src/**/Resources/assets/fonts/*'
         ]
@@ -94,22 +94,39 @@ module.exports = (grunt) ->
           '<%= assetsPath %>/coffee/*.coffee'
           '<%= assetsPath %>/coffee/**/*.coffee'
         ],
-        dest: '<%= webAssetsPath %>/js/',
+        dest: '<%= webAssetsPath %>/js/'
         rename: (dest, src) ->
           dest + src.replace('.coffee', '.js')
 
-  # Watch configuration
+    # Fontgen configuration
+    fontgen:
+      all:
+        files: [
+          src: [
+            '<%= assetsPath %>/fonts/*.ttf'
+            '<%= assetsPath %>/fonts/*.eot'
+          ]
+          dest: '<%= webAssetsPath %>/fonts/'
+        ]
+
+    # Watch configuration
     watch:
       copy:
         files: [
           'src/**/Resources/assets/coffee/**'
-          'src/**/Resources/assets/fonts/*'
           'src/**/Resources/assets/images/**'
           'src/**/Resources/assets/js/**'
           'src/**/Resources/assets/sass/**'
         ]
         tasks: [
           'copyfiles'
+        ]
+      fonts:
+        file: [
+          'src/**/Resources/assets/fonts/**'
+        ]
+        tasks: [
+          'generateFonts'
         ]
       sass:
         files: [
@@ -128,7 +145,11 @@ module.exports = (grunt) ->
     'copy:js'
     'copy:images'
     'copy:sass'
-    'copy:coffee'
+  ]
+
+  grunt.registerTask 'generateFonts', [
+    'copy:fonts'
+    'fontgen'
   ]
 
   # Default task(s)
@@ -139,6 +160,7 @@ module.exports = (grunt) ->
   # Production task(s)
   grunt.registerTask 'build', [
     'copyfiles'
+    'generateFonts'
     'compass:prod'
     'coffee'
   ]
