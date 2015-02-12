@@ -109,6 +109,10 @@ module.exports = (grunt) ->
           dest: '<%= webAssetsPath %>/fonts/'
         ]
 
+    autoprefixer:
+      all:
+        src: '<%= webAssetsPath %>/css/*.css'
+
     # Clean configuration
     clean:
       afterFontgen: [
@@ -151,6 +155,7 @@ module.exports = (grunt) ->
         ]
         tasks: [
           'compass:dev'
+          'autoprefixer'
         ]
 
   # Load all grunt tasks
@@ -183,5 +188,6 @@ module.exports = (grunt) ->
     'copyfiles'
     'generateFonts'
     'compass:prod'
+    'autoprefixer'
     'coffee'
   ]
