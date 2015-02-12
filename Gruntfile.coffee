@@ -119,6 +119,16 @@ module.exports = (grunt) ->
         '<%= webAssetsPath %>/fonts/*.css'  # remove all generated css-files as they are obsolete
       ]
 
+    # Imagemin configuration
+    imagemin:
+      prod:
+        files: [
+          expand: true
+          cwd: '<%= webAssetsPath %>/images/'
+          src: ['**.{png,jpg,gif,jpeg}']
+          dest: '<%= webAssetsPath %>/images/'
+        ]
+
     # Watch configuration
     watch:
       # Watch the coffee files so we can (re)generate the js files
@@ -189,4 +199,5 @@ module.exports = (grunt) ->
     'compass:prod'
     'autoprefixer'
     'coffee'
+    'imagemin'
   ]
