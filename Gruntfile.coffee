@@ -141,9 +141,9 @@ module.exports = (grunt) ->
 
   # Private task(s)
   grunt.registerTask 'copyfiles', [
-    'copy:fonts'
-    'copy:js'
+    'copy:coffee'
     'copy:images'
+    'copy:js'
     'copy:sass'
   ]
 
