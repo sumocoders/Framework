@@ -177,21 +177,25 @@ module.exports = (grunt) ->
       coffee:
         files: [
           '<%= assetsPath %>/coffee/**'
+          'src/**/Resources/assets/coffee/**'
         ]
         tasks: [
+          'copy:coffee'
           'generateJs'
         ]
+        options:
+          livereload: true
       # Watch the files to be copied
       copy:
         files: [
-          'src/**/Resources/assets/coffee/**'
           'src/**/Resources/assets/images/**'
           'src/**/Resources/assets/js/**'
-          'src/**/Resources/assets/sass/**'
         ]
         tasks: [
           'concurrent:copyfiles'
         ]
+        options:
+          livereload: true
       # Watch the font folders so we can (re)generate the fonts
       fonts:
         files: [
@@ -200,6 +204,8 @@ module.exports = (grunt) ->
         tasks: [
           'generateFonts'
         ]
+        options:
+          livereload: true
       # Watch the icon files so we can (re)generate the iconfont
       icons:
         files: [
@@ -208,15 +214,21 @@ module.exports = (grunt) ->
         tasks: [
           'generateIconFonts'
         ]
+        options:
+          livereload: true
       # Watch the sass files so we can (re)generate the css files
       sass:
         files: [
           '<%= assetsPath %>/sass/**'
+          'src/**/Resources/assets/sass/**'
         ]
         tasks: [
+          'copy:sass'
           'compass:dev'
           'autoprefixer'
         ]
+        options:
+          livereload: true
 
   # Load all grunt tasks
   require('load-grunt-tasks')(grunt);
