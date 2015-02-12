@@ -142,7 +142,7 @@ module.exports = (grunt) ->
         ]
       # Watch the font folders so we can (re)generate the fonts
       fonts:
-        file: [
+        files: [
           'src/**/Resources/assets/fonts/**'
         ]
         tasks: [
