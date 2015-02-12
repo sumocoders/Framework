@@ -12,3 +12,5 @@
 /web/*/locale.json
 /web/assets
 /web/bundles
+/web/js
+/web/css

@@ -24,16 +24,40 @@
     {% block stylesheets %}
         {# Load full css if browser is > IE9 or not IE9 #}
         <!--[if gt IE 9]>
-            <link rel="stylesheet" href="/assets/css/style.css" />
+        {% stylesheets
+            'assets/css/style.css'
+            filter='cssrewrite'
+            output='css/style.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
         <![endif]-->
         <!--[if !IE]> -->
-            <link rel="stylesheet" href="/assets/css/style.css" />
+            {% stylesheets
+                'assets/css/style.css'
+                filter='cssrewrite'
+                output='css/style.css'
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
         <!-- <![endif]-->
 
         {# Load css and bootstrap seperately if <= IE9 #}
         <!--[if lte IE 9]>
-            <link rel="stylesheet" href="/assets/css/bootstrap.css" />
-            <link rel="stylesheet" href="/assets/css/style_ie.css" />
+            {% stylesheets
+                'assets/vendor/bootstrap/dist/css/bootstrap.css'
+                filter='cssrewrite'
+                output='css/bootstrap.css'
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+            {% stylesheets
+                'assets/css/style_ie.css'
+                filter='cssrewrite'
+                output='css/style_ie.css'
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
         <![endif]-->
     {% endblock %}
 

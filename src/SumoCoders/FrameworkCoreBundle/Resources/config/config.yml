@@ -61,6 +61,8 @@ assetic:
   debug:  "%kernel.debug%"
   workers:
     cache_busting: ~
+  filters:
+    cssrewrite: ~
 
 # Doctrine Configuration
 doctrine:

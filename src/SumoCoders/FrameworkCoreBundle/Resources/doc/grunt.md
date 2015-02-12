@@ -14,10 +14,25 @@ the lowercased bundlename.
 
 After that the files will be compiled into `web/assets/js`.
 
+As this will generate seperate files for each file we will combine them through
+assetic. See [How to use Assetic for asset management](http://symfony.com/doc/current/cookbook/assetic/asset_management.html)
+for the full documentation but basically:
+
+    {% javascripts
+        'assets/js/frameworkcorebundle.framework.data.js'
+        'assets/js/frameworkcorebundle.framework.locale.js'
+        'assets/js/frameworkcorebundle.framework.form.js'
+        'assets/js/frameworkcorebundle.framework.js'
+        'assets/js/frameworkcorebundle.framework.form.search.js'
+        'assets/js/frameworkcorebundle.app.js'
+        output='js/app.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
 #### @todo
 
-[ ] add documentation for usage in twig
-
+[ ] shouldn't we include the item from outside the document root?
 
 ### Fonts
 
@@ -48,16 +63,15 @@ We will look into all bundles in the `src`-folder for all files in the
 *Important*: make sure you don't have duplicate filenames as the files will be 
 overwritten.
 
-You can link to the font-files with the compass-shortcurt image-url('filename')
+You can link to the font-files with the compass-shortcurt image-url('filename')`
 in your scss-files.
 
 When running `grunt build` the images will be optimized for web with the 
 [grunt-contrib-imagemin-plugin](https://www.npmjs.com/package/grunt-contrib-imagemin).
 
-#### @todo
+You can use the `asset`-method in twig templates like below:
 
-[ ] add documentation for usage in twig
-
+    <img src="{{ asset('assets/images/arrow_show_menu.png') }}" />
 
 ### JS
 
@@ -66,9 +80,9 @@ We will look into all bundles in the `src`-folder for all files in the
 `web/assets/js`-folder in the root directory. The folder structure you 
 (optionally) created will be preserved.
 
-#### @todo
+You can use the `asset`-method in twig templates like below:
 
-[ ] add documentation for usage in twig
+    <img src="{{ asset('assets/js/sumo_plugins.js') }}" />
 
 
 ### SASS/SCSS
