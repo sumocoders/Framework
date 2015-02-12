@@ -19,6 +19,7 @@ module.exports = (grunt) ->
         'generateCssForProduction'
         'generateImages'
         'generateIconFonts'
+        'generateJs'
       ]
 
     # Copy configuration
@@ -178,7 +179,7 @@ module.exports = (grunt) ->
           '<%= assetsPath %>/coffee/**'
         ]
         tasks: [
-          'coffee'
+          'generateJs'
         ]
       # Watch the files to be copied
       copy:
