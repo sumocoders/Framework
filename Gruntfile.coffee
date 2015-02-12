@@ -124,6 +124,7 @@ module.exports = (grunt) ->
           dest: '<%= webAssetsPath %>/fonts/'
         ]
 
+    # Autoprefixer configuration
     autoprefixer:
       all:
         src: '<%= webAssetsPath %>/css/*.css'
