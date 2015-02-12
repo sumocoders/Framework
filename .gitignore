@@ -4,6 +4,7 @@
 /app/logs/*
 /assets/coffee
 /assets/sass
+/assets/fonts
 /bin/
 /composer.phar
 /node_modules

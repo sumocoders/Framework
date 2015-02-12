@@ -10,7 +10,7 @@ module.exports = (grunt) ->
       fonts:
         expand: true
         flatten: true
-        dest: '<%= webAssetsPath %>/fonts/'
+        dest: '<%= assetsPath %>/fonts/'
         src:  [
           'src/**/Resources/assets/fonts/*'
         ]
@@ -94,22 +94,45 @@ module.exports = (grunt) ->
           '<%= assetsPath %>/coffee/*.coffee'
           '<%= assetsPath %>/coffee/**/*.coffee'
         ],
-        dest: '<%= webAssetsPath %>/js/',
+        dest: '<%= webAssetsPath %>/js/'
         rename: (dest, src) ->
           dest + src.replace('.coffee', '.js')
 
-  # Watch configuration
+    # Fontgen configuration
+    fontgen:
+      all:
+        files: [
+          src: [
+            '<%= assetsPath %>/fonts/*.ttf'
+            '<%= assetsPath %>/fonts/*.eot'
+          ]
+          dest: '<%= webAssetsPath %>/fonts/'
+        ]
+
+    # Clean configuration
+    clean:
+      afterFontgen: [
+        '<%= webAssetsPath %>/fonts/*.css'  # remove all generated css-files as they are obsolete
+      ]
+
+    # Watch configuration
     watch:
       copy:
         files: [
           'src/**/Resources/assets/coffee/**'
-          'src/**/Resources/assets/fonts/*'
           'src/**/Resources/assets/images/**'
           'src/**/Resources/assets/js/**'
           'src/**/Resources/assets/sass/**'
         ]
         tasks: [
           'copyfiles'
+        ]
+      fonts:
+        file: [
+          'src/**/Resources/assets/fonts/**'
+        ]
+        tasks: [
+          'generateFonts'
         ]
       sass:
         files: [
@@ -124,11 +147,16 @@ module.exports = (grunt) ->
 
   # Private task(s)
   grunt.registerTask 'copyfiles', [
-    'copy:fonts'
-    'copy:js'
-    'copy:images'
-    'copy:sass'
     'copy:coffee'
+    'copy:images'
+    'copy:js'
+    'copy:sass'
+  ]
+
+  grunt.registerTask 'generateFonts', [
+    'copy:fonts'
+    'fontgen'
+    'clean:afterFontgen'
   ]
 
   # Default task(s)
@@ -139,6 +167,7 @@ module.exports = (grunt) ->
   # Production task(s)
   grunt.registerTask 'build', [
     'copyfiles'
+    'generateFonts'
     'compass:prod'
     'coffee'
   ]
