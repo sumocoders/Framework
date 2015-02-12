@@ -5,6 +5,21 @@ module.exports = (grunt) ->
     assetsPath: 'assets'
     webAssetsPath: 'web/assets'
 
+    # Concurrent configuration
+    concurrent:
+      copyfiles: [
+        'copy:coffee'
+        'copy:fonts'
+        'copy:images'
+        'copy:js'
+        'copy:sass'
+      ]
+      generateAssets: [
+        'generateFonts'
+        'generateCssForProduction'
+        'generateImages'
+      ]
+
     # Copy configuration
     copy:
       fonts:
@@ -148,7 +163,7 @@ module.exports = (grunt) ->
           'src/**/Resources/assets/sass/**'
         ]
         tasks: [
-          'copyfiles'
+          'concurrent:copyfiles'
         ]
       # Watch the font folders so we can (re)generate the fonts
       fonts:
@@ -171,21 +186,27 @@ module.exports = (grunt) ->
   # Load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
-  # Copy the files into the correct folders
-  grunt.registerTask 'copyfiles', [
-    'copy:coffee'
-    'copy:images'
-    'copy:js'
-    'copy:sass'
-  ]
-
   # Generate all needed files for the fonts and do some cleanup
   grunt.registerTask 'generateFonts', [
     'fontgen'
     'clean:afterFontgen'
   ]
 
-  # Generate the js-files
+  # Generate the css-files
+  grunt.registerTask 'generateCssForProduction', [
+    'compass:prod'
+    'autoprefixer'
+  ]
+
+  # Generate the js files
+  grunt.registerTask 'generateJs', [
+    'coffee'
+  ]
+
+  # Generate images
+  grunt.registerTask 'generateImages', [
+    'imagemin'
+  ]
 
   # Default task
   grunt.registerTask 'default', [
@@ -194,10 +215,6 @@ module.exports = (grunt) ->
 
   # Production task
   grunt.registerTask 'build', [
-    'copyfiles'
-    'generateFonts'
-    'compass:prod'
-    'autoprefixer'
-    'coffee'
-    'imagemin'
+    'concurrent:copyfiles'
+    'concurrent:generateAssets'
   ]
