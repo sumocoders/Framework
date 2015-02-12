@@ -24,16 +24,40 @@
     {% block stylesheets %}
         {# Load full css if browser is > IE9 or not IE9 #}
         <!--[if gt IE 9]>
-            <link rel="stylesheet" href="/assets/css/style.css" />
+        {% stylesheets
+            'assets/css/style.css'
+            filter='cssrewrite'
+            output='css/style.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
         <![endif]-->
         <!--[if !IE]> -->
-            <link rel="stylesheet" href="/assets/css/style.css" />
+            {% stylesheets
+                'assets/css/style.css'
+                filter='cssrewrite'
+                output='css/style.css'
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
         <!-- <![endif]-->
 
         {# Load css and bootstrap seperately if <= IE9 #}
         <!--[if lte IE 9]>
-            <link rel="stylesheet" href="/assets/css/bootstrap.css" />
-            <link rel="stylesheet" href="/assets/css/style_ie.css" />
+            {% stylesheets
+                'assets/vendor/bootstrap/dist/css/bootstrap.css'
+                filter='cssrewrite'
+                output='css/bootstrap.css'
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+            {% stylesheets
+                'assets/css/style_ie.css'
+                filter='cssrewrite'
+                output='css/style_ie.css'
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
         <![endif]-->
     {% endblock %}
 
@@ -42,18 +66,34 @@
             var jsData = {{ jsData.parse()|raw }};
         </script>
 
-        <script type="text/javascript" src="/assets/vendor/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/assets/vendor/modernizr/modernizr.js"></script>
-        <script type="text/javascript" src="/assets/vendor/respond/dest/respond.min.js"></script>
+        {% javascripts
+            'assets/vendor/jquery/dist/jquery.min.js'
+            'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
+            'assets/vendor/modernizr/modernizr.js'
+            'assets/vendor/respond/dest/respond.min.js'
+            output='js/vendors.js'
+        %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-        <script type="text/javascript" src="/assets/js/sumo_plugins.js"></script>
-        <script type="text/javascript" src="/assets/js/frameworkcorebundle.framework.data.js"></script>
-        <script type="text/javascript" src="/assets/js/frameworkcorebundle.framework.locale.js"></script>
-        <script type="text/javascript" src="/assets/js/frameworkcorebundle.framework.form.js"></script>
-        <script type="text/javascript" src="/assets/js/frameworkcorebundle.framework.js"></script>
-        <script type="text/javascript" src="/assets/js/frameworkcorebundle.framework.form.search.js"></script>
-        <script type="text/javascript" src="/assets/js/frameworkcorebundle.app.js"></script>
+        {% javascripts
+            'assets/js/sumo_plugins.js'
+            output='js/sumo_plugins.js'
+        %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts
+            'assets/js/frameworkcorebundle.framework.data.js'
+            'assets/js/frameworkcorebundle.framework.locale.js'
+            'assets/js/frameworkcorebundle.framework.form.js'
+            'assets/js/frameworkcorebundle.framework.js'
+            'assets/js/frameworkcorebundle.framework.form.search.js'
+            'assets/js/frameworkcorebundle.app.js'
+            output='js/app.js'
+        %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     {% endblock %}
 
     {% block icons %}

@@ -20,6 +20,7 @@ module.exports = (grunt) ->
         'generateImages'
         'generateIconFonts'
         'generateJs'
+        'generateAsseticAssets'
       ]
 
     # Copy configuration
@@ -171,6 +172,19 @@ module.exports = (grunt) ->
           templateOptions:
             classPrefix: 'icon-'
 
+    # Shell config
+    shell:
+      options:
+        stdout: true
+      clearCache:
+        command: 'app/console cache:clear'
+      asseticDump:
+        command: 'app/console assetic:dump'
+      asseticWatch:
+        command: 'app/console assetic:watch'
+      assetsInstall:
+        command: 'app/console assets:install'
+
     # Watch configuration
     watch:
       # Watch the coffee files so we can (re)generate the js files
@@ -245,6 +259,13 @@ module.exports = (grunt) ->
   ]
 
   # Generate the css-files
+  grunt.registerTask 'generateCssForDev', [
+    'compass'
+    'autoprefixer'
+    'clean:afterGenerateCssForProduction'
+  ]
+
+  # Generate the css-files for live
   grunt.registerTask 'generateCssForProduction', [
     'compass:prod'
     'autoprefixer'
@@ -261,9 +282,17 @@ module.exports = (grunt) ->
     'imagemin'
   ]
 
+  # Do Assetic stuff
+  grunt.registerTask 'generateAsseticAssets', [
+    'shell:clearCache'
+    'shell:asseticDump'
+    'shell:assetsInstall'
+  ]
+
   # Default task
   grunt.registerTask 'default', [
     'watch'
+    'shell:asseticWatch'
   ]
 
   # Production task
