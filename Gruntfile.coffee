@@ -117,6 +117,7 @@ module.exports = (grunt) ->
 
     # Watch configuration
     watch:
+      # Watch the files to be copied
       copy:
         files: [
           'src/**/Resources/assets/coffee/**'
@@ -127,6 +128,7 @@ module.exports = (grunt) ->
         tasks: [
           'copyfiles'
         ]
+      # Watch the font folders so we can (re)generate the fonts
       fonts:
         file: [
           'src/**/Resources/assets/fonts/**'
@@ -134,6 +136,7 @@ module.exports = (grunt) ->
         tasks: [
           'generateFonts'
         ]
+      # Watch the sass files so we can (re)generate the css files
       sass:
         files: [
           '<%= assetsPath %>/sass/**'
@@ -145,7 +148,7 @@ module.exports = (grunt) ->
   # Load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
-  # Private task(s)
+  # Copy the files into the correct folders
   grunt.registerTask 'copyfiles', [
     'copy:coffee'
     'copy:images'
@@ -153,18 +156,21 @@ module.exports = (grunt) ->
     'copy:sass'
   ]
 
+  # Generate all needed files for the fonts and do some cleanup
   grunt.registerTask 'generateFonts', [
     'copy:fonts'
     'fontgen'
     'clean:afterFontgen'
   ]
 
-  # Default task(s)
+  # Generate the js-files
+
+  # Default task
   grunt.registerTask 'default', [
     'watch'
   ]
 
-  # Production task(s)
+  # Production task
   grunt.registerTask 'build', [
     'copyfiles'
     'generateFonts'
