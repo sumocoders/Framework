@@ -171,7 +171,6 @@ module.exports = (grunt) ->
 
   # Generate all needed files for the fonts and do some cleanup
   grunt.registerTask 'generateFonts', [
-    'copy:fonts'
     'fontgen'
     'clean:afterFontgen'
   ]
