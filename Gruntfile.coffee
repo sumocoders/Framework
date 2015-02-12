@@ -109,6 +109,12 @@ module.exports = (grunt) ->
           dest: '<%= webAssetsPath %>/fonts/'
         ]
 
+    # Clean configuration
+    clean:
+      afterFontgen: [
+        '<%= webAssetsPath %>/fonts/*.css'  # remove all generated css-files as they are obsolete
+      ]
+
     # Watch configuration
     watch:
       copy:
@@ -150,6 +156,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'generateFonts', [
     'copy:fonts'
     'fontgen'
+    'clean:afterFontgen'
   ]
 
   # Default task(s)
