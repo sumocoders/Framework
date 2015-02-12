@@ -28,7 +28,8 @@ module.exports = (grunt) ->
         flatten: true
         dest: '<%= assetsPath %>/fonts/'
         src:  [
-          'src/**/Resources/assets/fonts/*'
+          'src/**/Resources/assets/fonts/**.ttf'
+          'src/**/Resources/assets/fonts/**.oft'
         ]
       images:
         expand: true
