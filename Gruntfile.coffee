@@ -18,6 +18,7 @@ module.exports = (grunt) ->
         'generateFonts'
         'generateCssForProduction'
         'generateImages'
+        'generateIconFonts'
       ]
 
     # Copy configuration
@@ -134,6 +135,13 @@ module.exports = (grunt) ->
       afterFontgen: [
         '<%= webAssetsPath %>/fonts/*.css'  # remove all generated css-files as they are obsolete
       ]
+      afterGenerateCssForProduction: [
+        '.sass-cache'
+      ]
+      beforeGenerateIconFonts: [
+        '<%= assetsPath %>/sass/_icons.scss'
+        '<%= assetsPath %>/sass/_icon-*.scss'
+      ]
 
     # Imagemin configuration
     imagemin:
@@ -144,6 +152,22 @@ module.exports = (grunt) ->
           src: ['**.{png,jpg,gif,jpeg}']
           dest: '<%= webAssetsPath %>/images/'
         ]
+
+    # Webfont configuration
+    webfont:
+      all:
+        src:  [
+          'src/**/Resources/assets/icons/*'
+        ]
+        dest: '<%= webAssetsPath %>/fonts/'
+        destCss: '<%= assetsPath %>/sass/'
+        classPrefix: 'icon-'
+        options:
+          stylesheet: 'scss'
+          htmlDemo: false
+          template: 'grunt/src/webfont/templates/template.scss'
+          templateOptions:
+            classPrefix: 'icon-'
 
     # Watch configuration
     watch:
@@ -174,6 +198,14 @@ module.exports = (grunt) ->
         tasks: [
           'generateFonts'
         ]
+      # Watch the icon files so we can (re)generate the iconfont
+      icons:
+        files: [
+          'src/**/Resources/assets/icons/**'
+        ]
+        tasks: [
+          'generateIconFonts'
+        ]
       # Watch the sass files so we can (re)generate the css files
       sass:
         files: [
@@ -193,10 +225,16 @@ module.exports = (grunt) ->
     'clean:afterFontgen'
   ]
 
+  grunt.registerTask 'generateIconFonts', [
+    'clean:beforeGenerateIconFonts'
+    'webfont'
+  ]
+
   # Generate the css-files
   grunt.registerTask 'generateCssForProduction', [
     'compass:prod'
     'autoprefixer'
+    'clean:afterGenerateCssForProduction'
   ]
 
   # Generate the js files
