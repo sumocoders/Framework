@@ -6,20 +6,6 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url" : "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkErrorBundle"
-        },
-        {
-            "type": "vcs",
-            "url" : "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkSearchBundle"
-        },
-        {
-            "type": "vcs",
-            "url" : "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkUserBundle"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
@@ -44,12 +30,12 @@
         "jms/translation-bundle": "1.1.*",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
 
-        "sumocoders/framework-error-bundle": "dev-master",
-        "sumocoders/framework-user-bundle": "dev-master",
-        "sumocoders/framework-search-bundle": "dev-master"
+        "sumocoders/framework-error-bundle": "~1.0",
+        "sumocoders/framework-user-bundle": "~1.0",
+        "sumocoders/framework-search-bundle": "~1.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3",
+        "sensio/generator-bundle": "~2.5",
         "phpunit/phpunit": "4.1.*"
     },
     "scripts": {
@@ -60,14 +46,18 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "npm install",
-            "bower install"
+            "bower install",
+            "grunt build"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "npm install",
+            "bower install",
+            "grunt build"
         ]
     },
     "config": {
