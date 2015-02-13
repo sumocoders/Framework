@@ -135,6 +135,7 @@ module.exports = (grunt) ->
     sync:
       coffee:
         expand: true
+        updateAndDelete: true
         dest: '<%= assetsPath %>/coffee/'
         filter: 'isFile'
         src:  [
@@ -150,18 +151,18 @@ module.exports = (grunt) ->
               newPathName = chunk.toLowerCase() + '.' + newPathName
 
           dest + newPathName
-        updateAndDelete: true
       fonts:
         expand: true
+        updateAndDelete: true
         flatten: true
         dest: '<%= assetsPath %>/fonts/'
         src:  [
           'src/**/Resources/assets/fonts/**.ttf'
           'src/**/Resources/assets/fonts/**.oft'
         ]
-        updateAndDelete: true
       images:
         expand: true
+        updateAndDelete: true
         dest: '<%= webAssetsPath %>/images/'
         filter: 'isFile'
         src:  [
@@ -171,9 +172,9 @@ module.exports = (grunt) ->
           uniqueFolderToSearchFor = '/images/'
           startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
           dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
-        updateAndDelete: true
       js:
         expand: true
+        updateAndDelete: true
         dest: '<%= webAssetsPath %>/js/'
         filter: 'isFile'
         src:  [
@@ -183,9 +184,9 @@ module.exports = (grunt) ->
           uniqueFolderToSearchFor = '/js/'
           startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
           dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
-        updateAndDelete: true
       sass:
         expand: true
+        updateAndDelete: true
         dest: '<%= assetsPath %>/sass/'
         filter: 'isFile'
         src:  [
@@ -195,9 +196,8 @@ module.exports = (grunt) ->
           uniqueFolderToSearchFor = '/sass/'
           startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
           dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
-        updateAndDelete: true
 
-  # Watch configuration
+    # Watch configuration
     watch:
       # Watch the coffee files so we can (re)generate the js files
       coffee:
