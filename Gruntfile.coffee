@@ -105,6 +105,9 @@ module.exports = (grunt) ->
         flatten: true
         src: '<%= webAssetsPath %>/vendor/bootstrap/fonts/*.woff2'
         dest: '<%= webAssetsPath %>/fonts/bootstrap/'
+      jQuerySourceMap:
+        src: '<%= webAssetsPath %>/vendor/jquery/dist/jquery.min.map'
+        dest: 'web/js/jquery.min.map'
 
     # Imagemin configuration
     imagemin:
@@ -305,6 +308,7 @@ module.exports = (grunt) ->
   # Generate the js files
   grunt.registerTask 'generateJs', [
     'coffee'
+    'copy:jQuerySourceMap'
   ]
 
   # Generate images
