@@ -99,9 +99,31 @@ any comments.
 When the sass/scss-files are compiled we use the 
 [grunt-autoprefixer-plugin](https://www.npmjs.com/package/grunt-autoprefixer)
 
+If you want you can combine multiple generated css files into one by using Assetic:
+
+
+    {% stylesheets
+        'assets/css/1.css'
+        'assets/css/2.css'
+        filter='cssrewrite'
+        output='css/combined.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+But in most cases you will just use
+
+    {% stylesheets
+        'assets/css/style.css'
+        filter='cssrewrite'
+        output='css/style.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
 #### @todo
 
-[ ] add documentation for usage in twig
+[ ] shouldn't we include the item from outside the document root?
 
 
 ## Usage
