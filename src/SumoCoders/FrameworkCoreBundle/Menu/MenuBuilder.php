@@ -20,7 +20,7 @@ class MenuBuilder
     private $factory;
 
     /**
-     * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $eventDispatcher
+     * @param EventDispatcherInterface $eventDispatcher
      */
     public function setEventDispatcher($eventDispatcher)
     {
@@ -28,7 +28,7 @@ class MenuBuilder
     }
 
     /**
-     * @return \Symfony\Component\EventDispatcher\EventDispatcherInterface
+     * @return EventDispatcherInterface
      */
     public function getEventDispatcher()
     {
@@ -36,7 +36,7 @@ class MenuBuilder
     }
 
     /**
-     * @param \Knp\Menu\FactoryInterface $factory
+     * @param FactoryInterface $factory
      */
     public function setFactory($factory)
     {
