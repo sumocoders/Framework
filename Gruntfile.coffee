@@ -84,6 +84,9 @@ module.exports = (grunt) ->
         '<%= assetsPath %>/sass/_icons.scss'
         '<%= assetsPath %>/sass/_icon-*.scss'
       ]
+      removeSymfonyCache: [
+        'app/cache/*'
+      ]
 
     # Imagemin configuration
     imagemin:
@@ -289,9 +292,12 @@ module.exports = (grunt) ->
 
   # Do Assetic stuff
   grunt.registerTask 'generateAsseticAssets', [
+    'clean:removeSymfonyCache'
     'shell:clearCache'
     'shell:asseticDump'
     'shell:assetsInstall'
+    'shell:clearCache'
+    'clean:removeSymfonyCache'
   ]
 
   # Default task
