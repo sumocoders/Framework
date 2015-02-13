@@ -5,15 +5,6 @@ can find all stuff that is done. This is more a guide for you to understand
 what is happening.
 
 
-## @todo
-
-* [ ] shouldn't we include the css/js from outside the document root as these 
-    will be "compiled" with assetic
-* [ ] fix deployment
-* [ ] try to find solution for livereload when `grunt watch` isn't running
-* [ ] remove references to my local repo's
-* [ ] tag our bundles and update composer.json
-
 ### Coffee
 
 We will look into all bundles in the `src`-folder for all files in the 
