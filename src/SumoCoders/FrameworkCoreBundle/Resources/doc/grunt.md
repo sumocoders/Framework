@@ -10,7 +10,6 @@ what is happening.
 * [ ] shouldn't we include the css/js from outside the document root as these 
     will be "compiled" with assetic
 * [ ] fix deployment
-* [ ] fix issue with bootstrap glyphicons-halflings
 * [ ] fix issue with jquery.min.map
 * [ ] try to find solution for livereload when `grunt watch` isn't running
 

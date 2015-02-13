@@ -64,11 +64,17 @@ module.exports = (grunt) ->
     fontgen:
       all:
         files: [
+          expand: true
           src: [
-            '<%= assetsPath %>/fonts/*.ttf'
-            '<%= assetsPath %>/fonts/*.eot'
+            '<%= assetsPath %>/fonts/**/*.ttf'
+            '<%= assetsPath %>/fonts/**/*.eot'
           ]
           dest: '<%= webAssetsPath %>/fonts/'
+          rename: (dest, src) ->
+            uniqueFolderToSearchFor = '/fonts/'
+            startOfFontsDir = src.indexOf(uniqueFolderToSearchFor)
+            filename = src.replace(/^.*[\\\/]/, '')
+            dest + src.replace(filename, '').substr(startOfFontsDir + uniqueFolderToSearchFor.length)
         ]
 
     # Autoprefixer configuration
@@ -154,12 +160,15 @@ module.exports = (grunt) ->
       fonts:
         expand: true
         updateAndDelete: true
-        flatten: true
         dest: '<%= assetsPath %>/fonts/'
         src:  [
-          'src/**/Resources/assets/fonts/**.ttf'
-          'src/**/Resources/assets/fonts/**.oft'
+          'src/**/Resources/assets/fonts/**/*.ttf'
+          'src/**/Resources/assets/fonts/**/*.oft'
         ]
+        rename: (dest, src) ->
+          uniqueFolderToSearchFor = '/fonts/'
+          startOfFontsDir = src.indexOf(uniqueFolderToSearchFor)
+          dest + src.substr(startOfFontsDir + uniqueFolderToSearchFor.length);
       images:
         expand: true
         updateAndDelete: true
