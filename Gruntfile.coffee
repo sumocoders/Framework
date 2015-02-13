@@ -14,6 +14,10 @@ module.exports = (grunt) ->
         'sync:js'
         'sync:sass'
       ]
+      syncImagesAndJs: [
+        'sync:images'
+        'sync:js'
+      ]
       generateAssets: [
         'generateFonts'
         'generateCssForProduction'
@@ -214,7 +218,7 @@ module.exports = (grunt) ->
           'src/**/Resources/assets/js/**'
         ]
         tasks: [
-          'concurrent:copyfiles'
+          'concurrent:syncImagesAndJs'
         ]
         options:
           livereload: true
