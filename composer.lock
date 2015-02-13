@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0b9d4fc531adf4e25e5598dd826fe047",
+    "hash": "c1c21b99f11ec2b7a04f4dbbd0a0005c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -720,16 +720,16 @@
         },
         {
             "name": "emgiezet/errbit-php",
-            "version": "dev-master",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/emgiezet/errbitPHP.git",
-                "reference": "aa689eb89d2a78478f91e61978617518b90935eb"
+                "reference": "647e9210d6f21a5ecbf9742ec97ada16864a4fa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/emgiezet/errbitPHP/zipball/aa689eb89d2a78478f91e61978617518b90935eb",
-                "reference": "aa689eb89d2a78478f91e61978617518b90935eb",
+                "url": "https://api.github.com/repos/emgiezet/errbitPHP/zipball/647e9210d6f21a5ecbf9742ec97ada16864a4fa2",
+                "reference": "647e9210d6f21a5ecbf9742ec97ada16864a4fa2",
                 "shasum": ""
             },
             "require": {
@@ -762,10 +762,10 @@
             ],
             "authors": [
                 {
-                    "name": "emgiezet"
+                    "name": "flippa"
                 },
                 {
-                    "name": "flippa"
+                    "name": "emgiezet"
                 },
                 {
                     "name": "karolsojko"
@@ -782,7 +782,7 @@
                 "errbit php",
                 "error tracking"
             ],
-            "time": "2014-12-08 12:32:46"
+            "time": "2014-04-15 07:32:25"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1268,7 +1268,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1686,16 +1686,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Redexperts/RedexpertsErrbitBundle.git",
-                "reference": "cfecb565e6f3557ee4432f47c8eba9b8496df2ee"
+                "reference": "10a8847b4cd74c46964ae966e1556481af0cedee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Redexperts/RedexpertsErrbitBundle/zipball/cfecb565e6f3557ee4432f47c8eba9b8496df2ee",
-                "reference": "cfecb565e6f3557ee4432f47c8eba9b8496df2ee",
+                "url": "https://api.github.com/repos/Redexperts/RedexpertsErrbitBundle/zipball/10a8847b4cd74c46964ae966e1556481af0cedee",
+                "reference": "10a8847b4cd74c46964ae966e1556481af0cedee",
                 "shasum": ""
             },
             "require": {
-                "emgiezet/errbit-php": "dev-master",
+                "emgiezet/errbit-php": "1.0.*@dev",
                 "php": ">=5.3.3",
                 "symfony/framework-bundle": "~2.1"
             },
@@ -1724,7 +1724,7 @@
                 "Redexperts",
                 "errbit"
             ],
-            "time": "2014-01-15 15:46:43"
+            "time": "2015-02-13 11:46:12"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -1881,12 +1881,18 @@
         },
         {
             "name": "sumocoders/framework-error-bundle",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "target-dir": "SumoCoders/FrameworkErrorBundle",
             "source": {
                 "type": "git",
-                "url": "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkErrorBundle",
+                "url": "https://github.com/sumocoders/FrameworkErrorBundle.git",
                 "reference": "40e612251edaf0b2399f2f7be8145075f808f78b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/40e612251edaf0b2399f2f7be8145075f808f78b",
+                "reference": "40e612251edaf0b2399f2f7be8145075f808f78b",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
@@ -1901,6 +1907,7 @@
                     "SumoCoders\\FrameworkErrorBundle": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1912,22 +1919,29 @@
             ],
             "description": "Error bundle for our mini-framework",
             "keywords": [
-                "Errbit",
-                "SumoCoders"
+                "SumoCoders",
+                "errbit"
             ],
             "time": "2015-01-19 09:42:11"
         },
         {
             "name": "sumocoders/framework-search-bundle",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "target-dir": "SumoCoders/FrameworkSearchBundle",
             "source": {
                 "type": "git",
-                "url": "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkSearchBundle",
-                "reference": "bad77b3d4b8c5b3215eb6f297a12317fbcf935fb"
+                "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
+                "reference": "6626659dda0ed362463db376c0bdce8463ff1337"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/6626659dda0ed362463db376c0bdce8463ff1337",
+                "reference": "6626659dda0ed362463db376c0bdce8463ff1337",
+                "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.3.3",
+                "symfony/event-dispatcher": "2.6.*"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.1.*"
@@ -1938,6 +1952,7 @@
                     "SumoCoders\\FrameworkSearchBundle": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1949,24 +1964,33 @@
             ],
             "description": "Search bundle for our mini-framework",
             "keywords": [
-                "Search",
-                "SumoCoders"
+                "SumoCoders",
+                "search"
             ],
-            "time": "2015-02-10 14:28:45"
+            "time": "2015-02-13 10:59:53"
         },
         {
             "name": "sumocoders/framework-user-bundle",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "target-dir": "SumoCoders/FrameworkUserBundle",
             "source": {
                 "type": "git",
-                "url": "/Users/tijs/Sites/sumocoders/frameworkBundles/FrameworkUserBundle",
-                "reference": "5b6caa63c6c2f629aec94779ed4b19f5fb539d48"
+                "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
+                "reference": "20059bb82cb812ffc9fb42f2bde3bae56b889d03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/20059bb82cb812ffc9fb42f2bde3bae56b889d03",
+                "reference": "20059bb82cb812ffc9fb42f2bde3bae56b889d03",
+                "shasum": ""
             },
             "require": {
                 "friendsofsymfony/user-bundle": "~2.0@dev",
                 "knplabs/knp-paginator-bundle": "~2.4",
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.*"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -1974,6 +1998,7 @@
                     "SumoCoders\\FrameworkUserBundle": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1985,10 +2010,10 @@
             ],
             "description": "The user bundle for our mini-framework",
             "keywords": [
-                "Framework",
-                "SumoCoders"
+                "SumoCoders",
+                "framework"
             ],
-            "time": "2015-02-10 14:28:29"
+            "time": "2015-02-13 12:19:30"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3201,10 +3226,7 @@
         "mopa/bootstrap-bundle": 20,
         "redexperts/errbit-bundle": 20,
         "emgiezet/errbit-php": 20,
-        "knplabs/knp-menu-bundle": 20,
-        "sumocoders/framework-error-bundle": 20,
-        "sumocoders/framework-user-bundle": 20,
-        "sumocoders/framework-search-bundle": 20
+        "knplabs/knp-menu-bundle": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
