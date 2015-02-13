@@ -98,6 +98,14 @@ module.exports = (grunt) ->
         'app/cache/*'
       ]
 
+    # Copy configuration
+    copy:
+      glyphiconsWoff2:
+        expand: true
+        flatten: true
+        src: '<%= webAssetsPath %>/vendor/bootstrap/fonts/*.woff2'
+        dest: '<%= webAssetsPath %>/fonts/bootstrap/'
+
     # Imagemin configuration
     imagemin:
       prod:
@@ -271,6 +279,7 @@ module.exports = (grunt) ->
   # Generate all needed files for the fonts and do some cleanup
   grunt.registerTask 'generateFonts', [
     'fontgen'
+    'copy:glyphiconsWoff2'
     'clean:afterFontgen'
   ]
 
