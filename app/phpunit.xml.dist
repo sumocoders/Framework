@@ -8,10 +8,18 @@
          bootstrap="bootstrap.php.cache"
 >
     <testsuites>
-        <testsuite name="Project Test Suite">
+        <testsuite name="unit">
             <directory>../src/*/*Bundle/Tests</directory>
             <directory>../src/*/Bundle/*Bundle/Tests</directory>
             <directory>../src/*Bundle/Tests</directory>
+            <exclude>../src/*/*Bundle/Tests/Functional</exclude>
+            <exclude>../src/*/Bundle/*Bundle/Tests/Functional</exclude>
+            <exclude>../src/*Bundle/Tests/Functional</exclude>
+        </testsuite>
+        <testsuite name="functional">
+            <directory>../src/*/*Bundle/Tests/Functional</directory>
+            <directory>../src/*/Bundle/*Bundle/Tests/Functional</directory>
+            <directory>../src/*Bundle/Tests/Functional</directory>
         </testsuite>
     </testsuites>
 
