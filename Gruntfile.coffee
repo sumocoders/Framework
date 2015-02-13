@@ -7,12 +7,12 @@ module.exports = (grunt) ->
 
     # Concurrent configuration
     concurrent:
-      copyfiles: [
-        'copy:coffee'
-        'copy:fonts'
-        'copy:images'
-        'copy:js'
-        'copy:sass'
+      syncFiles: [
+        'sync:coffee'
+        'sync:fonts'
+        'sync:images'
+        'sync:js'
+        'sync:sass'
       ]
       generateAssets: [
         'generateFonts'
@@ -22,67 +22,6 @@ module.exports = (grunt) ->
         'generateJs'
         'generateAsseticAssets'
       ]
-
-    # Copy configuration
-    copy:
-      fonts:
-        expand: true
-        flatten: true
-        dest: '<%= assetsPath %>/fonts/'
-        src:  [
-          'src/**/Resources/assets/fonts/**.ttf'
-          'src/**/Resources/assets/fonts/**.oft'
-        ]
-      images:
-        expand: true
-        dest: '<%= webAssetsPath %>/images/'
-        filter: 'isFile'
-        src:  [
-          'src/**/Resources/assets/images/**'
-        ]
-        rename: (dest, src) ->
-          uniqueFolderToSearchFor = '/images/'
-          startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
-          dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
-      js:
-        expand: true
-        dest: '<%= webAssetsPath %>/js/'
-        filter: 'isFile'
-        src:  [
-          'src/**/Resources/assets/js/**'
-        ]
-        rename: (dest, src) ->
-          uniqueFolderToSearchFor = '/js/'
-          startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
-          dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
-      sass:
-        expand: true
-        dest: '<%= assetsPath %>/sass/'
-        filter: 'isFile'
-        src:  [
-          'src/**/Resources/assets/sass/**'
-        ]
-        rename: (dest, src) ->
-          uniqueFolderToSearchFor = '/sass/'
-          startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
-          dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
-      coffee:
-        expand: true
-        dest: '<%= assetsPath %>/coffee/'
-        filter: 'isFile'
-        src:  [
-          'src/**/Resources/assets/coffee/**'
-        ]
-        rename: (dest, src) ->
-          chunks = src.split('/')
-          newPathName = chunks[chunks.length - 1]
-
-          # prepend bundle if needed
-          for chunk in chunks
-            if chunk.indexOf('Bundle') != -1
-              newPathName = chunk.toLowerCase() + '.' + newPathName
-
-          dest + newPathName
 
     # Compass configuration
     compass:
@@ -185,7 +124,73 @@ module.exports = (grunt) ->
       assetsInstall:
         command: 'app/console assets:install'
 
-    # Watch configuration
+    # Sync configuration
+    sync:
+      coffee:
+        expand: true
+        dest: '<%= assetsPath %>/coffee/'
+        filter: 'isFile'
+        src:  [
+          'src/**/Resources/assets/coffee/**'
+        ]
+        rename: (dest, src) ->
+          chunks = src.split('/')
+          newPathName = chunks[chunks.length - 1]
+
+          # prepend bundle if needed
+          for chunk in chunks
+            if chunk.indexOf('Bundle') != -1
+              newPathName = chunk.toLowerCase() + '.' + newPathName
+
+          dest + newPathName
+        updateAndDelete: true
+      fonts:
+        expand: true
+        flatten: true
+        dest: '<%= assetsPath %>/fonts/'
+        src:  [
+          'src/**/Resources/assets/fonts/**.ttf'
+          'src/**/Resources/assets/fonts/**.oft'
+        ]
+        updateAndDelete: true
+      images:
+        expand: true
+        dest: '<%= webAssetsPath %>/images/'
+        filter: 'isFile'
+        src:  [
+          'src/**/Resources/assets/images/**'
+        ]
+        rename: (dest, src) ->
+          uniqueFolderToSearchFor = '/images/'
+          startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
+          dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
+        updateAndDelete: true
+      js:
+        expand: true
+        dest: '<%= webAssetsPath %>/js/'
+        filter: 'isFile'
+        src:  [
+          'src/**/Resources/assets/js/**'
+        ]
+        rename: (dest, src) ->
+          uniqueFolderToSearchFor = '/js/'
+          startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
+          dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
+        updateAndDelete: true
+      sass:
+        expand: true
+        dest: '<%= assetsPath %>/sass/'
+        filter: 'isFile'
+        src:  [
+          'src/**/Resources/assets/sass/**'
+        ]
+        rename: (dest, src) ->
+          uniqueFolderToSearchFor = '/sass/'
+          startOfImagesDir = src.indexOf(uniqueFolderToSearchFor)
+          dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
+        updateAndDelete: true
+
+  # Watch configuration
     watch:
       # Watch the coffee files so we can (re)generate the js files
       coffee:
@@ -194,7 +199,7 @@ module.exports = (grunt) ->
           'src/**/Resources/assets/coffee/**'
         ]
         tasks: [
-          'copy:coffee'
+          'sync:coffee'
           'generateJs'
         ]
         options:
@@ -237,7 +242,7 @@ module.exports = (grunt) ->
           'src/**/Resources/assets/sass/**'
         ]
         tasks: [
-          'copy:sass'
+          'sync:sass'
           'compass:dev'
           'autoprefixer'
         ]
@@ -297,6 +302,6 @@ module.exports = (grunt) ->
 
   # Production task
   grunt.registerTask 'build', [
-    'concurrent:copyfiles'
+    'concurrent:syncFiles'
     'concurrent:generateAssets'
   ]
