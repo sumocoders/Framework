@@ -12,7 +12,9 @@ what is happening.
 * [ ] fix deployment
 * [ ] fix issue with jquery.min.map
 * [ ] try to find solution for livereload when `grunt watch` isn't running
-
+* [ ] remove references to my local repo's
+* [ ] tag our bundles and update composer.json
+* [ ] fix issue with woff2-file
 
 ### Coffee
 
