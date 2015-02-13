@@ -5,6 +5,16 @@ can find all stuff that is done. This is more a guide for you to understand
 what is happening.
 
 
+## @todo
+
+* [ ] shouldn't we include the css/js from outside the document root as these 
+    will be "compiled" with assetic
+* [ ] fix deployment
+* [ ] fix issue with bootstrap glyphicons-halflings
+* [ ] fix issue with jquery.min.map
+* [ ] try to find solution for livereload when `grunt watch` isn't running
+
+
 ### Coffee
 
 We will look into all bundles in the `src`-folder for all files in the 
@@ -30,9 +40,6 @@ for the full documentation but basically:
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
-#### @todo
-
-[ ] shouldn't we include the item from outside the document root?
 
 ### Fonts
 
@@ -73,6 +80,7 @@ You can use the `asset`-method in twig templates like below:
 
     <img src="{{ asset('assets/images/arrow_show_menu.png') }}" />
 
+
 ### JS
 
 We will look into all bundles in the `src`-folder for all files in the 
@@ -99,8 +107,8 @@ any comments.
 When the sass/scss-files are compiled we use the 
 [grunt-autoprefixer-plugin](https://www.npmjs.com/package/grunt-autoprefixer)
 
-If you want you can combine multiple generated css files into one by using Assetic:
-
+If you want you can combine multiple generated css files into one by using 
+Assetic:
 
     {% stylesheets
         'assets/css/1.css'
@@ -121,10 +129,6 @@ But in most cases you will just use
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
 
-#### @todo
-
-[ ] shouldn't we include the item from outside the document root?
-
 
 ## Usage
 
@@ -135,8 +139,11 @@ But in most cases you will just use
 We have implemented live-reload, so your changes will be reloaded in the 
 browser. This will only happen in the dev-environment.
 
+
 ### Before launching your website
 
     grunt build
     
-You don't have to bother if you are using deployment as we will handle it for you.
+You don't have to bother if you are using deployment as we will handle it for 
+you.
+
