@@ -87,7 +87,7 @@ module.exports = (grunt) ->
       afterFontgen: [
         '<%= webAssetsPath %>/fonts/*.css'  # remove all generated css-files as they are obsolete
       ]
-      afterGenerateCssForProduction: [
+      afterGenerateCss: [
         '.sass-cache'
       ]
       beforeGenerateIconFonts: [
@@ -295,14 +295,14 @@ module.exports = (grunt) ->
   grunt.registerTask 'generateCssForDev', [
     'compass'
     'autoprefixer'
-    'clean:afterGenerateCssForProduction'
+    'clean:afterGenerateCss'
   ]
 
   # Generate the css-files for live
   grunt.registerTask 'generateCssForProduction', [
     'compass:production'
     'autoprefixer'
-    'clean:afterGenerateCssForProduction'
+    'clean:afterGenerateCss'
   ]
 
   # Generate the js files
