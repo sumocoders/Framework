@@ -11,10 +11,11 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.6.*",
+        "symfony/framework-bundle": "~2.6",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
-        "symfony/assetic-bundle": "~2.3",
+        "symfony/assetic-bundle": "~2.6",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0,>=3.0.12",
@@ -25,31 +26,38 @@
         "mopa/bootstrap-bundle": "3.*@dev",
         "redexperts/errbit-bundle": "dev-master",
         "emgiezet/errbit-php": "1.0.*@dev",
+        "jms/i18n-routing-bundle": "1.*",
+        "jms/translation-bundle": "1.1.*",
+        "knplabs/knp-menu-bundle": "2.0.*@dev",
 
-        "sumocoders/framework-core-bundle": "dev-master",
-        "sumocoders/framework-error-bundle": "dev-master",
-        "sumocoders/framework-user-bundle": "dev-master",
-        "sumocoders/framework-search-bundle": "dev-master"
+        "sumocoders/framework-error-bundle": "~1.0",
+        "sumocoders/framework-user-bundle": "~1.0",
+        "sumocoders/framework-search-bundle": "~1.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.5",
+        "phpunit/phpunit": "4.1.*"
     },
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "app/console assetic:dump",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "npm install",
+            "bower install",
+            "grunt build"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "app/console assetic:dump",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "npm install",
+            "bower install",
+            "grunt build"
         ]
     },
     "config": {
