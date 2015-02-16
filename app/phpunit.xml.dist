@@ -17,9 +17,11 @@
             <exclude>../src/*Bundle/Tests/Functional</exclude>
         </testsuite>
         <testsuite name="functional">
+            <!-- Don't forget to add your bundle below, as globs don't work on excludes :-(
             <directory>../src/*/*Bundle/Tests/Functional</directory>
             <directory>../src/*/Bundle/*Bundle/Tests/Functional</directory>
             <directory>../src/*Bundle/Tests/Functional</directory>
+            -->
         </testsuite>
     </testsuites>
 
