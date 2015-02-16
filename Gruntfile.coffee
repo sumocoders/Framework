@@ -42,7 +42,7 @@ module.exports = (grunt) ->
         outputStyle: 'expanded'
         noLineComments: false
       dev: {}
-      prod:
+      production:
         options:
           outputStyle: 'compressed'
           noLineComments: true
@@ -111,7 +111,7 @@ module.exports = (grunt) ->
 
     # Imagemin configuration
     imagemin:
-      prod:
+      production:
         files: [
           expand: true
           cwd: '<%= webAssetsPath %>/images/'
@@ -300,7 +300,7 @@ module.exports = (grunt) ->
 
   # Generate the css-files for live
   grunt.registerTask 'generateCssForProduction', [
-    'compass:prod'
+    'compass:production'
     'autoprefixer'
     'clean:afterGenerateCssForProduction'
   ]
