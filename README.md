@@ -1,6 +1,6 @@
 # Sumocoders Framework
 
-## Instalation
+## Installation
 
 This is the SumoCoders Symfony Framework. You can install it using
 
