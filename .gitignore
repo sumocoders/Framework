@@ -5,6 +5,7 @@
 /assets/coffee
 /assets/sass
 /assets/fonts
+/backups
 /bin/
 /composer.phar
 /node_modules
