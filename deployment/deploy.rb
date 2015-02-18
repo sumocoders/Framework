@@ -5,13 +5,18 @@ set  :keep_releases,  3
 
 # Composer configuration
 set :use_composer, true
-set :composer_options, '--no-scripts'
+set :copy_vendors, true
 
 # Git configuration
 set :scm, :git
 
 # Logging
-logger.level = Logger::MAX_LEVEL
+logger.level = Logger::DEBUG
+
+# Shared files
+set :shared_files,      ["app/config/parameters.yml"]
+set :shared_children,   [app_path + "/logs", web_path + "/uploads", "vendor", app_path + "/sessions"]
+set :writable_dirs,     ["app/cache", "app/logs", "app/sessions"]
 
 # Other configurations
 set :use_sudo, false
@@ -20,3 +25,4 @@ set :model_manager, "doctrine"
 
 # SSH options
 ssh_options[:forward_agent] = true
+

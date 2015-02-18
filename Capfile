@@ -2,7 +2,6 @@ load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 
 set :client,  'xxx'
 set :project, 'xxx'
-
 set :repository,  "xxx"
 
 
