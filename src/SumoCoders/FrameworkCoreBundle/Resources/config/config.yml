@@ -36,6 +36,7 @@ framework:
   form:            ~
   session:
     handler_id:  ~
+    save_path: "%kernel.root_dir%/sessions/"
   router:
     resource: "%kernel.root_dir%/config/routing.yml"
     strict_requirements: ~
