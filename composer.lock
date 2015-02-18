@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "063933cd1a1f7952de9cf1f854e1ecca",
+    "hash": "f965394406d216277e689f2bdbe472f7",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1881,17 +1881,17 @@
         },
         {
             "name": "sumocoders/framework-error-bundle",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "target-dir": "SumoCoders/FrameworkErrorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkErrorBundle.git",
-                "reference": "40e612251edaf0b2399f2f7be8145075f808f78b"
+                "reference": "bbaecba29b1e48cf3fce56d72f0983e7fc004267"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/40e612251edaf0b2399f2f7be8145075f808f78b",
-                "reference": "40e612251edaf0b2399f2f7be8145075f808f78b",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/bbaecba29b1e48cf3fce56d72f0983e7fc004267",
+                "reference": "bbaecba29b1e48cf3fce56d72f0983e7fc004267",
                 "shasum": ""
             },
             "require": {
@@ -1922,7 +1922,7 @@
                 "SumoCoders",
                 "errbit"
             ],
-            "time": "2015-01-19 09:42:11"
+            "time": "2015-02-18 17:16:22"
         },
         {
             "name": "sumocoders/framework-search-bundle",
