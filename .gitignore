@@ -2,9 +2,11 @@
 /app/cache/*
 /app/config/parameters.yml
 /app/logs/*
+/app/sessions/*
 /assets/coffee
 /assets/sass
 /assets/fonts
+/backups
 /bin/
 /composer.phar
 /node_modules
