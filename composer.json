@@ -35,8 +35,9 @@
         "sumocoders/framework-search-bundle": "~1.0"
     },
     "require-dev": {
+        "composer/composer": "1.0.*@dev",
         "sensio/generator-bundle": "~2.5",
-        "phpunit/phpunit": "4.1.*"
+        "phpunit/phpunit": "4.*"
     },
     "scripts": {
         "post-install-cmd": [
@@ -45,9 +46,9 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "npm install",
-            "bower install",
-            "grunt build"
+            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
+            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
+            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gruntBuild"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -55,9 +56,9 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "npm install",
-            "bower install",
-            "grunt build"
+            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
+            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
+            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gruntBuild"
         ]
     },
     "config": {
