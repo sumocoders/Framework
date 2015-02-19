@@ -173,7 +173,8 @@ module.exports = (grunt) ->
 
           # prepend bundle if needed
           for chunk in chunks
-            if chunk.indexOf('Bundle') != -1
+            index = chunk.indexOf('Bundle')
+            if index != -1 && index != 0
               newPathName = chunk.toLowerCase() + '.' + newPathName
 
           dest + newPathName
