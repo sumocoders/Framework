@@ -339,8 +339,11 @@ module.exports = (grunt) ->
 
   # Default task
   grunt.registerTask 'default', [
-    'watch'
-    'shell:asseticWatch'
+    'serve'
+  ]
+
+  grunt.registerTask 'serve', [
+    'concurrent:watch'
   ]
 
   # Production task
