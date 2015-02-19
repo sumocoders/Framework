@@ -91,6 +91,7 @@ mopa_bootstrap:
   form:
     show_legend: false
 
+# KPN Pagination Configuration
 knp_paginator:
   template:
     pagination: MopaBootstrapBundle:Pagination:sliding.html.twig

@@ -11,7 +11,7 @@ set :copy_vendors, true
 set :scm, :git
 
 # Logging
-logger.level = Logger::DEBUG
+#logger.level = Logger::DEBUG
 
 # Shared files
 set :shared_files,      ["app/config/parameters.yml"]
