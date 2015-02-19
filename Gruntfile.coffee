@@ -320,6 +320,8 @@ module.exports = (grunt) ->
   grunt.registerTask 'generateJs', [
     'coffee'
     'copy:jQuerySourceMap'
+    'clean:beforeAsseticDump'
+    'shell:asseticDump'
   ]
 
   # Generate images
