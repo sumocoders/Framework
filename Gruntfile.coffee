@@ -96,6 +96,9 @@ module.exports = (grunt) ->
       afterGenerateCss: [
         '.sass-cache'
       ]
+      beforeAsseticDump: [
+        'web/js/*bundle*.js'
+      ]
       beforeGenerateIconFonts: [
         '<%= assetsPath %>/sass/_icons.scss'
         '<%= assetsPath %>/sass/_icon-*.scss'
@@ -326,6 +329,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'generateAsseticAssets', [
     'clean:removeSymfonyCache'
     'shell:clearCache'
+    'clean:beforeAsseticDump'
     'shell:asseticDump'
     'shell:assetsInstall'
     'shell:clearCache'
