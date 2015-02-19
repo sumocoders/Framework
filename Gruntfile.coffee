@@ -26,6 +26,12 @@ module.exports = (grunt) ->
         'generateJs'
         'generateAsseticAssets'
       ]
+      watch:
+        options:
+          logConcurrentOutput: true
+        tasks: [
+          'watch'
+        ]
 
     # Compass configuration
     compass:
