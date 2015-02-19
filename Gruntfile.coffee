@@ -203,7 +203,8 @@ module.exports = (grunt) ->
           dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
       js:
         expand: true
-        updateAndDelete: true
+        ignoreInDest: '*bundle*.js'
+        updateAndDelete: false
         dest: '<%= webAssetsPath %>/js/'
         filter: 'isFile'
         src:  [
