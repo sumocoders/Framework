@@ -24,6 +24,31 @@ namespace :framework do
     end
   end
 
+  namespace :maintenance do
+    desc "[internal] redirect all incoming traffic to the maintenance.html-page"
+    task :enable do
+      redirect_to_maintenance = <<-EOF
+        RewriteEngine On
+        RewriteCond %{REQUEST_URI} !.(css|gif|jpg|png)$
+        RewriteCond %{SCRIPT_FILENAME} !maintenance.html
+        RewriteRule ^.*$ /maintenance.html [L]
+      EOF
+      run %{
+        if [ -f #{current_release.shellescape}/web/.htaccess ]; then mv #{current_release.shellescape}/web/.htaccess #{current_release.shellescape}/web/.htaccess.old; fi
+      }
+      put redirect_to_maintenance, "#{current_release.shellescape}/web/.htaccess"
+    end
+    desc "[internal] restore the original .htaccess"
+    task :disable do
+      run %{
+        if [ -f #{current_release.shellescape}/web/.htaccess ]; then rm #{current_release.shellescape}/web/.htaccess; fi
+      }
+      run %{
+        if [ -f #{current_release.shellescape}/web/.htaccess.old ]; then mv #{current_release.shellescape}/web/.htaccess.old #{current_release.shellescape}/web/.htaccess; fi
+      }
+    end
+  end
+
   namespace :assets do
     desc "run grunt build to compile the assets"
     task :precompile do
@@ -58,3 +83,55 @@ after "deploy", "deploy:cleanup"
 after 'deploy:setup', 'framework:setup:link_document_root'
 after 'deploy:update_code', 'framework:assets:upload'
 after 'deploy:update_code', 'symfony:assetic:dump'
+after 'deploy:web:disable', 'framework:maintenance:enable'
+after 'deploy:web:enable', 'framework:maintenance:disable'
+
+# Disable the site before doing database/stuff
+before "database:copy:to_local", "deploy:web:disable"
+before "database:copy:to_remote", "deploy:web:disable"
+before "database:dump:remote", "deploy:web:disable"
+before "deploy:migrate", "deploy:web:disable"
+before "deploy:migrations", "deploy:web:disable"
+before "symfony:doctrine:database:create", "deploy:web:disable"
+before "symfony:doctrine:database:drop", "deploy:web:disable"
+before "symfony:doctrine:init:acl", "deploy:web:disable"
+before "symfony:doctrine:load_fixtures", "deploy:web:disable"
+before "symfony:doctrine:migrations:migrate", "deploy:web:disable"
+before "symfony:doctrine:migrations:status", "deploy:web:disable"
+before "symfony:doctrine:mongodb:indexes:create", "deploy:web:disable"
+before "symfony:doctrine:mongodb:indexes:drop", "deploy:web:disable"
+before "symfony:doctrine:mongodb:load_fixtures", "deploy:web:disable"
+before "symfony:doctrine:mongodb:schema:create", "deploy:web:disable"
+before "symfony:doctrine:mongodb:schema:drop", "deploy:web:disable"
+before "symfony:doctrine:mongodb:schema:update", "deploy:web:disable"
+before "symfony:doctrine:schema:create", "deploy:web:disable"
+before "symfony:doctrine:schema:drop", "deploy:web:disable"
+before "symfony:doctrine:schema:update", "deploy:web:disable"
+before "symfony:propel:build:sql_load", "deploy:web:disable"
+before "symfony:propel:database:create", "deploy:web:disable"
+before "symfony:propel:database:drop", "deploy:web:disable"
+
+# Re-enable the site after doing database/stuff
+after "database:copy:to_local", "deploy:web:enable"
+after "database:copy:to_remote", "deploy:web:enable"
+after "database:dump:remote", "deploy:web:enable"
+after "deploy:migrate", "deploy:web:enable"
+after "deploy:migrations", "deploy:web:enable"
+after "symfony:doctrine:database:create", "deploy:web:enable"
+after "symfony:doctrine:database:drop", "deploy:web:enable"
+after "symfony:doctrine:init:acl", "deploy:web:enable"
+after "symfony:doctrine:load_fixtures", "deploy:web:enable"
+after "symfony:doctrine:migrations:migrate", "deploy:web:enable"
+after "symfony:doctrine:migrations:status", "deploy:web:enable"
+after "symfony:doctrine:mongodb:indexes:create", "deploy:web:enable"
+after "symfony:doctrine:mongodb:indexes:drop", "deploy:web:enable"
+after "symfony:doctrine:mongodb:load_fixtures", "deploy:web:enable"
+after "symfony:doctrine:mongodb:schema:create", "deploy:web:enable"
+after "symfony:doctrine:mongodb:schema:drop", "deploy:web:enable"
+after "symfony:doctrine:mongodb:schema:update", "deploy:web:enable"
+after "symfony:doctrine:schema:create", "deploy:web:enable"
+after "symfony:doctrine:schema:drop", "deploy:web:enable"
+after "symfony:doctrine:schema:update", "deploy:web:enable"
+after "symfony:propel:build:sql_load", "deploy:web:enable"
+after "symfony:propel:database:create", "deploy:web:enable"
+after "symfony:propel:database:drop", "deploy:web:enable"
