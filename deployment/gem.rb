@@ -120,7 +120,7 @@ end
 
 before 'symfony:assetic:dump', 'symfony:cache:clear'
 
-after "deploy", "deploy:cleanup"
+after "deploy", "deploy:cleanup", "framework:errbit:notify"
 after 'deploy:setup', 'framework:setup:link_document_root'
 after 'deploy:update_code', 'framework:assets:upload'
 after 'deploy:update_code', 'symfony:assetic:dump'
