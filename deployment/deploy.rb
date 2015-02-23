@@ -12,6 +12,7 @@ set :scm, :git
 
 # Maintenance page
 set :maintenance_template_path, "deployment/maintenance.erb"
+
 # Logging
 #logger.level = Logger::DEBUG
 

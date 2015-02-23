@@ -1,5 +1,19 @@
 # This stuff should be moved into a gem
 
+def get_value_from_parameters(key)
+  set :path, "./app/config/parameters.yml"
+
+  if File.exists?(path)
+    parameters = YAML.load_file(path).fetch("parameters", nil)
+
+    unless parameters.nil?
+      return parameters.fetch(key, nil)
+    end
+  end
+
+  return nil
+end
+
 namespace :sumo do
   namespace :setup do
     desc "Create the client folder if it doesn't exist yet"
@@ -20,6 +34,33 @@ namespace :framework do
         warn "Warning: Document root (#{document_root}) already exists"
         warn "to link it to the deploy, issue the following command:"
         warn "	ln -sf #{current_path} #{document_root}"
+      end
+    end
+  end
+
+  namespace :errbit do
+    desc "Notify Errbit about a new deploy"
+    task :notify do
+      capifony_pretty_print "--> Notifying Errbit"
+      set :errbit_api_key, get_value_from_parameters("errbit_api_key")
+
+      unless errbit_api_key.nil?
+        require 'active_support/core_ext/object'
+
+        parameters = {
+          :api_key => errbit_api_key,
+          :deploy => {
+            :rails_env => stage,
+            :local_username => ENV["USER"],
+            :scm_repository => repository,
+            :scm_revision => current_revision
+          }
+        }
+
+        run_locally "curl -d '#{parameters.to_query}' -sS https://errors.sumocoders.be/deploys.txt"
+        capifony_puts_ok
+      else
+        warn "errbit_api_key not provided in parameters.yml"
       end
     end
   end
