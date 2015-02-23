@@ -28,4 +28,5 @@ set :model_manager, "doctrine"
 
 # SSH options
 ssh_options[:forward_agent] = true
+ssh_options[:compression] = "none"
 
