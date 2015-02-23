@@ -18,7 +18,7 @@ set :maintenance_template_path, "deployment/maintenance.erb"
 
 # Shared files
 set :shared_files,      ["app/config/parameters.yml"]
-set :shared_children,   [app_path + "/logs", web_path + "/uploads", "vendor", app_path + "/sessions"]
+set :shared_children,   [app_path + "/logs", web_path + "/uploads", app_path + "/sessions"]
 set :writable_dirs,     ["app/cache", "app/logs", "app/sessions"]
 
 # Other configurations
