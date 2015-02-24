@@ -3,6 +3,7 @@
 namespace SumoCoders\FrameworkCoreBundle\Composer;
 
 use Composer\Script\Event;
+use Composer\IO\IOInterface;
 
 class ScriptHandler
 {
@@ -13,7 +14,7 @@ class ScriptHandler
      */
     public static function installNPM(Event $event)
     {
-        static::runCommandOnlyInDevMode('npm install', $event);
+        static::runCommandOnlyInDevMode('npm install', $event->getIO(), $event->isDevMode());
     }
 
     /**
@@ -23,7 +24,7 @@ class ScriptHandler
      */
     public static function installBower(Event $event)
     {
-        static::runCommandOnlyInDevMode('bower install', $event);
+        static::runCommandOnlyInDevMode('bower install', $event->getIO(), $event->isDevMode());
     }
 
     /**
@@ -33,20 +34,20 @@ class ScriptHandler
      */
     public static function gruntBuild(Event $event)
     {
-        static::runCommandOnlyInDevMode('grunt build', $event);
+        static::runCommandOnlyInDevMode('grunt build', $event->getIO(), $event->isDevMode());
     }
 
     /**
      * Running the given command only when we are in dev-mode
      * The output will be send directly to the output buffer
      *
-     * @param string $command
-     * @param Event  $event
+     * @param string      $command
+     * @param IOInterface $io
+     * @param boolean     $isDevMode
+     *
      */
-    public static function runCommandOnlyInDevMode($command, Event $event)
+    public static function runCommandOnlyInDevMode($command, IOInterface $io, $isDevMode)
     {
-        $io = $event->getIO();
-
         // make our command look nice
         if ($io->isDecorated()) {
             $formattedCommand = '<comment>' . $command . '</comment>';
@@ -55,7 +56,7 @@ class ScriptHandler
         }
 
         // in production mode?
-        if (!$event->isDevMode()) {
+        if (!$isDevMode) {
             $io->write(
                 sprintf(
                     'Skipping %1$s as we are in production mode',
