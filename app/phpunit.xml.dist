@@ -12,15 +12,15 @@
             <directory>../src/*/Bundle/*Bundle/Tests</directory>
             <directory>../src/*Bundle/Tests</directory>
             <!-- Don't forget to add your bundle below, as globs don't work on excludes :-(
-            <exclude>../src/*/*Bundle/Tests/Functional</exclude>
-            <exclude>../src/*/Bundle/*Bundle/Tests/Functional</exclude>
-            <exclude>../src/*Bundle/Tests/Functional</exclude>
+            <exclude>../src/*/*Bundle/Tests/Controller</exclude>
+            <exclude>../src/*/Bundle/*Bundle/Tests/Controller</exclude>
+            <exclude>../src/*Bundle/Tests/Controller</exclude>
             -->
         </testsuite>
-        <testsuite name="functional">
-            <directory>../src/*/*Bundle/Tests/Functional</directory>
-            <directory>../src/*/Bundle/*Bundle/Tests/Functional</directory>
-            <directory>../src/*Bundle/Tests/Functional</directory>
+        <testsuite name="controller">
+            <directory>../src/*/*Bundle/Tests/Controller</directory>
+            <directory>../src/*/Bundle/*Bundle/Tests/Controller</directory>
+            <directory>../src/*Bundle/Tests/Controller</directory>
         </testsuite>
     </testsuites>
     <filter>
