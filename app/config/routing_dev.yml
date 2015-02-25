@@ -10,9 +10,9 @@ _configurator:
     resource: "@SensioDistributionBundle/Resources/config/routing/webconfigurator.xml"
     prefix:   /_configurator
 
+_errors:
+    resource: "@SumoCodersFrameworkErrorBundle/Resources/config/routing.yml"
+    prefix:   /_configurator
+
 _main:
     resource: routing.yml
-
-eo_airbrake_simulate:
-    pattern: /airbrake/simulate
-    defaults:  { _controller:  EoAirbrakeBundle:Simulate:index }

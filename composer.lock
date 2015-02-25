@@ -4,8 +4,52 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c1c21b99f11ec2b7a04f4dbbd0a0005c",
+    "hash": "b40b07543081f5837acaf5dd8d1fa273",
     "packages": [
+        {
+            "name": "airbrake/airbrake-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/airbrake/airbrake-php.git",
+                "reference": "626ecb2b72d463477e1a42913e52ddaa51a53a36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/airbrake/airbrake-php/zipball/626ecb2b72d463477e1a42913e52ddaa51a53a36",
+                "reference": "626ecb2b72d463477e1a42913e52ddaa51a53a36",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Airbrake": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Airbrake",
+                    "email": "support@airbrake.io",
+                    "homepage": "http://airbrake.io"
+                }
+            ],
+            "description": "A PHP 5.3 library for sending errors to the Airbrake.io service.",
+            "homepage": "https://github.com/airbrake/airbrake-php",
+            "keywords": [
+                "airbrake",
+                "errors",
+                "exceptions",
+                "logging"
+            ],
+            "time": "2014-04-30 16:16:13"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.2.3",
@@ -785,6 +829,54 @@
             "time": "2014-04-15 07:32:25"
         },
         {
+            "name": "eo/airbrake-bundle",
+            "version": "dev-master",
+            "target-dir": "Eo/AirbrakeBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eymengunay/EoAirbrakeBundle.git",
+                "reference": "db41e7514b90b56715c82fa14004426bb29170d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eymengunay/EoAirbrakeBundle/zipball/db41e7514b90b56715c82fa14004426bb29170d3",
+                "reference": "db41e7514b90b56715c82fa14004426bb29170d3",
+                "shasum": ""
+            },
+            "require": {
+                "airbrake/airbrake-php": "dev-master",
+                "symfony/symfony": ">=2.1,<2.7-dev"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Eo\\AirbrakeBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eymen Gunay",
+                    "email": "eymen@egunay.com"
+                }
+            ],
+            "description": "Airbrake.io integration for Symfony2",
+            "keywords": [
+                "airbrake",
+                "errbit",
+                "exception"
+            ],
+            "time": "2014-07-21 16:05:47"
+        },
+        {
             "name": "friendsofsymfony/user-bundle",
             "version": "v2.0.0-alpha1",
             "target-dir": "FOS/UserBundle",
@@ -1554,19 +1646,20 @@
         },
         {
             "name": "mopa/composer-bridge",
-            "version": "v1.3.1",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phiamo/MopaComposerBridge.git",
-                "reference": "bbbd9b4595993cda248a996f21af3298f12fa331"
+                "reference": "6f64e2f626bcdf2a6cab5d5c1be1d46a53905c13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phiamo/MopaComposerBridge/zipball/bbbd9b4595993cda248a996f21af3298f12fa331",
-                "reference": "bbbd9b4595993cda248a996f21af3298f12fa331",
+                "url": "https://api.github.com/repos/phiamo/MopaComposerBridge/zipball/6f64e2f626bcdf2a6cab5d5c1be1d46a53905c13",
+                "reference": "6f64e2f626bcdf2a6cab5d5c1be1d46a53905c13",
                 "shasum": ""
             },
             "require": {
+                "symfony/class-loader": ">=2.0.0",
                 "symfony/console": ">=2.0.0"
             },
             "type": "symfony-bridge",
@@ -1600,7 +1693,7 @@
                 "Symfony2",
                 "composer"
             ],
-            "time": "2014-12-29 13:24:12"
+            "time": "2015-02-23 10:26:44"
         },
         {
             "name": "nikic/php-parser",
@@ -1881,22 +1974,22 @@
         },
         {
             "name": "sumocoders/framework-error-bundle",
-            "version": "v1.0.0",
+            "version": "v1.2.0",
             "target-dir": "SumoCoders/FrameworkErrorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkErrorBundle.git",
-                "reference": "40e612251edaf0b2399f2f7be8145075f808f78b"
+                "reference": "f621374f32490c18982219ee4f27825d507895ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/40e612251edaf0b2399f2f7be8145075f808f78b",
-                "reference": "40e612251edaf0b2399f2f7be8145075f808f78b",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/f621374f32490c18982219ee4f27825d507895ce",
+                "reference": "f621374f32490c18982219ee4f27825d507895ce",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "redexperts/errbit-bundle": "dev-master"
+                "eo/airbrake-bundle": "~1.0@dev",
+                "php": ">=5.3.3"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.1.*"
@@ -1922,7 +2015,7 @@
                 "SumoCoders",
                 "errbit"
             ],
-            "time": "2015-01-19 09:42:11"
+            "time": "2015-02-25 16:29:51"
         },
         {
             "name": "sumocoders/framework-search-bundle",
@@ -3220,7 +3313,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
         "mopa/bootstrap-bundle": 20,
