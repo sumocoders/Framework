@@ -15,5 +15,7 @@ parameters:
 
     secret: ThisTokenIsNotSoSecretChangeIt
 
+    errbit_api_key:
+
     fallbacks:
         - site_title: 'Our little framework'
