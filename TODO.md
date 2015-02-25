@@ -7,7 +7,6 @@
 
 # Frontend
 
-* [ ] learn twig
 * [ ] upgrade HTML to bootstrap ...
 * [ ] buttons in header: correct width
 * [ ] Tijs: make Data.js work again
@@ -25,18 +24,10 @@
 
 # FrameworkSearchBundle
 
-* [ ] Use fulltextsearch instead of slow LIKE
 * [ ] Test with special chars in search-query
 * [ ] Tests!
 
 # FrameworkUserBundle
 
-* [ ] Implement groups
 * [ ] Validation on user add/edit
 * [ ] Tests!
-
-# Deployment
-
-* [ ] Maybe create a gem
-* [ ] Port functionality from our existing gem into this gem
-* [ ] Upload files/folders generated through grunt into correct folder
