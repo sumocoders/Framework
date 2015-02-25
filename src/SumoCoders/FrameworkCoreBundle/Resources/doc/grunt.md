@@ -124,7 +124,7 @@ But in most cases you will just use
 
 ### While developing
 
-    grunt
+    grunt serve
     
 We have implemented live-reload, so your changes will be reloaded in the 
 browser. This will only happen in the dev-environment.

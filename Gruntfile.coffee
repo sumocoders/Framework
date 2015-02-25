@@ -26,6 +26,12 @@ module.exports = (grunt) ->
         'generateJs'
         'generateAsseticAssets'
       ]
+      watch:
+        options:
+          logConcurrentOutput: true
+        tasks: [
+          'watch'
+        ]
 
     # Compass configuration
     compass:
@@ -89,6 +95,9 @@ module.exports = (grunt) ->
       ]
       afterGenerateCss: [
         '.sass-cache'
+      ]
+      beforeAsseticDump: [
+        'web/js/*bundle*.js'
       ]
       beforeGenerateIconFonts: [
         '<%= assetsPath %>/sass/_icons.scss'
@@ -164,7 +173,8 @@ module.exports = (grunt) ->
 
           # prepend bundle if needed
           for chunk in chunks
-            if chunk.indexOf('Bundle') != -1
+            index = chunk.indexOf('Bundle')
+            if index != -1 && index != 0
               newPathName = chunk.toLowerCase() + '.' + newPathName
 
           dest + newPathName
@@ -194,7 +204,8 @@ module.exports = (grunt) ->
           dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
       js:
         expand: true
-        updateAndDelete: true
+        ignoreInDest: '*bundle*.js'
+        updateAndDelete: false
         dest: '<%= webAssetsPath %>/js/'
         filter: 'isFile'
         src:  [
@@ -309,6 +320,8 @@ module.exports = (grunt) ->
   grunt.registerTask 'generateJs', [
     'coffee'
     'copy:jQuerySourceMap'
+    'clean:beforeAsseticDump'
+    'shell:asseticDump'
   ]
 
   # Generate images
@@ -320,6 +333,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'generateAsseticAssets', [
     'clean:removeSymfonyCache'
     'shell:clearCache'
+    'clean:beforeAsseticDump'
     'shell:asseticDump'
     'shell:assetsInstall'
     'shell:clearCache'
@@ -328,8 +342,11 @@ module.exports = (grunt) ->
 
   # Default task
   grunt.registerTask 'default', [
-    'watch'
-    'shell:asseticWatch'
+    'serve'
+  ]
+
+  grunt.registerTask 'serve', [
+    'concurrent:watch'
   ]
 
   # Production task
