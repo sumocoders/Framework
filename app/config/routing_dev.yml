@@ -12,3 +12,7 @@ _configurator:
 
 _main:
     resource: routing.yml
+
+eo_airbrake_simulate:
+    pattern: /airbrake/simulate
+    defaults:  { _controller:  EoAirbrakeBundle:Simulate:index }
