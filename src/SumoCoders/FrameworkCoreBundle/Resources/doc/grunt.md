@@ -44,10 +44,23 @@ in your scss-files.
 
 ### Icons
 
-We will look into all bundles in the `src`-folder for all the svg-files in the 
-`Resources/assets/icons`-folder, these files will be compiled into an iconfont 
-located in `web/assets/fonts`-folder in the root directory. A _icons.scss-file 
-will be stored in the `assets/sass`-folder.
+We will look into all bundle in the `src` folder for svg files in the
+`Resources/assets/icons` folder. These svg icons will be embedded in a 
+CSS file which will be asynchronously loaded into the web page. If the browser
+doesn't support SVG, another CSS file with PNG fallbacks will be loaded.
+All of this happens through [grunticon](https://github.com/filamentgroup/grunticon).
+The class names are automatically generated based on the file name of the icon.
+For example, the icon with the name `arrow.svg` will generate a CSS class
+with the name `icon-arrow`. To keep the class names consistent, always use
+dashes in the file names, no underscores.
+
+Icons can be styled with CSS but can not be extended with Sass, because 
+the CSS with the icons gets loaded asynchronously for performance reasons.
+
+More possibilities of grunticon include inline embedding of icons, creating 
+color variations of the same icon and recoloring certain parts of icons.
+Please refer to the [plugin's documentation](https://github.com/filamentgroup/grunticon)
+for more info
 
 
 ### Images
