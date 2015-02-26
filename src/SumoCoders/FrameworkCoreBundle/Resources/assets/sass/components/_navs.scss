@@ -13,7 +13,7 @@
   > li {
 
     > a {
-      @include border-radius(0);
+      border-radius: 0;
 
       &:hover {
         border-bottom-color: #eee;
@@ -42,7 +42,7 @@
         border-top: none;
       }
       > a {
-        @include border-radius(0);
+        border-radius: 0;
         margin-right: 0;
       }
     }

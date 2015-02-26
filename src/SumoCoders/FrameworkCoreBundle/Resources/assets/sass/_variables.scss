@@ -7,12 +7,12 @@ $textLinkColor: #0088cc;
 $textLinkColorHover: darken($textLinkColor, 15%);
 
 /* Typography */
-$sansFontFamily: "Dosis Medium", Helvetica, Arial, sans-serif;
+$sansFontFamily: "dosis-medium", Helvetica, Arial, sans-serif;
 $serifFontFamily: Georgia, "Times New Roman", Times, serif;
 $monoFontFamily: Menlo, Monaco, Consolas, "Courier New", monospace;
 
-// Set base font (without px) so it can be used with the font-size mixin
-$baseFont: 14;
+// Set base font
+$baseFont: 14px;
 $baseFontSize: 14px;
 $baseFontFamily: $sansFontFamily;
 // Set base line-height (without px) so it can be used with the font-size mixin

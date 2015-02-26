@@ -8,8 +8,8 @@
   margin-top: 65px;
   border: none;
   width: 100%;
-  @include box-sizing(border-box);
-  @include border-radius(0);
+  box-sizing: border-box;
+  border-radius: 0;
   color: #fff;
   text-shadow: none;
   padding: 0 0 0 25px;
@@ -20,16 +20,14 @@
   }
 
   .close {
-    @include svg-with-png-fallback(icon_close, no-repeat center center, $dimensions: false);
-    @include squish-text;
     width: 70px;
     height: 40px;
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     opacity: 1;
     right: 0;
     margin: 0;
     top: 0;
-    @include transition(all 150ms);
+    transition: all 150ms;
   }
 
   // States
@@ -96,7 +94,7 @@
 @media screen and (min-width: 1025px) {
   .alert {
     padding-right: 265px;
-    @include transition(padding-right 250ms);
+    transition: padding-right 250ms;
 
     &.subnav {
       padding-right: 495px;

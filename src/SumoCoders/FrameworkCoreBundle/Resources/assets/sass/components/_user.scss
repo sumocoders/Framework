@@ -11,7 +11,7 @@
     .logo {
       width: 150px;
       height: 150px;
-      @include border-radius(50%);
+      border-radius: 50%;
       margin: 10% auto;
       border: none;
     }
@@ -26,7 +26,7 @@
 
     .control-label {
       font-family: $opensans-bold-webfont;
-      @include font-size(1.29 * $baseFont);
+      font-size: 1.29 * $baseFont;
       font-weight: normal;
       color: #597192;
       margin-bottom: 15px;
@@ -42,31 +42,38 @@
         float: none;
         vertical-align: middle;
       }
+
+      .input-group-addon {
+        background-color: #b6bcd0;
+        background-position: center center;
+
+        &.icon-user {
+          background-size: 26px auto;
+        }
+
+        &.icon-lock {
+          background-size: 21px auto;
+        }
+      }
+
       .input-group-addon,
       .btn {
         border: none;
         height: 46px;
         padding: 0 5px;
         width: 13.75%;
-
-        &.username {
-          @include svg-with-png-fallback(icon_user, no-repeat #b6bcd0 center center, $dimensions: false);
-        }
-
-        &.password {
-          @include svg-with-png-fallback(icon_lock, no-repeat #b6bcd0 center center, $dimensions: false);
-        }
       }
+
       .form-control {
         border: 2px solid #B6BCD0;
-        @include font-size(14);
+        font-size: 14px;
         margin-left: -4px;
       }
     }
 
     .form-control {
       -webkit-appearance: none;
-      @include border-radius(0 4px 4px 0);
+      border-radius: 0 4px 4px 0;
       padding: 10px;
       width: 86.25%;
     }
@@ -83,17 +90,18 @@
     }
 
     button[type="submit"] {
-      background: #3dae50;
+      background-color: #3dae50;
       white-space: normal;
+
       &:hover {
-        background: darken(#3dae50, 10%);
+        background-color: darken(#3dae50, 10%);
       }
     }
 
     .alert {
       position: relative;
       padding: 0 25px;
-      @include border-radius(4px);
+      border-radius: 4px;
     }
 
     .forgotPassword {

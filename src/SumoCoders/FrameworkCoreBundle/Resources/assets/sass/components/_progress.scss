@@ -5,20 +5,20 @@
 
 // Progress bar for loading stuff
 .progress {
-  @include border-radius(0);
+  border-radius: 0;
   margin-bottom: 0;
   overflow: visible;
 
   .progress-bar {
     width: 100%;
-    @include background-size(100px 100px);
+    background-size: 100px 100px;
     text-align: left;
   }
 
   &.active {
 
     .progress-bar {
-      @include animate(loadingProgressBar 2s linear 0s infinite);
+      animation: loadingProgressBar 2s linear 0s infinite;
     }
   }
 }

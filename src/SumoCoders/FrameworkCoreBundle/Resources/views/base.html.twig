@@ -71,6 +71,8 @@
             'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
             'assets/vendor/modernizr/modernizr.js'
             'assets/vendor/respond/dest/respond.min.js'
+            'assets/icons/grunticon.loader.js'
+            'assets/js/frameworkcorebundle.grunticon.js'
             output='js/vendors.js'
         %}
             <script src="{{ asset_url }}"></script>
@@ -108,7 +110,7 @@
 <body class="">
 <!--[if lt IE 8 ]>
     <div id="ie6" class="alert alert-block" role="alert">
-        <a href="#" class="close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}">x</a>
+        <a href="#" class="close icon-close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}"><span class="sr-only" aria-hidden="true">x</span></a>
         {{ 'core.warnings.oldBrowser'|trans }}
     </div>
 <![endif]-->
@@ -119,12 +121,20 @@
             <header id="header" role="banner">
                 <div class="container bar">
                     <div class="title">
-                        <a id="toggleMenu" class="visible-xs iconLink" href="#">{{ 'navigation.titles.showHideMenu'|trans|capitalize }}</a>
+                        <a id="toggleMenu" class="visible-xs iconLink icon-show-menu-mobile" href="#">
+                          <span class="sr-only">
+                            {{ 'navigation.titles.showHideMenu'|trans|capitalize }}
+                          </span>
+                        </a>
                         {% block header_title %}
                         {% endblock %}
                     </div>
                     <div class="actions">
-                        <a href="#" class="dropdownToggle visible-xs">{{ 'navigation.titles.possible_actions'|trans|capitalize }}:</a>
+                        <a href="#" class="dropdownToggle icon-cogwheel visible-xs">
+                          <span class="sr-only">
+                            {{ 'navigation.titles.possible_actions'|trans|capitalize }}:
+                          </span>
+                        </a>
                         {% block header_navigation %}
                         {% endblock %}
                     </div>

@@ -19,31 +19,38 @@ a {
 }
 
 .content a {
-	@include link-colors($textLinkColor, $textLinkColorHover, $textLinkColor, darken($textLinkColor, 7%), $textLinkColorHover);
+  color: $textLinkColor;
 	padding: 1px;
 	border-bottom: 1px solid $textLinkColor;
 
 	&:visited {
 		//border-bottom: 1px solid darken($textLinkColor, 7%);
 		border: none;
+    color: darken($textLinkColor, 7%);
 	}
 
 	&:hover {
 		text-decoration: none;
 		border-bottom: 1px solid $textLinkColorHover;
 		//border: none;
+    color: $textLinkColorHover;
 
-		@include transition-property("color, border");
-		@include transition-duration(500ms);
-		@include transition-timing-function(ease-in);
+		transition-property: "color, border";
+		transition-duration: 500ms;
+		transition-timing-function: ease-in;
 	}
 
+  &:active {
+    color: $textLinkColor;
+  }
+
 	&:focus {
-		@include border-radius(3px);
+		border-radius: 3px;
 		background-color: shade($bodyBackground, 10%);
-		@include transition-property(background);
-		@include transition-duration(500ms);
-		@include transition-timing-function(ease-in);
+    color: $textLinkColorHover;
+		transition-property: background;
+		transition-duration: 500ms;
+		transition-timing-function: ease-in;
 	}
 }
 

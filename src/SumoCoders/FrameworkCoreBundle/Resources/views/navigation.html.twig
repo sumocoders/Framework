@@ -1,5 +1,9 @@
 <nav id="navbar" role="navigation">
-    <a href="/" rel="home" class="logo hidden-xs">{{ fallbacks.get('site_title') }}</a>
+    <a href="/" rel="home" class="logo icon-logo-sumocoders hidden-xs">
+      <span class="sr-only">
+        {{ fallbacks.get('site_title') }}
+      </span>
+    </a>
 
     <div class="searchBox" role="search">
         {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
@@ -18,4 +22,8 @@
         {{ knp_menu_render('main', {'template': 'SumoCodersFrameworkCoreBundle:menu:menu.html.twig'}) }}
     </div>
 </nav>
-<a href="#" id="toggleTabletNavbar">{{ 'navigation.titles.showHideMenu'|trans|capitalize }}</a>
+<a href="#" class="icon-arrow-show-menu" id="toggleTabletNavbar">
+  <span class="sr-only">
+    {{ 'navigation.titles.showHideMenu'|trans|capitalize }}
+  </span>
+</a>

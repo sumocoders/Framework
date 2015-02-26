@@ -10,7 +10,7 @@ body {
 
 // Search auto-complete
 .ui-corner-all {
-  @include border-radius(0);
+  border-radius: 0;
 }
 
 .ui-menu {
@@ -48,14 +48,14 @@ body {
   z-index: 20;
   background: #fff;
   width: 100%;
-  @include transition(all 250ms);
+  transition: all 250ms;
   float: right;
   //overflow: scroll;
 
   &.open {
     float: right;
     margin-right: -85%;
-    @include transition(all 250ms);
+    transition: all 250ms;
     //overflow: hidden;
   }
 }
@@ -66,7 +66,7 @@ body {
   //padding-right: 0 25px;
   position: fixed;
   width: 100%;
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   height: 65px;
   z-index: 99;
 
@@ -82,11 +82,13 @@ body {
   }
 
   #toggleMenu {
+    background-size: 30px auto;
     display: inline-block;
     float: left;
-    @include svg-with-png-fallback(icon_show_menu_mobile, no-repeat);
-    @include squish-text;
+    height: 24px;
+    font-family: 0/0;
     margin: 19px 16px 0 0;
+    width: 30px;
   }
 
   .title {
@@ -96,7 +98,7 @@ body {
 
   h2 {
     color: #fff;
-    @include font-size(1.2 * $baseFont);
+    font-size: 1.2 * $baseFont;
     text-transform: uppercase;
     font-family: $opensans-bold-webfont;
     margin-top: 22px;
@@ -111,12 +113,14 @@ body {
     margin-right: -25px;
 
     .dropdownToggle {
+      background-color: rgba(0, 0, 0, .46);
+      background-size: 30px auto;
+      background-position: center center;
       display: block;
-      @include svg-with-png-fallback(icon_cogwheel, rgba(0,0,0,0.46) no-repeat center center, $dimensions: false);
+      font-family: 0/0;
       height: 65px;
       width: 70px;
       margin-bottom: 4px;
-      @include squish-text;
       float: right;
       border: none;
 
@@ -144,8 +148,8 @@ body {
           //width: 65px;
           padding-left: 70px;
           margin-bottom: 4px;
-          @include transition(all 500ms);
-          @include box-sizing(border-box);
+          transition: all 500ms;
+          box-sizing: border-box;
           //font-family: $opensans-semibold-webfont;
           font-size: 1.29 * $baseFontSize;
           color: #1f2024;
@@ -155,42 +159,40 @@ body {
           overflow: hidden;
           white-space: nowrap;
 
-          &.iconList {
-            @include svg-with-png-fallback(icon_list, #1f2024 no-repeat, $dimensions: false);
+          &.icon-list {
             background-position: 22px center;
           }
 
-          &.iconPrint {
-            @include svg-with-png-fallback(icon_print, #1f2024 no-repeat center center, $dimensions: false);
+          &.icon-print {
             background-position: 23px center;
           }
 
-          &.iconAdd {
-            @include svg-with-png-fallback(icon_add, #1f2024 no-repeat center center, $dimensions: false);
+          &.icon-add {
+            background-position: 26px center;
+            background-size: 22px auto;
+          }
+
+          &.icon-import {
             background-position: 26px center;
           }
-          &.iconImport {
-            @include svg-with-png-fallback(icon_import, #1f2024 no-repeat center center, $dimensions: false);
+
+          &.icon-contacts {
             background-position: 26px center;
           }
-          &.iconContacts {
-            @include svg-with-png-fallback(icon_contacts, #1f2024 no-repeat center center, $dimensions: false);
+
+          &.icon-vcard {
             background-position: 26px center;
           }
-          &.iconVcard {
-            @include svg-with-png-fallback(icon_vcard, #1f2024 no-repeat center center, $dimensions: false);
-            background-position: 26px center;
-          }
-          &.iconPreview {
-            @include svg-with-png-fallback(icon_preview, #1f2024 no-repeat center center, $dimensions: false);
+
+          &.icon-preview {
             background-position: 23px center;
           }
-          &.iconEdit {
-            @include svg-with-png-fallback(icon_edit, #1f2024 no-repeat center center, $dimensions: false);
+
+          &.icon-edit {
             background-position: 23px center;
           }
-          &.iconDelete {
-            @include svg-with-png-fallback(icon_delete, #1f2024 no-repeat center center, $dimensions: false);
+
+          &.icon-delete {
             background-position: 23px center;
           }
         }
@@ -226,15 +228,15 @@ body {
           background-color: #8c8d94;
           color: #8c8d94;
 
-          &.iconList {
+          &.icon-list {
             background-color: #8c8d94;
           }
 
-          &.iconPrint {
+          &.icon-print {
             background-color: #8c8d94;
           }
 
-          &.iconAdd {
+          &.icon-add {
             background-color: #8c8d94;
           }
         }
@@ -257,7 +259,7 @@ body {
   .controls {
     textarea {
       width: 100%;
-      @include box-sizing(border-box);
+      box-sizing: border-box;
     }
   }
 }
@@ -280,14 +282,15 @@ body {
     height: 100%;
     width: 100px;
     left: -50px;
-    @include svg-with-png-fallback(arrow_show_menu, #1f2024 no-repeat 60px center, $dimensions: false);
-    @include squish-text;
+    background-color: #1f2024;
+    background-position: 60px center;
+    background-size: 30px auto;
     z-index: 25;
-    @include transition(left 250ms);
+    transition: left 250ms;
 
     &.open {
       left: 215px;
-      @include transition(left 250ms);
+      transition: left 250ms;
 
       &.subnav {
         left: 445px;
@@ -309,7 +312,7 @@ body {
   }
 
     h2 {
-      @include font-size(1.71 * $baseFont);
+      font-size: 1.71 * $baseFont;
     }
 
     .actions {
@@ -343,15 +346,15 @@ body {
             //padding-right: 20px;
 
 
-            &.iconList {
+            &.icon-list {
               background-color: rgba(0,0,0,0.46);
             }
 
-            &.iconPrint {
+            &.icon-print {
               background-color: rgba(0,0,0,0.46);
             }
 
-            &.iconAdd {
+            &.icon-add {
               background-color: rgba(0,0,0,0.46);
             }
           }
@@ -375,7 +378,7 @@ body {
   }
 
   #content {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     padding-left: 50px;
     width: 100%;
 
@@ -388,7 +391,7 @@ body {
 
     .container {
       padding: 0 25px;
-      @include box-sizing(border-box);
+      box-sizing: border-box;
     }
   }
 }
@@ -397,7 +400,7 @@ body {
 
   #header {
     padding-right: 265px;
-    @include transition(all 250ms);
+    transition: all 250ms;
   }
 
   #content {
