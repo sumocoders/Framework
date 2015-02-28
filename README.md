@@ -1,5 +1,7 @@
 # Sumocoders Framework
 
+[![Build Status](https://travis-ci.org/sumocoders/Framework.svg?branch=master)](https://travis-ci.org/sumocoders/Framework) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sumocoders/Framework/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sumocoders/Framework/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/sumocoders/Framework/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sumocoders/Framework/?branch=master)
+
 ## Installation
 
 This is the SumoCoders Symfony Framework. You can install it using
