@@ -1,6 +1,6 @@
 # Sumocoders Framework
 
-[![Build Status](https://travis-ci.org/sumocoders/Framework.svg?branch=master)](https://travis-ci.org/sumocoders/Framework) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sumocoders/Framework/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sumocoders/Framework/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/sumocoders/Framework/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sumocoders/Framework/?branch=master)
+[![Build Status](https://travis-ci.org/sumocoders/Framework.svg?branch=master)](https://travis-ci.org/sumocoders/Framework) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sumocoders/Framework/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sumocoders/Framework/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/sumocoders/Framework/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sumocoders/Framework/?branch=master) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/a87f9056-eb3d-4383-915f-823744b39659/mini.png)](https://insight.sensiolabs.com/projects/a87f9056-eb3d-4383-915f-823744b39659)
 
 ## Installation
 
