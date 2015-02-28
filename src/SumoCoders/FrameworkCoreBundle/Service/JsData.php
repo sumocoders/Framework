@@ -9,15 +9,8 @@ use Symfony\Component\HttpFoundation\RequestStack;
  *
  * @package SumoCoders\FrameworkCoreBundle\Service
  */
-class JsData
+class JsData extends KeyValueStore
 {
-    const SPLITCHAR = '.';
-
-    /**
-     * @var array
-     */
-    private $data = array();
-
     /**
      * @var \Symfony\Component\HttpFoundation\RequestStack
      */
@@ -45,36 +38,10 @@ class JsData
     }
 
     /**
-     * Add a value into the array with a given name
+     * Parse into data
      *
-     * @param string      $name
-     * @param mixed       $value
-     * @param null|string $prefix
+     * @return string
      */
-    protected function add($name, $value, $prefix = null)
-    {
-        $key = $name;
-        if (null !== $prefix) {
-            $key = $prefix . self::SPLITCHAR . $name;
-        }
-        $this->data[$key] = $value;
-    }
-
-    /**
-     * Get a fallback
-     *
-     * @param string $key
-     * @return null|mixed
-     */
-    public function get($key)
-    {
-        if (isset($this->data[$key])) {
-            return $this->data[$key];
-        }
-
-        return null;
-    }
-
     public function parse()
     {
         return json_encode($this->data);
