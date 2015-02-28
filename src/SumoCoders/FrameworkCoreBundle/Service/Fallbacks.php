@@ -7,37 +7,14 @@ namespace SumoCoders\FrameworkCoreBundle\Service;
  *
  * @package SumoCoders\FrameworkCoreBundle\Service
  */
-class Fallbacks
+class Fallbacks extends KeyValueStore
 {
-    const SPLITCHAR = '.';
-
-    /**
-     * @var array
-     */
-    private $fallbacks = array();
-
     /**
      * @param array $parameters
      */
     public function __construct(array $parameters = null)
     {
         $this->populateFallbacks($parameters);
-    }
-
-    /**
-     * Add a value into the array with a given name
-     *
-     * @param string      $name
-     * @param mixed       $value
-     * @param null|string $prefix
-     */
-    protected function add($name, $value, $prefix = null)
-    {
-        $key = $name;
-        if ($prefix) {
-            $key = $prefix . self::SPLITCHAR . $name;
-        }
-        $this->fallbacks[$key] = $value;
     }
 
     /**
@@ -84,20 +61,5 @@ class Fallbacks
                 $this->add($name, $value, $prefix);
             }
         }
-    }
-
-    /**
-     * Get a fallback
-     *
-     * @param string $key
-     * @return null|mixed
-     */
-    public function get($key)
-    {
-        if (isset($this->fallbacks[$key])) {
-            return $this->fallbacks[$key];
-        }
-
-        return null;
     }
 }
