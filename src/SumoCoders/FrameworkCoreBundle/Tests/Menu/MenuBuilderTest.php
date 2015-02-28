@@ -28,7 +28,7 @@ class MenuBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \Symfony\Component\EventDispatcher\EventDispatcherInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject
      */
     protected function getEventDispatcher()
     {
@@ -45,7 +45,7 @@ class MenuBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \Knp\Menu\FactoryInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject
      */
     protected function getFactory()
     {
