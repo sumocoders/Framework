@@ -34,7 +34,7 @@ class Fallbacks
     protected function add($name, $value, $prefix = null)
     {
         $key = $name;
-        if ($prefix) {
+        if (null !== $prefix) {
             $key = $prefix . self::SPLITCHAR . $name;
         }
         $this->fallbacks[$key] = $value;
