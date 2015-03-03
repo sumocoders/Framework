@@ -5,7 +5,6 @@ set  :keep_releases,  3
 
 # Composer configuration
 set :use_composer, true
-set :copy_vendors, true
 
 # Git configuration
 set :scm, :git
