@@ -18,6 +18,12 @@ Add a user with
 
 You can now go to <your domain>/en/users/login and login with the given user.
 
+### Configure migrations
+
+When you start you should initialize the migrations:
+
+    app/console doctrine:migrations:status
+
 ## Error handling
 
 Enable the FrameworkErrorBundle in the kernel, just add it in production mode, as this bundle
@@ -46,5 +52,6 @@ See [https://github.com/phiamo/MopaBootstrapBundle](https://github.com/phiamo/Mo
 
 * [Using Grunt](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/grunt.md)
 * [Deployment](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/deployment.md)
+* [Database Changes/Migrations](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/migrations.md)
 * [Adding items into the menu/navigation](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/menu.md)
 * [Known issues](./src/SumCoders/FrameworkCoreBundle/Resources/doc/issues.md)
