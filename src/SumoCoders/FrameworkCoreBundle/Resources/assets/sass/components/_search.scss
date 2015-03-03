@@ -28,7 +28,6 @@
 
   .btn {
     background-color: #2c2d34;
-    border-radius: 0;
     height: 65px;
     position: absolute;
     right: 0;
@@ -44,8 +43,7 @@
   }
 }
 
-// Media query min-width 767px
-@media screen and (min-width: 767px) {
+@media screen and (min-width: $screen-sm) {
   .searchBox {
     width: 265px;
 
@@ -59,10 +57,9 @@
   }
 }
 
-// Media query min-width 1025px
 @media screen and (min-width: 1025px) {
   .searchBox {
-    position: fixed;
     bottom: 0;
+    position: fixed;
   }
 }

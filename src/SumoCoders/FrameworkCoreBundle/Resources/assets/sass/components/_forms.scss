@@ -4,22 +4,14 @@ label abbr[data-original-title] {
 }
 
 .form-control {
-  background: #f8f9fc;
-  box-shadow: none;
-  padding: 6px 10px;
-
-  &.input-sm {
-    font-size: 12px;
+  &,
+  &:focus {
+    box-shadow: none;
   }
 
-  &.input-lg {
-    font-size: 18px;
+  &:focus {
+    border-color: $gray-light;
   }
-}
-
-.form-control:focus {
-  border: 2px solid #747e9f;
-  box-shadow: none;
 }
 
 input:focus:invalid:focus {
@@ -39,12 +31,4 @@ input:focus:invalid:focus {
   .checkbox {
     margin-bottom: 20px;
   }
-}
-
-input,
-button,
-select,
-textarea {
-  font-weight: normal;
-  line-height: 21px;
 }

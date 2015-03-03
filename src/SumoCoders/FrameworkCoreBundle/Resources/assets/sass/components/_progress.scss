@@ -1,6 +1,4 @@
-// Progress bar for loading stuff
 .progress {
-  border-radius: 0;
   margin-bottom: 0;
   overflow: visible;
 
@@ -15,9 +13,14 @@
   }
 }
 
-// Media query min-width 767px
-@media screen and (min-width: 767px) {
+@media screen and (min-width: $screen-sm) {
   .progress .progress-bar {
     width: 100%;
   }
 }
+
+@keyframes loadingProgressBar {
+  from { background-position: 100px 0; }
+  to { background-position: 0 0; }
+}
+

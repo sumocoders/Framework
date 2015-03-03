@@ -6,7 +6,6 @@
   &.reset_password {
 
     .logo {
-      border: 0;
       border-radius: 50%;
       height: 150px;
       margin: 10% auto;
@@ -23,7 +22,7 @@
 
     .control-label {
       color: #597192;
-      font-size: 1.29 * $baseFont;
+      font-size: 1.29 * $font-size-base;
       font-weight: bold;
       margin-bottom: 15px;
     }
@@ -62,7 +61,7 @@
 
       .form-control {
         border: 2px solid #b6bcd0;
-        font-size: $baseFontSize;
+        font-size: $font-size-base;
         margin-left: -4px;
       }
     }
@@ -85,15 +84,6 @@
       }
     }
 
-    button[type="submit"] {
-      background-color: #3dae50;
-      white-space: normal;
-
-      &:hover {
-        background-color: darken(#3dae50, 10%);
-      }
-    }
-
     .alert {
       position: relative;
       padding: 0 25px;
@@ -106,8 +96,7 @@
   }
 }
 
-// Media query min-width 767px
-@media screen and (min-width: 767px) {
+@media screen and (min-width: $screen-sm) {
   #users.login,
   #users.forgot_password,
   #users.reset_password {

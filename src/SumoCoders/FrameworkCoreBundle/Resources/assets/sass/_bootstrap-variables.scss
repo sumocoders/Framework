@@ -12,7 +12,7 @@ $gray-base:              #000 !default;
 $gray-darker:            #1f2024;
 $gray-dark:              #393b42;
 $gray:                   lighten($gray-base, 33.5%) !default; // #555
-$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-light:             #747880;
 $gray-lighter:           #babbc0;
 $gray-lightest:          #e4e5ec;
 
@@ -20,7 +20,7 @@ $brand-primary:         #0088cc !default;
 $brand-success:         #5bb75b !default;
 $brand-info:            #747e9f !default;
 $brand-warning:         #f9a834 !default;
-$brand-danger:          #db4f4a !default;
+$brand-danger:          #e84914 !default;
 
 
 //== Scaffolding
@@ -182,7 +182,7 @@ $btn-link-disabled-color:        $gray-light !default;
 //##
 
 //** `<input>` background color
-$input-bg:                       #fff !default;
+$input-bg:                       #f8f9fc !default;
 //** `<input disabled>` background color
 $input-bg-disabled:              $gray-lighter !default;
 
@@ -230,11 +230,11 @@ $cursor-disabled:                not-allowed !default;
 //## Dropdown menu container and contents.
 
 //** Background for the dropdown menu.
-$dropdown-bg:                    #fff !default;
+$dropdown-bg:                    #f9f9f9;
 //** Dropdown menu `border-color`.
-$dropdown-border:                rgba(0,0,0,.15) !default;
+$dropdown-border:                #cccdd7;
 //** Dropdown menu `border-color` **for IE8**.
-$dropdown-fallback-border:       #ccc !default;
+$dropdown-fallback-border:       #cccdd7 !default;
 //** Divider color for between dropdown items.
 $dropdown-divider-bg:            #e5e5e5 !default;
 
@@ -423,7 +423,7 @@ $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
 
 //== Tabs
-$nav-tabs-border-color:                     #ddd !default;
+$nav-tabs-border-color:                     #dbdde6 !default;
 
 $nav-tabs-link-hover-border-color:          $gray-lighter !default;
 
@@ -492,20 +492,20 @@ $jumbotron-font-size:            ceil(($font-size-base * 1.5)) !default;
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-$state-success-text:             #3c763d !default;
-$state-success-bg:               #dff0d8 !default;
+$state-success-text:             #fff;
+$state-success-bg:               #56b989;
 $state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
 
-$state-info-text:                #31708f !default;
-$state-info-bg:                  #d9edf7 !default;
+$state-info-text:                #fff;
+$state-info-bg:                  #b6bcd0;
 $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
 
-$state-warning-text:             #8a6d3b !default;
-$state-warning-bg:               #fcf8e3 !default;
+$state-warning-text:             #fff;
+$state-warning-bg:               #d0b15c;
 $state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
 
-$state-danger-text:              #a94442 !default;
-$state-danger-bg:                #f2dede !default;
+$state-danger-text:              #ca5121;
+$state-danger-bg:                #f2dede;
 $state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 
 
@@ -616,8 +616,8 @@ $modal-sm:                    300px !default;
 //
 //## Define alert colors, border radius, and padding.
 
-$alert-padding:               15px !default;
-$alert-border-radius:         $border-radius-base !default;
+$alert-padding:               0 0 0 25px !default;
+$alert-border-radius:         0 !default;
 $alert-link-font-weight:      bold !default;
 
 $alert-success-bg:            $state-success-bg !default;
@@ -646,7 +646,7 @@ $progress-bg:                 #f5f5f5 !default;
 //** Progress bar text color
 $progress-bar-color:          #fff !default;
 //** Variable for setting rounded corners on progress bar.
-$progress-border-radius:      $border-radius-base !default;
+$progress-border-radius:      0;
 
 //** Default progress bar color
 $progress-bar-bg:             $brand-primary !default;
@@ -757,7 +757,7 @@ $thumbnail-caption-padding:   9px !default;
 //##
 
 $well-bg:                     #f5f5f5 !default;
-$well-border:                 darken($well-bg, 7%) !default;
+$well-border:                 #b6bcd0;
 
 
 //== Badges
