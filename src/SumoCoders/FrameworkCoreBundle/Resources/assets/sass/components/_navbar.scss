@@ -20,7 +20,7 @@
       a {
         border: 0;
         color: #8d94ab;
-        font-family: $opensans-bold-webfont;
+        font-weight: bold;
         padding: 21px 18px;
         text-transform: uppercase;
 
@@ -37,8 +37,8 @@
 
       &#user > a {
         color: #464242;
-        font-family: $opensans-bold-webfont;
         font-size: 1.29 * $baseFontSize;
+        font-weight: bold;
         padding-top: 19px;
         position: relative;
 

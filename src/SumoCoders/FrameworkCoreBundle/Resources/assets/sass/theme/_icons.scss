@@ -14,7 +14,7 @@
 .noItems {
   @include font-size(1.71 * $baseFont);
   color: #c8c9d2;
-  font-family: $opensans-bold-webfont;
+  font-weight: bold;
   padding-bottom: 30px;
   text-align: center;
 }

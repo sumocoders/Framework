@@ -1,22 +1,3 @@
-// Import files from the theme folder and fonts
-@font-face {
-  font-family: 'dosis-bold';
-  src: url('../fonts/dosis-bold.eot');
-  src: url('../fonts/dosis-bold.eot?v=3.0.1?&1389001132#iefix') format('embedded-opentype'), url('../fonts/dosis-bold.woff') format('woff'), url('../fonts/dosis-bold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-$dosis-bold: 'dosis-bold';
-
-@font-face {
-  font-family: 'dosis-medium';
-  src: url('../fonts/dosis-medium.eot');
-  src: url('../fonts/dosis-medium.eot?v=3.0.1?&1389001132#iefix') format('embedded-opentype'), url('../fonts/dosis-medium.woff') format('woff'), url('../fonts/dosis-medium.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-$dosis-medium: 'dosis-medium';
-
 @font-face {
   font-family: 'fontawesome-webfont';
   src: url('../fonts/fontawesome-webfont.eot');
@@ -36,48 +17,42 @@ $fontawesome-webfont: 'fontawesome-webfont';
 $glyphicons-halflings-regular: 'glyphicons-halflings-regular';
 
 @font-face {
-  font-family: 'opensans-bold-webfont';
+  font-family: 'Open Sans';
   src: url('../fonts/opensans-bold-webfont.eot');
   src: url('../fonts/opensans-bold-webfont.eot?v=3.0.1?&1389001132#iefix') format('embedded-opentype'), url('../fonts/opensans-bold-webfont.woff') format('woff'), url('../fonts/opensans-bold-webfont.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
 }
-$opensans-bold-webfont: 'opensans-bold-webfont';
 
 @font-face {
-  font-family: 'opensans-extrabold-webfont';
+  font-family: 'Open Sans';
   src: url('../fonts/opensans-extrabold-webfont.eot');
   src: url('../fonts/opensans-extrabold-webfont.eot?v=3.0.1?&1389001132#iefix') format('embedded-opentype'), url('../fonts/opensans-extrabold-webfont.woff') format('woff'), url('../fonts/opensans-extrabold-webfont.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 800;
   font-style: normal;
 }
-$opensans-extrabold-webfont: 'opensans-extrabold-webfont';
 
 @font-face {
-  font-family: 'opensans-italic-webfont';
+  font-family: 'Open Sans';
   src: url('../fonts/opensans-italic-webfont.eot');
   src: url('../fonts/opensans-italic-webfont.eot?v=3.0.1?&1389001132#iefix') format('embedded-opentype'), url('../fonts/opensans-italic-webfont.woff') format('woff'), url('../fonts/opensans-italic-webfont.ttf') format('truetype');
   font-weight: normal;
-  font-style: normal;
+  font-style: italic;
 }
-$opensans-italic-webfont: 'opensans-italic-webfont';
 
 @font-face {
-  font-family: 'opensans-regular-webfont';
+  font-family: 'Open Sans';
   src: url('../fonts/opensans-regular-webfont.eot');
   src: url('../fonts/opensans-regular-webfont.eot?v=3.0.1?&1389001132#iefix') format('embedded-opentype'), url('../fonts/opensans-regular-webfont.woff') format('woff'), url('../fonts/opensans-regular-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-$opensans-regular-webfont: 'opensans-regular-webfont';
 
 @font-face {
-  font-family: 'opensans-semibold-webfont';
+  font-family: 'Open Sans';
   src: url('../fonts/opensans-semibold-webfont.eot');
   src: url('../fonts/opensans-semibold-webfont.eot?v=3.0.1?&1389001132#iefix') format('embedded-opentype'), url('../fonts/opensans-semibold-webfont.woff') format('woff'), url('../fonts/opensans-semibold-webfont.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 600;
   font-style: normal;
 }
-$opensans-semibold-webfont: 'opensans-semibold-webfont';
-
 

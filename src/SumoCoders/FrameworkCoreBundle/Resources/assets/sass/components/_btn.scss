@@ -9,8 +9,8 @@
   border-radius: 2px;
   box-shadow: none;
   color: #fff;
-  font-family: $opensans-bold-webfont;
   font-size: $baseFont;
+  font-weight: bold;
 
   &:hover {
     background-color: darken(#4ab0ce, 10%);

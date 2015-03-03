@@ -1,6 +1,5 @@
 body {
   background: #fff;
-  font-family: $opensans-regular-webfont;
 
   &.login,
   &.forgot_password,
@@ -87,9 +86,9 @@ body {
   h2 {
     color: #fff;
     font-size: 1.2 * $baseFont;
-    text-transform: uppercase;
-    font-family: $opensans-bold-webfont;
+    font-weight: bold;
     margin-top: 22px;
+    text-transform: uppercase;
   }
 
   .actions {

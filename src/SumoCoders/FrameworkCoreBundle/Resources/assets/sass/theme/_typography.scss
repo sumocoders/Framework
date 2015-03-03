@@ -48,11 +48,6 @@ a {
   }
 }
 
-strong {
-  font-family: $opensans-bold-webfont;
-  font-weight: normal;
-}
-
 h1,
 h2,
 h3,
@@ -70,13 +65,13 @@ h2 {
 h1,
 h2,
 h3 {
-  font-family: $opensans-bold-webfont;
+  font-weight: bold;
 }
 
 h4,
 h5,
 h6 {
-  font-family: $opensans-semibold-webfont;
+  font-weight: 600;
   margin-bottom: 10.5px;
 }
 
