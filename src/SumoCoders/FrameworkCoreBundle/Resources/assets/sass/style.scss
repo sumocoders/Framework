@@ -1,35 +1,35 @@
-@import 'variables';
-@import 'fonts';
-
-// jQuery
-@import 'jquery/jquery_plugins';
-@import 'jquery/jquery-ui';
-
-// Include bootstrap
+// Bootstrap
 @import 'bootstrap-variables';
 @import 'bootstrap-imports';
 
-// Theme related
-@import 'theme/typography';
-@import 'theme/font-awesome';
-@import 'theme/glyphicons';
-@import 'theme/icons';
+// Base
+@import 'variables';
+@import 'base/fonts';
+@import 'base/glyphicons';
+@import 'base/icons';
 
-// Layouts
-@import 'layouts/framework';
+// Plugins
+@import 'plugins/jquery_plugins';
+@import 'plugins/jquery-ui';
 
 // Components
 @import 'components/alerts';
-@import 'components/btn';
+@import 'components/buttons';
+@import 'components/code';
 @import 'components/datagrids';
 @import 'components/dropdowns';
 @import 'components/forms';
 @import 'components/misc';
 @import 'components/navbar';
 @import 'components/navs';
-@import 'components/progress';
-@import 'components/search';
+@import 'components/progress-bars';
 @import 'components/tables';
 @import 'components/tagbox';
-@import 'components/user';
+@import 'components/type';
+@import 'components/wells';
+
+// Layouts
+@import 'layouts/framework';
+@import 'layouts/user';
+@import 'layouts/search';
 
