@@ -58,6 +58,7 @@ class FallbacksTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($this->defaultData['foo'], $this->fallbacks->get('foo'));
         $this->assertEquals($this->defaultData['name']['first'], $this->fallbacks->get('name.first'));
+        $this->assertNull($this->fallbacks->get('name')); // we can't grab a key-value-array
         $this->assertEquals($this->defaultData['servers'], $this->fallbacks->get('servers'));
         $this->assertEquals(
             $this->defaultData['a']['very']['deep']['array']['x'],
