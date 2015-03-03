@@ -80,6 +80,12 @@ doctrine:
     auto_generate_proxy_classes: "%kernel.debug%"
     auto_mapping: true
 
+doctrine_migrations:
+    dir_name: %kernel.root_dir%/migrations
+    namespace: SumoCodersFramework\Migrations
+    table_name: migration_versions
+    name: Application Migrations
+
 # I18n Configuration
 jms_i18n_routing:
   default_locale: "%locale%"
