@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "37e9c7acee88547cf47d31bc94e7a233",
+    "hash": "87e2c5c0cdcc99018b6580df3763fd65",
     "packages": [
         {
             "name": "airbrake/airbrake-php",
@@ -407,16 +407,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "3beb3a780485ab01f86941f4892cd23ef8c39c6b"
+                "reference": "1986ff3a945b584c6505d07eae92d77e41131078"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/3beb3a780485ab01f86941f4892cd23ef8c39c6b",
-                "reference": "3beb3a780485ab01f86941f4892cd23ef8c39c6b",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/1986ff3a945b584c6505d07eae92d77e41131078",
+                "reference": "1986ff3a945b584c6505d07eae92d77e41131078",
                 "shasum": ""
             },
             "require": {
@@ -425,17 +425,15 @@
                 "jdorn/sql-formatter": "~1.1",
                 "php": ">=5.3.2",
                 "symfony/doctrine-bridge": "~2.2",
-                "symfony/framework-bundle": "~2.2"
+                "symfony/framework-bundle": "~2.3"
             },
             "require-dev": {
                 "doctrine/orm": "~2.3",
-                "phpunit/php-code-coverage": "~1.2",
-                "phpunit/phpunit": "~3.7",
-                "phpunit/phpunit-mock-objects": "~1.2",
+                "phpunit/phpunit": "~4",
                 "satooshi/php-coveralls": "~0.6.1",
                 "symfony/validator": "~2.2",
                 "symfony/yaml": "~2.2",
-                "twig/twig": "~1"
+                "twig/twig": "~1.10"
             },
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle.",
@@ -444,7 +442,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "1.4.x-dev"
                 }
             },
             "autoload": {
@@ -482,7 +480,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2014-11-28 08:32:03"
+            "time": "2015-02-28 11:04:45"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -761,72 +759,6 @@
                 "orm"
             ],
             "time": "2014-12-16 13:45:01"
-        },
-        {
-            "name": "emgiezet/errbit-php",
-            "version": "1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/emgiezet/errbitPHP.git",
-                "reference": "647e9210d6f21a5ecbf9742ec97ada16864a4fa2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/emgiezet/errbitPHP/zipball/647e9210d6f21a5ecbf9742ec97ada16864a4fa2",
-                "reference": "647e9210d6f21a5ecbf9742ec97ada16864a4fa2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "replace": {
-                "flippa-official/errbit-php": "dev-master",
-                "nodrew/php-airbrake": "dev-master"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master",
-                "phpunit/phpcov": "2.0.*@dev",
-                "phpunit/phpunit": "4.*",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Errbit\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "flippa"
-                },
-                {
-                    "name": "emgiezet"
-                },
-                {
-                    "name": "karolsojko"
-                },
-                {
-                    "name": "deathowl"
-                }
-            ],
-            "description": "errbit/airbrake integration with php with psr-2",
-            "homepage": "http://github.com/emgiezet/errbitPHP",
-            "keywords": [
-                "airbrake",
-                "errbit",
-                "errbit php",
-                "error tracking"
-            ],
-            "time": "2014-04-15 07:32:25"
         },
         {
             "name": "eo/airbrake-bundle",
@@ -1360,7 +1292,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1773,76 +1705,36 @@
             "time": "2012-12-21 11:40:51"
         },
         {
-            "name": "redexperts/errbit-bundle",
-            "version": "dev-master",
-            "target-dir": "Redexperts/ErrbitBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Redexperts/RedexpertsErrbitBundle.git",
-                "reference": "10a8847b4cd74c46964ae966e1556481af0cedee"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Redexperts/RedexpertsErrbitBundle/zipball/10a8847b4cd74c46964ae966e1556481af0cedee",
-                "reference": "10a8847b4cd74c46964ae966e1556481af0cedee",
-                "shasum": ""
-            },
-            "require": {
-                "emgiezet/errbit-php": "1.0.*@dev",
-                "php": ">=5.3.3",
-                "symfony/framework-bundle": "~2.1"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Redexperts\\ErrbitBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Korsak",
-                    "email": "daniel.korsak@redexperts.net"
-                }
-            ],
-            "description": "Symfony Errbit Integration Bundle",
-            "homepage": "http://www.redexperts.net",
-            "keywords": [
-                "Redexperts",
-                "errbit"
-            ],
-            "time": "2015-02-13 11:46:12"
-        },
-        {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.16",
+            "version": "v3.0.18",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "aa30f8cd3ee68144e043ca30713aa7d7df35c5fa"
+                "reference": "ac026149ffb1d3a5c893290d2d3ca8795013de08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/aa30f8cd3ee68144e043ca30713aa7d7df35c5fa",
-                "reference": "aa30f8cd3ee68144e043ca30713aa7d7df35c5fa",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/ac026149ffb1d3a5c893290d2d3ca8795013de08",
+                "reference": "ac026149ffb1d3a5c893290d2d3ca8795013de08",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "sensiolabs/security-checker": "~2.0",
                 "symfony/class-loader": "~2.2",
-                "symfony/form": "~2.2",
                 "symfony/framework-bundle": "~2.3",
-                "symfony/process": "~2.2",
+                "symfony/process": "~2.2"
+            },
+            "require-dev": {
+                "symfony/form": "~2.2",
                 "symfony/validator": "~2.2",
                 "symfony/yaml": "~2.2"
+            },
+            "suggest": {
+                "symfony/form": "If you want to use the configurator",
+                "symfony/validator": "If you want to use the configurator",
+                "symfony/yaml": "If you want to use  the configurator"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -1870,7 +1762,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-02-01 05:42:21"
+            "time": "2015-02-27 12:59:18"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2064,17 +1956,17 @@
         },
         {
             "name": "sumocoders/framework-user-bundle",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "target-dir": "SumoCoders/FrameworkUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "20059bb82cb812ffc9fb42f2bde3bae56b889d03"
+                "reference": "cd4264e054d78d975e6d44a24a4516df5249f328"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/20059bb82cb812ffc9fb42f2bde3bae56b889d03",
-                "reference": "20059bb82cb812ffc9fb42f2bde3bae56b889d03",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/cd4264e054d78d975e6d44a24a4516df5249f328",
+                "reference": "cd4264e054d78d975e6d44a24a4516df5249f328",
                 "shasum": ""
             },
             "require": {
@@ -2106,7 +1998,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-02-13 12:19:30"
+            "time": "2015-03-03 10:51:18"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3706,8 +3598,6 @@
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
         "mopa/bootstrap-bundle": 20,
-        "redexperts/errbit-bundle": 20,
-        "emgiezet/errbit-php": 20,
         "knplabs/knp-menu-bundle": 20,
         "composer/composer": 20
     },
