@@ -55,45 +55,45 @@ h4 {
 
 @media screen and (min-width: 767px) {
   h1 {
-    @include font-size(28);
+    font-size: 28px;
   }
 
   h2 {
-    @include font-size(24);
+    font-size: 24px;
   }
 
   h3 {
-    @include font-size(20);
+    font-size: 20px;
   }
 
   h4 {
-    @include font-size(18);
+    font-size: 18px;
   }
 
   h5 {
-    @include font-size(15);
+    font-size: 15px;
   }
 }
 
 @media screen and (min-width: 1025px) {
   h1 {
-    @include font-size(34);
+    font-size: 34px;
   }
 
   h2 {
-    @include font-size(27);
+    font-size: 27px;
   }
 
   h3 {
-    @include font-size(21);
+    font-size: 21px;
   }
 
   h4 {
-    @include font-size(20);
+    font-size: 20px;
   }
 
   h5 {
-    @include font-size(18);
+    font-size: 18px;
   }
 }
 
