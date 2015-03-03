@@ -1,14 +1,6 @@
-/**
- * Defining components used in header, nav, footer, misc tpl
- * States: Error, warning, succes, ...
- */
-
 // Links
-a {
-
-  &:hover {
-    text-decoration: none;
-  }
+a:hover {
+  text-decoration: none;
 }
 
 // Ajax spinner
@@ -20,20 +12,19 @@ a {
   background-color: $brand-red;
   background-position: center center;
   background-size: 100px auto;
-  border: none;
+  border: 0;
   display: block;
   height: 165px;
   width: 100%;
 
   &:hover {
-    border: none;
+    border: 0;
   }
 }
 
 // pre and code blocks
 pre,
 code {
-
   ol,
   ul {
     margin-bottom: 0;
@@ -47,17 +38,13 @@ pre {
 
 // Wells
 .well {
-  box-shadow: none;
-  //@include border-radius(0);
   border: 2px solid #b6bcd0;
+  box-shadow: none;
 }
 
 // Lists
-dl {
-
-  dt {
-    font-family: $opensans-bold-webfont;
-  }
+dl dt {
+  font-family: $opensans-bold-webfont;
 }
 
 

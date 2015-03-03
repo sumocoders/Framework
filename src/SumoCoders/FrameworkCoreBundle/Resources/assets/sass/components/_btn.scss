@@ -4,18 +4,13 @@
  */
 
 .btn {
-  background: #4ab0ce;
+  background-color: #4ab0ce;
   border-color: transparent;
   border-radius: 2px;
   box-shadow: none;
   color: #fff;
   font-family: $opensans-bold-webfont;
   font-size: $baseFont;
-  //height: 45px;
-  //line-height: 45px;
-  //padding-top: 0;
-  //padding-bottom: 0;
-  //text-shadow: none;
 
   &:hover {
     background-color: darken(#4ab0ce, 10%);
@@ -78,52 +73,19 @@
   &.btn-link {
     background: none;
     color: #666;
-
-    &:hover {
-
-    }
   }
+
   &[disabled],
   &.disabled {
     border-color: transparent;
   }
 }
 
-// btn-group
 .btn-group {
   .btn {
-    margin-right: 2px;
     margin-bottom: 2px;
+    margin-right: 2px;
   }
-}
-.btn-group-lg > .btn,
-.btn-group-sm > .btn,
-.btn-group-xs > .btn {
-  //padding-top: 0;
-  //padding-bottom: 0;
-}
-
-.btn-group-lg > .btn,
-.btn.btn-lg {
-  font-size: 1.3 * $baseFont;
-  //height: 50px;
-  //line-height: 50px;
-}
-
-.btn-group-sm > .btn,
-.btn.btn-sm {
-  //@include font-size($baseFont);
-  //line-height: 30px;
-  //height: 30px;
-}
-
-.btn-group-sm > .btn,
-.btn.btn-sm,
-.btn-group-xs > .btn,
-.btn.btn-xs {
-  font-size: 0.9 * $baseFont;
-  //line-height: 26px;
-  //height: 26px;
 }
 
 .btn-group-justified > button.btn {

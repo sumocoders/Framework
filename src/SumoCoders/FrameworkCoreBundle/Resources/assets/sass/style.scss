@@ -1,21 +1,21 @@
-/* Variables / configuration */
-@import "variables";
+// Variables / configuration
+@import 'variables';
 
-/* Mixins */
-@import "mixins";
+// Mixins
+@import 'mixins';
 
-/* jQuery*/
-@import "jquery";
+// jQuery
+@import 'jquery';
 
-/* Include bootstrap */
-@import "bootstrap-variables";
-@import "bootstrap-imports";
+// Include bootstrap
+@import 'bootstrap-variables';
+@import 'bootstrap-imports';
 
-/* Theme related */
-@import "theme";
+// Theme related
+@import 'theme';
 
-/* Layouts */
-@import "layouts";
+// Layouts
+@import 'layouts';
 
-/* Components */
-@import "components";
+// Components
+@import 'components';

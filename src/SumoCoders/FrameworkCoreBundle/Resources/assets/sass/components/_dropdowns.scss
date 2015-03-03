@@ -1,17 +1,13 @@
-/**
- * Defining components dropdowns
- * States: Error, warning, succes, ...
- */
-
 // Dropdowns
 .dropdown {
   ul {
-    box-shadow: none;
     background: #f9f9f9;
     border-color: #cccdd7;
+    box-shadow: none;
   }
+
   a {
-    border-bottom: none;
+    border-bottom: 0;
   }
 }
 

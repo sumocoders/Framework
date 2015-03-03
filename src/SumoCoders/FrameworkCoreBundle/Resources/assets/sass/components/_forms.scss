@@ -1,39 +1,25 @@
-/**
- * Defining forms
- * States: Error, warning, succes, ...
- */
-
-label abbr[title], label abbr[data-original-title] {
-  border: none;
+label abbr[title],
+label abbr[data-original-title] {
+  border: 0;
 }
 
 .form-control {
   background: #f8f9fc;
   box-shadow: none;
-  //height: 45px;
   padding: 6px 10px;
-  //border: 2px solid #b6bcd0;
-  //width: 220px;
-  //max-width: 100%;
+
+  &.input-sm {
+    font-size: 12px;
+  }
+
+  &.input-lg {
+    font-size: 18px;
+  }
 }
 
 .form-control:focus {
-  box-shadow: none;
   border: 2px solid #747e9f;
-}
-
-.form-control.input-sm {
-  font-size: 12px;
-  // height: 30px;
-  // line-height: 1.5;
-  // padding: 5px 10px;
-}
-
-.form-control.input-lg {
-  font-size: 18px;
-  // height: 46px;
-  // line-height: 1.33;
-  // padding: 10px 16px;
+  box-shadow: none;
 }
 
 input:focus:invalid:focus {
@@ -45,18 +31,20 @@ input:focus:invalid:focus {
 }
 
 .form-horizontal {
-
   .has-feedback .form-control-feedback {
     margin-top: -7px;
     top: 50%;
   }
+
+  .checkbox {
+    margin-bottom: 20px;
+  }
 }
 
-input, button, select, textarea {
-  line-height: 21px;
+input,
+button,
+select,
+textarea {
   font-weight: normal;
-}
-
-.form-horizontal .checkbox {
-  margin-bottom: 20px;
+  line-height: 21px;
 }

@@ -1,13 +1,13 @@
-/* Scaffolding */
+// Scaffolding
 $bodyBackground: #e4e5ec;
 $textColor: #6b798d;
 $brand-red: #e84914;
 
-/* Links */
+// Links
 $textLinkColor: #0088cc;
 $textLinkColorHover: darken($textLinkColor, 15%);
 
-/* Typography */
+// Typography
 $sansFontFamily: "dosis-medium", Helvetica, Arial, sans-serif;
 $serifFontFamily: Georgia, "Times New Roman", Times, serif;
 $monoFontFamily: Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -16,12 +16,13 @@ $monoFontFamily: Menlo, Monaco, Consolas, "Courier New", monospace;
 $baseFont: 14px;
 $baseFontSize: 14px;
 $baseFontFamily: $sansFontFamily;
+
 // Set base line-height (without px) so it can be used with the font-size mixin
 $baseLine: 20;
 $baseLineHeight: 20px;
 $altFontFamily: $serifFontFamily;
 
-/* Sprite icons path */
+// Sprite icons path
 //$iconSpritePath: image-url("glyphicons-halflings.png", true);
 //$iconWhiteSpritePath: image-url("glyphicons-halflings-white.png", true);
 
