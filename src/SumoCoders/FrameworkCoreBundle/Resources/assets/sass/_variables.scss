@@ -1,21 +1,13 @@
 // Scaffolding
-$bodyBackground: #e4e5ec;
-$textColor: #6b798d;
 $brand-red: #e84914;
 
 // Links
 $textLinkColor: #0088cc;
 $textLinkColorHover: darken($textLinkColor, 15%);
 
-// Typography
-$sansFontFamily: "dosis-medium", Helvetica, Arial, sans-serif;
-$serifFontFamily: Georgia, "Times New Roman", Times, serif;
-$monoFontFamily: Menlo, Monaco, Consolas, "Courier New", monospace;
-
 // Set base line-height (without px) so it can be used with the font-size mixin
 $baseLine: 20;
 $baseLineHeight: 20px;
-$altFontFamily: $serifFontFamily;
 
 // Sprite icons path
 //$iconSpritePath: image-url("glyphicons-halflings.png", true);

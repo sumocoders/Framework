@@ -39,7 +39,7 @@ a {
   }
 
   &:focus {
-    background-color: shade($bodyBackground, 10%);
+    background-color: shade($gray-lighter, 10%);
     border-radius: 3px;
     color: $textLinkColorHover;
     transition-duration: 500ms;
@@ -83,31 +83,19 @@ h6 {
 }
 
 h1 {
-  @include font-size(25);
   color: #464242;
 }
 
 h2 {
-  @include font-size(21);
   color: #577385;
 }
 
 h3 {
-  @include font-size(17);
   color: #8d94ab;
 }
 
 h4 {
-  @include font-size(15);
   margin-bottom: 10.5px;
-}
-
-h5 {
-  @include font-size(14);
-}
-
-h6 {
-  @include font-size(12);
 }
 
 @media screen and (min-width: 767px) {
@@ -157,4 +145,5 @@ h6 {
 .text-info {
   color: #6b798d;
 }
+
 
