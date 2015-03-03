@@ -85,7 +85,7 @@ body {
 
   h2 {
     color: #fff;
-    font-size: 1.2 * $baseFont;
+    font-size: $font-size-base * 1.2;
     font-weight: bold;
     margin-top: 22px;
     text-transform: uppercase;
@@ -133,7 +133,7 @@ body {
           box-sizing: border-box;
           color: #1f2024;
           display: block;
-          font-size: 1.29 * $baseFontSize;
+          font-size: $font-size-base * 1.29;
           height: 65px;
           line-height: 65px;
           margin-bottom: 4px;
@@ -286,7 +286,7 @@ body {
     }
 
     h2 {
-      font-size: 1.71 * $baseFont;
+      font-size: $font-size-base * 1.71;
     }
 
     .actions {

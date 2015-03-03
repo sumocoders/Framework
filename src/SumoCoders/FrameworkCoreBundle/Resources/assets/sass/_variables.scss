@@ -12,11 +12,6 @@ $sansFontFamily: "dosis-medium", Helvetica, Arial, sans-serif;
 $serifFontFamily: Georgia, "Times New Roman", Times, serif;
 $monoFontFamily: Menlo, Monaco, Consolas, "Courier New", monospace;
 
-// Set base font
-$baseFont: 14px;
-$baseFontSize: 14px;
-$baseFontFamily: $sansFontFamily;
-
 // Set base line-height (without px) so it can be used with the font-size mixin
 $baseLine: 20;
 $baseLineHeight: 20px;

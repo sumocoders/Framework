@@ -37,7 +37,7 @@
 
       &#user > a {
         color: #464242;
-        font-size: 1.29 * $baseFontSize;
+        font-size: $font-size-base * 1.29;
         font-weight: bold;
         padding-top: 19px;
         position: relative;
