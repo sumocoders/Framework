@@ -37,7 +37,7 @@ module.exports = (grunt) ->
     sass:
       dev:
         options:
-          style: 'expanded'
+          outputStyle: 'expanded'
           lineNumbers: true
           includePaths: [
             '<%= webAssetsPath %>/vendor/bootstrap-sass/assets/stylesheets'
@@ -51,7 +51,7 @@ module.exports = (grunt) ->
         ]
       dist:
         options:
-          style: 'compressed'
+          outputStyle: 'compressed'
         files: [
           expand: true
           cwd: '<%= assetsPath %>/sass'
