@@ -1,15 +1,10 @@
-// Links
-a:hover {
-  text-decoration: none;
-}
-
 // Ajax spinner
 #ajaxSpinner {
   display: none;
 }
 
 .logo {
-  background-color: $brand-red;
+  background-color: $brand-danger;
   background-position: center center;
   background-size: 100px auto;
   border: 0;

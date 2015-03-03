@@ -1,51 +1,6 @@
-/**
- * Defining typography
- */
-
-a {
-  border-bottom: 1px solid $textLinkColor;
-
-  &:hover {
-    border-bottom: 1px solid $textLinkColorHover;
-  }
-
-  &.iconLink,
-  &.iconLink:hover {
-    border: 0;
-  }
-}
-
-.content a {
-  border-bottom: 1px solid $textLinkColor;
-  color: $textLinkColor;
-  padding: 1px;
-
-  &:visited {
-    border: 0;
-    color: darken($textLinkColor, 7%);
-  }
-
-  &:hover {
-    border-bottom: 1px solid $textLinkColorHover;
-    color: $textLinkColorHover;
-    text-decoration: none;
-    transition-duration: 500ms;
-    transition-property: 'color, border';
-    transition-timing-function: ease-in;
-  }
-
-  &:active {
-    color: $textLinkColor;
-  }
-
-  &:focus {
-    background-color: shade($gray-lighter, 10%);
-    border-radius: 3px;
-    color: $textLinkColorHover;
-    transition-duration: 500ms;
-    transition-property: background;
-    transition-timing-function: ease-in;
-  }
+.content a:focus {
+  background-color: shade($gray-lighter, 10%);
+  border-radius: 3px;
 }
 
 h1,
