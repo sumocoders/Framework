@@ -1,5 +1,5 @@
 .content a:focus {
-  background-color: shade($gray-lighter, 10%);
+  background-color: shade($gray-lightest, 10%);
   border-radius: 3px;
 }
 
@@ -38,15 +38,11 @@ h6 {
 }
 
 h1 {
-  color: #464242;
+  color: $gray-dark;
 }
 
 h2 {
   color: #577385;
-}
-
-h3 {
-  color: #8d94ab;
 }
 
 h4 {

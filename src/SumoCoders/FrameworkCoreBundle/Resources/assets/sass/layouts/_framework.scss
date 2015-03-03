@@ -1,10 +1,8 @@
 body {
-  background: #fff;
-
   &.login,
   &.forgot_password,
   &.reset_password {
-    background: #e4e5ec;
+    background: $gray-lightest;
   }
 }
 
@@ -22,7 +20,7 @@ body {
   &:hover,
   &.ui-state-focus {
     background: #dfdfdf;
-    color: #393b42;
+    color: $gray-dark;
     text-shadow: none;
   }
 }
@@ -53,7 +51,7 @@ body {
 
 #header,
 .taskbar {
-  background: #393b42;
+  background: $gray-dark;
   box-sizing: border-box;
   height: 65px;
   position: fixed;
@@ -61,7 +59,7 @@ body {
   z-index: 99;
 
   &.progress-striped .progress-bar {
-    background-color: #393b42;
+    background-color: $gray-dark;
   }
 
   .container {
@@ -128,10 +126,10 @@ body {
 
       li {
         a {
-          background-color: #1f2024;
+          background-color: $gray-darker;
           border: none;
           box-sizing: border-box;
-          color: #1f2024;
+          color: $gray-darker;
           display: block;
           font-size: $font-size-base * 1.29;
           height: 65px;
@@ -192,7 +190,7 @@ body {
 }
 
 .taskbar {
-  background-color: #babbc0;
+  background-color: $gray-lighter;
   margin: 30px 0 40px;
   position: relative;
 

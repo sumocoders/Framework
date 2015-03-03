@@ -1,24 +1,6 @@
-/**
- * Defining buttons & add-ons
- * States: Error, warning, succes, ...
- */
-
 .btn {
-  background-color: #4ab0ce;
-  border-color: transparent;
-  border-radius: 2px;
-  box-shadow: none;
-  color: #fff;
-  font-size: $font-size-base;
-  font-weight: bold;
-
-  &:hover {
-    background-color: darken(#4ab0ce, 10%);
-    border-color: transparent;
-    color: #fff;
-    transition: all 150ms;
-
-  }
+  border: 0;
+  transition: all 150ms;
 
   &.icon-arrow-white-right {
     background-position: right 20px center;
@@ -26,68 +8,20 @@
 
   .caret {
     border-top-color: #fff;
-    //margin-top: 21px;
-  }
-
-  // States
-  &.btn-primary {
-    background: #3dae50;
-
-    &:hover {
-      background: darken(#3dae50, 10%);
-    }
-  }
-
-  &.btn-info {
-    background: #747e9f;
-
-    &:hover {
-      background: darken(#747e9f, 10%);
-    }
-  }
-
-  &.btn-success {
-    background: #5bb75b;
-
-    &:hover {
-      background: darken(#5bb75b, 10%);
-    }
-  }
-
-  &.btn-warning {
-    background: #f9a834;
-
-    &:hover {
-      background: darken(#f9a834, 10%);
-    }
-  }
-
-  &.btn-danger {
-    background: #db4f4a;
-
-    &:hover {
-      background: darken(#db4f4a, 10%);
-    }
   }
 
   &.btn-link {
     background: none;
-    color: #666;
-  }
-
-  &[disabled],
-  &.disabled {
-    border-color: transparent;
+    color: $gray-light;
   }
 }
 
-.btn-group {
-  .btn {
-    margin-bottom: 2px;
-    margin-right: 2px;
-  }
+.btn-group .btn {
+  margin-bottom: 2px;
+  margin-right: 2px;
 }
 
 .btn-group-justified > button.btn {
   width: auto;
 }
+
