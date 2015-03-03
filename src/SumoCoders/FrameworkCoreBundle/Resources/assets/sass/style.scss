@@ -8,7 +8,8 @@
 @import "jquery";
 
 /* Include bootstrap */
-@import "../../web/assets/vendor/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bootstrap-variables";
+@import "bootstrap-imports";
 
 /* Theme related */
 @import "theme";

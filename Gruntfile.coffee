@@ -39,6 +39,9 @@ module.exports = (grunt) ->
         options:
           style: 'expanded'
           lineNumbers: true
+          includePaths: [
+            '<%= webAssetsPath %>/vendor/bootstrap-sass/assets/stylesheets'
+          ]
         files: [
           expand: true
           cwd: '<%= assetsPath %>/sass'
