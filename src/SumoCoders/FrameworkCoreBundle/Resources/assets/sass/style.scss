@@ -1,21 +1,39 @@
-// Variables / configuration
 @import 'variables';
-
-// Mixins
 @import 'mixins';
+@import 'fonts';
 
 // jQuery
-@import 'jquery';
+@import 'jquery/jquery_plugins';
+@import 'jquery/jquery-ui';
 
 // Include bootstrap
 @import 'bootstrap-variables';
 @import 'bootstrap-imports';
 
 // Theme related
-@import 'theme';
+@import 'theme/typography';
+@import 'theme/font-awesome';
+@import 'theme/glyphicons';
+@import 'theme/keyframes';
+@import 'theme/icons';
 
 // Layouts
-@import 'layouts';
+@import 'layouts/framework';
 
 // Components
-@import 'components';
+@import 'components/alerts';
+@import 'components/btn';
+@import 'components/datagrids';
+@import 'components/dropdowns';
+@import 'components/forms';
+@import 'components/input-groups';
+@import 'components/misc';
+@import 'components/navbar';
+@import 'components/navs';
+@import 'components/panels';
+@import 'components/progress';
+@import 'components/search';
+@import 'components/tables';
+@import 'components/tagbox';
+@import 'components/user';
+

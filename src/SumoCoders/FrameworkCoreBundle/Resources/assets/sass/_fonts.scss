@@ -1,5 +1,4 @@
 // Import files from the theme folder and fonts
-
 @font-face {
   font-family: 'dosis-bold';
   src: url('../fonts/dosis-bold.eot');
@@ -81,8 +80,4 @@ $opensans-regular-webfont: 'opensans-regular-webfont';
 }
 $opensans-semibold-webfont: 'opensans-semibold-webfont';
 
-@import 'theme/typography';
-@import 'theme/font-awesome';
-@import 'theme/glyphicons';
-@import 'theme/keyframes';
-@import 'theme/icons';
+
