@@ -24,24 +24,6 @@ When you start you should initialize the migrations:
 
     app/console doctrine:migrations:status
 
-## Error handling
-
-Enable the FrameworkErrorBundle in the kernel, just add it in production mode, as this bundle
-is intended to handle errors so our visitors don't freak out.
-
-```php
-<?php
-// app/AppKernel.php
-
-public function registerBundles()
-{
-    // ...
-    if (in_array($this->getEnvironment(), array('prod'))) {
-        $bundles[] = new SumoCoders\FrameworkErrorBundle\SumoCodersFrameworkErrorBundle();
-    }
-}
-```
-
 ## Bootstrap integration
 
 We use ...
