@@ -55,22 +55,24 @@ class JsDataTest extends \PHPUnit_Framework_TestCase
     public function testGet()
     {
         $this->jsData->setRequestStack($this->getRequestStack());
-        $this->assertEquals('nl', $this->jsData->get('request.locale'));
+        $this->assertEquals('nl', $this->jsData->get('request[locale]', null, true));
     }
 
     /**
      * Test jsData->parse()
      */
-    public function testParse()
+    public function testToString()
     {
         $data = array();
-        $var = $this->jsData->parse();
+        $var = (string) $this->jsData;
         $this->assertEquals(json_encode($data), $var);
 
+        $request = new \stdClass();
+        $request->locale = 'nl';
         $data = new \stdClass();
-        $data->{'request.locale'} = 'nl';
+        $data->request = $request;
         $this->jsData->setRequestStack($this->getRequestStack());
-        $var = $this->jsData->parse();
+        $var = (string) $this->jsData;
         $this->assertEquals(json_encode($data), $var);
     }
 }

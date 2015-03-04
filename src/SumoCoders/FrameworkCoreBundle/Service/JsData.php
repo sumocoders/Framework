@@ -2,6 +2,7 @@
 
 namespace SumoCoders\FrameworkCoreBundle\Service;
 
+use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -9,7 +10,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
  *
  * @package SumoCoders\FrameworkCoreBundle\Service
  */
-class JsData extends KeyValueStore
+class JsData extends ParameterBag
 {
     /**
      * @var \Symfony\Component\HttpFoundation\RequestStack
@@ -33,17 +34,21 @@ class JsData extends KeyValueStore
         $currentRequest = $this->requestStack->getCurrentRequest();
 
         if ($currentRequest) {
-            $this->add('request.locale', $currentRequest->getLocale());
+            $requestData = array(
+                'locale' => $currentRequest->getLocale(),
+            );
+
+            $this->set('request', $requestData);
         }
     }
 
     /**
-     * Parse into data
+     * Parse into string
      *
      * @return string
      */
-    public function parse()
+    public function __toString()
     {
-        return json_encode($this->data);
+        return json_encode($this->all());
     }
 }
