@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>no-items</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="no-items" sketch:type="MSArtboardGroup" fill="#000000">
+            <g sketch:type="MSLayerGroup" transform="translate(10.000000, 0.000000)" id="Group">
+                <g sketch:type="MSShapeGroup">
+                    <path d="M81,8.5 C81,3.8 77.2,0 72.5,0 L8.6,0 C3.9,0 0.1,3.8 0.1,8.5 L0.1,91.5 C0.1,96.2 3.9,100 8.6,100 L72.5,100 C77.2,100 81,96.2 81,91.5 L81,8.5 L81,8.5 Z M71.1,90.1 L11.2,90.1 L11.2,9.8 L71.1,9.8 L71.1,90.1 L71.1,90.1 Z" id="Shape"></path>
+                    <rect id="Rectangle-path" x="15.2" y="17.1" width="28.9" height="7.9"></rect>
+                    <rect id="Rectangle-path" opacity="0.8" x="15.2" y="28.9" width="52" height="5.9"></rect>
+                    <rect id="Rectangle-path" opacity="0.8" x="15.2" y="38.2" width="52" height="5.9"></rect>
+                    <rect id="Rectangle-path" opacity="0.8" x="15.2" y="48" width="52" height="5.9"></rect>
+                    <rect id="Rectangle-path" opacity="0.8" x="15.2" y="57.9" width="52" height="5.3"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
