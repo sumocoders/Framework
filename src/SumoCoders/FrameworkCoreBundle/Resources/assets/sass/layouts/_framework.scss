@@ -67,10 +67,10 @@ body {
   }
 
   #toggleMenu {
-    background-size: 30px auto;
+    color: #fff;
     display: inline-block;
     float: left;
-    font-family: 0/0;
+    font-size: 26px;
     height: 24px;
     margin: 19px 16px 0 0;
     width: 30px;
@@ -99,18 +99,18 @@ body {
 
     .dropdownToggle {
       background-color: rgba(0, 0, 0, .46);
-      background-position: center center;
-      background-size: 30px auto;
-      border: 0;
+      color: #fff;
       display: block;
       float: right;
-      font-family: 0/0;
+      font-size: 30px;
       height: 65px;
+      line-height: 65px;
       margin-bottom: 4px;
+      text-align: center;
       width: 70px;
 
       &:hover {
-        border: 0;
+        text-decoration: none;
       }
     }
 
