@@ -28,18 +28,12 @@
 
   .btn {
     background-color: #2c2d34;
+    color: $gray-lightest;
+    font-size: 20px;
     height: 65px;
     position: absolute;
     right: 0;
     top: 0;
-  }
-
-  .icon-search {
-    background-position: center center;
-    background-size: 20px auto;
-    display: block;
-    height: 100%;
-    width: 20px;
   }
 }
 

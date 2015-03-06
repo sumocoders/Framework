@@ -16,6 +16,13 @@
   }
 }
 
+.btn-arrow-right:after {
+  @extend .icon;
+  @extend .icon-arrow-right:before;
+  float: right;
+  margin-top: 2px;
+}
+
 .btn-group .btn {
   margin-bottom: 2px;
   margin-right: 2px;

@@ -13,9 +13,17 @@
   }
 
   .nav {
+    .toggleSubNavigation:after {
+      @extend .icon;
+      @extend .icon-subnav:before;
+      color: $gray-lighter;
+      float: right;
+      font-size: 15px;
+      margin-top: 6px;
+    }
 
     li {
-      border-bottom: 2px solid #c0c4d3;
+      border-bottom: 2px solid $gray-lighter;
 
       a {
         color: #8d94ab;

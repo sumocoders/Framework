@@ -141,42 +141,12 @@ body {
           transition: all 500ms;
           white-space: nowrap;
 
-          &.icon-list {
-            background-position: 22px center;
+          &:before {
+            color: #fff;
+            margin-left: -45px;
+            margin-right: 20px;
           }
 
-          &.icon-print {
-            background-position: 23px center;
-          }
-
-          &.icon-add {
-            background-position: 26px center;
-            background-size: 22px auto;
-          }
-
-          &.icon-import {
-            background-position: 26px center;
-          }
-
-          &.icon-contacts {
-            background-position: 26px center;
-          }
-
-          &.icon-vcard {
-            background-position: 26px center;
-          }
-
-          &.icon-preview {
-            background-position: 23px center;
-          }
-
-          &.icon-edit {
-            background-position: 23px center;
-          }
-
-          &.icon-delete {
-            background-position: 23px center;
-          }
         }
 
         &:hover a {
@@ -203,18 +173,6 @@ body {
       a {
         background-color: #8c8d94;
         color: #8c8d94;
-
-        &.icon-list {
-          background-color: #8c8d94;
-        }
-
-        &.icon-print {
-          background-color: #8c8d94;
-        }
-
-        &.icon-add {
-          background-color: #8c8d94;
-        }
       }
 
       &:hover a {

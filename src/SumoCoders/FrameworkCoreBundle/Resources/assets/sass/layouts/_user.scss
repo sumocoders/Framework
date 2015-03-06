@@ -42,12 +42,11 @@
         background-color: #b6bcd0;
         background-position: center center;
 
-        &.icon-user {
-          background-size: 26px auto;
-        }
-
+        &.icon-user,
         &.icon-lock {
-          background-size: 21px auto;
+          color: $gray-light;
+          font-size: 24px;
+          line-height: 44px;
         }
       }
 

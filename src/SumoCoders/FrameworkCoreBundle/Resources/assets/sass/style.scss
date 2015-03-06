@@ -3,10 +3,11 @@
 @import 'bootstrap-imports';
 
 // Base
-@import 'variables';
 @import 'base/fonts';
-@import 'base/glyphicons';
 @import 'base/icons';
+@import 'font-awesome/scss/font-awesome';
+
+// Custom icon font generated with grunt-webfont
 @import 'icons';
 
 // Plugins

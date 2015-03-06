@@ -1,22 +1,4 @@
 @font-face {
-  font-family: 'fontawesome-webfont';
-  src: url('../fonts/fontawesome-webfont.eot');
-  src: url('../fonts/fontawesome-webfont.eot?v=3.0.1?&1389001132#iefix') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-$fontawesome-webfont: 'fontawesome-webfont';
-
-@font-face {
-  font-family: 'glyphicons-halflings-regular';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?v=3.0.1?&1389001132#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-$glyphicons-halflings-regular: 'glyphicons-halflings-regular';
-
-@font-face {
   font-family: 'Open Sans';
   src: url('../fonts/opensans-bold-webfont.eot');
   src: url('../fonts/opensans-bold-webfont.eot?v=3.0.1?&1389001132#iefix') format('embedded-opentype'), url('../fonts/opensans-bold-webfont.woff') format('woff'), url('../fonts/opensans-bold-webfont.ttf') format('truetype');

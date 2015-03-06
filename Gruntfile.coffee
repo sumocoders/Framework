@@ -37,6 +37,7 @@ module.exports = (grunt) ->
     sass:
       options:
         includePaths: [
+          '<%= webAssetsPath %>/vendor'
           '<%= webAssetsPath %>/vendor/bootstrap-sass/assets/stylesheets'
         ]
       dev:
