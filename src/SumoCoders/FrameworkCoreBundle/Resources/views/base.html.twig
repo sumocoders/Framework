@@ -34,6 +34,7 @@
         <![endif]-->
         <!--[if !IE]> -->
             {% stylesheets
+                'assets/vendor/select2/select2.css'
                 'assets/css/style.css'
                 filter='cssrewrite'
                 output='css/style.css'
@@ -72,6 +73,7 @@
             'assets/vendor/modernizr/modernizr.js'
             'assets/vendor/respond/dest/respond.min.js'
             'assets/vendor/jquery-ui/jquery-ui.min.js'
+            'assets/vendor/select2/select2.min.js'
             'assets/icons/grunticon.loader.js'
             'assets/js/frameworkcorebundle.grunticon.js'
             output='js/vendors.js'
@@ -148,6 +150,15 @@
                 <div class="container">
                     {% block main %}
                     {% endblock %}
+                    <select id="select2" name="select2">
+                      <option value="ql">Alabama</option>
+                      <option value="al">Wyoming</option>
+                    </select>
+                    <script>
+                      $(document).ready(function(){
+                        $('#select2').select2();
+                      });
+                    </script>
                 </div>
             </section>
         </div>
