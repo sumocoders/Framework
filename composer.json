@@ -35,9 +35,10 @@
         "sumocoders/framework-search-bundle": "~1.0"
     },
     "require-dev": {
+        "phpunit/phpunit": "4.*",
         "composer/composer": "1.0.*@dev",
         "sensio/generator-bundle": "~2.5",
-        "phpunit/phpunit": "4.*"
+        "doctrine/doctrine-fixtures-bundle": "2.2.*"
     },
     "scripts": {
         "post-install-cmd": [
