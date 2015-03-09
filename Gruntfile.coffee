@@ -35,9 +35,14 @@ module.exports = (grunt) ->
 
     # Sass configuration
     sass:
+      options:
+        includePaths: [
+          '<%= webAssetsPath %>/vendor'
+          '<%= webAssetsPath %>/vendor/bootstrap-sass/assets/stylesheets'
+        ]
       dev:
         options:
-          style: 'expanded'
+          outputStyle: 'expanded'
           lineNumbers: true
         files: [
           expand: true
@@ -48,7 +53,7 @@ module.exports = (grunt) ->
         ]
       dist:
         options:
-          style: 'compressed'
+          outputStyle: 'compressed'
         files: [
           expand: true
           cwd: '<%= assetsPath %>/sass'
@@ -78,6 +83,8 @@ module.exports = (grunt) ->
           src: [
             '<%= assetsPath %>/fonts/**/*.ttf'
             '<%= assetsPath %>/fonts/**/*.eot'
+            '!<%= assetsPath %>/fonts/icons.eot'
+            '!<%= assetsPath %>/fonts/icons.ttf'
           ]
           dest: '<%= webAssetsPath %>/fonts/'
           rename: (dest, src) ->
@@ -134,12 +141,26 @@ module.exports = (grunt) ->
         files: [
           expand: true
           src: [
-            'src/**/Resources/assets/icons/*.svg'
-            'src/**/Resources/assets/icons/*.png'
+            'src/**/Resources/assets/icon-embed/*.svg'
+            'src/**/Resources/assets/icon-embed/*.png'
           ]
           dest: '<%= webAssetsPath %>/icons/'
         ]
 
+    # Webfont configuration
+    webfont:
+      all:
+        src:  [
+          'src/**/Resources/assets/icon-font/*'
+        ]
+        dest: '<%= assetsPath %>/fonts/'
+        destCss: '<%= assetsPath %>/sass/'
+        options:
+          stylesheet: 'scss'
+          htmlDemo: false
+          templateOptions:
+            classPrefix: 'icon-'
+    
     # Shell config
     shell:
       options:
@@ -174,6 +195,12 @@ module.exports = (grunt) ->
               newPathName = chunk.toLowerCase() + '.' + newPathName
 
           dest + newPathName
+      iconfont:
+        expand: true
+        src: [
+          '<%= assetsPath %>/fonts/icons.{svg,eot,ttf,woff}'
+        ]
+        dest: 'web/'
       fonts:
         expand: true
         updateAndDelete: true
@@ -213,7 +240,7 @@ module.exports = (grunt) ->
           dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
       sass:
         expand: true
-        updateAndDelete: true
+        updateAndDelete: false
         dest: '<%= assetsPath %>/sass/'
         filter: 'isFile'
         src:  [
@@ -259,10 +286,18 @@ module.exports = (grunt) ->
         ]
         options:
           livereload: true
-      # Watch the icon files so we can (re)generate the iconfont
-      icons:
+      iconfont:
         files: [
-          'src/**/Resources/assets/icons/**'
+          'src/**/Resources/assets/icon-font/**'
+        ]
+        tasks: [
+          'iconfont'
+        ]
+        options:
+          livereload: true
+      grunticon:
+        files: [
+          'src/**/Resources/assets/icon-embed/**'
         ]
         tasks: [
           'grunticon'
@@ -291,6 +326,11 @@ module.exports = (grunt) ->
     'fontgen'
     'copy:glyphiconsWoff2'
     'clean:afterFontgen'
+  ]
+
+  grunt.registerTask 'iconfont', [
+    'webfont'
+    'sync:iconfont'
   ]
 
   # Generate the css-files
@@ -343,5 +383,6 @@ module.exports = (grunt) ->
   # Production task
   grunt.registerTask 'build', [
     'concurrent:syncFiles'
+    'iconfont'
     'concurrent:generateAssets'
   ]

@@ -1,0 +1,26 @@
+.progress {
+  margin-bottom: 0;
+  overflow: visible;
+
+  .progress-bar {
+    background-size: 100px 100px;
+    text-align: left;
+    width: 100%;
+  }
+
+  &.active .progress-bar {
+    animation: loadingProgressBar 2s linear 0s infinite;
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .progress .progress-bar {
+    width: 100%;
+  }
+}
+
+@keyframes loadingProgressBar {
+  from { background-position: 100px 0; }
+  to { background-position: 0 0; }
+}
+

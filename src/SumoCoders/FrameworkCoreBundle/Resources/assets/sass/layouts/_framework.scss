@@ -1,10 +1,8 @@
 body {
-  background: #fff;
-  font-family: $opensans-regular-webfont;
-  //overflow: hidden;
-
-  &.login, &.forgot_password, &.reset_password {
-    background: #e4e5ec;
+  &.login,
+  &.forgot_password,
+  &.reset_password {
+    background: $gray-lightest;
   }
 }
 
@@ -13,23 +11,17 @@ body {
   border-radius: 0;
 }
 
-.ui-menu {
+.ui-menu .ui-menu-item a {
+  border-bottom: 1px solid #aaa;
+  cursor: pointer;
+  padding: 10px;
+  text-shadow: none;
 
-  .ui-menu-item {
-
-    a {
-      border-bottom: 1px solid #aaa;
-      padding: 10px;
-      text-shadow: none;
-      cursor: pointer;
-
-      &:hover,
-      &.ui-state-focus {
-        background: #dfdfdf;
-        color: #393b42;
-        text-shadow: none;
-      }
-    }
+  &:hover,
+  &.ui-state-focus {
+    background: #dfdfdf;
+    color: $gray-dark;
+    text-shadow: none;
   }
 }
 
@@ -38,43 +30,36 @@ body {
 }
 
 #contentWrap {
-  position: relative;
-  //overflow-x: hidden;
   @include clearfix;
+  position: relative;
 }
 
 #content {
-  position: relative;
-  z-index: 20;
-  background: #fff;
-  width: 100%;
-  transition: all 250ms;
+  background-color: #fff;
   float: right;
-  //overflow: scroll;
+  position: relative;
+  transition: all 250ms;
+  width: 100%;
+  z-index: 20;
 
   &.open {
     float: right;
     margin-right: -85%;
     transition: all 250ms;
-    //overflow: hidden;
   }
 }
 
 #header,
 .taskbar {
-  background: #393b42;
-  //padding-right: 0 25px;
-  position: fixed;
-  width: 100%;
+  background: $gray-dark;
   box-sizing: border-box;
   height: 65px;
+  position: fixed;
+  width: 100%;
   z-index: 99;
 
-  &.progress-striped {
-
-    .progress-bar {
-      background-color: #393b42;
-    }
+  &.progress-striped .progress-bar {
+    background-color: $gray-dark;
   }
 
   .container {
@@ -82,11 +67,11 @@ body {
   }
 
   #toggleMenu {
-    background-size: 30px auto;
+    color: #fff;
     display: inline-block;
     float: left;
+    font-size: 26px;
     height: 24px;
-    font-family: 0/0;
     margin: 19px 16px 0 0;
     width: 30px;
   }
@@ -98,111 +83,76 @@ body {
 
   h2 {
     color: #fff;
-    font-size: 1.2 * $baseFont;
-    text-transform: uppercase;
-    font-family: $opensans-bold-webfont;
+    font-size: $font-size-base * 1.2;
+    font-weight: bold;
     margin-top: 22px;
+    text-transform: uppercase;
   }
 
   .actions {
     float: right;
-    width: 25%;
-    position: relative;
     height: 65px;
-    z-index: 9999;
     margin-right: -25px;
+    position: relative;
+    width: 25%;
+    z-index: 9999;
 
     .dropdownToggle {
       background-color: rgba(0, 0, 0, .46);
-      background-size: 30px auto;
-      background-position: center center;
+      color: #fff;
       display: block;
-      font-family: 0/0;
-      height: 65px;
-      width: 70px;
-      margin-bottom: 4px;
       float: right;
-      border: none;
+      font-size: 30px;
+      height: 65px;
+      line-height: 65px;
+      margin-bottom: 4px;
+      text-align: center;
+      width: 70px;
 
       &:hover {
-        border: none;
+        text-decoration: none;
       }
     }
 
     ul {
-      position: absolute;
+      @include clearfix;
+      display: none;
+      list-style-type: none;
       margin: 0;
       padding: 0;
-      list-style-type: none;
-      @include clearfix;
+      position: absolute;
       right: 0;
       top: 69px;
-      display: none;
 
       li {
-
         a {
-          display: block;
-          background-color: #1f2024;
-          height: 65px;
-          //width: 65px;
-          padding-left: 70px;
-          margin-bottom: 4px;
-          transition: all 500ms;
-          box-sizing: border-box;
-          //font-family: $opensans-semibold-webfont;
-          font-size: 1.29 * $baseFontSize;
-          color: #1f2024;
+          background-color: $gray-darker;
           border: none;
-          text-decoration: none;
+          box-sizing: border-box;
+          color: $gray-darker;
+          display: block;
+          font-size: $font-size-base * 1.29;
+          height: 65px;
           line-height: 65px;
+          margin-bottom: 4px;
           overflow: hidden;
+          padding-left: 70px;
+          text-decoration: none;
+          transition: all 500ms;
           white-space: nowrap;
 
-          &.icon-list {
-            background-position: 22px center;
+          &:before {
+            color: #fff;
+            margin-left: -45px;
+            margin-right: 20px;
           }
 
-          &.icon-print {
-            background-position: 23px center;
-          }
-
-          &.icon-add {
-            background-position: 26px center;
-            background-size: 22px auto;
-          }
-
-          &.icon-import {
-            background-position: 26px center;
-          }
-
-          &.icon-contacts {
-            background-position: 26px center;
-          }
-
-          &.icon-vcard {
-            background-position: 26px center;
-          }
-
-          &.icon-preview {
-            background-position: 23px center;
-          }
-
-          &.icon-edit {
-            background-position: 23px center;
-          }
-
-          &.icon-delete {
-            background-position: 23px center;
-          }
         }
 
-        &:hover {
-          a {
-            background-color: #4ba75f;
-            color: #fff;
-            border: none;
-          }
+        &:hover a {
+          background-color: #4ba75f;
+          border: 0;
+          color: #fff;
         }
       }
     }
@@ -210,83 +160,62 @@ body {
 }
 
 .taskbar {
+  background-color: $gray-lighter;
+  margin: 30px 0 40px;
   position: relative;
-  background: #babbc0;
-  margin: 30px 0 40px 0;
 
   .actions {
-
     .dropdownToggle {
       background-color: #8c8d94;
     }
 
-    ul {
+    ul li {
+      a {
+        background-color: #8c8d94;
+        color: #8c8d94;
+      }
 
-      li {
-
-        a {
-          background-color: #8c8d94;
-          color: #8c8d94;
-
-          &.icon-list {
-            background-color: #8c8d94;
-          }
-
-          &.icon-print {
-            background-color: #8c8d94;
-          }
-
-          &.icon-add {
-            background-color: #8c8d94;
-          }
-        }
-
-        &:hover {
-          a {
-            color: #fff;
-          }
-        }
+      &:hover a {
+        color: #fff;
       }
     }
   }
-
 }
 
 #completeReminderModal {
   form {
     margin: 0;
   }
-  .controls {
-    textarea {
-      width: 100%;
-      box-sizing: border-box;
-    }
+
+  .controls textarea {
+    box-sizing: border-box;
+    width: 100%;
   }
 }
 
 #main {
-  padding-top: 120px;
   padding-bottom: 30px;
+  padding-top: 120px;
 }
 
 @media screen and (min-width: 767px) {
 
   .container {
-    width: 100%;
     padding: 0;
+    width: 100%;
   }
 
   #toggleTabletNavbar {
-    display: block;
-    position: fixed;
-    height: 100%;
-    width: 100px;
-    left: -50px;
     background-color: #1f2024;
     background-position: 60px center;
     background-size: 30px auto;
-    z-index: 25;
+    display: block;
+    height: 100%;
+    left: -50px;
+    position: fixed;
     transition: left 250ms;
+    width: 100px;
+    z-index: 25;
 
     &.open {
       left: 215px;
@@ -307,44 +236,40 @@ body {
     }
 
     .title {
-    float: left;
-    width: 55%;
-  }
+      float: left;
+      width: 55%;
+    }
 
     h2 {
-      font-size: 1.71 * $baseFont;
+      font-size: $font-size-base * 1.71;
     }
 
     .actions {
+      @include clearfix;
+      margin-right: 0;
       position: fixed;
       right: 0;
       width: 50%;
-      @include clearfix;
-      margin-right: 0;
 
       ul {
+        @include clearfix;
+        display: block !important;
         float: right;
+        height: auto;
+        list-style-type: none;
         margin: 0;
         padding: 0;
-        list-style-type: none;
-        @include clearfix;
         top: auto;
-        display: block !important;
-        height: auto;
 
         li {
           float: left;
 
           a {
             display: block;
-            //background: #1f2024;
             height: 65px;
-            margin-left: 4px;
-            //width: 65px;
-            width: auto;
             margin-bottom: 0;
-            //padding-right: 20px;
-
+            margin-left: 4px;
+            width: auto;
 
             &.icon-list {
               background-color: rgba(0,0,0,0.46);
@@ -359,22 +284,17 @@ body {
             }
           }
 
-          &:hover {
-            a {
-              background-color: #4ba75f;
-              padding-right: 20px;
-            }
+          &:hover a {
+            background-color: #4ba75f;
+            padding-right: 20px;
           }
         }
       }
     }
   }
 
-  .taskbar {
-
-    .actions {
-      position: absolute;
-    }
+  .taskbar .actions {
+    position: absolute;
   }
 
   #content {
@@ -387,12 +307,9 @@ body {
     }
   }
 
-  #main {
-
-    .container {
-      padding: 0 25px;
-      box-sizing: border-box;
-    }
+  #main .container {
+    box-sizing: border-box;
+    padding: 0 25px;
   }
 }
 
@@ -419,3 +336,4 @@ body {
     display: none;
   }
 }
+
