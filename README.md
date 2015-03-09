@@ -34,6 +34,7 @@ See [https://github.com/phiamo/MopaBootstrapBundle](https://github.com/phiamo/Mo
 
 * [Using Grunt](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/grunt.md)
 * [Deployment](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/deployment.md)
+* [Fixtures](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/fixtures.md)
 * [Database Changes/Migrations](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/migrations.md)
 * [Adding items into the menu/navigation](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/menu.md)
 * [Known issues](./src/SumCoders/FrameworkCoreBundle/Resources/doc/issues.md)
