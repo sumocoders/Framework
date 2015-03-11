@@ -23,7 +23,6 @@ class JsData extends ParameterBag
     public function setRequestStack(RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
-        $this->handleRequestStack();
     }
 
     /**
@@ -49,6 +48,8 @@ class JsData extends ParameterBag
      */
     public function __toString()
     {
+        $this->handleRequestStack();
+
         return json_encode($this->all());
     }
 }
