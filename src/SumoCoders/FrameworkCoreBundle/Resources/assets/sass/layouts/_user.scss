@@ -39,7 +39,7 @@
       }
 
       .input-group-addon {
-        background-color: #b6bcd0;
+        background-color: $gray-lighter;
         background-position: center center;
 
         &.icon-user,
@@ -60,7 +60,6 @@
 
       .form-control {
         border: 2px solid #b6bcd0;
-        font-size: $font-size-base;
         margin-left: -4px;
       }
     }
