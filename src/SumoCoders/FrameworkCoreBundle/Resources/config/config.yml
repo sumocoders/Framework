@@ -4,8 +4,8 @@ services:
     arguments: [%fallbacks%]
   framework.jsdata:
     class: SumoCoders\FrameworkCoreBundle\Service\JsData
-    calls:
-      - [setRequestStack, ["@request_stack"]]
+    arguments:
+      - "@request_stack"
   framework.menu_builder:
     class: SumoCoders\FrameworkCoreBundle\Menu\MenuBuilder
     calls:
