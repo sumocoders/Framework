@@ -20,7 +20,7 @@ class JsData extends ParameterBag
     /**
      * @param RequestStack $requestStack
      */
-    public function setRequestStack(RequestStack $requestStack)
+    public function __construct(RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
     }
