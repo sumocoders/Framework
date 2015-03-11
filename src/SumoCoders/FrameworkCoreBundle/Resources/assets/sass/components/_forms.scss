@@ -8,10 +8,6 @@ label abbr[data-original-title] {
   &:focus {
     box-shadow: none;
   }
-
-  &:focus {
-    border-color: $gray-light;
-  }
 }
 
 input:focus:invalid:focus {
