@@ -752,12 +752,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "fca67c4a5a6f4334e8b6a57410f7b386b012ab01"
+                "reference": "b8ed2683bf48cf13c92f80d99cb723ae28efb227"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/fca67c4a5a6f4334e8b6a57410f7b386b012ab01",
-                "reference": "fca67c4a5a6f4334e8b6a57410f7b386b012ab01",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/b8ed2683bf48cf13c92f80d99cb723ae28efb227",
+                "reference": "b8ed2683bf48cf13c92f80d99cb723ae28efb227",
                 "shasum": ""
             },
             "require": {
@@ -802,7 +802,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-03-06 20:53:13"
+            "time": "2015-03-13 10:18:59"
         },
         {
             "name": "doctrine/orm",
@@ -1409,7 +1409,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2074,17 +2074,17 @@
         },
         {
             "name": "sumocoders/framework-user-bundle",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "target-dir": "SumoCoders/FrameworkUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "cd4264e054d78d975e6d44a24a4516df5249f328"
+                "reference": "13ba19264531fde5b6492d6e2d9b9fe1a2300e5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/cd4264e054d78d975e6d44a24a4516df5249f328",
-                "reference": "cd4264e054d78d975e6d44a24a4516df5249f328",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/13ba19264531fde5b6492d6e2d9b9fe1a2300e5d",
+                "reference": "13ba19264531fde5b6492d6e2d9b9fe1a2300e5d",
                 "shasum": ""
             },
             "require": {
@@ -2116,7 +2116,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-03-03 10:51:18"
+            "time": "2015-03-16 11:23:37"
         },
         {
             "name": "swiftmailer/swiftmailer",
