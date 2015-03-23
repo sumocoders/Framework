@@ -1,1 +1,13 @@
 {% extends 'SumoCodersFrameworkCoreBundle::empty.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        'assets/css/project.css'
+        filter='cssrewrite'
+        output='css/project.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
