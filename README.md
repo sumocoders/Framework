@@ -32,6 +32,7 @@ See [https://github.com/phiamo/MopaBootstrapBundle](https://github.com/phiamo/Mo
 
 ## Other
 
+* [Project specific styles](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/project-specific-styles.md)
 * [Using Grunt](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/grunt.md)
 * [Deployment](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/deployment.md)
 * [Fixtures](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/fixtures.md)
