@@ -1,3 +1,6 @@
+// make sure we have to bootstrap first and overrule them with our values
+@import 'bootstrap/variables';
+
 // Bootstrap
 @import 'bootstrap-variables';
 @import 'bootstrap-imports';
