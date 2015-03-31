@@ -2,51 +2,46 @@
 
 namespace SumoCoders\FrameworkCoreBundle\EventListener;
 
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
-class DefaultMenuListener implements ContainerAwareInterface
+class DefaultMenuListener
 {
     /**
-     * @var ContainerInterface
+     * @var AuthorizationCheckerInterface
      */
-    private $container;
+    private $securityAuthorizationChecker;
 
     /**
-     * @var SecurityContext
+     * @var TokenStorageInterface
      */
-    private $securityContext;
+    private $securityTokenStorage;
 
     /**
-     * @param ContainerInterface $container
+     * @param AuthorizationCheckerInterface $securityAuthorizationChecker
+     * @param TokenStorageInterface         $securityTokenStorage
      */
-    public function __construct(ContainerInterface $container)
-    {
-        $this->setContainer($container);
+    public function __construct(
+        AuthorizationCheckerInterface $securityAuthorizationChecker,
+        TokenStorageInterface $securityTokenStorage
+    ) {
+        $this->securityAuthorizationChecker = $securityAuthorizationChecker;
+        $this->securityTokenStorage = $securityTokenStorage;
     }
 
     /**
-     * {@inheritdoc}
+     * @return AuthorizationCheckerInterface
      */
-    public function setContainer(ContainerInterface $container = null)
+    public function getSecurityAuthorizationChecker()
     {
-        $this->container = $container;
+        return $this->securityAuthorizationChecker;
     }
 
     /**
-     * @return \Symfony\Component\Security\Core\SecurityContext
+     * @return TokenStorageInterface
      */
-    public function getSecurityContext()
+    public function getSecurityTokenStorage()
     {
-        return $this->securityContext;
-    }
-
-    /**
-     * @param SecurityContext $securityContext
-     */
-    public function setSecurityContext(SecurityContext $securityContext)
-    {
-        $this->securityContext = $securityContext;
+        return $this->securityTokenStorage;
     }
 }

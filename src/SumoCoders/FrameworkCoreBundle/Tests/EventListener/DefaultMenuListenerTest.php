@@ -17,16 +17,19 @@ class DefaultMenuListenerTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->defaultMenuListener = new DefaultMenuListener(
-            $this->getContainer()
+            $this->getSecurityAuthorizationChecker(),
+            $this->getSecurityTokenStorage()
         );
     }
 
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    protected function getContainer()
+    protected function getSecurityAuthorizationChecker()
     {
-        $container = $this->getMock('\Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock(
+            '\Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface'
+        );
 
         return $container;
     }
@@ -34,10 +37,10 @@ class DefaultMenuListenerTest extends \PHPUnit_Framework_TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    protected function getSecurityContext()
+    protected function getSecurityTokenStorage()
     {
         $securityContext = $this->getMock(
-            '\Symfony\Component\Security\Core\SecurityContext',
+            'Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface',
             array(),
             array(),
             '',
@@ -60,8 +63,13 @@ class DefaultMenuListenerTest extends \PHPUnit_Framework_TestCase
      */
     public function testGettersAndSetters()
     {
-        $securityContext = $this->getSecurityContext();
-        $this->defaultMenuListener->setSecurityContext($securityContext);
-        $this->assertEquals($securityContext, $this->defaultMenuListener->getSecurityContext());
+        $securityAuthorizationChecker = $this->getSecurityAuthorizationChecker();
+        $this->assertEquals(
+            $securityAuthorizationChecker,
+            $this->defaultMenuListener->getSecurityAuthorizationChecker()
+        );
+
+        $securityTokenStorage = $this->getSecurityTokenStorage();
+        $this->assertEquals($securityTokenStorage, $this->defaultMenuListener->getSecurityTokenStorage());
     }
 }
