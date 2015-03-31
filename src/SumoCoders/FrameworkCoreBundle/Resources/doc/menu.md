@@ -53,8 +53,9 @@ Add the configuration
 services:
   framework_example.listener.menu_listener:
     class: SumoCoders\FrameworkExampleBundle\EventListener\MenuListener
-    calls:
-      - [setSecurityContext, ["@security.context"]]
+    arguments:
+      - @security.authorization_checker
+      - @security.token_storage
     tags:
       - { name: kernel.event_listener, event: framework_core.configure_menu, method: onConfigureMenu }
 ```

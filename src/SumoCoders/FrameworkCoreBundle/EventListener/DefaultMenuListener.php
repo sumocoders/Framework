@@ -2,30 +2,46 @@
 
 namespace SumoCoders\FrameworkCoreBundle\EventListener;
 
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class DefaultMenuListener
 {
     /**
-     * @var SecurityContext
+     * @var AuthorizationCheckerInterface
      */
-    private $securityContext;
+    private $securityAuthorizationChecker;
 
     /**
-     * @return \Symfony\Component\Security\Core\SecurityContext
+     * @var TokenStorageInterface
      */
-    public function getSecurityContext()
-    {
-        return $this->securityContext;
+    private $securityTokenStorage;
+
+    /**
+     * @param AuthorizationCheckerInterface $securityAuthorizationChecker
+     * @param TokenStorageInterface         $securityTokenStorage
+     */
+    public function __construct(
+        AuthorizationCheckerInterface $securityAuthorizationChecker,
+        TokenStorageInterface $securityTokenStorage
+    ) {
+        $this->securityAuthorizationChecker = $securityAuthorizationChecker;
+        $this->securityTokenStorage = $securityTokenStorage;
     }
 
     /**
-     * @param SecurityContext $securityContext
+     * @return AuthorizationCheckerInterface
      */
-    public function setSecurityContext(SecurityContext $securityContext)
+    public function getSecurityAuthorizationChecker()
     {
-        $this->securityContext = $securityContext;
+        return $this->securityAuthorizationChecker;
+    }
+
+    /**
+     * @return TokenStorageInterface
+     */
+    public function getSecurityTokenStorage()
+    {
+        return $this->securityTokenStorage;
     }
 }
