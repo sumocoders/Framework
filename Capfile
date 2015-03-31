@@ -4,7 +4,6 @@ set :client,  'xxx'
 set :project, 'xxx'
 set :repository,  "xxx"
 
-
 ### DO NOT EDIT BELOW ###
 
 require 'capifony_symfony2'

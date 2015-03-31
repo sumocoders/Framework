@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ app.request.locale }}">
 <head>
+    {{ errbit_notifier() }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -34,11 +35,12 @@
 
     {% block head_javascripts %}
         <script>
-            var jsData = {{ jsData.parse()|raw }};
+            var jsData = {{ jsData|raw }};
         </script>
 
         {% javascripts
             'assets/vendor/jquery/dist/jquery.min.js'
+            'assets/vendor/jquery-ui/jquery-ui.min.js'
             'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
             'assets/vendor/modernizr/modernizr.js'
             'assets/vendor/respond/dest/respond.min.js'

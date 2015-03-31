@@ -16,7 +16,22 @@ class Data
 
   get: (key) ->
     @initialize() if not @isInitialized
-    @data[key]
+
+    chunks = key.split '.'
+
+    return @data[key] if chunks.length == 1
+
+    value = @data[chunks[0]];
+    chunks.shift()
+
+    while chunks.length != 0
+      value = @_getDeeperValue chunks[0], value
+      chunks.shift();
+
+    value
+
+  _getDeeperValue: (key, value) ->
+    value[key]
 
 Data.current = new Data
 

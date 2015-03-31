@@ -16,7 +16,7 @@ class JsDataTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->jsData = new JsData();
+        $this->jsData = new JsData($this->getRequestStack());
     }
 
     /**
@@ -54,23 +54,17 @@ class JsDataTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet()
     {
-        $this->jsData->setRequestStack($this->getRequestStack());
-        $this->assertEquals('nl', $this->jsData->get('request.locale'));
+        // request is only parsed when fetching the data from the javascript
+        (string) $this->jsData;
+        $this->assertEquals('nl', $this->jsData->get('request[locale]', null, true));
     }
 
     /**
      * Test jsData->parse()
      */
-    public function testParse()
+    public function testToString()
     {
-        $data = array();
-        $var = $this->jsData->parse();
-        $this->assertEquals(json_encode($data), $var);
-
-        $data = new \stdClass();
-        $data->{'request.locale'} = 'nl';
-        $this->jsData->setRequestStack($this->getRequestStack());
-        $var = $this->jsData->parse();
-        $this->assertEquals(json_encode($data), $var);
+        $var = (string) $this->jsData;
+        $this->assertEquals('{"request":{"locale":"nl"}}', $var);
     }
 }

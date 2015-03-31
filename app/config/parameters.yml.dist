@@ -1,21 +1,28 @@
 # This file is auto-generated during the composer install
 parameters:
+    # Debug configuration
     debug_email:
 
+    # Database configuration
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: null
-    database_name: framework
-    database_user: root
+    database_name:
+    database_user:
     database_password:
 
+    # Mail configuration
     mailer_transport: mail
 
+    # Locale configuration
     locale: en
 
+    # Form configuration
     secret: ThisTokenIsNotSoSecretChangeIt
 
+    # Errbit configuration
     errbit_api_key:
 
+    # Fallback
     fallbacks:
         - site_title: 'Our little framework'

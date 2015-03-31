@@ -98,6 +98,6 @@ class MenuBuilderTest extends \PHPUnit_Framework_TestCase
         $this->menuBuilder->setFactory($this->getFactory());
         $this->menuBuilder->setEventDispatcher($this->getEventDispatcher());
 
-        $var = $this->menuBuilder->createMainMenu();
+        $this->menuBuilder->createMainMenu();
     }
 }

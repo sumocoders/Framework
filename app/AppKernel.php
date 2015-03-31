@@ -15,6 +15,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
@@ -23,10 +24,12 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Eo\AirbrakeBundle\EoAirbrakeBundle(),
 
             new SumoCoders\FrameworkCoreBundle\SumoCodersFrameworkCoreBundle(),
             new SumoCoders\FrameworkUserBundle\SumoCodersFrameworkUserBundle(),
             new SumoCoders\FrameworkSearchBundle\SumoCodersFrameworkSearchBundle(),
+            new SumoCoders\FrameworkErrorBundle\SumoCodersFrameworkErrorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -34,11 +37,7 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
-        }
-
-        if (in_array($this->getEnvironment(), array('prod'))) {
-            $bundles[] = new Redexperts\ErrbitBundle\RedexpertsErrbitBundle();
-            $bundles[] = new SumoCoders\FrameworkErrorBundle\SumoCodersFrameworkErrorBundle();
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 
         return $bundles;

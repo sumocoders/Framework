@@ -9,6 +9,7 @@
 /backups
 /bin/
 /composer.phar
+/coverage
 /node_modules
 /vendor/
 /web/*/locale.json
