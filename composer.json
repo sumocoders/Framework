@@ -61,6 +61,9 @@
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gruntBuild"
+        ],
+        "post-create-project-cmd": [
+            "app/console doctrine:migrations:migrate"
         ]
     },
     "config": {
