@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8e6dbd2387e61553e89cdd29dad50198",
+    "hash": "b2bf0db70dc44622f2e4053c83db8880",
     "packages": [
         {
             "name": "airbrake/airbrake-php",
@@ -2074,17 +2074,17 @@
         },
         {
             "name": "sumocoders/framework-user-bundle",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "target-dir": "SumoCoders/FrameworkUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "13ba19264531fde5b6492d6e2d9b9fe1a2300e5d"
+                "reference": "5aab3d6b17a6bec8e6532b9a951aba2dab4c0a43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/13ba19264531fde5b6492d6e2d9b9fe1a2300e5d",
-                "reference": "13ba19264531fde5b6492d6e2d9b9fe1a2300e5d",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/5aab3d6b17a6bec8e6532b9a951aba2dab4c0a43",
+                "reference": "5aab3d6b17a6bec8e6532b9a951aba2dab4c0a43",
                 "shasum": ""
             },
             "require": {
@@ -2116,7 +2116,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-03-16 11:23:37"
+            "time": "2015-03-31 16:01:12"
         },
         {
             "name": "swiftmailer/swiftmailer",
