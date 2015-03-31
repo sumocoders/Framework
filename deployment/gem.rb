@@ -14,6 +14,24 @@ def get_value_from_parameters(key)
   return nil
 end
 
+def get_value_from_remote_parameters(key)
+  set :path, "app/config/parameters.yml"
+
+  begin
+    remoteParameters = capture("cat #{shared_path}/#{path}")
+  rescue
+    return nil
+  end
+
+  parameters = YAML.load(remoteParameters).fetch("parameters", nil)
+
+  unless parameters.nil?
+    return parameters.fetch(key, nil)
+  end
+
+  return nil
+end
+
 namespace :sumo do
   namespace :setup do
     desc "Create the client folder if it doesn't exist yet"
@@ -42,7 +60,7 @@ namespace :framework do
     desc "Notify Errbit about a new deploy"
     task :notify do
       capifony_pretty_print "--> Notifying Errbit"
-      set :errbit_api_key, get_value_from_parameters("errbit_api_key")
+      set :errbit_api_key, get_value_from_remote_parameters("errbit_api_key")
 
       unless errbit_api_key.nil?
         require 'active_support/core_ext/object'
