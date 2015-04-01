@@ -23,43 +23,14 @@
     <![endif]-->
 
     {% block stylesheets %}
-        {# Load full css if browser is > IE9 or not IE9 #}
-        <!--[if gt IE 9]>
-        {% stylesheets
-            'assets/css/style.css'
-            filter='cssrewrite'
-            output='css/style.css'
-        %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-        <![endif]-->
-        <!--[if !IE]> -->
             {% stylesheets
+                'assets/vendor/select2/select2.css'
                 'assets/css/style.css'
                 filter='cssrewrite'
                 output='css/style.css'
             %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
-        <!-- <![endif]-->
-
-        {# Load css and bootstrap seperately if <= IE9 #}
-        <!--[if lte IE 9]>
-            {% stylesheets
-                'assets/vendor/bootstrap/dist/css/bootstrap.css'
-                filter='cssrewrite'
-                output='css/bootstrap.css'
-            %}
-                <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
-            {% stylesheets
-                'assets/css/style_ie.css'
-                filter='cssrewrite'
-                output='css/style_ie.css'
-            %}
-                <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
-        <![endif]-->
     {% endblock %}
 
     {% block head_javascripts %}
@@ -73,6 +44,10 @@
             'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
             'assets/vendor/modernizr/modernizr.js'
             'assets/vendor/respond/dest/respond.min.js'
+            'assets/vendor/jquery-ui/jquery-ui.min.js'
+            'assets/vendor/select2/select2.min.js'
+            'assets/icons/grunticon.loader.js'
+            'assets/js/frameworkcorebundle.grunticon.js'
             output='js/vendors.js'
         %}
             <script src="{{ asset_url }}"></script>
@@ -110,7 +85,7 @@
 <body class="">
 <!--[if lt IE 8 ]>
     <div id="ie6" class="alert alert-block" role="alert">
-        <a href="#" class="close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}">x</a>
+        <a href="#" class="close icon-close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}"><span class="sr-only" aria-hidden="true">x</span></a>
         {{ 'core.warnings.oldBrowser'|trans }}
     </div>
 <![endif]-->
@@ -121,12 +96,20 @@
             <header id="header" role="banner">
                 <div class="container bar">
                     <div class="title">
-                        <a id="toggleMenu" class="visible-xs iconLink" href="#">{{ 'navigation.titles.showHideMenu'|trans|capitalize }}</a>
+                        <a id="toggleMenu" class="visible-xs iconLink fa fa-bars" href="#">
+                          <span class="sr-only">
+                            {{ 'navigation.titles.showHideMenu'|trans|capitalize }}
+                          </span>
+                        </a>
                         {% block header_title %}
                         {% endblock %}
                     </div>
                     <div class="actions">
-                        <a href="#" class="dropdownToggle visible-xs">{{ 'navigation.titles.possible_actions'|trans|capitalize }}:</a>
+                        <a href="#" class="dropdownToggle fa fa-cog visible-xs">
+                          <span class="sr-only">
+                            {{ 'navigation.titles.possible_actions'|trans|capitalize }}:
+                          </span>
+                        </a>
                         {% block header_navigation %}
                         {% endblock %}
                     </div>

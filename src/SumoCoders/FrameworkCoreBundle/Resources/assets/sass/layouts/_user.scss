@@ -1,0 +1,104 @@
+// Users
+#users {
+
+  &.login,
+  &.forgot_password,
+  &.reset_password {
+
+    .logo {
+      border-radius: 50%;
+      height: 150px;
+      margin: 10% auto;
+      width: 150px;
+    }
+
+    .control-group {
+      margin-bottom: 27px;
+
+      .controls {
+        width: 100%;
+      }
+    }
+
+    .control-label {
+      color: #597192;
+      font-size: 1.29 * $font-size-base;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .input-group {
+      display: block;
+
+      .input-group-addon,
+      .btn,
+      .form-control {
+        display: inline-block;
+        float: none;
+        vertical-align: middle;
+      }
+
+      .input-group-addon {
+        background-color: $gray-lighter;
+        background-position: center center;
+
+        &.icon-user,
+        &.icon-lock {
+          color: $gray-light;
+          font-size: 24px;
+          line-height: 44px;
+        }
+      }
+
+      .input-group-addon,
+      .btn {
+        border: 0;
+        height: 46px;
+        padding: 0 5px;
+        width: 13.75%;
+      }
+
+      .form-control {
+        border: 2px solid #b6bcd0;
+        margin-left: -4px;
+      }
+    }
+
+    .form-control {
+      -webkit-appearance: none;
+      border-radius: 0 4px 4px 0;
+      padding: 10px;
+      width: 86.25%;
+    }
+
+    .btn {
+      margin-top: 46px;
+      padding-left: 21px;
+      padding-right: 21px;
+      text-align: left;
+
+      .icon {
+        float: right;
+      }
+    }
+
+    .alert {
+      position: relative;
+      padding: 0 25px;
+      border-radius: 4px;
+    }
+
+    .forgotPassword {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  #users.login,
+  #users.forgot_password,
+  #users.reset_password {
+    margin: 0 auto;
+    width: 400px;
+  }
+}

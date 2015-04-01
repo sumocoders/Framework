@@ -24,6 +24,8 @@
     "grunt-contrib-imagemin": "^0.9.3",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-fontgen": "^0.2.1",
+    "grunt-grunticon": "^2.1.2",
+    "grunt-sass": "^0.18.0",
     "grunt-shell": "^1.1.1",
     "grunt-sync": "^0.2.3",
     "grunt-webfont": "^0.5.1",

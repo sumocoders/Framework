@@ -1,26 +1,41 @@
-/* Some imports */
-@import "compass/css3";
-@import "compass/typography";
-@import "compass/utilities";
-@import "compass_sumo";
+// make sure we have to bootstrap first and overrule them with our values
+@import 'bootstrap/variables';
 
-/* Variables / configuration */
-@import "variables";
+// Bootstrap
+@import 'bootstrap-variables';
+@import 'bootstrap-imports';
 
-/* Mixins */
-@import "mixins";
+// Base
+@import 'base/fonts';
+@import 'base/icons';
+@import 'font-awesome/scss/font-awesome';
 
-/* jQuery*/
-@import "jquery";
+// Custom icon font generated with grunt-webfont
+@import 'icons';
 
-/* Include bootstrap */
-@import "../../web/assets/vendor/bootstrap-sass/assets/stylesheets/bootstrap";
+// Plugins
+@import 'select2-bootstrap-css/lib/select2-bootstrap';
+@import 'plugins/jquery-ui';
+@import 'plugins/select2';
 
-/* Theme related */
-@import "theme";
+// Components
+@import 'components/alerts';
+@import 'components/buttons';
+@import 'components/code';
+@import 'components/datagrids';
+@import 'components/dropdowns';
+@import 'components/forms';
+@import 'components/misc';
+@import 'components/navbar';
+@import 'components/navs';
+@import 'components/progress-bars';
+@import 'components/tables';
+@import 'components/tagbox';
+@import 'components/type';
+@import 'components/wells';
 
-/* Layouts */
-@import "layouts";
+// Layouts
+@import 'layouts/framework';
+@import 'layouts/user';
+@import 'layouts/search';
 
-/* Components */
-@import "components";

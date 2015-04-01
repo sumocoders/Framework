@@ -1,0 +1,59 @@
+.searchBox {
+  position: relative;
+
+  form {
+    margin-bottom: 0;
+  }
+
+  #searchQuery {
+    -webkit-appearance: none;
+    background: #2c2d34;
+    border: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #fff;
+    height: 65px;
+    margin-bottom: 0;
+    padding-right: 40px;
+    transition: background 250ms;
+    width: 100%;
+
+    &:focus {
+      background: lighten(#2c2d34, 10%);
+      border: 0;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+
+  .btn {
+    background-color: #2c2d34;
+    color: $gray-lightest;
+    font-size: 20px;
+    height: 65px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .searchBox {
+    width: 265px;
+
+    #searchQuery {
+      height: 50px;
+    }
+
+    .btn {
+      height: 50px;
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .searchBox {
+    bottom: 0;
+    position: fixed;
+  }
+}

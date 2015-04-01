@@ -22,7 +22,7 @@ module.exports = (grunt) ->
         'generateFonts'
         'generateCssForProduction'
         'generateImages'
-        'generateIconFonts'
+        'grunticon'
         'generateJs'
         'generateAsseticAssets'
       ]
@@ -33,25 +33,34 @@ module.exports = (grunt) ->
           'watch'
         ]
 
-    # Compass configuration
-    compass:
+    # Sass configuration
+    sass:
       options:
-        require: [
-          'compass_sumo'
+        includePaths: [
+          '<%= webAssetsPath %>/vendor'
+          '<%= webAssetsPath %>/vendor/bootstrap-sass/assets/stylesheets'
         ]
-        cssDir: '<%= webAssetsPath %>/css'
-        fontsDir: '<%= webAssetsPath %>/fonts'
-        imagesDir: '<%= webAssetsPath %>/images'
-        sassDir: '<%= assetsPath %>/sass'
-        relativeAssets: true
-        bundleExec: true
-        outputStyle: 'expanded'
-        noLineComments: false
-      dev: {}
-      production:
+      dev:
+        options:
+          outputStyle: 'expanded'
+          lineNumbers: true
+        files: [
+          expand: true
+          cwd: '<%= assetsPath %>/sass'
+          src: ['*.scss']
+          dest: '<%= webAssetsPath %>/css'
+          ext: '.css'
+        ]
+      dist:
         options:
           outputStyle: 'compressed'
-          noLineComments: true
+        files: [
+          expand: true
+          cwd: '<%= assetsPath %>/sass'
+          src: ['*.scss']
+          dest: '<%= webAssetsPath %>/css'
+          ext: '.css'
+        ]
 
     # Coffee configuration
     coffee:
@@ -74,6 +83,8 @@ module.exports = (grunt) ->
           src: [
             '<%= assetsPath %>/fonts/**/*.ttf'
             '<%= assetsPath %>/fonts/**/*.eot'
+            '!<%= assetsPath %>/fonts/icons.eot'
+            '!<%= assetsPath %>/fonts/icons.ttf'
           ]
           dest: '<%= webAssetsPath %>/fonts/'
           rename: (dest, src) ->
@@ -98,10 +109,6 @@ module.exports = (grunt) ->
       ]
       beforeAsseticDump: [
         'web/js/*bundle*.js'
-      ]
-      beforeGenerateIconFonts: [
-        '<%= assetsPath %>/sass/_icons.scss'
-        '<%= assetsPath %>/sass/_icon-*.scss'
       ]
       removeSymfonyCache: [
         'app/cache/*'
@@ -128,22 +135,32 @@ module.exports = (grunt) ->
           dest: '<%= webAssetsPath %>/images/'
         ]
 
+    # Grunticon configuration
+    grunticon:
+      myIcons:
+        files: [
+          expand: true
+          src: [
+            'src/**/Resources/assets/icon-embed/*.svg'
+            'src/**/Resources/assets/icon-embed/*.png'
+          ]
+          dest: '<%= webAssetsPath %>/icons/'
+        ]
+
     # Webfont configuration
     webfont:
       all:
         src:  [
-          'src/**/Resources/assets/icons/*'
+          'src/**/Resources/assets/icon-font/*'
         ]
-        dest: '<%= webAssetsPath %>/fonts/'
+        dest: '<%= assetsPath %>/fonts/'
         destCss: '<%= assetsPath %>/sass/'
-        classPrefix: 'icon-'
         options:
           stylesheet: 'scss'
           htmlDemo: false
-          template: 'grunt/src/webfont/templates/template.scss'
           templateOptions:
             classPrefix: 'icon-'
-
+    
     # Shell config
     shell:
       options:
@@ -178,13 +195,19 @@ module.exports = (grunt) ->
               newPathName = chunk.toLowerCase() + '.' + newPathName
 
           dest + newPathName
+      iconfont:
+        expand: true
+        src: [
+          '<%= assetsPath %>/fonts/icons.{svg,eot,ttf,woff}'
+        ]
+        dest: 'web/'
       fonts:
         expand: true
         updateAndDelete: true
         dest: '<%= assetsPath %>/fonts/'
         src:  [
           'src/**/Resources/assets/fonts/**/*.ttf'
-          'src/**/Resources/assets/fonts/**/*.oft'
+          'src/**/Resources/assets/fonts/**/*.otf'
         ]
         rename: (dest, src) ->
           uniqueFolderToSearchFor = '/fonts/'
@@ -217,7 +240,7 @@ module.exports = (grunt) ->
           dest + src.substr(startOfImagesDir + uniqueFolderToSearchFor.length);
       sass:
         expand: true
-        updateAndDelete: true
+        updateAndDelete: false
         dest: '<%= assetsPath %>/sass/'
         filter: 'isFile'
         src:  [
@@ -263,13 +286,21 @@ module.exports = (grunt) ->
         ]
         options:
           livereload: true
-      # Watch the icon files so we can (re)generate the iconfont
-      icons:
+      iconfont:
         files: [
-          'src/**/Resources/assets/icons/**'
+          'src/**/Resources/assets/icon-font/**'
         ]
         tasks: [
-          'generateIconFonts'
+          'iconfont'
+        ]
+        options:
+          livereload: true
+      grunticon:
+        files: [
+          'src/**/Resources/assets/icon-embed/**'
+        ]
+        tasks: [
+          'grunticon'
         ]
         options:
           livereload: true
@@ -281,7 +312,7 @@ module.exports = (grunt) ->
         ]
         tasks: [
           'sync:sass'
-          'compass:dev'
+          'sass:dev'
           'autoprefixer'
         ]
         options:
@@ -297,21 +328,21 @@ module.exports = (grunt) ->
     'clean:afterFontgen'
   ]
 
-  grunt.registerTask 'generateIconFonts', [
-    'clean:beforeGenerateIconFonts'
+  grunt.registerTask 'iconfont', [
     'webfont'
+    'sync:iconfont'
   ]
 
   # Generate the css-files
   grunt.registerTask 'generateCssForDev', [
-    'compass'
+    'sass:dev'
     'autoprefixer'
     'clean:afterGenerateCss'
   ]
 
   # Generate the css-files for live
   grunt.registerTask 'generateCssForProduction', [
-    'compass:production'
+    'sass:dist'
     'autoprefixer'
     'clean:afterGenerateCss'
   ]
@@ -352,5 +383,6 @@ module.exports = (grunt) ->
   # Production task
   grunt.registerTask 'build', [
     'concurrent:syncFiles'
+    'iconfont'
     'concurrent:generateAssets'
   ]

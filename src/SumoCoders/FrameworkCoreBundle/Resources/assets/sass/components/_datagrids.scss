@@ -1,9 +1,9 @@
-/* Styling for data grids */
+// Styling for data grids
 td.action {
-	width: 90px;
-	text-align: center;
+  text-align: center;
+  width: 90px;
 
-	&.actionSmall {
-		width: 25px;
-	}
+  &.actionSmall {
+    width: 25px;
+  }
 }
