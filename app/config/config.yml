@@ -8,4 +8,4 @@ imports:
 
 # I18n Configuration
 jms_i18n_routing:
-  locales: [en, nl]
+  locales: %locales%
