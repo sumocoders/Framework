@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b2bf0db70dc44622f2e4053c83db8880",
+    "hash": "5e4d4f080feddcd6526554c43a6a98e6",
     "packages": [
         {
             "name": "airbrake/airbrake-php",
@@ -1984,17 +1984,17 @@
         },
         {
             "name": "sumocoders/framework-error-bundle",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "target-dir": "SumoCoders/FrameworkErrorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkErrorBundle.git",
-                "reference": "f621374f32490c18982219ee4f27825d507895ce"
+                "reference": "5212e2e85f2d470b679137e061ea85382816f9a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/f621374f32490c18982219ee4f27825d507895ce",
-                "reference": "f621374f32490c18982219ee4f27825d507895ce",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/5212e2e85f2d470b679137e061ea85382816f9a5",
+                "reference": "5212e2e85f2d470b679137e061ea85382816f9a5",
                 "shasum": ""
             },
             "require": {
@@ -2025,7 +2025,7 @@
                 "SumoCoders",
                 "errbit"
             ],
-            "time": "2015-02-25 16:29:51"
+            "time": "2015-04-02 09:48:34"
         },
         {
             "name": "sumocoders/framework-search-bundle",
