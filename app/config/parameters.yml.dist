@@ -27,5 +27,4 @@ parameters:
     errbit_api_key:
 
     # Fallback
-    fallbacks:
-        - site_title: 'Our little framework'
+    fallbacks: { site_title: 'Our little framework' }
