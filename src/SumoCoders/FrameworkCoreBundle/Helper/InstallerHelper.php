@@ -101,4 +101,38 @@ class InstallerHelper
 
         return $defaultReturn;
     }
+
+    /**
+     * Update the Capfile with information provided in the config
+     *
+     * @param string $path
+     * @param array  $config
+     */
+    public function updateCapfile($path, array $config = null)
+    {
+        $content = file_get_contents($path);
+
+        foreach ($config as $variableName => $value) {
+            $content = $this->replaceSetRubyVar($variableName, $value, $content);
+        }
+
+        file_put_contents($path, $content);
+    }
+
+    /**
+     * Replace a variable set in Ruby with the actual value
+     *
+     * @param string $variableName
+     * @param string $value
+     * @param string $content
+     * @return string
+     */
+    protected function replaceSetRubyVar($variableName, $value, $content)
+    {
+        return preg_replace(
+            '/(set.*:' . $variableName . ',.*)\'.*\'/iU',
+            '$1\'' . $value . '\'',
+            $content
+        );
+    }
 }
