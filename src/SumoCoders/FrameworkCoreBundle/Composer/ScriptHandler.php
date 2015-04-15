@@ -59,6 +59,14 @@ class ScriptHandler
                     $helper->updateCapfile($capfilePath, $config);
                 }
             }
+
+            // alter the dist file if requested
+            $parameterYmlDistPath = $rootDir . '/app/config/parameters.yml.dist';
+            if (file_exists($parameterYmlDistPath)) {
+                if ($helper->askConfirmation($io, 'Should I alter parameters.yml.dist')) {
+                    $helper->updateYmlFile($parameterYmlDistPath, $config);
+                }
+            }
         }
     }
 
