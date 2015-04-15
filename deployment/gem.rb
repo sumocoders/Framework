@@ -54,6 +54,22 @@ namespace :framework do
         warn "	ln -sf #{current_path} #{document_root}"
       end
     end
+    desc "Create the database it it doesn't exists yet"
+    task :create_database do
+      capifony_pretty_print "--> Creating database"
+      database_information = capture("create_db #{client[0,8]}_#{project[0,7]}")
+      capifony_puts_ok
+
+      puts database_information
+    end
+    desc "Get info about the database"
+    task :info_database do
+      capifony_pretty_print "--> Grabbing information about the database"
+      database_information = capture("info_db #{client[0,8]}_#{project[0,7]}")
+      capifony_puts_ok
+
+      puts database_information
+    end
   end
 
   namespace :errbit do
