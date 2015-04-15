@@ -85,4 +85,35 @@ class InstallerHelperTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($information['client']);
         $this->assertNull($information['project']);
     }
+
+    public function testValidReplaceSetRubyVar()
+    {
+        $originalContent = <<<ORIGINAL
+    set :first_name, 'foo'
+    set :last_name,  'bar'
+ORIGINAL;
+
+        $expectedContent = <<<EXPECTED
+    set :first_name, 'John'
+    set :last_name,  'Doe'
+EXPECTED;
+
+        $tempFile = tempnam(sys_get_temp_dir(), 'test');
+        file_put_contents($tempFile, $originalContent);
+
+        $this->installerHelper->updateCapfile(
+            $tempFile,
+            array(
+                'first_name' => 'John',
+                'last_name' => 'Doe',
+            )
+        );
+
+        $this->assertEquals(
+            $expectedContent,
+            file_get_contents($tempFile)
+        );
+
+        unlink($tempFile);
+    }
 }

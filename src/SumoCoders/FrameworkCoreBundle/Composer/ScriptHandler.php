@@ -51,6 +51,14 @@ class ScriptHandler
             if ($helper->askConfirmation($io, 'Should I create the database?')) {
                 passthru('mysqladmin create ' . $config['database_name']);
             }
+
+            // alter the Capfile if requested
+            $capfilePath = $rootDir . '/Capfile';
+            if (file_exists($capfilePath)) {
+                if ($helper->askConfirmation($io, 'Should I alter the Capfile')) {
+                    $helper->updateCapfile($capfilePath, $config);
+                }
+            }
         }
     }
 
