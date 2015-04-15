@@ -3,6 +3,10 @@
 namespace SumoCoders\FrameworkCoreBundle\Helper;
 
 use Composer\IO\IOInterface;
+use Symfony\Component\Yaml\Dumper;
+use Symfony\Component\Yaml\Exception\ParseException;
+use Symfony\Component\Yaml\Parser;
+use Symfony\Component\Yaml\Yaml;
 
 class InstallerHelper
 {
@@ -134,5 +138,59 @@ class InstallerHelper
             '$1\'' . $value . '\'',
             $content
         );
+    }
+
+    /**
+     * Update a YAML-file with information provided in the config
+     *
+     * @param string $path
+     * @param array  $config
+     */
+    public function updateYmlFile($path, array $config = null)
+    {
+        $yamlParser = new Parser();
+        $yamlDumper = new Dumper();
+
+        try {
+            $content = $yamlParser->parse(file_get_contents($path));
+
+            $newContent = array(
+                'parameters' => $this->arrayReplaceExisting($content['parameters'], $config)
+            );
+
+            $yamlString = $yamlDumper->dump($newContent, 2);
+            file_put_contents($path, $yamlString);
+        } catch (ParseException $e) {
+            // ignore errors
+        }
+    }
+
+    /**
+     * Replaces elements from passed arrays into the first array recursively but only when the key exists.
+     *
+     * @param array $content
+     * @param array $config
+     * @return array mixed
+     */
+    public function arrayReplaceExisting(array $content, array $config)
+    {
+        foreach ($config as $key => $value) {
+            if (is_array($value)) {
+                // if it has only numeric keys we can handle it as a value
+                if (array_keys($value) == range(0, count($value) - 1)) {
+                    if (array_key_exists($key, $content)) {
+                        $content[$key] = $value;
+                    }
+                } else {
+                    $content[$key] = $this->arrayReplaceExisting($content[$key], $value);
+                }
+            } else {
+                if (array_key_exists($key, $content)) {
+                    $content[$key] = $value;
+                }
+            }
+        }
+
+        return $content;
     }
 }
