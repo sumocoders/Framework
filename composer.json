@@ -45,7 +45,6 @@
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
@@ -54,7 +53,6 @@
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
