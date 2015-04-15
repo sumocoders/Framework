@@ -61,7 +61,8 @@
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gruntBuild"
         ],
         "post-create-project-cmd": [
-            "app/console doctrine:migrations:migrate"
+          "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::createInitialConfig",
+          "app/console doctrine:migrations:migrate"
         ]
     },
     "config": {
