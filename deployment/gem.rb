@@ -93,14 +93,14 @@ namespace :framework do
         RewriteRule ^.*$ /maintenance.html [L]
       EOF
       run %{
-        if [ -f #{current_release.shellescape}/web/.htaccess ]; then mv #{current_release.shellescape}/web/.htaccess #{current_release.shellescape}/web/.htaccess.old; fi
+        if [ -f #{current_release.shellescape}/web/.htaccess ] && ! [ -f #{current_release.shellescape}/web/.htaccess.old ]; then mv #{current_release.shellescape}/web/.htaccess #{current_release.shellescape}/web/.htaccess.old; fi
       }
       put redirect_to_maintenance, "#{current_release.shellescape}/web/.htaccess"
     end
     desc "[internal] restore the original .htaccess"
     task :disable do
       run %{
-        if [ -f #{current_release.shellescape}/web/.htaccess ]; then rm #{current_release.shellescape}/web/.htaccess; fi
+        if [ -f #{current_release.shellescape}/web/.htaccess ] && [ -f #{current_release.shellescape}/web/.htaccess.old ]; then rm #{current_release.shellescape}/web/.htaccess; fi
       }
       run %{
         if [ -f #{current_release.shellescape}/web/.htaccess.old ]; then mv #{current_release.shellescape}/web/.htaccess.old #{current_release.shellescape}/web/.htaccess; fi
