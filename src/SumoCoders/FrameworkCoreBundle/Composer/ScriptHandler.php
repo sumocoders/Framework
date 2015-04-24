@@ -15,7 +15,7 @@ class ScriptHandler
      */
     public static function createInitialConfig(Event $event)
     {
-        $helper = InstallerHelper::getInstance();
+        $helper = new InstallerHelper();
         $io = $event->getIO();
 
         // check if parameters.yml exists
