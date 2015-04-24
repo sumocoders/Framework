@@ -4,7 +4,7 @@ namespace SumoCoders\FrameworkCoreBundle\Composer;
 
 use Composer\Script\Event;
 use Composer\IO\IOInterface;
-use SumoCoders\FrameworkCoreBundle\Helper\InstallerHelper;
+use SumoCoders\FrameworkCoreBundle\Installer\Installer;
 
 class ScriptHandler
 {
@@ -15,26 +15,26 @@ class ScriptHandler
      */
     public static function createInitialConfig(Event $event)
     {
-        $helper = new InstallerHelper();
+        $installer = new Installer();
         $io = $event->getIO();
 
         // check if parameters.yml exists
         $rootDir = realpath(__DIR__ . '/../../../../');
         if (file_exists($rootDir . '/app/config/parameters.yml')) {
             $io->write(
-                $helper->getDecoratedMessage(
+                $installer->getDecoratedMessage(
                     'Skipping creating the initial config as parameters.yml already exists',
                     'info',
                     $io->isDecorated()
                 )
             );
         } else {
-            $information = $helper->extractInformationFromPath($rootDir);
+            $information = $installer->extractInformationFromPath($rootDir);
 
             // ask all the information we need
             $config = array();
-            $config['client'] = $helper->ask($io, 'client name', $information['client']);
-            $config['project'] = $helper->ask($io, 'project name', $information['project']);
+            $config['client'] = $installer->ask($io, 'client name', $information['client']);
+            $config['project'] = $installer->ask($io, 'project name', $information['project']);
 
             $config['database_name'] = substr($config['client'], 0, 8) . '_' . substr($config['project'], 0, 7);
             $config['database_user'] = $config['database_name'];
@@ -48,23 +48,23 @@ class ScriptHandler
             $config['secret'] = md5(uniqid());
 
             // create the database if requested
-            if ($helper->askConfirmation($io, 'Should I create the database?')) {
+            if ($installer->askConfirmation($io, 'Should I create the database?')) {
                 passthru('mysqladmin create ' . $config['database_name']);
             }
 
             // alter the Capfile if requested
             $capfilePath = $rootDir . '/Capfile';
             if (file_exists($capfilePath)) {
-                if ($helper->askConfirmation($io, 'Should I alter the Capfile?')) {
-                    $helper->updateCapfile($capfilePath, $config);
+                if ($installer->askConfirmation($io, 'Should I alter the Capfile?')) {
+                    $installer->updateCapfile($capfilePath, $config);
                 }
             }
 
             // alter the dist file if requested
             $parameterYmlDistPath = $rootDir . '/app/config/parameters.yml.dist';
             if (file_exists($parameterYmlDistPath)) {
-                if ($helper->askConfirmation($io, 'Should I alter parameters.yml.dist?')) {
-                    $helper->updateYmlFile($parameterYmlDistPath, $config);
+                if ($installer->askConfirmation($io, 'Should I alter parameters.yml.dist?')) {
+                    $installer->updateYmlFile($parameterYmlDistPath, $config);
                 }
             }
         }

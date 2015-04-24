@@ -2,25 +2,25 @@
 
 namespace SumoCoders\FrameworkCoreBundle\Tests\Composer;
 
-use SumoCoders\FrameworkCoreBundle\Helper\InstallerHelper;
+use SumoCoders\FrameworkCoreBundle\Installer\Installer;
 
 class InstallerHelperTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var InstallerHelper
+     * @var Installer
      */
-    protected $installerHelper;
+    protected $installer;
 
     public function setUp()
     {
-        $this->installerHelper = new InstallerHelper();
+        $this->installer = new Installer();
     }
 
     public function testDecoratedMessage()
     {
         $this->assertEquals(
             '<error>I will be wrapped in an errortag.</error>',
-            $this->installerHelper->getDecoratedMessage(
+            $this->installer->getDecoratedMessage(
                 'I will be wrapped in an errortag.',
                 'error',
                 true
@@ -32,7 +32,7 @@ class InstallerHelperTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             'I wont be wrapped in an errortag.',
-            $this->installerHelper->getDecoratedMessage(
+            $this->installer->getDecoratedMessage(
                 'I wont be wrapped in an errortag.',
                 'error',
                 false
@@ -42,7 +42,7 @@ class InstallerHelperTest extends \PHPUnit_Framework_TestCase
 
     public function testLocalProjectInformation()
     {
-        $information = $this->installerHelper->extractInformationFromPath(
+        $information = $this->installer->extractInformationFromPath(
             '/Users/tijs/Sites/foo/bar'
         );
 
@@ -51,7 +51,7 @@ class InstallerHelperTest extends \PHPUnit_Framework_TestCase
 
     public function testNotLocalProjectInformation()
     {
-        $information = $this->installerHelper->extractInformationFromPath(
+        $information = $this->installer->extractInformationFromPath(
             '/home/sumocoders/apps/foo/bar/releases/20150415160001'
         );
 
@@ -60,7 +60,7 @@ class InstallerHelperTest extends \PHPUnit_Framework_TestCase
 
     public function testCorrectProjectInformation()
     {
-        $information = $this->installerHelper->extractInformationFromPath(
+        $information = $this->installer->extractInformationFromPath(
             '/Users/tijs/Sites/foo/bar'
         );
 
@@ -70,7 +70,7 @@ class InstallerHelperTest extends \PHPUnit_Framework_TestCase
 
     public function testNotCorrectProjectInformation()
     {
-        $information = $this->installerHelper->extractInformationFromPath(
+        $information = $this->installer->extractInformationFromPath(
             '/home/sumocoders/apps/foo/bar/releases/20150415160001'
         );
 
@@ -93,7 +93,7 @@ EXPECTED;
         $tempFile = tempnam(sys_get_temp_dir(), 'test');
         file_put_contents($tempFile, $originalContent);
 
-        $this->installerHelper->updateCapfile(
+        $this->installer->updateCapfile(
             $tempFile,
             array(
                 'first_name' => 'John',
@@ -127,7 +127,7 @@ EXPECTED;
         $tempFile = tempnam(sys_get_temp_dir(), 'test');
         file_put_contents($tempFile, $originalContent);
 
-        $this->installerHelper->updateYmlFile(
+        $this->installer->updateYmlFile(
             $tempFile,
             array(
                 'first_name' => 'John',
