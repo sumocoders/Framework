@@ -13,3 +13,4 @@ server "#{host}", :app, :web, :db, :primary => true
 set :keep_releases,  2
 
 before 'deploy:setup', 'sumo:setup:client_folder'
+before 'deploy:setup', 'sumo:db:create'

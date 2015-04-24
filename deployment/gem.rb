@@ -1,5 +1,4 @@
 # This stuff should be moved into a gem
-
 def get_value_from_parameters(key)
   set :path, "./app/config/parameters.yml"
 
@@ -32,11 +31,44 @@ def get_value_from_remote_parameters(key)
   return nil
 end
 
+def ask(question, default)
+  message = "\033[46m#{question}\033[0m"
+  unless default.empty?
+      message += " (\033[33m#{default}\033[0m)"
+  end
+  message += ":"
+
+  answer = Capistrano::CLI.ui.ask message
+  if answer.empty?
+    answer = default
+  end
+
+  answer
+end
+
 namespace :sumo do
   namespace :setup do
     desc "Create the client folder if it doesn't exist yet"
     task :client_folder do
       run "mkdir -p `dirname #{document_root}`"
+    end
+  end
+  namespace :db do
+    desc "Create the database it it doesn't exists yet"
+    task :create do
+      capifony_pretty_print "--> Creating database"
+      database_information = capture("create_db #{client[0,8]}_#{project[0,7]}")
+      capifony_puts_ok
+
+      puts database_information
+    end
+    desc "Get info about the database"
+    task :info do
+      capifony_pretty_print "--> Grabbing information about the database"
+      database_information = capture("info_db #{client[0,8]}_#{project[0,7]}")
+      capifony_puts_ok
+
+      puts database_information
     end
   end
 end
@@ -54,21 +86,22 @@ namespace :framework do
         warn "	ln -sf #{current_path} #{document_root}"
       end
     end
-    desc "Create the database it it doesn't exists yet"
-    task :create_database do
-      capifony_pretty_print "--> Creating database"
-      database_information = capture("create_db #{client[0,8]}_#{project[0,7]}")
-      capifony_puts_ok
+    desc "create a user"
+    task :create_user do
+      username = ask("Please choose a username", "sumocoders")
+      email = ask("Please choose an email", "accounts@sumocoders.be")
+      password = ask("Please choose a password", "")
 
-      puts database_information
-    end
-    desc "Get info about the database"
-    task :info_database do
-      capifony_pretty_print "--> Grabbing information about the database"
-      database_information = capture("info_db #{client[0,8]}_#{project[0,7]}")
-      capifony_puts_ok
-
-      puts database_information
+      if password.empty?
+        warn "The password is required."
+      else
+        capifony_pretty_print "--> Creating user #{username}"
+        run %{
+            cd #{current_path} &&
+            php app/console -q --env=prod fos:user:create #{username} #{email} #{password}
+        }
+        capifony_puts_ok
+      end
     end
   end
 

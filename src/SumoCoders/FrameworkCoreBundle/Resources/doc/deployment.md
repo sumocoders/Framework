@@ -68,3 +68,66 @@ You can specify when the site will be back online by setting a DEADLINE:
 Enable the site:
 
     cap <stage> deploy:web:disable
+
+## Deploying the site for the first time
+
+First of all you need to create the database. If you are deploying to the 
+SumoCoders-staging server you can use the following command:
+
+    cap staging sumo:db:create
+    
+Deploy for the first time:
+
+    cap <stage> deploy
+    
+A lot of questions will be asked, this will generate the `parameters.yml`-file.
+Answer the questions with sane things.
+
+Depending on the environment you should give other answers:
+
+### Staging
+
+* debug_email:  null
+* database_driver: pdo_mysql
+* database_host: 127.0.0.1
+* database_port: null
+* database_name: the name of the database you created
+* database_user: the user for the database you created
+* database_password: the password for the database you created
+* mailer_transport: mail
+* locales: enter an array with the languages that should be available
+* locale: enter the default locale
+* secret: this should be a random string
+* errbit_api_key: null
+
+### Production
+
+* debug_email:  bugs@sumocoders.be
+* database_driver: pdo_mysql
+* database_host: the host for the database
+* database_port: null, unless the database is running on a non-default port
+* database_name: the name of the database you created
+* database_user: the user for the database you created
+* database_password: the password for the database you created
+* mailer_transport: mail
+* locales: enter an array with the languages that should be available
+* locale: enter the default locale
+* secret: this should be a random string
+* errbit_api_key: the api key you have created for this project
+
+When this is done you have two options: creating an empty database, or putting 
+your local database online.
+
+The second one is the one which requires the least amount of work:
+
+    cap database:copy:to_remote
+
+The first options requires some extra steps. First of all you should create the
+schema. As we use migrations this is best done by migrating the "empty" 
+database to the latest migration:
+
+    cap <stage> symfony:doctrine:migrations:migrate
+
+When this is done you will need to create a user:
+
+    cap <stage> framework:setup:create_user
