@@ -24,7 +24,7 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
 
-        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "friendsofsymfony/user-bundle": "dev-master",
         "mopa/bootstrap-bundle": "3.*@dev",
         "jms/i18n-routing-bundle": "1.*",
         "jms/translation-bundle": "1.1.*",
