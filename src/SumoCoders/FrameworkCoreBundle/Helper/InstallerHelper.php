@@ -11,25 +11,6 @@ use Symfony\Component\Yaml\Yaml;
 class InstallerHelper
 {
     /**
-     * @var InstallerHelper
-     */
-    protected static $instance;
-
-    /**
-     * Grab an instance, Singleton ftw
-     *
-     * @return InstallerHelper
-     */
-    public static function getInstance()
-    {
-        if (null === static::$instance) {
-            static::$instance = new InstallerHelper();
-        }
-
-        return static::$instance;
-    }
-
-    /**
      * Get a decorated message
      *
      * @param string $message
