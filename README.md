@@ -7,8 +7,15 @@
 This is the SumoCoders Symfony Framework. You can install it using
 
     composer create-project -s dev sumocoders/framework .
+    
 
 ## Configuration
+
+### Initial database
+
+Before you can do anything your database should be initialized.
+
+    app/console doctrine:migrations:migrate
 
 ### Initial user
 
