@@ -54,7 +54,7 @@ namespace :sumo do
     end
   end
   namespace :db do
-    desc "Create the database it it doesn't exists yet"
+    desc "Create the database if it doesn't exists yet"
     task :create do
       capifony_pretty_print "--> Creating database"
       database_information = capture("create_db #{client[0,8]}_#{project[0,7]}")
