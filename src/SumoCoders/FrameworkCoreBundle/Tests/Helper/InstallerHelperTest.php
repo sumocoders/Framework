@@ -16,14 +16,6 @@ class InstallerHelperTest extends \PHPUnit_Framework_TestCase
         $this->installerHelper = new InstallerHelper();
     }
 
-    public function testGetInstance()
-    {
-        $this->assertInstanceOf(
-            '\\SumoCoders\\FrameworkCoreBundle\\Helper\\InstallerHelper',
-            InstallerHelper::getInstance()
-        );
-    }
-
     public function testDecoratedMessage()
     {
         $this->assertEquals(

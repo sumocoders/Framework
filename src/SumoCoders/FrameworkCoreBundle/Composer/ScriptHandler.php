@@ -55,7 +55,7 @@ class ScriptHandler
             // alter the Capfile if requested
             $capfilePath = $rootDir . '/Capfile';
             if (file_exists($capfilePath)) {
-                if ($helper->askConfirmation($io, 'Should I alter the Capfile')) {
+                if ($helper->askConfirmation($io, 'Should I alter the Capfile?')) {
                     $helper->updateCapfile($capfilePath, $config);
                 }
             }
@@ -63,7 +63,7 @@ class ScriptHandler
             // alter the dist file if requested
             $parameterYmlDistPath = $rootDir . '/app/config/parameters.yml.dist';
             if (file_exists($parameterYmlDistPath)) {
-                if ($helper->askConfirmation($io, 'Should I alter parameters.yml.dist')) {
+                if ($helper->askConfirmation($io, 'Should I alter parameters.yml.dist?')) {
                     $helper->updateYmlFile($parameterYmlDistPath, $config);
                 }
             }
