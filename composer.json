@@ -9,7 +9,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.4",
         "symfony/symfony": "2.6.*",
         "symfony/framework-bundle": "~2.6",
         "doctrine/orm": "~2.2,>=2.2.3",
@@ -24,7 +24,7 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
 
-        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "friendsofsymfony/user-bundle": "dev-master",
         "mopa/bootstrap-bundle": "3.*@dev",
         "jms/i18n-routing-bundle": "1.*",
         "jms/translation-bundle": "1.1.*",
@@ -45,9 +45,7 @@
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gruntBuild"
@@ -55,15 +53,13 @@
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gruntBuild"
         ],
         "post-create-project-cmd": [
-            "app/console doctrine:migrations:migrate"
+          "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::createInitialConfig"
         ]
     },
     "config": {
