@@ -39,11 +39,25 @@ See [https://github.com/phiamo/MopaBootstrapBundle](https://github.com/phiamo/Mo
 
 ## Other
 
+### Frontend
+
 * [Frontend Development](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/frontend-development.md)
 * [Using Grunt](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/grunt.md)
-* [Deployment](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/deployment.md)
+
+### Development
+
+* [Creating new bundles](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/creating-new-bundles.md)
 * [Fixtures](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/fixtures.md)
 * [Database Changes/Migrations](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/migrations.md)
 * [Adding items into the menu/navigation](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/menu.md)
 * [Adding a language switch](./src/SumCoders/FrameworkCoreBundle/Resources/doc/language-switch.md)
+
+### Putting your project online
+
+* [Deployment](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/deployment.md)
+
+### Issues
+
 * [Known issues](./src/SumCoders/FrameworkCoreBundle/Resources/doc/issues.md)
+
+
