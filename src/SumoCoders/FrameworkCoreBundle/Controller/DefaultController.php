@@ -42,16 +42,18 @@ class DefaultController extends Controller
 
         // load external resources, so current translations can be reused in the final translation
         foreach ($this->retrieveDirs() as $resource) {
-            $catalogue->merge($loader->loadFromDirectory(
-                $resource,
-                $locale
-            ));
+            $catalogue->merge(
+                $loader->loadFromDirectory(
+                    $resource,
+                    $locale
+                )
+            );
         }
 
         $localesArray = array();
         foreach ($catalogue->getDomains() as $domain => $collection) {
             foreach ($collection->all() as $key => $translation) {
-                $localesArray[$key] =  $translation->getLocaleString();
+                $localesArray[$key] = $translation->getLocaleString();
             }
         }
 
@@ -69,12 +71,12 @@ class DefaultController extends Controller
         $dirs = array();
         foreach ($this->container->getParameter('kernel.bundles') as $bundle) {
             $reflection = new \ReflectionClass($bundle);
-            if (is_dir($dir = dirname($reflection->getFilename()).'/Resources/translations')) {
+            if (is_dir($dir = dirname($reflection->getFilename()) . '/Resources/translations')) {
                 $dirs[] = $dir;
             }
         }
 
-        if (is_dir($dir = $this->container->getParameter('kernel.root_dir').'/Resources/translations')) {
+        if (is_dir($dir = $this->container->getParameter('kernel.root_dir') . '/Resources/translations')) {
             $dirs[] = $dir;
         }
 
