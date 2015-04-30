@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6d8e8a41985d22e8924c1c9d9ca9cac1",
+    "hash": "59e28d630e97bd0ce93462e5aa815d92",
     "packages": [
         {
             "name": "airbrake/airbrake-php",
@@ -12,21 +12,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/airbrake/airbrake-php.git",
-                "reference": "626ecb2b72d463477e1a42913e52ddaa51a53a36"
+                "reference": "b2a3f28a8113502d2426003b22c78a2efd333b3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/airbrake/airbrake-php/zipball/626ecb2b72d463477e1a42913e52ddaa51a53a36",
-                "reference": "626ecb2b72d463477e1a42913e52ddaa51a53a36",
+                "url": "https://api.github.com/repos/airbrake/airbrake-php/zipball/b2a3f28a8113502d2426003b22c78a2efd333b3c",
+                "reference": "b2a3f28a8113502d2426003b22c78a2efd333b3c",
                 "shasum": ""
             },
-            "require": {
-                "php": ">=5.3.1"
+            "require-dev": {
+                "php": ">=5.3.3",
+                "phpunit/phpunit": "*",
+                "squizlabs/php_codesniffer": "*"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Airbrake": "src/"
+                    "Airbrake\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -35,20 +37,20 @@
             ],
             "authors": [
                 {
-                    "name": "Airbrake",
-                    "email": "support@airbrake.io",
-                    "homepage": "http://airbrake.io"
+                    "name": "Drew Butler",
+                    "email": "hi@dbtlr.com",
+                    "homepage": "http://dbtlr.com"
                 }
             ],
             "description": "A PHP 5.3 library for sending errors to the Airbrake.io service.",
-            "homepage": "https://github.com/airbrake/airbrake-php",
+            "homepage": "https://github.com/dbtlr/php-airbrake",
             "keywords": [
                 "airbrake",
                 "errors",
                 "exceptions",
                 "logging"
             ],
-            "time": "2014-04-30 16:16:13"
+            "time": "2015-04-24 21:28:00"
         },
         {
             "name": "doctrine/annotations",
@@ -799,12 +801,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "39d6223d919baa35883270199c7e935acc440257"
+                "reference": "252fb449d5c45a4c1a92497b43d4c246bde0ee6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/39d6223d919baa35883270199c7e935acc440257",
-                "reference": "39d6223d919baa35883270199c7e935acc440257",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/252fb449d5c45a4c1a92497b43d4c246bde0ee6b",
+                "reference": "252fb449d5c45a4c1a92497b43d4c246bde0ee6b",
                 "shasum": ""
             },
             "require": {
@@ -812,6 +814,8 @@
                 "php": ">=5.3.2"
             },
             "require-dev": {
+                "doctrine/orm": "2.*",
+                "phpunit/phpunit": "~4.0",
                 "symfony/console": "2.*",
                 "symfony/yaml": "2.*"
             },
@@ -849,7 +853,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-04-22 09:24:33"
+            "time": "2015-04-29 07:54:59"
         },
         {
             "name": "doctrine/orm",
@@ -1403,7 +1407,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1459,7 +1463,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2034,25 +2038,25 @@
         },
         {
             "name": "sumocoders/framework-error-bundle",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "target-dir": "SumoCoders/FrameworkErrorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkErrorBundle.git",
-                "reference": "5212e2e85f2d470b679137e061ea85382816f9a5"
+                "reference": "9711f59d2c873ceed822132cbc126f75eb3a1e54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/5212e2e85f2d470b679137e061ea85382816f9a5",
-                "reference": "5212e2e85f2d470b679137e061ea85382816f9a5",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/9711f59d2c873ceed822132cbc126f75eb3a1e54",
+                "reference": "9711f59d2c873ceed822132cbc126f75eb3a1e54",
                 "shasum": ""
             },
             "require": {
                 "eo/airbrake-bundle": "~1.0@dev",
-                "php": ">=5.3.3"
+                "php": ">=5.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.1.*"
+                "phpunit/phpunit": "4.*"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -2075,7 +2079,7 @@
                 "SumoCoders",
                 "errbit"
             ],
-            "time": "2015-04-02 09:48:34"
+            "time": "2015-04-29 15:45:26"
         },
         {
             "name": "sumocoders/framework-search-bundle",
@@ -2124,17 +2128,17 @@
         },
         {
             "name": "sumocoders/framework-user-bundle",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "target-dir": "SumoCoders/FrameworkUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "f8712f1740dfccea18dea76072791d0bde5f01c4"
+                "reference": "46e1d35fd5ad1b946545fd94b0b535df3d8c46bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/f8712f1740dfccea18dea76072791d0bde5f01c4",
-                "reference": "f8712f1740dfccea18dea76072791d0bde5f01c4",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/46e1d35fd5ad1b946545fd94b0b535df3d8c46bf",
+                "reference": "46e1d35fd5ad1b946545fd94b0b535df3d8c46bf",
                 "shasum": ""
             },
             "require": {
@@ -2166,7 +2170,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-04-20 07:49:11"
+            "time": "2015-04-24 10:15:26"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2979,16 +2983,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "8724cd239f8ef4c046f55a3b18b4d91cc7f3e4c5"
+                "reference": "3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/8724cd239f8ef4c046f55a3b18b4d91cc7f3e4c5",
-                "reference": "8724cd239f8ef4c046f55a3b18b4d91cc7f3e4c5",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373",
+                "reference": "3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373",
                 "shasum": ""
             },
             "require": {
@@ -3035,7 +3039,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-03-27 19:31:25"
+            "time": "2015-04-27 22:15:08"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3285,16 +3289,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.6.4",
+            "version": "4.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "163232991e652e6efed2f8470326fffa61e848e2"
+                "reference": "3afe303d873a4d64c62ef84de491b97b006fbdac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/163232991e652e6efed2f8470326fffa61e848e2",
-                "reference": "163232991e652e6efed2f8470326fffa61e848e2",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3afe303d873a4d64c62ef84de491b97b006fbdac",
+                "reference": "3afe303d873a4d64c62ef84de491b97b006fbdac",
                 "shasum": ""
             },
             "require": {
@@ -3353,7 +3357,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-04-11 05:23:21"
+            "time": "2015-04-29 15:18:52"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
