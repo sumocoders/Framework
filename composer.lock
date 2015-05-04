@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "59e28d630e97bd0ce93462e5aa815d92",
+    "hash": "67a8040f2de28cabecce434315b102ad",
     "packages": [
         {
             "name": "airbrake/airbrake-php",
@@ -801,12 +801,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "252fb449d5c45a4c1a92497b43d4c246bde0ee6b"
+                "reference": "a4f14d3a3d397104e557ec65d1a4e43bb86e4ddf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/252fb449d5c45a4c1a92497b43d4c246bde0ee6b",
-                "reference": "252fb449d5c45a4c1a92497b43d4c246bde0ee6b",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/a4f14d3a3d397104e557ec65d1a4e43bb86e4ddf",
+                "reference": "a4f14d3a3d397104e557ec65d1a4e43bb86e4ddf",
                 "shasum": ""
             },
             "require": {
@@ -853,7 +853,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-04-29 07:54:59"
+            "time": "2015-05-02 06:20:23"
         },
         {
             "name": "doctrine/orm",
@@ -986,12 +986,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "192c53916942847aee687722af54f431aead0b70"
+                "reference": "7bdbe66c90a27b2f8298230309ad8d0cfec1cb6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/192c53916942847aee687722af54f431aead0b70",
-                "reference": "192c53916942847aee687722af54f431aead0b70",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/7bdbe66c90a27b2f8298230309ad8d0cfec1cb6e",
+                "reference": "7bdbe66c90a27b2f8298230309ad8d0cfec1cb6e",
                 "shasum": ""
             },
             "require": {
@@ -1045,7 +1045,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2015-04-16 23:14:14"
+            "time": "2015-05-01 08:19:36"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1407,7 +1407,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1463,7 +1463,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1878,17 +1878,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.21",
+            "version": "v3.0.22",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "da23c78093676a823a1ff43a214987ea3fbf83c8"
+                "reference": "0fe4ec86db57c232becb694e01cdabe3c4d9af7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/da23c78093676a823a1ff43a214987ea3fbf83c8",
-                "reference": "da23c78093676a823a1ff43a214987ea3fbf83c8",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/0fe4ec86db57c232becb694e01cdabe3c4d9af7c",
+                "reference": "0fe4ec86db57c232becb694e01cdabe3c4d9af7c",
                 "shasum": ""
             },
             "require": {
@@ -1934,7 +1934,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-04-10 06:20:46"
+            "time": "2015-05-02 16:23:08"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2038,17 +2038,17 @@
         },
         {
             "name": "sumocoders/framework-error-bundle",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "target-dir": "SumoCoders/FrameworkErrorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkErrorBundle.git",
-                "reference": "9711f59d2c873ceed822132cbc126f75eb3a1e54"
+                "reference": "ed4f992c1550a8eaede59c2080d013fd34aa0164"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/9711f59d2c873ceed822132cbc126f75eb3a1e54",
-                "reference": "9711f59d2c873ceed822132cbc126f75eb3a1e54",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/ed4f992c1550a8eaede59c2080d013fd34aa0164",
+                "reference": "ed4f992c1550a8eaede59c2080d013fd34aa0164",
                 "shasum": ""
             },
             "require": {
@@ -2056,7 +2056,11 @@
                 "php": ">=5.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*"
+                "phpunit/phpunit": "4.*",
+                "sensio/framework-extra-bundle": "~3.0",
+                "symfony/framework-bundle": "~2.6",
+                "symfony/monolog-bundle": "~2.6",
+                "symfony/symfony": "2.6.*"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -2079,7 +2083,7 @@
                 "SumoCoders",
                 "errbit"
             ],
-            "time": "2015-04-29 15:45:26"
+            "time": "2015-05-04 12:17:00"
         },
         {
             "name": "sumocoders/framework-search-bundle",
