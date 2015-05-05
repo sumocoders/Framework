@@ -1,0 +1,96 @@
+{% block date_widget %}
+    {% spaceless %}
+        {% if widget == 'single_text' %}
+            {% if datepicker is defined %}
+                {% set widget_addon_icon = widget_addon_append.icon is defined ? widget_addon_append.icon : 'calendar'  %}
+                <div data-provider="datepicker" class="input-group date" data-date="{{ value }}" data-link-field="{{ id }}" data-link-format="yyyy-mm-dd">
+                    <input {% if widget_form_control_class is not sameas(false) %}class="{{ widget_form_control_class }}" {% endif %}type="text" {% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %}>
+                    <input type="hidden" value="{{ value }}" {{ block('widget_attributes') }}>
+                    <span class="input-group-addon">{{ mopa_bootstrap_icon(widget_addon_icon) }}</span>
+                </div>
+            {% else %}
+                {{ block('form_widget_simple') }}
+            {% endif %}
+        {% else %}
+            {% if dont_render_row is not defined or not dont_render_row %}
+                <div class="row date_widget">
+            {% endif %}
+                {% set attr = attr|merge({'class': attr.class|default('inline')}) %}
+                {% set year_widget = form_widget(form.year, {'attr': {'class': attr.widget_class|default('') ~ 'year',}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
+                {% set month_widget = form_widget(form.month, {'attr': {'class': attr.widget_class|default('') ~ 'month'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
+                {% set day_widget = form_widget(form.day, {'attr': {'class': attr.widget_class|default('') ~ 'day'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
+
+                {{ date_pattern|replace({
+                    '{{ year }}': "<div class=\"col-md-2\">#{year_widget}</div>",
+                    '{{ month }}': "<div class=\"col-md-3\">#{month_widget}</div>",
+                    '{{ day }}': "<div class=\"col-md-2\">#{day_widget}</div>",
+                })|raw }}
+            {% if dont_render_row is not defined or not dont_render_row %}
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock date_widget %}
+
+{% block time_widget %}
+    {% spaceless %}
+        {% if widget == 'single_text' %}
+            {% if timepicker is defined %}
+                {% set widget_addon_icon = widget_addon_append.icon is defined ? widget_addon_append.icon : 'time'  %}
+                <div data-provider="timepicker" class="input-group date" data-date="{{ value }}" data-link-field="{{ id }}" data-link-format="hh:ii">
+                    <input class="form-control" type="text" {% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %}>
+                    <input type="hidden" value="{{ value }}" {{ block('widget_attributes') }}>
+                    <span class="input-group-addon">{{ mopa_bootstrap_icon(widget_addon_icon) }}</span>
+                </div>
+            {% else %}
+                {{ block('form_widget_simple') }}
+            {% endif %}
+        {% else %}
+            {% set attr = attr|merge({'class': attr.class|default('')}) %}
+            {% spaceless %}
+                {% if dont_render_row is not defined or not dont_render_row %}
+                    <div class="row time_widget">
+                {% endif %}
+                    <div class="col-md-1">
+                        {{ form_widget(form.hour, { 'attr': {  'size': '1'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2')}) }}
+                    </div>
+                    <div class="col-md-1">
+                    {{ form_widget(form.minute, { 'attr': { 'size': '1' }, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2')}) }}
+                    </div>
+                    {% if with_seconds %}
+                        <div class="col-md-1">
+                            {{ form_widget(form.second, { 'attr': { 'size': '1' }, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2') }) }}
+                        </div>
+                    {% endif %}
+                {% if dont_render_row is not defined or not dont_render_row %}
+                    </div>
+                {% endif %}
+            {% endspaceless %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock time_widget %}
+
+{% block datetime_widget %}
+    {% spaceless %}
+        {% if widget == 'single_text' %}
+            {% if datetimepicker is defined %}
+                {% set widget_addon_icon = widget_addon_append.icon is defined ? widget_addon_append.icon : 'th'  %}
+                <div data-provider="datetimepicker" class="input-group date" data-date="{% if value %}{{ value|date('Y-m-d H:i') }}{% endif %}" data-link-field="{{ id }}" data-link-format="yyyy-mm-dd hh:ii">
+                    <input class="form-control" type="text" {% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %}>
+                    <input type="hidden" value="{% if value %}{{ value|date('Y-m-d H:i') }}{% endif %}" {{ block('widget_attributes') }}>
+                    <span class="input-group-addon">{{ mopa_bootstrap_icon(widget_addon_icon) }}</span>
+                </div>
+            {% else %}
+                {{ block('form_widget_simple') }}
+            {% endif %}
+        {% else %}
+            {% set attr = attr|merge({'class': attr.class|default('row datetime_widget')}) %}
+            <div {{ block('widget_container_attributes') }}>
+                {{ form_errors(form.date) }}
+                {{ form_errors(form.time) }}
+                {{ form_widget(form.date, {'dont_render_row': true, 'attr': {'class': attr.widget_class|default('')}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) }}
+                {{ form_widget(form.time, {'dont_render_row': true, 'attr': {'class': attr.widget_class|default('')}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2')}) }}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock datetime_widget %}

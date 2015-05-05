@@ -57,6 +57,8 @@ twig:
     fallbacks: "@framework.fallbacks"
     jsData: "@framework.jsData"
     locales: %locales%
+  form_themes:
+    - 'SumoCodersFrameworkCoreBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -97,6 +99,8 @@ jms_i18n_routing:
 mopa_bootstrap:
   form:
     show_legend: false
+  icons:
+    icon_set: fontawesome4
 
 # KPN Pagination Configuration
 knp_paginator:
