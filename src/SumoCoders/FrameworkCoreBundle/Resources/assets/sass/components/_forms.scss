@@ -29,6 +29,10 @@ input:focus:invalid:focus {
   }
 }
 
-.datetime_widget select[size], .time_widget select[size] {
+.datetime-widget select[size], .time-widget select[size] {
   height: 34px;
+}
+
+.date-widget .faked-button {
+  color: #555;
 }

@@ -110,6 +110,26 @@
                 <source>forms.general.buttons.delete</source>
                 <target>delete</target>
             </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b8" resname="core.interface.pickDate">
+                <source>core.interface.pickDate</source>
+                <target>pick the date</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b9" resname="core.interface.close">
+                <source>core.interface.close</source>
+                <target>close</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c0" resname="core.interface.next">
+                <source>core.interface.next</source>
+                <target>next</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c1" resname="core.interface.previous">
+                <source>core.interface.previous</source>
+                <target>previous</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c2" resname="core.interface.today">
+                <source>core.interface.today</source>
+                <target>today</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

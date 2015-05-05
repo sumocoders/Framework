@@ -78,6 +78,26 @@
                 <source>navigation.user.settings</source>
                 <target>instellingen</target>
             </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b8" resname="core.interface.pickDate">
+                <source>core.interface.pickDate</source>
+                <target>kies een datum</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b9" resname="core.interface.close">
+                <source>core.interface.close</source>
+                <target>sluiten</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c0" resname="core.interface.next">
+                <source>core.interface.next</source>
+                <target>volgende</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c1" resname="core.interface.previous">
+                <source>core.interface.previous</source>
+                <target>vorige</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c2" resname="core.interface.today">
+                <source>core.interface.today</source>
+                <target>vandaag</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

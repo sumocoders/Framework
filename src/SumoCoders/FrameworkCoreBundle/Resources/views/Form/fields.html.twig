@@ -3,17 +3,35 @@
         {% if widget == 'single_text' %}
             {% if datepicker is defined %}
                 {% set widget_addon_icon = widget_addon_append.icon is defined ? widget_addon_append.icon : 'calendar'  %}
-                <div data-provider="datepicker" class="input-group date" data-date="{{ value }}" data-link-field="{{ id }}" data-link-format="yyyy-mm-dd">
-                    <input {% if widget_form_control_class is not sameas(false) %}class="{{ widget_form_control_class }}" {% endif %}type="text" {% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %}>
+                <div
+                        class="input-group date date-widget"
+                        data-provider="datepicker"
+                        data-date="{{ value }}"
+                        data-link-field="{{ id }}"
+                        data-link-format="yyyy-mm-dd"
+                        data-date-type="{{ date_type }}"
+                        {% if maximum_date is defined %}
+                            data-maximum-date="{{ maximum_date|date('Y-m-d') }}"
+                        {% endif %}
+                        {% if minimum_date is defined %}
+                            data-minimum-date="{{ minimum_date|date('Y-m-d') }}"
+                        {% endif %}
+                >
+                    <input {% if widget_form_control_class is not sameas(false) %}class="{{ widget_form_control_class }}" {% endif %}type="text" {% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %} style="z-index: 9998;">
                     <input type="hidden" value="{{ value }}" {{ block('widget_attributes') }}>
-                    <span class="input-group-addon">{{ mopa_bootstrap_icon(widget_addon_icon) }}</span>
+                    <span class="input-group-addon">
+                        <a href="#" class="faked-button">
+                            {{ mopa_bootstrap_icon(widget_addon_icon) }}
+                            <span class="hidden">{{ 'core.interface.pickDate'|trans }}</span>
+                        </a>
+                    </span>
                 </div>
             {% else %}
                 {{ block('form_widget_simple') }}
             {% endif %}
         {% else %}
             {% if dont_render_row is not defined or not dont_render_row %}
-                <div class="row date_widget">
+                <div class="row date-widget">
             {% endif %}
                 {% set attr = attr|merge({'class': attr.class|default('inline')}) %}
                 {% set year_widget = form_widget(form.year, {'attr': {'class': attr.widget_class|default('') ~ 'year',}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
@@ -49,7 +67,7 @@
             {% set attr = attr|merge({'class': attr.class|default('')}) %}
             {% spaceless %}
                 {% if dont_render_row is not defined or not dont_render_row %}
-                    <div class="row time_widget">
+                    <div class="row time-widget">
                 {% endif %}
                     <div class="col-md-1">
                         {{ form_widget(form.hour, { 'attr': {  'size': '1'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2')}) }}
@@ -84,7 +102,7 @@
                 {{ block('form_widget_simple') }}
             {% endif %}
         {% else %}
-            {% set attr = attr|merge({'class': attr.class|default('row datetime_widget')}) %}
+            {% set attr = attr|merge({'class': attr.class|default('row datetime-widget')}) %}
             <div {{ block('widget_container_attributes') }}>
                 {{ form_errors(form.date) }}
                 {{ form_errors(form.time) }}
