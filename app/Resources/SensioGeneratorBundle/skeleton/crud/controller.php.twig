@@ -1,0 +1,19 @@
+{% extends 'skeleton/crud/controller.php.twig' %}
+
+{% block class_body %}
+    {%- if 'index' in actions %}
+        {%- include 'crud/actions/index.php.twig' %}
+{% endif %}
+    {%- if 'new' in actions %}
+        {%- include 'crud/actions/new.php.twig' %}
+{% endif %}
+    {%- if 'show' in actions %}
+        {%- include 'crud/actions/show.php.twig' %}
+{% endif %}
+    {%- if 'edit' in actions %}
+        {%- include 'crud/actions/edit.php.twig' %}
+{% endif %}
+    {%- if 'delete' in actions %}
+        {%- include 'crud/actions/delete.php.twig' %}
+{%endif %}
+{% endblock class_body %}

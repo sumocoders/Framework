@@ -1,0 +1,42 @@
+.main-header .breadcrumb {
+  border-radius: 0;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0;
+  overflow: hidden;
+  overflow-x: scroll;
+  padding: 14px 19px 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+
+  > li + li:before {
+    content: ' ';
+  }
+
+  li {
+    padding: 0 4px;
+
+    &:active {
+      color: $breadcrumb-active-color;
+    }
+  }
+
+  a {
+    color: $breadcrumb-color;
+  }
+}
+
+.icon-breadcrumb-separator {
+  font-size: $font-size-icon-smallest;
+  padding: 4px;
+}
+
+@media (min-width: $screen-sm-min) {
+
+  .main-header .breadcrumb {
+    border-bottom: 0;
+    float: left;
+    padding: 17px 25px 13px 18px;
+  }
+}

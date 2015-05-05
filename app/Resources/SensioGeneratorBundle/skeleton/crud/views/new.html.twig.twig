@@ -1,0 +1,48 @@
+{% extends 'skeleton/crud/views/new.html.twig.twig' %}
+
+{% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
+{% set niceEntityName = entity|lower %}
+
+{% block body %}
+{{ "{% block header_title %}" }}
+    <h2>
+        {{ '{{ \'%s.header.title.new\'|trans|capitalize }}'|format(niceBundleName) }}
+    </h2>
+{{ "{% endblock %}" }}
+
+{% if 'index' in actions %}
+{{ "{% block header_navigation %}" }}
+    <ul>
+        <li>
+            <a
+                class="fa fa-list"
+                href="{{ "{{ path('%1$s_%2$s_index') }}"|format(niceBundleName, niceEntityName) }}"
+                title="{{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}"
+            >
+                {{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}
+            </a>
+        </li>
+    </ul>
+{{ "{% endblock %}" }}
+{% endif %}
+
+{{ "{% block main %}" }}
+    {{ '{{ form_start(form) }}' }}
+    <fieldset>
+        {{ '{{ form_errors(form) }}' }}
+
+
+        {{ '{{ form_rest(form) }}' }}
+        <div class="form-group">
+            <div class="col-lg-9 col-lg-offset-3">
+                <input type="submit" class="btn btn-primary" value="{{ '{{ \'forms.buttons.new\'|trans|capitalize }}' }}">
+            </div>
+        </div>
+    </fieldset>
+    {{ '{{ form_end(form) }}' }}
+
+{{ "{% endblock %}" }}
+{% endblock body %}
+
+
+

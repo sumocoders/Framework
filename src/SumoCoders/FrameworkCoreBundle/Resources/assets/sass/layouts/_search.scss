@@ -1,59 +1,170 @@
-.searchBox {
-  position: relative;
+.user-nav {
+  border-bottom: 5px $brand-primary solid;
+  border-top: 1px $gray-lines solid;
 
-  form {
-    margin-bottom: 0;
-  }
+  .search-box {
+    margin-left: 50px;
+    overflow: hidden;
 
-  #searchQuery {
-    -webkit-appearance: none;
-    background: #2c2d34;
-    border: 0;
-    border-radius: 0;
-    box-sizing: border-box;
-    color: #fff;
-    height: 65px;
-    margin-bottom: 0;
-    padding-right: 40px;
-    transition: background 250ms;
-    width: 100%;
+    .form-control {
+      height: 42px;
+      margin-top: 2px;
+    }
 
-    &:focus {
-      background: lighten(#2c2d34, 10%);
+    .filled .control-label {
+      display: none;
+    }
+
+    .form-control:focus + .control-label {
+      margin-top: -45px;
+      transition: all 600ms;
+    }
+
+    .control-label {
+      color: $gray-light;
+      font-size: $font-size-base;
+      font-style: normal;
+      font-weight: normal;
+      margin-left: 11px;
+      margin-top: -11px;
+      position: absolute;
+      top: 50%;
+    }
+
+    .form-control {
       border: 0;
-      box-shadow: none;
-      outline: none;
+      border-radius: 0;
+      float: left;
+      font-family: $font-family-sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      width: 85%;
+    }
+
+    .controls .btn {
+      background-color: $white;
+      padding: 8px 0;
+      width: 15%;
+    }
+
+    .fa-search {
+      color: $gray-light;
+      float: right;
+      font-size: $font-size-icon-small;
+      width: 0;
+
+      &:hover {
+        background-color: $gray-darker;
+        color: $white;
+      }
+    }
+
+    .toggle-searchbar {
+      display: none;
     }
   }
 
-  .btn {
-    background-color: #2c2d34;
-    color: $gray-lightest;
-    font-size: 20px;
-    height: 65px;
-    position: absolute;
-    right: 0;
-    top: 0;
+  .link-searchbar {
+    display: none;
   }
 }
 
-@media screen and (min-width: $screen-sm) {
-  .searchBox {
-    width: 265px;
+@media (min-width: $screen-sm-min) {
 
-    #searchQuery {
-      height: 50px;
-    }
+  .sub-nav {
 
-    .btn {
-      height: 50px;
+    .user-nav {
+      border-bottom: 0;
+      border-top: 0;
+
+      .search-box {
+        border-left: 1px $gray-lines solid;
+        display: inline-block;
+        float: right;
+        margin-left: 0;
+
+        .form-control {
+          float: none;
+          height: 50px;
+          margin-top: 0;
+          width: 100%;
+        }
+
+        .search-form {
+          float: left;
+          overflow: hidden;
+          transition: width 600ms;
+          width: 0;
+        }
+
+        .submit-searchbar {
+          display: none;
+        }
+
+        &.open {
+
+          .search-form {
+            display: block;
+            float: left;
+            transition: width 600ms;
+            width: 145px;
+          }
+
+          .toggle-searchbar {
+            display: none;
+          }
+
+          .submit-searchbar {
+            display: block;
+          }
+        }
+      }
+
+      .toggle-searchbar {
+        display: inline-block;
+        padding: 15px 20px;
+      }
+
+      .controls .btn {
+        padding: 11px 20px;
+        width: auto ;
+      }
     }
   }
 }
 
-@media screen and (min-width: 1025px) {
-  .searchBox {
-    bottom: 0;
-    position: fixed;
+@media (min-width: $screen-md-min) {
+  .sub-nav {
+
+    .user-nav {
+
+      .search-box {
+
+        &.open {
+
+          .search-form {
+            width: 245px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .sub-nav {
+
+    .user-nav {
+
+      .search-box {
+
+        &.open {
+
+          .search-form {
+            width: 395px;
+          }
+        }
+      }
+    }
   }
 }

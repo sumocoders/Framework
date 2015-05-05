@@ -1,6 +1,3 @@
-// Font Awesome config
-$fa-font-path: '../vendor/font-awesome/fonts';
-
 *[class*=icon-]:before {
   @extend .icon;
 }

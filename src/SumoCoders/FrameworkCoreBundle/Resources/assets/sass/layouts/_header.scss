@@ -1,0 +1,167 @@
+.sub-nav {
+  border-radius: 0;
+  font-family: $font-family-sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0;
+  width: 100%;
+
+  .btn-group {
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: 600;
+  }
+}
+
+.col-alternative {
+  padding: 0;
+}
+
+.user-nav {
+  min-height: 50px;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+
+  .icon-angle {
+    transform: rotate(0deg);
+    transition: 550ms;
+  }
+
+  .open {
+
+    > .btn-default.dropdown-toggle {
+      background-color: $gray-darker;
+      color: $white;
+    }
+
+    .icon-angle {
+      transform: rotate(90deg);
+      transition: 550ms;
+    }
+  }
+
+  .btn-group {
+    border-right: 1px $gray-lines solid;
+    position: absolute;
+    top: 0;
+
+    &.open .dropdown-toggle {
+      box-shadow: none;
+    }
+
+    .btn-default {
+      color: $gray-light;
+      overflow: hidden;
+
+      &:hover,
+      &:focus {
+        background-color: $gray-darker;
+        color: $white;
+      }
+    }
+
+    .dropdown-menu {
+      background-color: $gray-darker;
+      border: 0;
+      border-radius: 0;
+      -webkit-font-smoothing: antialiased;
+      font-style: normal;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    a {
+      color: $white;
+
+      &:hover,
+      &:focus {
+        background-color: lighten($gray-dark, .5%);
+        outline: none;
+      }
+    }
+  }
+
+  .btn {
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .icon-avatar {
+    font-size: $font-size-icon-large;
+    padding: 6px 10px;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+
+  .main-wrapper {
+    overflow: hidden;
+    padding-left: 235px;
+    width: 100%;
+  }
+
+  .main-header {
+    background-color: $white;
+    left: 0;
+    padding-left: 235px;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+  }
+
+  .sub-nav {
+    border-bottom: 5px $brand-primary solid;
+    border-radius: 0;
+  }
+
+  .user-nav {
+    .btn-group {
+      border-left: 1px $gray-lines solid;
+      border-right: 0;
+      display: inline-block;
+      float: right;
+      position: relative;
+      right: 0;
+
+      .dropdown-menu {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    .icon-avatar {
+      padding: 8px 14px 10px;
+    }
+  }
+
+  li:active {
+    color: $breadcrumb-active-color;
+  }
+
+  a {
+    color: $breadcrumb-color;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+
+  .user-nav {
+
+    .btn-group {
+
+      .icon-angle {
+        margin: 5px 0;
+        padding: 0 15px;
+      }
+    }
+  }
+
+}

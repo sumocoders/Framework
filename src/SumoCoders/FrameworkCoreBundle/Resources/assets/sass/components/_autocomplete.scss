@@ -1,0 +1,30 @@
+.ui-autocomplete.ui-widget-content {
+  border-color: $gray-lines;
+  padding: 10px;
+
+  .ui-menu-item {
+
+    a {
+      color: $gray-light;
+
+      &:focus {
+        outline: none;
+        outline-offset: 0;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .ui-state-focus {
+    background: transparent;
+    border: none;
+    margin: 0;
+
+    a {
+      color: darken($gray-light, 20%);
+    }
+  }
+}

@@ -44,7 +44,7 @@ class Framework extends DefaultObject
     '#content.open' : touchend : 'toggleSmallMenu'
 
     # show action-list on iphone-size
-    '.dropdownToggle' : click : 'toggleDropdown'
+    '#main-menu-inner .dropdown-toggle' : click : 'toggleDropdown'
 
     # animate scrolling
     'a.backToTop': click : 'scrollToTop'
@@ -52,7 +52,7 @@ class Framework extends DefaultObject
 
     # link methods
     'a.confirm': click : 'askConfirmation'
-    'a.confirmPostForm': click : 'askConfirmationAndPostAsAForm'
+    'button.confirm' : click : 'askConfirmationAndSubmit'
 
     # tabs
     '.nav-tabs a' : click : 'changeTab'
@@ -63,13 +63,28 @@ class Framework extends DefaultObject
       ajax_start : 'showLoadingBar'
       ajax_stop : 'hideLoadingBar'
 
+    # search bar
+    'a.toggle-searchbar': click : 'toggleSearchBar'
+    '.form-control' :
+      keydown : 'hideLabelD'
+      keyup : 'hideLabel'
+
   @onDomReady [
     '_initAjax'
     '_initForm'
     '_initTabs'
+    '_initTooltip'
+    '_initPopover'
+    '_initSortable'
+    '_initDisableSelection'
+    '_initAutoComplete'
+    '_initDatepicker'
+    '_initSlider'
+    '_initSelect2'
     '_calculateActionsWidths'
     'setContentHeight'
   ]
+  
 
   _initAjax: ->
     # set some defaults for AJAX-request
@@ -136,6 +151,62 @@ class Framework extends DefaultObject
           .addClass('error')
     )
 
+  _initSortable: ->
+    $( '.sortable' ).sortable();
+
+  _initDisableSelection: ->
+    $( '.sortable' ).disableSelection();
+
+  _initAutoComplete: ->
+    availableTags = [
+      'ActionScript'
+      'AppleScript'
+      'Asp'
+      'BASIC'
+      'C'
+      'C++'
+      'Clojure'
+      'COBOL'
+      'ColdFusion'
+      'Erlang'
+      'Fortran'
+      'Groovy'
+      'Haskell'
+      'Java'
+      'JavaScript'
+      'Lisp'
+      'Perl'
+      'PHP'
+      'Python'
+      'Ruby'
+      'Scala'
+      'Scheme'
+    ]
+    $( '.tags' ).autocomplete(
+      source: availableTags
+    )
+
+  _initDatepicker: ->
+    $( '.datepicker' ).datepicker(
+      dateFormat: "dd-mm-yy"
+    )
+
+  _initSlider: ->
+    $( '.slider' ).slider()
+
+  _initSelect2: ->
+    $('.select2').select2()
+
+  _initTooltip: ->
+    $('[data-toggle="tooltip"]').tooltip()
+
+  _initPopover: ->
+    $('[data-toggle="popover"]').popover(
+      {
+        html: true
+      }
+    )
+
   changeTab: (e) ->
     # if the browser supports history.pushState(), use it to update the URL
     # with the fragment identifier, without triggering a scroll/jump
@@ -150,8 +221,21 @@ class Framework extends DefaultObject
 
     $(this).tab('show')
 
+  toggleSearchBar: ->
+    $('.search-box').toggleClass('open')
+    $('input[name=search]').focus();
+
+  hideLabel: ->
+    if $(this).val()
+      $('.search-form').addClass('filled')
+    else
+      $('.search-form').removeClass('filled')
+
+  hideLabelD : ->
+    $('.search-form').addClass('filled')
+
   _calculateActionsWidths: ->
-    $('.actions li a').each(->
+    $('.actions li a, .actions li button').each(->
       $this = $(@)
       $this.attr('data-width', $this.width())
       $this.width(0)
@@ -163,13 +247,12 @@ class Framework extends DefaultObject
     )
 
   showLoadingBar: ->
-    $('#header').addClass('progress progress-striped active')
-    $('#header .container').addClass('bar')
+    $('.header-title').addClass('progress')
+    $('.header-title .header-title-bar').addClass('progress-bar progress-bar-striped active')
     return
 
   hideLoadingBar: ->
-    $('#header').removeClass('progress progress-striped active')
-    $('#header .container').removeClass('bar')
+    $('.header-title .header-title-bar').removeClass('active')
     return
 
 # Menu methods
@@ -225,8 +308,16 @@ class Framework extends DefaultObject
     e.preventDefault()
 
     $this = $(e.currentTarget)
-    $this.toggleClass('open')
-    $this.next('ul').slideToggle()
+    $parent = $this.parent()
+
+    if $parent.hasClass 'open'
+      $parent.toggleClass 'closed'
+    else
+      $parent.removeClass 'closed'
+
+    $this.next('ul').slideToggle(200, ->
+      $parent.toggleClass('open')
+    )
 
 # Animated scroll methods
   scrollTo: (e) ->
@@ -250,7 +341,7 @@ class Framework extends DefaultObject
     e.preventDefault()
 
     $('html, body').stop().animate({
-      scrollTop: $('#content').offset().top
+      scrollTop: $('#main-wrapper').offset().top
     }, 500)
 
 # Link methods
@@ -263,37 +354,16 @@ class Framework extends DefaultObject
     $('#confirmModal').modal('show')
   false
 
-  _postAsForm: (e) =>
-    # build the form
-    # we can't use an single-style tag, because IE can't handle this
-    $form = $('<form></form>')
-      .attr('style', 'display: none;')
-      .attr('action', e.attr('href'))
-      .attr('method', 'POST')
-
-    # append the data
-    for name, value of e.data()
-      if name.substr(0, 5) == 'field'
-        $element = $('<input>').attr('type', 'hidden')
-          .attr('name', name.substr(5).toLowerCase())
-          .attr('value', value)
-        $form.append($element)
-
-    $('#confirmModal').modal('hide')
-    $('body').append($form)
-    $.event.trigger('show_loading_bar')
-    $form.submit()
-  false
-
-  askConfirmationAndPostAsAForm: (e) =>
+  askConfirmationAndSubmit: (e) =>
     e.preventDefault()
     $this = $(e.currentTarget)
     $modal = $('#confirmModal')
+    $form = $this.parents('form');
 
     $('#confirmModalMessage').html($this.data('message'))
     $modal.on('click', '#confirmModalOk', (e) =>
       e.preventDefault()
-      @_postAsForm($this)
+      $form.submit()
     )
       .modal('show')
       .on('hide', (e) =>
@@ -310,5 +380,6 @@ class Framework extends DefaultObject
         $('#content').css('minHeight', $(window).height())
       , 200)
     )
+
 
 window.Framework = Framework

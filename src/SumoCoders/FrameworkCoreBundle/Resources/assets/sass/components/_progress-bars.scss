@@ -1,9 +1,14 @@
-.progress {
+.header-title.progress {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  height: auto;
   margin-bottom: 0;
   overflow: visible;
 
   .progress-bar {
-    background-size: 100px 100px;
+    //background-size: 100px 100px;
+    background-color: lighten($brand-primary, 30%);
     text-align: left;
     width: 100%;
   }
@@ -14,7 +19,7 @@
 }
 
 @media screen and (min-width: $screen-sm) {
-  .progress .progress-bar {
+  .header-title .progress .progress-bar {
     width: 100%;
   }
 }
@@ -23,4 +28,3 @@
   from { background-position: 100px 0; }
   to { background-position: 0 0; }
 }
-

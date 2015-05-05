@@ -1,57 +1,7 @@
 .nav-tabs,
 .nav-pills {
-  margin-bottom: 20px;
-}
-
-.nav-tabs {
-  border-bottom-width: 2px;
-
-  > li {
-    > a {
-      border-radius: 0;
-    }
-
-    &.active {
-      border-top: 3px solid $brand-primary;
-      margin-bottom: -2px;
-      margin-right: 2px;
-
-      &.error {
-        border-color: #b94a48;
-
-        a {
-          color: #b94a48 !important;
-        }
-      }
-    }
-  }
-
-  &.nav-stacked > li.active {
-    border: 0;
-    border-left: 3px solid #6d8393;
-    margin-bottom: 0;
-    margin-right: 0;
-
-    > a,
-    > a:hover,
-    > a:focus {
-      border-style: solid;
-      border-top-color: #ddd;
-      border-width: 1px;
-    }
-
-    > a {
-      border-top: 1px solid #ddd;
-      color: #555;
-      margin-right: 0;
-    }
+  
+  li a:hover {
+    color: $white;
   }
 }
-
-// nav pills & list
-
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover {
-  background-color: lighten($brand-primary, 10%);
-}
-

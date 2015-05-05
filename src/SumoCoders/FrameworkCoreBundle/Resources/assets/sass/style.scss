@@ -1,3 +1,7 @@
+// Base
+@import 'base/fonts';
+@import 'font-awesome/scss/font-awesome';
+
 // make sure we have to bootstrap first and overrule them with our values
 @import 'bootstrap/variables';
 
@@ -5,30 +9,40 @@
 @import 'bootstrap-variables';
 @import 'bootstrap-imports';
 
-// Base
-@import 'base/fonts';
+
+// Icons @todo: can this be removed??
 @import 'base/icons';
-@import 'font-awesome/scss/font-awesome';
 
 // Custom icon font generated with grunt-webfont
 @import 'icons';
 
 // Plugins
 @import 'select2-bootstrap-css/lib/select2-bootstrap';
+@import 'plugins/bootstrap-tagsinput';
 @import 'plugins/jquery-ui';
 @import 'plugins/select2';
 
 // Components
 @import 'components/alerts';
+@import 'components/autocomplete';
+@import 'components/breadcrumb';
 @import 'components/buttons';
+@import 'components/carousel';
 @import 'components/code';
 @import 'components/datagrids';
+@import 'components/datepicker';
 @import 'components/dropdowns';
 @import 'components/forms';
-@import 'components/misc';
+@import 'components/helper-classes';
+@import 'components/input-group';
+@import 'components/modal';
 @import 'components/navbar';
 @import 'components/navs';
+@import 'components/pagination';
+@import 'components/panels';
 @import 'components/progress-bars';
+@import 'components/slider';
+@import 'components/sortable';
 @import 'components/tables';
 @import 'components/tagbox';
 @import 'components/type';
@@ -38,4 +52,5 @@
 @import 'layouts/framework';
 @import 'layouts/user';
 @import 'layouts/search';
+@import 'layouts/header';
 
