@@ -45,7 +45,7 @@ in your scss-files.
 ### Icons
 
 We will look into all bundle in the `src` folder for svg files in the
-`Resources/assets/icons` folder. These svg icons will be embedded in a 
+`Resources/assets/icon-font` folder. These svg icons will be embedded in a
 CSS file which will be asynchronously loaded into the web page. If the browser
 doesn't support SVG, another CSS file with PNG fallbacks will be loaded.
 All of this happens through [grunticon](https://github.com/filamentgroup/grunticon).
