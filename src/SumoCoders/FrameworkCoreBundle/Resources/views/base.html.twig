@@ -89,50 +89,45 @@
         {{ 'core.warnings.oldBrowser'|trans }}
     </div>
 <![endif]-->
-    {{ include('SumoCodersFrameworkCoreBundle::navigation.html.twig') }}
 
-    <div id="contentWrap">
-        <div id="content">
-            <header id="header" role="banner">
-                <div class="container bar">
-                    <div class="title">
-                        <a id="toggleMenu" class="visible-xs iconLink fa fa-bars" href="#">
-                          <span class="sr-only">
-                            {{ 'navigation.titles.showHideMenu'|trans|capitalize }}
-                          </span>
-                        </a>
-                        {% block header_title %}
-                        {% endblock %}
-                    </div>
-                    <div class="actions">
-                        <a href="#" class="dropdownToggle fa fa-cog visible-xs">
-                          <span class="sr-only">
-                            {{ 'navigation.titles.possible_actions'|trans|capitalize }}:
-                          </span>
-                        </a>
-                        {% block header_navigation %}
-                        {% endblock %}
-                    </div>
-                </div>
-            </header>
-
-            {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}
-
-            <section id="main" role="main">
-                <div class="container">
-                    {% block main %}
-                    {% endblock %}
-                </div>
-            </section>
+    <div id="main-wrapper">
+        <div id="main-menu" role="navigation">
+            {{ include('SumoCodersFrameworkCoreBundle::navigation.html.twig') }}
         </div>
-
-        {% block footer %}
-            <div class="container">
-                <div class="row hidden-md hidden-lg">
-                    <a href="#" class="pull-right backToTop"><i class="fa fa-arrow-circle-up"></i> {{ 'core.interface.backToTop'|trans|capitalize }}</a>
-                </div>
+        <div id="content-wrapper">
+          <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Library</a></li>
+            <li class="active">Data</li>
+          </ol>
+            {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}
+          <div class="header-title">
+            {% block header_title %}
+            {% endblock %}
+          </div>
+          <div class="actions">
+            {% block header_navigation %}
+              <button class="btn btn-info">Downloaden</button>
+              <button class="btn btn-info">Overzicht</button>
+            {% endblock %}
+          </div>
+          <section id="main" role="main">
+            <div class="container-fluid">
+                {% block main %}
+                {% endblock %}
             </div>
-        {% endblock %}
+          </section>
+        </div>
+        <footer class="footer">
+          {% block footer %}
+            <div class="container-fluid">
+              <div class="row hidden-md hidden-lg">
+                <a href="#" class="pull-right backToTop"><i class="fa fa-arrow-circle-up"></i> {{ 'core.interface.backToTop'|trans|capitalize }}</a>
+              </div>
+            </div>
+          {% endblock %}
+        </footer>
+    </div>
 
     {{ include('SumoCodersFrameworkCoreBundle::dialogs.html.twig') }}
 

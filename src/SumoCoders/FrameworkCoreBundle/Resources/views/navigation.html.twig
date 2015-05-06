@@ -1,10 +1,4 @@
-<nav id="navbar" role="navigation">
-    <a href="/" rel="home" class="logo icon-logo-application hidden-xs">
-      <span class="sr-only">
-        {{ fallbacks.get('site_title') }}
-      </span>
-    </a>
-
+<!--<nav id="navbar" role="navigation" class="navbar navbar-default">
     <div class="searchBox" role="search">
         {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
             <form action="{{ path('sumocoders_frameworksearch_default_index') }}" data-form-class="SearchForm">
@@ -18,11 +12,27 @@
         {% endif %}
     </div>
     <div class="container">
-        {{ knp_menu_render('main', {'template': 'SumoCodersFrameworkCoreBundle:menu:menu.html.twig'}) }}
+
     </div>
 </nav>
 <a href="#" class="icon-arrow-show-menu" id="toggleTabletNavbar">
   <span class="sr-only">
     {{ 'navigation.titles.showHideMenu'|trans|capitalize }}
   </span>
-</a>
+</a> -->
+
+<div id="main-menu-inner">
+    <div class="navbar navbar-deafault">
+      <div class="navbar-header">
+        <a href="/" rel="home" class="logo icon-logo-application">
+                <span class="sr-only">
+                  {{ fallbacks.get('site_title') }}
+                </span>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        {{ knp_menu_render('main', {'template': 'SumoCodersFrameworkCoreBundle:menu:menu.html.twig'}) }}
+
+      </div>
+    </div>
+</div>

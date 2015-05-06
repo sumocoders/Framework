@@ -1,146 +1,25 @@
-// Navbar mobile functionality
-#navbar {
-  background-color: $gray-lightest;
-  height: 100%;
-  overflow-y: scroll;
-  padding-bottom: 45px;
-  position: fixed;
-  width: 85%;
-  z-index: 10;
-
-  .container {
-    padding: 0;
+#main-menu {
+  .logo {
+    height: 55px;
+    padding: 3px;
   }
 
-  .nav {
-    .toggleSubNavigation:after {
-      @extend .icon;
-      @extend .icon-subnav:before;
-      color: $gray-lighter;
-      float: right;
-      font-size: 15px;
-      margin-top: 6px;
-    }
+  .icon-logo-application {
 
-    li {
-      border-bottom: 2px solid $gray-lighter;
-
-      a {
-        color: #8d94ab;
-        font-weight: bold;
-        padding: 21px 18px;
-        text-transform: uppercase;
-
-        &.icon-subnav {
-          background-position: 95% center;
-          background-size: 8px auto;
-        }
-
-        &.active {
-          background-color: #fff;
-          color: #0f0f0f;
-        }
-      }
-
-      &#user > a {
-        color: #464242;
-        font-size: $font-size-base * 1.29;
-        font-weight: bold;
-        padding-top: 19px;
-        position: relative;
-
-        &.active {
-          background-color: #fff;
-          color: #0f0f0f;
-        }
-      }
-
-      .subNavigation {
-        display: none;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
-        li {
-          border-bottom-color: #3b3c48;
-
-          a {
-            background-color: #222329;
-            color: #818696;
-            display: block;
-
-            &:hover {
-              background: lighten(#222329, 10%);
-              text-decoration: none;
-            }
-          }
-        }
-      }
-    }
   }
 }
 
-// Media query min-width 767px
-@media screen and (min-width: 767px) {
-  #navbar {
-    height: 100%;
-    left: -265px;
-    transition: all 250ms;
-    width: 265px;
-    z-index: 30;
-
-    &.open {
-      left: 0;
-      transition: all 250ms;
-
-      &.subnav {
-        padding-right: 230px;
-      }
-    }
-
-    .nav {
-
-      li {
-
-        .subNavigation {
-          background-color: #222329;
-          display: block !important;
-          height: 100% !important;
-          left: 265px;
-          list-style: none;
-          margin: 0;
-          overflow: scroll;
-          padding: 0;
-          position: fixed;
-          top: 0;
-          transition: width 250ms;
-          width: 0;
-
-          li {
-            border-bottom-color: #3b3c48;
-
-            a {
-              background: #222329;
-              color: #818696;
-              display: block;
-              white-space: nowrap;
-            }
-          }
-
-          &.open {
-            width: 230px;
-          }
-        }
-      }
-    }
-  }
-}
-
-// Media query min-width 1025px
-@media screen and (min-width: 1025px) {
-  #navbar {
+@media (min-width: $screen-sm-min) {
+  #main-menu {
+    width: 235px;
+    position: fixed;
     left: 0;
-    overflow: visible;
-    top: 0;
+    height: 100%;
+
+
+    .navbar-header {
+      width: 235px;
+      float: left;
+    }
   }
 }
