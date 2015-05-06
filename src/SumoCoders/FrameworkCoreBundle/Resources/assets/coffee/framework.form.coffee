@@ -9,73 +9,70 @@ class Form
 
 # date fields
   _dateFieldOptions:
-    currentText:        Locale.lbl 'core.interface.today'
-    closeText:        Locale.lbl 'core.interface.close'
-    nextText:         Locale.lbl 'core.interface.next'
-    prevText:         Locale.lbl 'core.interface.previous'
+    currentText:      Locale.get 'core.datepicker.buttons.today'
+    closeText:        Locale.get 'core.datepicker.buttons.close'
+    nextText:         Locale.get 'core.datepicker.buttons.next'
+    prevText:         Locale.get 'core.datepicker.buttons.previous'
     firstDay:         1
     hideIfNoPrevNext: true
     showAnim:         'slideDown'
     zIndex:           9999
     dateFormat:       'dd/mm/yy'
-<<<<<<< Updated upstream
-=======
-#    dayNames: [
-#      Locale.msg 'DatePickerFullSunday'
-#      Locale.msg 'DatePickerFullMonday'
-#      Locale.msg 'DatePickerFullTuesday'
-#      Locale.msg 'DatePickerFullWednesday'
-#      Locale.msg 'DatePickerFullThursday'
-#      Locale.msg 'DatePickerFullFriday'
-#      Locale.msg 'DatePickerFullSaturday'
-#    ]
-#    dayNamesMin: [
-#      Locale.msg 'DatePickerMinimalSunday'
-#      Locale.msg 'DatePickerMinimalMonday'
-#      Locale.msg 'DatePickerMinimalTuesday'
-#      Locale.msg 'DatePickerMinimalWednesday'
-#      Locale.msg 'DatePickerMinimalThursday'
-#      Locale.msg 'DatePickerMinimalFriday'
-#      Locale.msg 'DatePickerMinimalSaturday'
-#    ]
-#    dayNamesShort: [
-#      Locale.msg 'DatePickerShortSunday'
-#      Locale.msg 'DatePickerShortMonday'
-#      Locale.msg 'DatePickerShortTuesday'
-#      Locale.msg 'DatePickerShortWednesday'
-#      Locale.msg 'DatePickerShortThursday'
-#      Locale.msg 'DatePickerShortFriday'
-#      Locale.msg 'DatePickerShortSaturday'
-#    ]
-#    monthNames: [
-#      Locale.msg 'DatePickerFullJanuary'
-#      Locale.msg 'DatePickerFullFebruary'
-#      Locale.msg 'DatePickerFullMarch'
-#      Locale.msg 'DatePickerFullApril'
-#      Locale.msg 'DatePickerFullMay'
-#      Locale.msg 'DatePickerFullJune'
-#      Locale.msg 'DatePickerFullJuly'
-#      Locale.msg 'DatePickerFullAugust'
-#      Locale.msg 'DatePickerFullSeptember'
-#      Locale.msg 'DatePickerFullOctober'
-#      Locale.msg 'DatePickerFullNovember'
-#      Locale.msg 'DatePickerFullDecember'
-#    ]
-#    monthNamesShort: [
-#      Locale.msg 'DatePickerShortJanuary'
-#      Locale.msg 'DatePickerShortFebruary'
-#      Locale.msg 'DatePickerShortMarch'
-#      Locale.msg 'DatePickerShortApril'
-#      Locale.msg 'DatePickerShortMay'
-#      Locale.msg 'DatePickerShortJune'
-#      Locale.msg 'DatePickerShortJuly'
-#      Locale.msg 'DatePickerShortAugust'
-#      Locale.msg 'DatePickerShortSeptember'
-#      Locale.msg 'DatePickerShortOctober'
-#      Locale.msg 'DatePickerShortNovember'
-#      Locale.msg 'DatePickerShortDecember'
-#    ]
->>>>>>> Stashed changes
+    dayNames: [
+      Locale.get 'core.datepicker.full.days.sunday'
+      Locale.get 'core.datepicker.full.days.monday'
+      Locale.get 'core.datepicker.full.days.tuesday'
+      Locale.get 'core.datepicker.full.days.Wednesday'
+      Locale.get 'core.datepicker.full.days.thursday'
+      Locale.get 'core.datepicker.full.days.friday'
+      Locale.get 'core.datepicker.full.days.saturday'
+    ]
+    dayNamesMin: [
+      Locale.get 'core.datepicker.minimal.days.sunday'
+      Locale.get 'core.datepicker.minimal.days.monday'
+      Locale.get 'core.datepicker.minimal.days.tuesday'
+      Locale.get 'core.datepicker.minimal.days.wednesday'
+      Locale.get 'core.datepicker.minimal.days.thursday'
+      Locale.get 'core.datepicker.minimal.days.friday'
+      Locale.get 'core.datepicker.minimal.days.saturday'
+    ]
+    dayNamesShort: [
+      Locale.get 'core.datepicker.short.days.sunday'
+      Locale.get 'core.datepicker.short.days.monday'
+      Locale.get 'core.datepicker.short.days.tuesday'
+      Locale.get 'core.datepicker.short.days.wednesday'
+      Locale.get 'core.datepicker.short.days.thursday'
+      Locale.get 'core.datepicker.short.days.friday'
+      Locale.get 'core.datepicker.short.days.saturday'
+    ]
+    monthNames: [
+      Locale.get 'core.datepicker.full.months.january'
+      Locale.get 'core.datepicker.full.months.february'
+      Locale.get 'core.datepicker.full.months.march'
+      Locale.get 'core.datepicker.full.months.april'
+      Locale.get 'core.datepicker.full.months.may'
+      Locale.get 'core.datepicker.full.months.june'
+      Locale.get 'core.datepicker.full.months.july'
+      Locale.get 'core.datepicker.full.months.august'
+      Locale.get 'core.datepicker.full.months.september'
+      Locale.get 'core.datepicker.full.months.october'
+      Locale.get 'core.datepicker.full.months.november'
+      Locale.get 'core.datepicker.full.months.december'
+    ]
+    monthNamesShort: [
+      Locale.get 'core.datepicker.short.months.january'
+      Locale.get 'core.datepicker.short.months.february'
+      Locale.get 'core.datepicker.short.months.march'
+      Locale.get 'core.datepicker.short.months.april'
+      Locale.get 'core.datepicker.short.months.may'
+      Locale.get 'core.datepicker.short.months.june'
+      Locale.get 'core.datepicker.short.months.july'
+      Locale.get 'core.datepicker.short.months.august'
+      Locale.get 'core.datepicker.short.months.september'
+      Locale.get 'core.datepicker.short.months.october'
+      Locale.get 'core.datepicker.short.months.november'
+      Locale.get 'core.datepicker.short.months.december'
+    ]
 
   _parseDate: (element, key) ->
     return '' if not element.data(key)?

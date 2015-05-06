@@ -9,10 +9,6 @@
             </note>
         </header>
         <body>
-            <trans-unit id="4fa9cb4f780e12806844d800ceb9f1fd5b3aa610" resname="core.errors.notFound">
-                <source>core.errors.notFound</source>
-                <target>Not Found</target>
-            </trans-unit>
             <trans-unit id="4fa9cb4f780e12806844d800ceb9f1fd5b3aa611" resname="core.interface.backToTop">
                 <source>core.interface.backToTop</source>
                 <target>back to top</target>
@@ -21,10 +17,6 @@
                 <source>core.warnings.oldBrowser</source>
                 <target><![CDATA[
                     <strong>Warning:<\/strong> You are using an older browser. If you want to see the site as it is intended, you may want to download a new version or a decent browser like <a href=\"http:\/\/www.google.com/chrome\‎">Chrome<\/a>.]]></target>
-            </trans-unit>
-            <trans-unit id="18cbaa7a212a4ebb5aa2e50de42ed7d0209e4932" resname="dialogs.messages.confirmDelete">
-                <source>dialogs.messages.confirmDelete</source>
-                <target>Are you sure you want to delete %entity%?</target>
             </trans-unit>
             <trans-unit id="18cbaa7a212a4ebb5aa2e50de42ed7d0209e493e" resname="dialogs.buttons.cancel">
                 <source>dialogs.buttons.cancel</source>
@@ -112,23 +104,203 @@
             </trans-unit>
             <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b8" resname="core.interface.pickDate">
                 <source>core.interface.pickDate</source>
-                <target>pick the date</target>
+                <target>kies een datum</target>
             </trans-unit>
-            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b9" resname="core.interface.close">
-                <source>core.interface.close</source>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b0" resname="core.datepicker.buttons.close">
+                <source>core.datepicker.buttons.close</source>
                 <target>close</target>
             </trans-unit>
-            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c0" resname="core.interface.next">
-                <source>core.interface.next</source>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b1" resname="core.datepicker.buttons.next">
+                <source>core.datepicker.buttons.next</source>
                 <target>next</target>
             </trans-unit>
-            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c1" resname="core.interface.previous">
-                <source>core.interface.previous</source>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b2" resname="core.datepicker.buttons.previous">
+                <source>core.datepicker.buttons.previous</source>
                 <target>previous</target>
             </trans-unit>
-            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c2" resname="core.interface.today">
-                <source>core.interface.today</source>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13a9" resname="core.datepicker.buttons.today">
+                <source>core.datepicker.buttons.today</source>
                 <target>today</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b3" resname="core.datepicker.full.days.sunday">
+                <source>core.datepicker.full.days.sunday</source>
+                <target>sunday</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b4" resname="core.datepicker.full.days.monday">
+                <source>core.datepicker.full.days.monday</source>
+                <target>monday</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b5" resname="core.datepicker.full.days.tuesday">
+                <source>core.datepicker.full.days.tuesday</source>
+                <target>tuesday</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b6" resname="core.datepicker.full.days.wednesday">
+                <source>core.datepicker.full.days.wednesday</source>
+                <target>wednesday</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b7" resname="core.datepicker.full.days.thursday">
+                <source>core.datepicker.full.days.thursday</source>
+                <target>thursday</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b8" resname="core.datepicker.full.days.friday">
+                <source>core.datepicker.full.days.friday</source>
+                <target>friday</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b9" resname="core.datepicker.full.days.saturday">
+                <source>core.datepicker.full.days.saturday</source>
+                <target>saturday</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c0" resname="core.datepicker.minimal.days.sunday">
+                <source>core.datepicker.minimal.days.sunday</source>
+                <target>su</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c1" resname="core.datepicker.minimal.days.monday">
+                <source>core.datepicker.minimal.days.monday</source>
+                <target>mo</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c2" resname="core.datepicker.minimal.days.tuesday">
+                <source>core.datepicker.minimal.days.tuesday</source>
+                <target>tu</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c3" resname="core.datepicker.minimal.days.wednesday">
+                <source>core.datepicker.minimal.days.wednesday</source>
+                <target>we</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c4" resname="core.datepicker.minimal.days.thursday">
+                <source>core.datepicker.minimal.days.thursday</source>
+                <target>th</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c5" resname="core.datepicker.minimal.days.friday">
+                <source>core.datepicker.minimal.days.friday</source>
+                <target>fr</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c6" resname="core.datepicker.minimal.days.saturday">
+                <source>core.datepicker.minimal.days.saturday</source>
+                <target>sa</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c7" resname="core.datepicker.short.days.sunday">
+                <source>core.datepicker.short.days.sunday</source>
+                <target>sun</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c8" resname="core.datepicker.short.days.monday">
+                <source>core.datepicker.short.days.monday</source>
+                <target>mon</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c9" resname="core.datepicker.short.days.tuesday">
+                <source>core.datepicker.short.days.tuesday</source>
+                <target>tue</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d0" resname="core.datepicker.short.days.wednesday">
+                <source>core.datepicker.short.days.wednesday</source>
+                <target>wed</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d1" resname="core.datepicker.short.days.thursday">
+                <source>core.datepicker.short.days.thursday</source>
+                <target>thu</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d2" resname="core.datepicker.short.days.friday">
+                <source>core.datepicker.short.days.friday</source>
+                <target>fri</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d3" resname="core.datepicker.short.days.saturday">
+                <source>core.datepicker.short.days.saturday</source>
+                <target>sat</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d4" resname="core.datepicker.full.months.january">
+                <source>core.datepicker.full.months.january</source>
+                <target>January</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d5" resname="core.datepicker.full.months.february">
+                <source>core.datepicker.full.months.february</source>
+                <target>February</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d6" resname="core.datepicker.full.months.march">
+                <source>core.datepicker.full.months.march</source>
+                <target>March</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d7" resname="core.datepicker.full.months.april">
+                <source>core.datepicker.full.months.april</source>
+                <target>April</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d8" resname="core.datepicker.full.months.may">
+                <source>core.datepicker.full.months.may</source>
+                <target>May</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d9" resname="core.datepicker.full.months.june">
+                <source>core.datepicker.full.months.june</source>
+                <target>June</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e0" resname="core.datepicker.full.months.july">
+                <source>core.datepicker.full.months.july</source>
+                <target>July</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e1" resname="core.datepicker.full.months.august">
+                <source>core.datepicker.full.months.august</source>
+                <target>August</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e2" resname="core.datepicker.full.months.september">
+                <source>core.datepicker.full.months.september</source>
+                <target>September</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e3" resname="core.datepicker.full.months.october">
+                <source>core.datepicker.full.months.october</source>
+                <target>October</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e4" resname="core.datepicker.full.months.november">
+                <source>core.datepicker.full.months.november</source>
+                <target>November</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e5" resname="core.datepicker.full.months.december">
+                <source>core.datepicker.full.months.december</source>
+                <target>December</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e7" resname="core.datepicker.short.months.january">
+                <source>core.datepicker.short.months.january</source>
+                <target>Jan</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e8" resname="core.datepicker.short.months.february">
+                <source>core.datepicker.short.months.february</source>
+                <target>Feb</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e9" resname="core.datepicker.short.months.march">
+                <source>core.datepicker.short.months.march</source>
+                <target>Mar</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f0" resname="core.datepicker.short.months.april">
+                <source>core.datepicker.short.months.april</source>
+                <target>Apr</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f1" resname="core.datepicker.short.months.may">
+                <source>core.datepicker.short.months.may</source>
+                <target>May</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f2" resname="core.datepicker.short.months.june">
+                <source>core.datepicker.short.months.june</source>
+                <target>Jun</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f3" resname="core.datepicker.short.months.july">
+                <source>core.datepicker.short.months.july</source>
+                <target>Jul</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f4" resname="core.datepicker.short.months.august">
+                <source>core.datepicker.short.months.august</source>
+                <target>Aug</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f5" resname="core.datepicker.short.months.september">
+                <source>core.datepicker.short.months.september</source>
+                <target>Sep</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f6" resname="core.datepicker.short.months.october">
+                <source>core.datepicker.short.months.october</source>
+                <target>Oct</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f7" resname="core.datepicker.short.months.november">
+                <source>core.datepicker.short.months.november</source>
+                <target>Nov</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f8" resname="core.datepicker.short.months.december">
+                <source>core.datepicker.short.months.december</source>
+                <target>Dec</target>
             </trans-unit>
         </body>
     </file>

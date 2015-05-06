@@ -34,6 +34,10 @@
                 <source>forms.errors.fieldIsRequired</source>
                 <target>dit veld is verplicht</target>
             </trans-unit>
+            <trans-unit id="bfaa725b829b4ac40a8b2e1b3684b723653c9622" resname="forms.errors.invalidToken">
+                <source>forms.errors.invalidToken</source>
+                <target>Woops, invalid token! Are you trying to CSRF us?</target>
+            </trans-unit>
             <trans-unit id="67feda55aa56b5ee53940e13613a7fe98982e9ef" resname="forms.login.action.forgotPassword">
                 <source>forms.login.action.forgotPassword</source>
                 <target>wachtwoord vergeten?</target>
@@ -62,6 +66,10 @@
                 <source>header.title.edit</source>
                 <target>bewerk %entity%</target>
             </trans-unit>
+            <trans-unit id="89984afe2d8b76679eb07a21b2a99b1a8d4a15b8" resname="header.title.add">
+                <source>header.title.add</source>
+                <target>add</target>
+            </trans-unit>
             <trans-unit id="5f7ce99c49f17cddf5af906deac2d4638bac91bb" resname="header.title.show">
                 <source>header.title.show</source>
                 <target>details %entity%</target>
@@ -77,6 +85,22 @@
             <trans-unit id="8075104b38259975fc5afbe9e01eec5b0302e6c5" resname="navigation.user.settings">
                 <source>navigation.user.settings</source>
                 <target>instellingen</target>
+            </trans-unit>
+            <trans-unit id="00a9bcba07424886eab4e73145da8e2b7789bca5" resname="datagrids.actions.edit">
+                <source>datagrids.actions.edit</source>
+                <target>bewerk</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13a6" resname="forms.general.buttons.add">
+                <source>forms.general.buttons.add</source>
+                <target>toevoegen</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13a8" resname="forms.general.buttons.edit">
+                <source>forms.general.buttons.edit</source>
+                <target>bewerk</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13a7" resname="forms.general.buttons.delete">
+                <source>forms.general.buttons.delete</source>
+                <target>verwijder</target>
             </trans-unit>
             <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b8" resname="core.interface.pickDate">
                 <source>core.interface.pickDate</source>
@@ -97,6 +121,186 @@
             <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c2" resname="core.interface.today">
                 <source>core.interface.today</source>
                 <target>vandaag</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b3" resname="core.datepicker.full.days.sunday">
+                <source>core.datepicker.full.days.sunday</source>
+                <target>zondag</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b4" resname="core.datepicker.full.days.monday">
+                <source>core.datepicker.full.days.monday</source>
+                <target>maandag</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b5" resname="core.datepicker.full.days.tuesday">
+                <source>core.datepicker.full.days.tuesday</source>
+                <target>dinsdag</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b6" resname="core.datepicker.full.days.wednesday">
+                <source>core.datepicker.full.days.wednesday</source>
+                <target>woensdag</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b7" resname="core.datepicker.full.days.thursday">
+                <source>core.datepicker.full.days.thursday</source>
+                <target>donderdag</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b8" resname="core.datepicker.full.days.friday">
+                <source>core.datepicker.full.days.friday</source>
+                <target>vrijdag</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13b9" resname="core.datepicker.full.days.saturday">
+                <source>core.datepicker.full.days.saturday</source>
+                <target>zaterdag</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c0" resname="core.datepicker.minimal.days.sunday">
+                <source>core.datepicker.minimal.days.sunday</source>
+                <target>zo</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c1" resname="core.datepicker.minimal.days.monday">
+                <source>core.datepicker.minimal.days.monday</source>
+                <target>ma</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c2" resname="core.datepicker.minimal.days.tuesday">
+                <source>core.datepicker.minimal.days.tuesday</source>
+                <target>di</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c3" resname="core.datepicker.minimal.days.wednesday">
+                <source>core.datepicker.minimal.days.wednesday</source>
+                <target>wo</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c4" resname="core.datepicker.minimal.days.thursday">
+                <source>core.datepicker.minimal.days.thursday</source>
+                <target>do</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c5" resname="core.datepicker.minimal.days.friday">
+                <source>core.datepicker.minimal.days.friday</source>
+                <target>vr</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c6" resname="core.datepicker.minimal.days.saturday">
+                <source>core.datepicker.minimal.days.saturday</source>
+                <target>za</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c7" resname="core.datepicker.short.days.sunday">
+                <source>core.datepicker.short.days.sunday</source>
+                <target>zon</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c8" resname="core.datepicker.short.days.monday">
+                <source>core.datepicker.short.days.monday</source>
+                <target>maa</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13c9" resname="core.datepicker.short.days.tuesday">
+                <source>core.datepicker.short.days.tuesday</source>
+                <target>din</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d0" resname="core.datepicker.short.days.wednesday">
+                <source>core.datepicker.short.days.wednesday</source>
+                <target>woe</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d1" resname="core.datepicker.short.days.thursday">
+                <source>core.datepicker.short.days.thursday</source>
+                <target>don</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d2" resname="core.datepicker.short.days.friday">
+                <source>core.datepicker.short.days.friday</source>
+                <target>vri</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d3" resname="core.datepicker.short.days.saturday">
+                <source>core.datepicker.short.days.saturday</source>
+                <target>zat</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d4" resname="core.datepicker.full.months.january">
+                <source>core.datepicker.full.months.january</source>
+                <target>januari</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d5" resname="core.datepicker.full.months.february">
+                <source>core.datepicker.full.months.february</source>
+                <target>februari</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d6" resname="core.datepicker.full.months.march">
+                <source>core.datepicker.full.months.march</source>
+                <target>maart</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d7" resname="core.datepicker.full.months.april">
+                <source>core.datepicker.full.months.april</source>
+                <target>april</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d8" resname="core.datepicker.full.months.may">
+                <source>core.datepicker.full.months.may</source>
+                <target>mei</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13d9" resname="core.datepicker.full.months.june">
+                <source>core.datepicker.full.months.june</source>
+                <target>juni</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e0" resname="core.datepicker.full.months.july">
+                <source>core.datepicker.full.months.july</source>
+                <target>juli</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e1" resname="core.datepicker.full.months.august">
+                <source>core.datepicker.full.months.august</source>
+                <target>augustus</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e2" resname="core.datepicker.full.months.september">
+                <source>core.datepicker.full.months.september</source>
+                <target>september</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e3" resname="core.datepicker.full.months.october">
+                <source>core.datepicker.full.months.october</source>
+                <target>oktober</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e4" resname="core.datepicker.full.months.november">
+                <source>core.datepicker.full.months.november</source>
+                <target>november</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e5" resname="core.datepicker.full.months.december">
+                <source>core.datepicker.full.months.december</source>
+                <target>december</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e7" resname="core.datepicker.short.months.january">
+                <source>core.datepicker.short.months.january</source>
+                <target>jan</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e8" resname="core.datepicker.short.months.february">
+                <source>core.datepicker.short.months.february</source>
+                <target>feb</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13e9" resname="core.datepicker.short.months.march">
+                <source>core.datepicker.short.months.march</source>
+                <target>maa</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f0" resname="core.datepicker.short.months.april">
+                <source>core.datepicker.short.months.april</source>
+                <target>apr</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f1" resname="core.datepicker.short.months.may">
+                <source>core.datepicker.short.months.may</source>
+                <target>mei</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f2" resname="core.datepicker.short.months.june">
+                <source>core.datepicker.short.months.june</source>
+                <target>jun</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f3" resname="core.datepicker.short.months.july">
+                <source>core.datepicker.short.months.july</source>
+                <target>jul</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f4" resname="core.datepicker.short.months.august">
+                <source>core.datepicker.short.months.august</source>
+                <target>aug</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f5" resname="core.datepicker.short.months.september">
+                <source>core.datepicker.short.months.september</source>
+                <target>sep</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f6" resname="core.datepicker.short.months.october">
+                <source>core.datepicker.short.months.october</source>
+                <target>oct</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f7" resname="core.datepicker.short.months.november">
+                <source>core.datepicker.short.months.november</source>
+                <target>nov</target>
+            </trans-unit>
+            <trans-unit id="e1bf10b44df3a40c7ed8bfb2f121c94e333c13f8" resname="core.datepicker.short.months.december">
+                <source>core.datepicker.short.months.december</source>
+                <target>dec</target>
             </trans-unit>
         </body>
     </file>
