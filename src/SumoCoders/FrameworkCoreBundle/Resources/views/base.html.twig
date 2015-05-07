@@ -95,23 +95,45 @@
             {{ include('SumoCodersFrameworkCoreBundle::navigation.html.twig') }}
         </div>
         <div id="content-wrapper">
-          <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Library</a></li>
-            <li class="active">Data</li>
-          </ol>
+          <div class="main-header">
+            <div class="sub-nav">
+              <div id="sub-nav-collapse" class="navbar-collapse sub-navbar-collapse collapse">
+                <ol class="breadcrumb">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Library</a></li>
+                  <li class="active">Data</li>
+                </ol>
+                <div class="user-nav">
+                  <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <i class="icon icon-avatar"></i> Sumocoders <span class="icon icon-angle"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                    </ul>
+                  </div>
+                  <div class="search-box pull-right">
+                    <i class="fa fa-search fa-2x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
             {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}
-          <div class="header-title">
-            {% block header_title %}
-            {% endblock %}
+            <div class="header-title">
+              {% block header_title %}
+              {% endblock %}
+            </div>
+            <div class="actions">
+              {% block header_navigation %}
+                <div class="action-buttons">
+                  <button class="btn btn-info">Downloaden</button>
+                  <button class="btn btn-info">Overzicht</button>
+                </div>
+              {% endblock %}
+            </div>
           </div>
-          <div class="actions">
-            {% block header_navigation %}
-              <button class="btn btn-info">Downloaden</button>
-              <button class="btn btn-info">Overzicht</button>
-            {% endblock %}
-          </div>
-          <section id="main" role="main">
+          <section id="main" class="main-content" role="main">
             <div class="container-fluid">
                 {% block main %}
                 {% endblock %}

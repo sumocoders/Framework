@@ -18,7 +18,7 @@ $gray-lightest:          #f1f7f9;
 $white:                  #fff;
 
 $brand-default:         #fff;
-$brand-primary:         #1fd2c5;
+$brand-primary:         #d83f1e;
 $brand-success:         #20c664;
 $brand-info:            #6ac1e0;
 $brand-warning:         #8fb1b4;
@@ -790,9 +790,9 @@ $breadcrumb-padding-horizontal: 15px !default;
 //** Breadcrumb background color
 $breadcrumb-bg:                 $white;
 //** Breadcrumb text color
-$breadcrumb-color:              $gray-dark;
+$breadcrumb-color:              $gray;
 //** Text color of current page in the breadcrumb
-$breadcrumb-active-color:       $gray;
+$breadcrumb-active-color:       $gray-light;
 //** Textual separator for between breadcrumb elements
 $breadcrumb-separator:          ">";
 

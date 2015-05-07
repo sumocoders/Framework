@@ -23,14 +23,21 @@
 
 <div id="main-menu-inner">
     <div class="navbar navbar-deafault">
+      <a href="/" rel="home" class="logo icon-logo-application">
+              <span class="sr-only">
+                {{ fallbacks.get('site_title') }}
+              </span>
+      </a>
       <div class="navbar-header">
-        <a href="/" rel="home" class="logo icon-logo-application">
-                <span class="sr-only">
-                  {{ fallbacks.get('site_title') }}
-                </span>
-        </a>
+        <a class="navbar-brand hidden-md hidden-lg" href="#">Menu</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse" id="navabar-collapse-1">
         {{ knp_menu_render('main', {'template': 'SumoCodersFrameworkCoreBundle:menu:menu.html.twig'}) }}
 
       </div>

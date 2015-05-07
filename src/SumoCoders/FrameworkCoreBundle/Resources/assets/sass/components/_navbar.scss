@@ -1,21 +1,23 @@
 #main-menu {
   .logo {
-    height: 55px;
+    height: 65px;
     padding: 3px;
   }
 
-  .icon-logo-application {
-
+  .navbar {
+    border: none;
   }
 }
 
 @media (min-width: $screen-sm-min) {
   #main-menu {
+    background-color: $navbar-default-bg;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     width: 235px;
     position: fixed;
     left: 0;
     height: 100%;
-
+    z-index: 1;
 
     .navbar-header {
       width: 235px;
