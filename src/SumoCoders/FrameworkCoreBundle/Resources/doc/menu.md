@@ -27,11 +27,15 @@ class MenuListener extends DefaultMenuListener
                 'uri' => '#',
             )
         );
-        $menuItem->setAttribute('id', 'example');
-        $menuItem->setAttribute('icon', 'iconExample');
-        $menuItem->setChildrenAttribute('class', 'subNavigation');
-        $menuItem->setLinkAttribute('class', 'toggleSubNavigation');
-        $menuItem->setExtra('orderNumber', 2);
+            $menuItem->setAttribute('class', 'dropdown');
+            $menuItem->setAttribute('icon', 'icon icon-angle');
+            $menuItem->setChildrenAttribute('class', 'dropdown-menu');
+            $menuItem->setChildrenAttribute('role', 'menu');
+            $menuItem->setLinkAttribute('class', 'dropdown-toggle');
+            $menuItem->setLinkAttribute('data-toggle', 'dropdown');
+            $menuItem->setLinkAttribute('role', 'button');
+            $menuItem->setLinkAttribute('aria-expanded', 'false');
+            $menuItem->setExtra('orderNumber', 1);
 
         $firstChild = $event->getFactory()->createItem(
             'menu.example.first',
