@@ -57,7 +57,7 @@ class MenuBuilder
     public function createMainMenu()
     {
         $menu = $this->factory->createItem('root');
-        $menu->setChildrenAttribute('class', 'nav');
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $this->eventDispatcher->dispatch(
             ConfigureMenuEvent::EVENT_NAME,
