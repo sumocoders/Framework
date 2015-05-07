@@ -1,4 +1,14 @@
 #main-menu {
+
+  .navbar-toggle .icon-bar {
+    color: $gray-light;
+    font-size: $font-size-button-base;
+  }
+
+  .navbar-brand {
+    color: $gray-light;
+  }
+
   .logo {
     height: 65px;
     padding: 3px;
@@ -8,6 +18,8 @@
     border: none;
   }
 }
+
+
 
 @media (min-width: $screen-sm-min) {
   #main-menu {
