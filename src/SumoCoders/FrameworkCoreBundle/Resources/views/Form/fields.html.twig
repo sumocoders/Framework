@@ -69,14 +69,14 @@
                 {% if dont_render_row is not defined or not dont_render_row %}
                     <div class="row time-widget">
                 {% endif %}
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         {{ form_widget(form.hour, { 'attr': {  'size': '1'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2')}) }}
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                     {{ form_widget(form.minute, { 'attr': { 'size': '1' }, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2')}) }}
                     </div>
                     {% if with_seconds %}
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             {{ form_widget(form.second, { 'attr': { 'size': '1' }, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2') }) }}
                         </div>
                     {% endif %}
