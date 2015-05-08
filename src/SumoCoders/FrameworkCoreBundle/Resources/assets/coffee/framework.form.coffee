@@ -78,9 +78,9 @@ class Form
     return '' if not element.data(key)?
     data = element.data(key).split '-'
     new Date(
-        parseInt(data[0], 10),
-        parseInt(data[1], 10) - 1,
-        parseInt(data[2], 10)
+      parseInt(data[0], 10),
+      parseInt(data[1], 10) - 1,
+      parseInt(data[2], 10)
     )
 
   _dateFields: ->
@@ -138,7 +138,7 @@ class Form
   _fixPlaceholders: ->
     # detect if placeholder-attributes is supported
     jQuery.support.placeholder =
-        ('placeholder' in document.createElement('input'))
+      ('placeholder' in document.createElement('input'))
 
     if !jQuery.support.placeholder
       $input = $(@form).find('input[placeholder]')

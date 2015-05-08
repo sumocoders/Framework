@@ -2,7 +2,7 @@
 
 namespace SumoCoders\FrameworkCoreBundle\Exception;
 
-class MissingOptionException extends \RuntimeException
+final class MissingOptionException extends \RuntimeException
 {
 
 }
