@@ -7,19 +7,50 @@
 
   .navbar-brand {
     color: $gray-light;
+    font-style: normal;
+    font-weight: normal;
   }
 
   .logo {
     height: 65px;
     padding: 3px;
   }
-  .navbar-collapse {
-    padding-left: 25px;
 
-    .dropdown {
+  .navbar-collapse {
+    background: $dropdown-bg;
+
+    .nav {
+
+      .dropdown-toggle {
+        border-left: 10px transparent solid;
+        color: $gray-dark;
+        font-style: normal;
+        font-weight: bold;
+        padding-left: 0;
+      }
+
+      li {
+        border-top: 1px $gray-lighter solid;
+      }
+      .open > a,
+      .open > .dropdown-toggle:focus,
+      .open > .dropdown-toggle:hover,
+      .open > .dropdown-toggle:active,
+      .open > .dropdown-toggle:visited,
+      .dropdown-toggle:hover {
+        background-color: transparent;
+        border-left: 10px $brand-primary solid;
+      }
+
+      .icon-angle {
+        float: right;
+        padding: 8px 10px;
+      }
 
       .dropdown-menu {
         position: static;
+        padding-top: 0;
+        padding-bottom: 0;
       }
     }
   }

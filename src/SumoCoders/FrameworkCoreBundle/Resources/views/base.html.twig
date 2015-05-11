@@ -97,37 +97,39 @@
         <div id="content-wrapper">
           <div class="main-header">
             <div class="sub-nav">
+                    <div class="container-fluid">
               <div class="row">
-                <div class="col-sm-6 col-sm-push-6">
-                  <div class="user-nav">
-                    <div class="row">
-                      <div class="col-xs-2 col-sm-push-6 col-md-6">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            <i class="icon icon-avatar"></i> <span class="hidden-xs">Sumocoders</span>  <span class="icon icon-angle hidden-xs"></span>
-                          </button>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                          </ul>
+                <div class="col-sm-6 col-sm-push-6 user-nav">
+
+                      <div class="row row-alternative">
+                        <div class="col-xs-2 col-sm-push-6 col-md-6 col-alternative">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                              <i class="icon icon-avatar"></i> <span class="hidden-xs">Sumocoders</span>  <span class="icon icon-angle hidden-xs"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                              <li><a href="#">Action</a></li>
+                              <li><a href="#">Another action</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="col-xs-10 col-sm-pull-6 col-md-6 col-alternative">
+                          <div class="search-box">
+                            {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
+                            <form action="{{ path('sumocoders_frameworksearch_default_index') }}" data-form-class="SearchForm">
+                              <div class="controls">
+                                <input id="searchQuery" name="q" type="search" placeholder="{{ 'forms.search.placeholders.search'|trans|capitalize }}" class="form-control">
+                                <button type="submit" class="btn fa fa-search">
+                                  <span class="hide">{{ 'forms.search.buttons.search'|trans|capitalize }}</span>
+                                </button>
+                              </div>
+                            </form>
+                            {% endif %}
+                          </div>
                         </div>
                       </div>
-                      <div class="col-xs-10 col-sm-pull-6 col-md-6">
-                        <div class="search-box">
-                          {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
-                          <form action="{{ path('sumocoders_frameworksearch_default_index') }}" data-form-class="SearchForm">
-                            <div class="controls">
-                              <input id="searchQuery" name="q" type="search" placeholder="{{ 'forms.search.placeholders.search'|trans|capitalize }}" class="form-control">
-                              <button type="submit" class="btn fa fa-search">
-                                <span class="hide">{{ 'forms.search.buttons.search'|trans|capitalize }}</span>
-                              </button>
-                            </div>
-                          </form>
-                          {% endif %}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
+
                 </div>
                 <div class="col-sm-6 col-sm-pull-6">
                   <ol class="breadcrumb">
@@ -138,6 +140,7 @@
 
                 </div>
               </div>
+                      </div>
             </div>
           </div>
           {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}

@@ -4,8 +4,6 @@
     border-top: 1px $gray-lightest solid;
 
     .search-box {
-      border-left: 1px $gray-lightest solid;
-      border-right: 1px $gray-lightest solid;
       overflow: hidden;
 
       .controls {
@@ -18,10 +16,33 @@
           width: 80%;
         }
 
-        ::-webkit-input-placeholder { color:$gray-light; }
-        ::-moz-placeholder { color:$gray-light; } /* firefox 19+ */
-        :-ms-input-placeholder { color:$gray-light; } /* ie */
-        input:-moz-placeholder { color:$gray-light; }
+        ::-webkit-input-placeholder {
+          color:$gray-light;
+          font-size: $font-size-large;
+          font-style: normal;
+          font-weight: normal;
+        }
+
+        ::-moz-placeholder {
+          font-size: $font-size-large;
+          color:$gray-light;
+          font-style: normal;
+          font-weight: normal;
+        } /* firefox 19+ */
+
+        :-ms-input-placeholder {
+          font-size: $font-size-large;
+          color:$gray-light;
+          font-style: normal;
+          font-weight: normal;
+        } /* ie */
+
+        input:-moz-placeholder {
+          font-size: $font-size-large;
+          color:$gray-light;
+          font-style: normal;
+          font-weight: normal;
+        }
       }
 
       .controls .btn {

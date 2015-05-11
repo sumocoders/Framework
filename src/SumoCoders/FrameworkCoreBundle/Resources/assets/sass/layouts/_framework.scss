@@ -27,26 +27,35 @@
   }
 
   .user-nav {
+    padding: 0;
+
+    .row-alternative {
+      margin: 0;
+    }
+
+    .col-alternative {
+      padding: 0;
+    }
 
     .open > .btn-default.dropdown-toggle {
       background-color: $gray-dark;
       color: $white;
     }
+
     .btn-group.open .dropdown-toggle {
       box-shadow: none;
     }
 
     .btn-group {
+      border-right: 1px $gray-lightest solid;
 
       .btn {
-        padding: 8px 15px;
         border-radius: 0;
         margin: 0;
 
-
         .icon-avatar {
-          font-size: $font-size-h1;
-          padding-bottom: 5px;
+          font-size: $font-size-button-base;
+          padding: 8px 10px;
         }
       }
 
