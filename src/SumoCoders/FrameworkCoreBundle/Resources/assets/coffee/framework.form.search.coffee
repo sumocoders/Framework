@@ -3,7 +3,7 @@ class SearchForm extends Form
     @_initSearch()
 
   _initSearch: ->
-    $searchField = $('.searchBox input[name=q]', @form);
+    $searchField = $('.search-box input[name=q]', @form);
 
     $searchField.autocomplete(
       position:

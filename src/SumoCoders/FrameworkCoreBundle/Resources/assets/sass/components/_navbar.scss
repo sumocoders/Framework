@@ -13,9 +13,18 @@
     height: 65px;
     padding: 3px;
   }
+  .navbar-collapse {
 
+    .dropdown {
+
+      .dropdown-menu {
+        position: static;
+      }
+    }
+  }
   .navbar {
     border: none;
+    margin-bottom: 0;
   }
 }
 

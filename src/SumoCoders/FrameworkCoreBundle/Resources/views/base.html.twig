@@ -97,42 +97,63 @@
         <div id="content-wrapper">
           <div class="main-header">
             <div class="sub-nav">
-              <div id="sub-nav-collapse" class="navbar-collapse sub-navbar-collapse collapse">
-                <ol class="breadcrumb">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Library</a></li>
-                  <li class="active">Data</li>
-                </ol>
-                <div class="user-nav">
-                  <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <i class="icon icon-avatar"></i> Sumocoders <span class="icon icon-angle"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                    </ul>
+              <div class="row">
+                <div class="col-sm-6 col-sm-push-6">
+                  <div class="user-nav">
+                    <div class="row">
+                      <div class="col-xs-2 col-sm-push-6 col-md-6">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <i class="icon icon-avatar"></i> <span class="hidden-xs">Sumocoders</span>  <span class="icon icon-angle hidden-xs"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-xs-10 col-sm-pull-6 col-md-6">
+                        <div class="search-box">
+                          {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
+                          <form action="{{ path('sumocoders_frameworksearch_default_index') }}" data-form-class="SearchForm">
+                            <div class="controls">
+                              <input id="searchQuery" name="q" type="search" placeholder="{{ 'forms.search.placeholders.search'|trans|capitalize }}" class="form-control">
+                              <button type="submit" class="btn fa fa-search">
+                                <span class="hide">{{ 'forms.search.buttons.search'|trans|capitalize }}</span>
+                              </button>
+                            </div>
+                          </form>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="search-box pull-right">
-                    <i class="fa fa-search fa-2x"></i>
-                  </div>
+                </div>
+                <div class="col-sm-6 col-sm-pull-6">
+                  <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li class="active">Data</li>
+                  </ol>
+
                 </div>
               </div>
             </div>
-            {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}
-            <div class="header-title">
-              {% block header_title %}
-              {% endblock %}
-            </div>
-            <div class="actions">
-              {% block header_navigation %}
-                <div class="action-buttons">
-                  <button class="btn btn-info">Downloaden</button>
-                  <button class="btn btn-info">Overzicht</button>
-                </div>
-              {% endblock %}
-            </div>
           </div>
+          {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}
+          <div class="header-title">
+            {% block header_title %}
+            {% endblock %}
+          </div>
+          <div class="actions">
+            {% block header_navigation %}
+              <div class="action-buttons">
+                <button class="btn btn-info">Downloaden</button>
+                <button class="btn btn-info">Overzicht</button>
+              </div>
+            {% endblock %}
+          </div>
+        </div>
           <section id="main" class="main-content" role="main">
             <div class="container-fluid">
                 {% block main %}
