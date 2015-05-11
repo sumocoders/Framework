@@ -1,18 +1,5 @@
-#content-wrapper {
-  overflow: hidden;
-}
-
-.navbar-collapse {
-  padding-left: 25px;
-}
-
 .main-content {
-  padding: 180px 0 0;
-}
-
-.main-header {
-  background-color: $breadcrumb-bg;
-  width: 100%;
+  padding: 40px 20px;
 }
 
 .sub-nav {
@@ -61,11 +48,6 @@
           font-size: $font-size-h1;
           padding-bottom: 5px;
         }
-
-        .icon-angle {
-          font-size: $font-size-small;
-          padding: 10px 0 0 40px;
-        }
       }
 
       .btn-default {
@@ -92,18 +74,23 @@
 
 .header-title {
   overflow: hidden;
-  padding-left: 15px;
+  padding: 15px 10px;
+
+  h2 {
+    margin: 15px;
+  }
 }
 
 .actions {
   background-color: $dropdown-bg;
   box-shadow: 2px 0 2px rgba(0,0,0,0.2);
   display: block;
-  height: 50px;
+  min-height: 50px;
   padding: 10px 15px;
 
-  .action-buttons {
-    float: right;
+  .btn-info {
+    background-color: $brand-info;
+    border-color: transparent;
   }
 }
 
@@ -132,7 +119,7 @@
     .breadcrumb {
       float: left;
       margin: 0;
-      padding: 14px 0;
+      padding: 14px 20px;
 
       li:active {
         color: $breadcrumb-active-color;
@@ -158,7 +145,6 @@
           padding: 8px 25px;
           border-radius: 0;
           margin: 0;
-
 
           .icon-avatar {
             font-size: $font-size-h1;
@@ -189,7 +175,7 @@
   }
 
   .header-title {
-    padding-left: 20px;
+    padding: 60px 5px 5px;
   }
 
   .actions {

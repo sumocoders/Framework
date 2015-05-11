@@ -143,16 +143,18 @@
           {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}
           <div class="header-title">
             {% block header_title %}
+
             {% endblock %}
           </div>
+
+          {% set actions = block('header_navigation') %}
+          {% if actions %}
           <div class="actions">
-            {% block header_navigation %}
-              <div class="action-buttons">
-                <button class="btn btn-info">Downloaden</button>
-                <button class="btn btn-info">Overzicht</button>
-              </div>
-            {% endblock %}
+            <div class="action-buttons">
+              {{ actions|raw }}
+            </div>
           </div>
+          {% endif %}
         </div>
           <section id="main" class="main-content" role="main">
             <div class="container-fluid">
