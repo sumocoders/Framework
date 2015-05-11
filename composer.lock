@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "67a8040f2de28cabecce434315b102ad",
+    "hash": "814156e499ed1ba589486f9313aba72b",
     "packages": [
         {
             "name": "airbrake/airbrake-php",
@@ -986,12 +986,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "7bdbe66c90a27b2f8298230309ad8d0cfec1cb6e"
+                "reference": "92d5624f2a29e74d8fd9d2a94d7ed7998a8c2809"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/7bdbe66c90a27b2f8298230309ad8d0cfec1cb6e",
-                "reference": "7bdbe66c90a27b2f8298230309ad8d0cfec1cb6e",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/92d5624f2a29e74d8fd9d2a94d7ed7998a8c2809",
+                "reference": "92d5624f2a29e74d8fd9d2a94d7ed7998a8c2809",
                 "shasum": ""
             },
             "require": {
@@ -1045,7 +1045,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2015-05-01 08:19:36"
+            "time": "2015-05-05 15:08:24"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2132,26 +2132,26 @@
         },
         {
             "name": "sumocoders/framework-user-bundle",
-            "version": "v1.2.2",
+            "version": "v1.2.4",
             "target-dir": "SumoCoders/FrameworkUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "46e1d35fd5ad1b946545fd94b0b535df3d8c46bf"
+                "reference": "b4064df42a724b12081a28062a336ae204398b35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/46e1d35fd5ad1b946545fd94b0b535df3d8c46bf",
-                "reference": "46e1d35fd5ad1b946545fd94b0b535df3d8c46bf",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/b4064df42a724b12081a28062a336ae204398b35",
+                "reference": "b4064df42a724b12081a28062a336ae204398b35",
                 "shasum": ""
             },
             "require": {
                 "friendsofsymfony/user-bundle": "~2.0@dev",
                 "knplabs/knp-paginator-bundle": "~2.4",
-                "php": ">=5.3.3"
+                "php": ">=5.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.1.*"
+                "phpunit/phpunit": "4.*"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -2174,7 +2174,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-04-24 10:15:26"
+            "time": "2015-05-08 13:39:03"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2411,16 +2411,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.6.6",
+            "version": "v2.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "48c9e835a877adfb023b8b6d033d9dd14f342b4b"
+                "reference": "0449d0e1178bc8e934520b20432d1705c3b25e7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/48c9e835a877adfb023b8b6d033d9dd14f342b4b",
-                "reference": "48c9e835a877adfb023b8b6d033d9dd14f342b4b",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/0449d0e1178bc8e934520b20432d1705c3b25e7e",
+                "reference": "0449d0e1178bc8e934520b20432d1705c3b25e7e",
                 "shasum": ""
             },
             "require": {
@@ -2524,7 +2524,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-04-01 16:55:26"
+            "time": "2015-05-11 01:58:49"
         },
         {
             "name": "twig/extensions",

@@ -4,7 +4,7 @@ sumo_coders_framework_search:
     prefix:   /
 
 sumo_coders_framework_core:
-    resource: "@SumoCodersFrameworkCoreBundle/Controller/"
+    resource: "@SumoCodersFrameworkCoreBundle/Controller/DefaultController.php"
     type:     annotation
     prefix:   /
 
