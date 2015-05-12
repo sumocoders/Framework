@@ -1,0 +1,159 @@
+.main-content {
+  padding: 40px 20px;
+}
+
+.sub-nav {
+  border-radius: 0;
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  margin-bottom: 0;
+  width: 100%;
+
+  .breadcrumb {
+    margin: 0;
+    padding: 11px 0;
+    width: 100%;
+
+    li:active {
+      color: $breadcrumb-active-color;
+    }
+
+    a {
+      color: $breadcrumb-color;
+    }
+  }
+
+  .user-nav {
+    padding: 0;
+    position: relative;
+    width: 100%;
+
+    .open > .btn-default.dropdown-toggle,
+    .btn-default:hover,
+    .btn-default:focus {
+      background-color: $gray-darker;
+      color: $white;
+    }
+
+    .btn-group.open .dropdown-toggle {
+      box-shadow: none;
+    }
+
+    .btn {
+      border-radius: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .icon-avatar {
+      font-size: $font-size-icon-large;
+      padding: 7px 10px 8px;
+    }
+  }
+
+  .btn-group {
+    border-right: 1px $gray-lines solid;
+    position: absolute;
+    top: 0;
+
+
+    .btn-default {
+      color: $gray-light;
+    }
+
+    .dropdown-menu {
+      background-color: $gray-darker;
+      border-radius: 0;
+      border: 0;
+      margin: 0;
+    }
+
+    a {
+      color: $white;
+
+      &:hover {
+        background-color: lighten($gray-dark, .5%);
+      }
+    }
+  }
+}
+
+.header-title {
+  border-top: 1px $gray-lines solid;
+  overflow: hidden;
+  padding: 15px 10px;
+
+  h2 {
+    margin: 5px 0;
+  }
+}
+
+.actions {
+  background-color: $dropdown-bg;
+  box-shadow: 2px 0 2px rgba(0,0,0,0.2);
+  display: block;
+  min-height: 50px;
+  padding: 10px 15px;
+
+  .btn-info {
+    background-color: $brand-info;
+    border-color: transparent;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+
+  .main-wrapper {
+    padding-left: 235px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .navbar-collapse {
+    padding-right: 0;
+  }
+
+  .main-header {
+    left: 0;
+    padding-left: 235px;
+    position: fixed;
+    width: 100%;
+  }
+
+  .sub-nav {
+    border-bottom: 5px $brand-primary solid;
+    border-radius: 0;
+
+    .btn-group {
+      border-right: none;
+      right: 0;
+      border-left: 1px $gray-lines solid;
+
+      .icon-angle {
+        padding: 0 15px;
+        margin: 5px 0;
+      }
+    }
+
+    .breadcrumb {
+      border-bottom: 0;
+      float: left;
+      margin: 0;
+      padding: 12px 20px;
+
+
+      .user-nav {
+        float: right;
+      }
+    }
+
+    li:active {
+      color: $breadcrumb-active-color;
+    }
+
+    a {
+      color: $breadcrumb-color;
+    }
+  }
+}
