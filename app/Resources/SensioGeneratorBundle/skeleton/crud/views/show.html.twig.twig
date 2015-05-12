@@ -1,9 +1,15 @@
 {% extends 'skeleton/crud/views/show.html.twig.twig' %}
 
+{% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
+{% set niceEntityName = entity|lower %}
+{% set niceEntityNamePlural = entity|lower ~ 's' %}
+{% set baseRoute = '%1$s_%2$s'|format(niceBundleName, niceEntityName) %}
+
+
 {% block body %}
 {{ "{% block header_title %}" }}
     <h2>
-        {{ '{{ \'%s.header.title.show\'|trans({\'%s\': entity})|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower, '%entity%') }}
+        {{ '{{ \'' ~ niceBundleName ~ '.header.title.show\'|trans({\'%entity%\': ' ~ niceEntityName ~ '})|capitalize }}' }}
     </h2>
 {{ "{% endblock %}" }}
 
@@ -14,7 +20,7 @@
         <li>
             <a
                 class="fa fa-list"
-                href="{{ "{{ path('" ~ route_name_prefix ~ "') }}" }}"
+                href="{{ "{{ path('" ~ baseRoute ~ "_index') }}" }}"
             >
                 {{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}
             </a>
@@ -25,7 +31,7 @@
         <li>
             <a
                 class="fa fa-pencil"
-                href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { 'id': entity."~ identifier ~" }) }}" }}"
+                href="{{ "{{ path('" ~ baseRoute ~ "_edit', { 'id': " ~ niceEntityName ~"."~ identifier ~" }) }}" }}"
             >
                 {{ '{{ \'header.navigation.actions.edit\'|trans|capitalize }}' }}
             </a>
@@ -42,11 +48,11 @@
         <dt>{{ field|capitalize }}</dt>
         {%- if metadata.type in ['date', 'datetime'] %}
 
-        <dd>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}' }}</dd>
+        <dd>{{ '{{ ' ~ niceEntityName ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}' }}</dd>
 
         {%- else %}
 
-        <dd>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</dd>
+        <dd>{{ '{{ ' ~ niceEntityName ~ '.' ~ field|replace({'_': ''}) ~ ' }}' }}</dd>
 
         {%- endif %}
 

@@ -1,0 +1,79 @@
+{% extends 'skeleton/crud/actions/new.php.twig' %}
+
+{% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
+{% set niceEntityName = entity|lower %}
+{% set niceEntityNamePlural = entity|lower ~ 's' %}
+{% set baseRoute = '%1$s_%2$s'|format(niceBundleName, niceEntityName) %}
+
+{% block phpdoc_method_header %}
+     * Displays a form to create a new {{ entity }} entity.
+     *
+     * @param Request $request
+     * @return array
+{% endblock phpdoc_method_header %}
+{% block phpdoc_method_annotations %}
+{% if 'annotation' == format %}
+     * @Route("/new")
+     * @Method("GET|POST")
+     * @Template()
+{% endif %}
+{% endblock phpdoc_method_annotations %}
+
+{% block method_definition %}
+    public function newAction(Request $request)
+{% endblock method_definition %}
+
+{% block method_body %}
+        ${{ niceEntityName }} = new {{ entity_class }}();
+        $form = $this->createForm(new {{ entity_class }}Type(), ${{ niceEntityName }});
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist(${{ niceEntityName }});
+            $em->flush();
+
+            $this->addFlash(
+                'success',
+                $this->get('translator')->trans(
+                    '{{ niceBundleName }}.flash.success.add',
+                    array(
+                        '%{{ niceEntityName }}%' => ${{ niceEntityName }},
+                    )
+                )
+            );
+
+            {% if 'show' in actions -%}
+                return $this->redirect(
+                $this->generateUrl(
+                    '{{ baseRoute }}_show',
+                    array(
+                        'id' => ${{ niceEntityName }}->getId(),
+                    )
+                )
+            );
+            {%- else -%}
+                return $this->redirect(
+                $this->generateUrl(
+                    '{{ baseRoute }}_index'
+                )
+            );
+            {%- endif %}
+
+        }
+{% endblock method_body %}
+
+{% block method_return %}
+{% if 'annotation' == format %}
+        return array(
+            '{{ niceEntityName }}' => ${{ niceEntityName }},
+            'form' => $form->createView(),
+        );
+{% else %}
+        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:new.html.twig', array(
+            '{{ niceEntityName }}' => ${{ niceEntityName }},
+            'form' => $form->createView(),
+        ));
+{% endif %}
+{% endblock method_return %}

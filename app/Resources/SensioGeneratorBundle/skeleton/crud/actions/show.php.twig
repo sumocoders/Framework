@@ -1,0 +1,40 @@
+{% extends 'skeleton/crud/actions/new.php.twig' %}
+
+{% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
+{% set niceEntityName = entity|lower %}
+{% set niceEntityNamePlural = entity|lower ~ 's' %}
+{% set baseRoute = '%1$s_%2$s'|format(niceBundleName, niceEntityName) %}
+
+{% block phpdoc_method_header %}
+     * Finds and displays a {{ entity }} entity.
+     *
+     * @param {{ entity }} ${{ niceEntityName }}
+     * @return array
+{% endblock phpdoc_method_header %}
+
+{% block phpdoc_method_annotations %}
+{% if 'annotation' == format %}
+     * @Route("/{id}")
+     * @Method("GET")
+     * @Template()
+{% endif %}
+{% endblock phpdoc_method_annotations %}
+
+{% block method_definition %}
+    public function showAction({{ entity }} ${{ niceEntityName }})
+{% endblock method_definition %}
+
+{% block method_body %}
+{% endblock method_body %}
+
+{% block method_return %}
+{% if 'annotation' == format %}
+        return array(
+            '{{ niceEntityName }}' => ${{ niceEntityName }},
+        );
+{% else %}
+        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:show.html.twig', array(
+            '{{ niceEntityName }}'=> ${{ niceEntityName }},
+        ));
+{% endif %}
+{% endblock method_return %}

@@ -1,0 +1,83 @@
+{% extends 'skeleton/crud/actions/edit.php.twig' %}
+
+{% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
+{% set niceEntityName = entity|lower %}
+{% set niceEntityNamePlural = entity|lower ~ 's' %}
+{% set baseRoute = '%1$s_%2$s'|format(niceBundleName, niceEntityName) %}
+
+{% block phpdoc_method_header %}
+     * Displays a form to edit an existing {{ entity }} entity.
+     *
+     * @param Request $request
+     * @param {{ entity }} ${{ niceEntityName }}
+     * @return array
+{% endblock phpdoc_method_header %}
+
+{% block phpdoc_method_annotations %}
+{% if 'annotation' == format %}
+     * @Route("/{id}/edit")
+     * @Method("GET|PUT")
+     * @Template()
+{% endif %}
+{% endblock phpdoc_method_annotations %}
+
+{% block method_definition %}
+    public function editAction(Request $request, {{ entity }} ${{ niceEntityName }})
+{% endblock method_definition %}
+
+{% block method_body %}
+        $editForm = $this->createForm(
+            new {{ entity_class }}Type(),
+            ${{ niceEntityName }},
+            array(
+                'method' => 'PUT',
+            )
+        );
+
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            $this->addFlash(
+                'success',
+                $this->get('translator')->trans(
+                    '{{ niceBundleName }}.flash.success.edit',
+                    array(
+                        '%{{ niceEntityName }}%' => ${{ niceEntityName }},
+                    )
+                )
+            );
+
+            return $this->redirect(
+                $this->generateUrl(
+                    '{{ baseRoute }}_show',
+                    array(
+                        'id' => ${{ niceEntityName }}->getId(),
+                    )
+                )
+            );
+        }
+
+        $deleteForm = $this->createDeleteForm(${{ niceEntityName }}->getId());
+{% endblock method_body %}
+
+{% block method_return %}
+{% if 'annotation' == format %}
+        return array(
+            '{{ niceEntityName }}' => ${{ niceEntityName }},
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+{% else %}
+        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:edit.html.twig', array(
+            '{{ niceEntityName }}' => ${{ niceEntityName }},
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+{% endif %}
+{% endblock method_return %}
+
+{% block form %}
+{% endblock form %}

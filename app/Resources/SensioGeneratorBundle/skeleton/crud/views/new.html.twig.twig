@@ -1,9 +1,12 @@
 {% extends 'skeleton/crud/views/new.html.twig.twig' %}
 
+{% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
+{% set niceEntityName = entity|lower %}
+
 {% block body %}
 {{ "{% block header_title %}" }}
     <h2>
-        {{ '{{ \'%s.header.title.new\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower) }}
+        {{ '{{ \'%s.header.title.new\'|trans|capitalize }}'|format(niceBundleName) }}
     </h2>
 {{ "{% endblock %}" }}
 
@@ -13,7 +16,7 @@
         <li>
             <a
                 class="fa fa-list"
-                href="{{ "{{ path('" ~ route_name_prefix ~ "') }}" }}"
+                href="{{ "{{ path('%1$s_%2$s_index') }}"|format(niceBundleName, niceEntityName) }}"
             >
                 {{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}
             </a>

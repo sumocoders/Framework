@@ -1,31 +1,33 @@
 {% extends 'skeleton/crud/views/index.html.twig.twig' %}
 
+{% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
+{% set niceEntityName = entity|lower %}
+{% set niceEntityNamePlural = entity|lower ~ 's' %}
+{% set baseRoute = '%1$s_%2$s'|format(niceBundleName, niceEntityName) %}
+
 {% block body %}
-{{ "{% block header_title %}" }}
+{{ '{% block header_title %}' }}
     <h2>
         {{ '{{ \'%s.header.title.index\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower) }}
     </h2>
-{{ "{% endblock %}" }}
+{{ '{% endblock %}' }}
 
 {% if 'new' in actions %}
-{{ "{% block header_navigation %}" }}
+{{ '{% block header_navigation %}' }}
     <ul>
         <li>
             <a
                class="icon icon-add"
-               href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}"
+               href="{{ "{{ path('%1$s_new') }}"|format(baseRoute) }}"
             >
                 {{ '{{ \'header.navigation.actions.add\'|trans|capitalize }}' }}
             </a>
         </li>
     </ul>
-{{ "{% endblock %}" }}
+{{ '{% endblock %}' }}
 {% endif %}
 
-{{ "{% block main %}" }}
-    {{ '{# @todo check if the icons are rendered #}' }}
-    {{ '{# @todo make sure all translations are available #}' }}
-    {{ '{# @todo make sure only the correct fields are shown #}' }}
+{{ '{% block main %}' }}
     <table class="table table-hover">
         <thead>
             <tr>
@@ -44,17 +46,17 @@
             </tr>
         </thead>
         <tbody>
-            {{ '{% for entity in entities %}' }}
+            {{ '{%% for %1$s in %2$s %%}'|format(niceEntityName, niceEntityNamePlural) }}
                 <tr>
 
                 {%- for field, metadata in fields %}
                     {%- if metadata.type in ['date', 'datetime'] %}
 
-                    <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+                    <td>{{ '{% if %1$s.'|format(niceEntityName)  ~ field|replace({'_': ''}) ~ ' %}{{ %1$s.'|format(niceEntityName)  ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
 
                     {%- else %}
 
-                    <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+                    <td>{{ "{{ %1$s."|format(niceEntityName) ~ field|replace({'_': ''}) ~ ' }}' }}</td>
 
                     {%- endif %}
 
@@ -62,7 +64,7 @@
 
                     <td class="action">
 
-                        {%- include "crud/views/others/actions.html.twig.twig" %}
+                        {%- include 'crud/views/others/actions.html.twig.twig' %}
 
                     </td>
 
@@ -73,5 +75,8 @@
             {{ '{% endfor %}' }}
         </tbody>
     </table>
-{{ "{% endblock %}" }}
+
+    {{ '{{ knp_pagination_render(%1$s) }}'|format(niceEntityNamePlural) }}
+
+{{ '{% endblock %}' }}
 {% endblock body %}
