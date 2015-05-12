@@ -97,6 +97,8 @@ jms_i18n_routing:
 mopa_bootstrap:
   form:
     show_legend: false
+  icons:
+    icon_set: fontawesome4
 
 # KPN Pagination Configuration
 knp_paginator:
