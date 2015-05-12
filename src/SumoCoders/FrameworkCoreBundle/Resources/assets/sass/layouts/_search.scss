@@ -1,63 +1,62 @@
-.sub-nav {
-  .user-nav {
-    border-bottom: 5px $brand-primary solid;
-    border-top: 1px $gray-lightest solid;
 
-    .search-box {
-      overflow: hidden;
+.user-nav {
+  border-bottom: 5px $brand-primary solid;
+  border-top: 1px $gray-lightest solid;
 
-      .controls {
-        padding: 8px 0;
+  .search-box {
+    overflow: hidden;
 
-        input {
-          border: none;
-          float: left;
-          width: 75%;
-        }
+    .controls {
+      padding: 8px 0;
 
-        ::-webkit-input-placeholder {
-          color:$gray-light;
-          font-size: $font-size-large;
-          font-style: normal;
-          font-weight: normal;
-        }
-
-        ::-moz-placeholder {
-          font-size: $font-size-large;
-          color:$gray-light;
-          font-style: normal;
-          font-weight: normal;
-        } /* firefox 19+ */
-
-        :-ms-input-placeholder {
-          font-size: $font-size-large;
-          color:$gray-light;
-          font-style: normal;
-          font-weight: normal;
-        } /* ie */
-
-        input:-moz-placeholder {
-          font-size: $font-size-large;
-          color:$gray-light;
-          font-style: normal;
-          font-weight: normal;
-        }
+      input {
+        border: none;
+        float: left;
+        width: 75%;
       }
 
-      .controls .btn {
-        background-color: $white;
-        width: 25%;
+      ::-webkit-input-placeholder {
+        color:$gray-light;
+        font-size: $font-size-large;
+        font-style: normal;
+        font-weight: normal;
       }
 
-      .fa-search {
-        color: $gray-light;
-        font-size: $font-size-button-base;
-        float: right;
-        padding: inherit;
+      ::-moz-placeholder {
+        font-size: $font-size-large;
+        color:$gray-light;
+        font-style: normal;
+        font-weight: normal;
+      } /* firefox 19+ */
 
-        &::before {
-          padding: 5px;
+      :-ms-input-placeholder {
+        font-size: $font-size-large;
+        color:$gray-light;
+        font-style: normal;
+        font-weight: normal;
+      } /* ie */
+
+      input:-moz-placeholder {
+        font-size: $font-size-large;
+        color:$gray-light;
+        font-style: normal;
+        font-weight: normal;
       }
+    }
+
+    .controls .btn {
+      background-color: $white;
+      width: 25%;
+    }
+
+    .fa-search {
+      color: $gray-light;
+      font-size: $font-size-button-base;
+      float: right;
+      padding: inherit;
+
+      &::before {
+        padding: 5px;
       }
     }
   }
@@ -71,13 +70,6 @@
 
       .col-alternative {
         border-left: 1px $gray-lightest solid;
-      }
-    }
-    
-    .search-box {
-
-      .controls {
-
       }
     }
   }

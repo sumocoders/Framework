@@ -20,6 +20,7 @@
     li:active {
       color: $breadcrumb-active-color;
     }
+
     a {
       color: $breadcrumb-color;
     }
@@ -48,16 +49,6 @@
     .btn-group {
       border-right: 1px $gray-lightest solid;
 
-      .btn {
-        border-radius: 0;
-        margin: 0;
-        width: 100%;
-
-        .icon-avatar {
-          font-size: $font-size-button-base;
-          padding: 8px 10px;
-        }
-      }
 
       .btn-default {
         color: $gray-light;
@@ -68,15 +59,26 @@
         border-radius: 0;
         border: 0;
         margin: 0;
+      }
 
-        li a {
-          color: $white;
+      a {
+        color: $white;
 
-          &:hover {
-            background-color: lighten($gray-dark, 0.5%);
-          }
+        &:hover {
+          background-color: lighten($gray-dark, .5%);
         }
       }
+    }
+
+    .btn {
+      border-radius: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .icon-avatar {
+      font-size: $font-size-button-base;
+      padding: 8px 10px;
     }
   }
 }
@@ -105,11 +107,13 @@
 
 
 @media (min-width: $screen-sm-min) {
-  #main-wrapper {
+
+  .main-wrapper {
     padding-left: 235px;
-    width: 100%;
     overflow: hidden;
+    width: 100%;
   }
+
   .navbar-collapse {
     padding-right: 0;
   }
@@ -122,8 +126,8 @@
   }
 
   .sub-nav {
-    border-radius: 0;
     border-bottom: 5px $brand-primary solid;
+    border-radius: 0;
 
     .breadcrumb {
       border-bottom: 0;
@@ -134,22 +138,18 @@
       li:active {
         color: $breadcrumb-active-color;
       }
+
       a {
         color: $breadcrumb-color;
       }
     }
 
-    .user-nav {
-      .btn-group {
-        border-right: none;
+    .btn-group {
+      border-right: none;
 
-        .btn {
-
-          .icon-angle {
-            padding: 0 15px;
-            margin: 5px 0;
-          }
-        }
+      .icon-angle {
+        padding: 0 15px;
+        margin: 5px 0;
       }
     }
   }
