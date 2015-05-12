@@ -1,22 +1,23 @@
-
 .user-nav {
   border-bottom: 5px $brand-primary solid;
   border-top: 1px $gray-lines solid;
 
   .search-box {
     overflow: hidden;
+    margin-left: 50px;
 
-    .controls {
-      margin: 5px;
+    .form-control {
+      height: 30px;
+      margin-top: 8px;
     }
-
+    
     label {
       color:$gray-light;
       font-size: $font-size-base;
       font-style: normal;
       font-weight: normal;
       margin-left: 10px;
-      margin-top: -7px;
+      margin-top: -11px;
       top: 50%;
       position: absolute;
     }
@@ -24,23 +25,21 @@
     input {
       border: none;
       float: left;
-      width: 75%;
+      width: 85%;
     }
 
     .controls .btn {
       background-color: $white;
-      width: 25%;
+      padding: 13px 0 14px;
+      width: 15%;
     }
 
     .fa-search {
       color: $gray-light;
-      font-size: $font-size-button-base;
+      font-size: $font-size-icon-small;
       float: right;
-      padding: 5px;
+      width: 0;
 
-      &::before {
-        padding: 5px;
-      }
     }
   }
 }
@@ -50,6 +49,22 @@
     .user-nav {
       border-top: 0;
       border-bottom: 0;
+
+      .search-box {
+        margin-left: 0;
+        margin-right: 182px;
+
+        input, label {
+          display: none;
+        }
+      }
+      .controls .btn {
+        padding: 15px 0;
+      }
+
+      .fa-search {
+        border-left: 1px $gray-lines solid;
+      }
 
       .col-alternative {
         border-left: 1px $gray-lightest solid;
