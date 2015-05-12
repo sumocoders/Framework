@@ -1,0 +1,19 @@
+{%- for action in record_actions %}
+{% set icon = action|lower|replace({'edit': 'pencil', 'show': 'eye'}) %}
+
+                        <a
+                            href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'id': entity."~ identifier ~" }) }}" }}"
+                            class="fa fa-{{ icon }}"
+                        >
+                            <span class="hide">
+                                {{ '{{ \'datagrids.actions.%s\' }}'|format(action|lower) }}
+                            </span>
+                        </a>
+
+                    {%- if not loop.last %}
+
+                    </td>
+                    <td class="action">
+
+                    {%- endif %}
+{%- endfor %}

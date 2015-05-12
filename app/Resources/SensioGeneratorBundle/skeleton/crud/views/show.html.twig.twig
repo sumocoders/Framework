@@ -1,0 +1,57 @@
+{% extends 'skeleton/crud/views/show.html.twig.twig' %}
+
+{% block body %}
+{{ "{% block header_title %}" }}
+    <h2>
+        {{ '{{ \'%s.header.title.show\'|trans({\'%s\': entity})|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower, '%entity%') }}
+    </h2>
+{{ "{% endblock %}" }}
+
+{{ "{% block header_navigation %}" }}
+    <ul>
+    {%- if 'index' in actions %}
+
+        <li>
+            <a
+                class="fa fa-list"
+                href="{{ "{{ path('" ~ route_name_prefix ~ "') }}" }}"
+            >
+                {{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}
+            </a>
+        </li>
+    {%- endif %}
+    {%- if 'edit' in actions %}
+
+        <li>
+            <a
+                class="fa fa-pencil"
+                href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { 'id': entity."~ identifier ~" }) }}" }}"
+            >
+                {{ '{{ \'header.navigation.actions.edit\'|trans|capitalize }}' }}
+            </a>
+        </li>
+    {%- endif %}
+
+    </ul>
+{{ "{% endblock %}" }}
+
+{{ "{% block main %}" }}
+    <dl class="dl-horizontal">
+        {%- for field, metadata in fields %}
+
+        <dt>{{ field|capitalize }}</dt>
+        {%- if metadata.type in ['date', 'datetime'] %}
+
+        <dd>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}' }}</dd>
+
+        {%- else %}
+
+        <dd>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</dd>
+
+        {%- endif %}
+
+        {%- endfor %}
+
+    </dl>
+{{ "{% endblock %}" }}
+{% endblock body %}

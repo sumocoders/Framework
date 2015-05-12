@@ -1,0 +1,49 @@
+{% extends 'skeleton/crud/views/edit.html.twig.twig' %}
+
+{% block body %}
+{{ "{% block header_title %}" }}
+    <h2>
+        {{ '{{ \'%s.header.title.edit\'|trans({\'%s\': entity})|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower, '%entity%') }}
+    </h2>
+{{ "{% endblock %}" }}
+
+{% if 'index' in actions %}
+{{ "{% block header_navigation %}" }}
+    <ul>
+        <li>
+            <a
+                class="fa fa-list"
+                href="{{ "{{ path('" ~ route_name_prefix ~ "') }}" }}"
+            >
+                {{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}
+            </a>
+        </li>
+        <li>
+            {% set hide_edit, hide_delete = true, false %}
+            {%- include 'crud/views/others/record_actions.html.twig.twig' %}
+        </li>
+    </ul>
+{{ "{% endblock %}" }}
+{% endif %}
+
+{{ "{% block main %}" }}
+    {{ '{{ form_start(edit_form) }}' }}
+    <fieldset>
+        {{ '{{ form_errors(edit_form) }}' }}
+
+
+        {{ '{{ form_rest(edit_form) }}' }}
+        <div class="form-group">
+            <div class="col-lg-9 col-lg-offset-3">
+                <input type="submit" class="btn btn-primary" value="{{ '{{ \'forms.buttons.update\'|trans }}' }}">
+            </div>
+        </div>
+    </fieldset>
+    {{ '{{ form_end(edit_form) }}' }}
+
+{{ "{% endblock %}" }}
+{% endblock body %}
+
+
+
+

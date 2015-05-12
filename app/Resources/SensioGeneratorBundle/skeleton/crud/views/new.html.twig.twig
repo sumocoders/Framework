@@ -1,0 +1,44 @@
+{% extends 'skeleton/crud/views/new.html.twig.twig' %}
+
+{% block body %}
+{{ "{% block header_title %}" }}
+    <h2>
+        {{ '{{ \'%s.header.title.new\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower) }}
+    </h2>
+{{ "{% endblock %}" }}
+
+{% if 'index' in actions %}
+{{ "{% block header_navigation %}" }}
+    <ul>
+        <li>
+            <a
+                class="fa fa-list"
+                href="{{ "{{ path('" ~ route_name_prefix ~ "') }}" }}"
+            >
+                {{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}
+            </a>
+        </li>
+    </ul>
+{{ "{% endblock %}" }}
+{% endif %}
+
+{{ "{% block main %}" }}
+    {{ '{{ form_start(form) }}' }}
+    <fieldset>
+        {{ '{{ form_errors(form) }}' }}
+
+
+        {{ '{{ form_rest(form) }}' }}
+        <div class="form-group">
+            <div class="col-lg-9 col-lg-offset-3">
+                <input type="submit" class="btn btn-primary" value="{{ '{{ \'forms.buttons.new\'|trans }}' }}">
+            </div>
+        </div>
+    </fieldset>
+    {{ '{{ form_end(form) }}' }}
+
+{{ "{% endblock %}" }}
+{% endblock body %}
+
+
+

@@ -1,0 +1,77 @@
+{% extends 'skeleton/crud/views/index.html.twig.twig' %}
+
+{% block body %}
+{{ "{% block header_title %}" }}
+    <h2>
+        {{ '{{ \'%s.header.title.index\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower) }}
+    </h2>
+{{ "{% endblock %}" }}
+
+{% if 'new' in actions %}
+{{ "{% block header_navigation %}" }}
+    <ul>
+        <li>
+            <a
+               class="icon icon-add"
+               href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}"
+            >
+                {{ '{{ \'header.navigation.actions.add\'|trans|capitalize }}' }}
+            </a>
+        </li>
+    </ul>
+{{ "{% endblock %}" }}
+{% endif %}
+
+{{ "{% block main %}" }}
+    {{ '{# @todo check if the icons are rendered #}' }}
+    {{ '{# @todo make sure all translations are available #}' }}
+    {{ '{# @todo make sure only the correct fields are shown #}' }}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                {%- for field, metadata in fields %}
+
+                <th>{{ '{{ \'%s.%s.fields.%s\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower, entity|lower, field) }}</th>
+
+                {%- endfor %}
+
+                {%- for action in record_actions %}
+
+                <th></th>
+
+                {%- endfor %}
+
+            </tr>
+        </thead>
+        <tbody>
+            {{ '{% for entity in entities %}' }}
+                <tr>
+
+                {%- for field, metadata in fields %}
+                    {%- if metadata.type in ['date', 'datetime'] %}
+
+                    <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+                    {%- else %}
+
+                    <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+                    {%- endif %}
+
+                    {%- if loop.last %}
+
+                    <td class="action">
+
+                        {%- include "crud/views/others/actions.html.twig.twig" %}
+
+                    </td>
+
+                    {%- endif %}
+                {%- endfor %}
+
+                </tr>
+            {{ '{% endfor %}' }}
+        </tbody>
+    </table>
+{{ "{% endblock %}" }}
+{% endblock body %}
