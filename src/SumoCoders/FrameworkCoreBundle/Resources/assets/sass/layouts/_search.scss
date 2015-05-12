@@ -1,47 +1,30 @@
 
 .user-nav {
   border-bottom: 5px $brand-primary solid;
-  border-top: 1px $gray-lightest solid;
+  border-top: 1px $gray-lines solid;
 
   .search-box {
     overflow: hidden;
 
     .controls {
-      padding: 8px 0;
+      margin: 5px;
+    }
 
-      input {
-        border: none;
-        float: left;
-        width: 75%;
-      }
+    label {
+      color:$gray-light;
+      font-size: $font-size-base;
+      font-style: normal;
+      font-weight: normal;
+      margin-left: 10px;
+      margin-top: -7px;
+      top: 50%;
+      position: absolute;
+    }
 
-      ::-webkit-input-placeholder {
-        color:$gray-light;
-        font-size: $font-size-large;
-        font-style: normal;
-        font-weight: normal;
-      }
-
-      ::-moz-placeholder {
-        font-size: $font-size-large;
-        color:$gray-light;
-        font-style: normal;
-        font-weight: normal;
-      } /* firefox 19+ */
-
-      :-ms-input-placeholder {
-        font-size: $font-size-large;
-        color:$gray-light;
-        font-style: normal;
-        font-weight: normal;
-      } /* ie */
-
-      input:-moz-placeholder {
-        font-size: $font-size-large;
-        color:$gray-light;
-        font-style: normal;
-        font-weight: normal;
-      }
+    input {
+      border: none;
+      float: left;
+      width: 75%;
     }
 
     .controls .btn {
@@ -53,7 +36,7 @@
       color: $gray-light;
       font-size: $font-size-button-base;
       float: right;
-      padding: inherit;
+      padding: 5px;
 
       &::before {
         padding: 5px;

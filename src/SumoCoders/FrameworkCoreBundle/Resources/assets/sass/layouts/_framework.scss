@@ -11,10 +11,9 @@
   width: 100%;
 
   .breadcrumb {
-    border-bottom: 1px $gray-lightest solid;
     float: left;
     margin: 0;
-    padding: 14px 0;
+    padding: 11px 0;
     width: 100%;
 
     li:active {
@@ -37,7 +36,9 @@
       padding: 0;
     }
 
-    .open > .btn-default.dropdown-toggle {
+    .open > .btn-default.dropdown-toggle,
+    .btn-default:hover,
+    .btn-default:focus {
       background-color: $gray-dark;
       color: $white;
     }
@@ -46,33 +47,10 @@
       box-shadow: none;
     }
 
-    .btn-group {
-      border-right: 1px $gray-lightest solid;
-
-
-      .btn-default {
-        color: $gray-light;
-      }
-
-      .dropdown-menu {
-        background-color: $gray-darker;
-        border-radius: 0;
-        border: 0;
-        margin: 0;
-      }
-
-      a {
-        color: $white;
-
-        &:hover {
-          background-color: lighten($gray-dark, .5%);
-        }
-      }
-    }
-
     .btn {
       border-radius: 0;
       margin: 0;
+      padding: 0;
       width: 100%;
     }
 
@@ -81,9 +59,33 @@
       padding: 8px 10px;
     }
   }
+
+  .btn-group {
+    border-right: 1px $gray-lines solid;
+
+    .btn-default {
+      color: $gray-light;
+    }
+
+    .dropdown-menu {
+      background-color: $gray-darker;
+      border-radius: 0;
+      border: 0;
+      margin: 0;
+    }
+
+    a {
+      color: $white;
+
+      &:hover {
+        background-color: lighten($gray-dark, .5%);
+      }
+    }
+  }
 }
 
 .header-title {
+  border-top: 1px $gray-lines solid;
   overflow: hidden;
   padding: 15px 10px;
 
@@ -129,21 +131,6 @@
     border-bottom: 5px $brand-primary solid;
     border-radius: 0;
 
-    .breadcrumb {
-      border-bottom: 0;
-      float: left;
-      margin: 0;
-      padding: 14px 20px;
-
-      li:active {
-        color: $breadcrumb-active-color;
-      }
-
-      a {
-        color: $breadcrumb-color;
-      }
-    }
-
     .btn-group {
       border-right: none;
 
@@ -154,7 +141,23 @@
     }
   }
 
+  .breadcrumb {
+    border-bottom: 0;
+    float: left;
+    margin: 0;
+    padding: 12px 20px;
+
+    li:active {
+      color: $breadcrumb-active-color;
+    }
+
+    a {
+      color: $breadcrumb-color;
+    }
+  }
+
   .header-title {
+    border-top: 0;
     padding: 60px 5px 5px;
 
     h2 {
