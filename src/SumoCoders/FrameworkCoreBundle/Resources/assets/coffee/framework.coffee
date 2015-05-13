@@ -151,7 +151,7 @@ class Framework extends DefaultObject
     $(this).tab('show')
 
   _calculateActionsWidths: ->
-    $('.actions li a').each(->
+    $('.actions li a, .actions li button').each(->
       $this = $(@)
       $this.attr('data-width', $this.width())
       $this.width(0)

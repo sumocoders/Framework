@@ -125,7 +125,7 @@ body {
       top: 69px;
 
       li {
-        a {
+        a, button {
           background-color: $gray-darker;
           border: none;
           box-sizing: border-box;
@@ -136,10 +136,11 @@ body {
           line-height: 65px;
           margin-bottom: 4px;
           overflow: hidden;
-          padding-left: 70px;
+          padding: 0 0 0 70px;
           text-decoration: none;
           transition: all 500ms;
           white-space: nowrap;
+          border-radius: 0;
 
           &:before {
             color: #fff;
@@ -147,13 +148,25 @@ body {
             margin-left: -45px;
             margin-right: 20px;
           }
-
         }
 
-        &:hover a {
+        button {
+          margin-bottom: 0;
+          margin-left: 4px;
+        }
+
+        &:hover a, &:hover button {
           background-color: #4ba75f;
           border: 0;
           color: #fff;
+        }
+
+        &:hover button {
+          background-color: $brand-danger;
+
+          &:before {
+            margin-left: -85px;
+          }
         }
       }
     }
