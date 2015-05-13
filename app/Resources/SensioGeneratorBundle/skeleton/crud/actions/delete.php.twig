@@ -74,8 +74,10 @@
                 'submit',
                 'submit',
                 array(
-                    'label' => $this->get('translator')->trans(
-                        'header.navigation.actions.delete'
+                    'label' => ucfirst(
+                        $this->get('translator')->trans(
+                            'header.navigation.actions.delete'
+                        )
                     ),
                     'attr' => array(
                         'class' => 'fa fa-trash confirm',

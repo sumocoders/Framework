@@ -1,0 +1,39 @@
+core:
+    interface:
+        backToTop: back to top
+
+    warnings:
+        oldBrowser: <strong>Warning:</strong> You are using an older browser. If you want to see the site as it is intended, you may want to download a new version or a decent browser like <a href="http://www.google.com/chrome‎">Chrome</a>.
+
+datagrids:
+    actions:
+        edit: edit
+        show: show
+
+dialogs:
+    buttons:
+        cancel: cancel
+        ok: ok
+
+    close: close
+
+    messages:
+        confirmDelete: Are you sure you want to delete %entity%?
+
+forms:
+    buttons:
+        new: add
+        update: save
+
+header:
+    navigation:
+        actions:
+            add: add
+            delete: delete
+            edit: edit
+            overview: overview
+
+navigation:
+    titles:
+        possible_actions: possible actions
+        showHideMenu: show/hide menu

@@ -9,9 +9,9 @@
         {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
             <form action="{{ path('sumocoders_frameworksearch_default_index') }}" data-form-class="SearchForm">
                 <div class="controls">
-                    <input id="searchQuery" name="q" type="search" placeholder="{{ 'forms.search.placeholders.search'|trans|capitalize }}" class="form-control">
+                    <input id="searchQuery" name="q" type="search" placeholder="{{ 'search.forms.placeholders.term'|trans|capitalize }}" class="form-control">
                     <button type="submit" class="btn fa fa-search">
-                        <span class="hide">{{ 'forms.search.buttons.search'|trans|capitalize }}</span>
+                        <span class="hide">{{ 'search.forms.buttons.search'|trans|capitalize }}</span>
                     </button>
                 </div>
             </form>

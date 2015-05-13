@@ -21,6 +21,7 @@
             <a
                 class="fa fa-list"
                 href="{{ "{{ path('" ~ baseRoute ~ "_index') }}" }}"
+                title="{{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}"
             >
                 {{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}
             </a>
@@ -32,6 +33,7 @@
             <a
                 class="fa fa-pencil"
                 href="{{ "{{ path('" ~ baseRoute ~ "_edit', { 'id': " ~ niceEntityName ~"."~ identifier ~" }) }}" }}"
+                title="{{ '{{ \'header.navigation.actions.edit\'|trans|capitalize }}' }}"
             >
                 {{ '{{ \'header.navigation.actions.edit\'|trans|capitalize }}' }}
             </a>

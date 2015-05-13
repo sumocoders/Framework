@@ -4,9 +4,10 @@
                         <a
                             href="{{ "{{ path('%1$s_%2$s_"|format(niceBundleName, niceEntityName) ~ action ~ "', { 'id': %1$s."|format(niceEntityName) ~ identifier ~" }) }}" }}"
                             class="fa fa-{{ icon }}"
+                            title="{{ '{{ \'datagrids.actions.%s\'|trans|capitalize }}'|format(action|lower) }}"
                         >
                             <span class="hide">
-                                {{ '{{ \'datagrids.actions.%s\' }}'|format(action|lower) }}
+                                {{ '{{ \'datagrids.actions.%s\'|trans|capitalize }}'|format(action|lower) }}
                             </span>
                         </a>
 

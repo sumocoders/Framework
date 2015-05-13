@@ -17,6 +17,7 @@
             <a
                 class="fa fa-list"
                 href="{{ "{{ path('%1$s_%2$s_index') }}"|format(niceBundleName, niceEntityName) }}"
+                title="{{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}"
             >
                 {{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}
             </a>
@@ -34,7 +35,7 @@
         {{ '{{ form_rest(form) }}' }}
         <div class="form-group">
             <div class="col-lg-9 col-lg-offset-3">
-                <input type="submit" class="btn btn-primary" value="{{ '{{ \'forms.buttons.new\'|trans }}' }}">
+                <input type="submit" class="btn btn-primary" value="{{ '{{ \'forms.buttons.new\'|trans|capitalize }}' }}">
             </div>
         </div>
     </fieldset>
