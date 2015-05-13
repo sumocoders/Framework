@@ -100,19 +100,8 @@
               <div class="row">
                 <div class="col-sm-6 col-sm-push-6">
                   <div class="user-nav">
-                    <div class="search-box">
-                      {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
-                      <form action="{{ path('sumocoders_frameworksearch_default_index') }}" data-form-class="SearchForm">
-                        <div class="controls">
-                          <label for="searchQuery"> {{ 'forms.search.placeholders.search'|trans|capitalize }} </label>
-                          <input id="searchQuery" name="q" type="search" placeholder="" class="form-control">
-                          <button type="submit" class="btn fa fa-search">
-                            <span class="hide">{{ 'forms.search.buttons.search'|trans|capitalize }}</span>
-                          </button>
-                        </div>
-                      </form>
-                      {% endif %}
-                    </div>
+                    {% if bundleExists('SumoCodersFrameworkUserBundle') %}
+                    <!-- @todo: correct data from SumoCodersFrameworkUserBundle -->
                     <div class="btn-group">
                       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <i class="icon icon-avatar"></i> <span class="hidden-xs">Sumocoders</span>  <span class="icon icon-angle hidden-xs"></span>
@@ -122,12 +111,28 @@
                         <li><a href="#">Another action</a></li>
                       </ul>
                     </div>
+                    {% endif %}
+                    {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
+                      <div class="search-box">
+                        <form action="{{ path('sumocoders_frameworksearch_default_index') }}" data-form-class="SearchForm">
+                          <div class="controls">
+                            <label for="searchQuery"> {{ 'forms.search.placeholders.search'|trans|capitalize }} </label>
+                            <input id="searchQuery" name="q" type="search" placeholder="" class="form-control">
+                            <button type="submit" class="btn fa fa-search">
+                              <span class="hide">{{ 'forms.search.buttons.search'|trans|capitalize }}</span>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    {% endif %}
                   </div>
                 </div>
                 <div class="col-sm-6 col-sm-pull-6">
                   <ol class="breadcrumb">
                     <li><a href="#">Home</a></li>
+                    <span class="icon icon-breadcrumb-separator"></span>
                     <li><a href="#">Library</a></li>
+                    <span class="icon icon-breadcrumb-separator"></span>
                     <li class="active">Data</li>
                   </ol>
                 </div>
@@ -144,7 +149,7 @@
 
           {% set actions = block('header_navigation') %}
           {% if actions %}
-          <div class="actions">
+          <div class="actions clearfix">
             <div class="action-buttons">
               {{ actions|raw }}
             </div>

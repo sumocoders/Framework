@@ -19,7 +19,7 @@ $gray-lines:             #d6e1e6;
 $white:                  #fff;
 
 $brand-default:         #fff;
-$brand-primary:         #d83f1e;
+$brand-primary:         #1FD2C5;
 $brand-success:         #20c664;
 $brand-info:            #6ac1e0;
 $brand-warning:         #8fb1b4;
@@ -55,7 +55,7 @@ $font-family-base:        $font-family-sans-serif !default;
 
 $font-size-base:          14px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px  x;
 
 $font-size-h1:            ceil(($font-size-base * 1.79)); // ~ 25px
 $font-size-h2:            ceil(($font-size-base * 1.5)); // ~21px
@@ -64,7 +64,9 @@ $font-size-h4:            ceil(($font-size-base * 1.07)); // ~15px
 $font-size-h5:            $font-size-base !default;
 $font-size-h6:            ceil(($font-size-base * .86)); // ~ 12px
 
-$font-size-icon-small:     20px;
+$font-size-icon-smallest: 8px;
+$font-size-icon-smaller:  14px;
+$font-size-icon-small:    20px;
 $font-size-icon-base:     25px;
 $font-size-icon-large:    30px;
 

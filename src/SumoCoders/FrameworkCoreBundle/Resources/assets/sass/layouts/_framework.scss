@@ -1,46 +1,49 @@
 .header-title {
   border-top: 1px $gray-lines solid;
+  border-bottom: 1px $gray-lines solid;
   overflow: hidden;
-  padding: 15px 10px;
+  padding: 14px 18px 20px;
 
   h2 {
-    margin: 5px 0;
+    color: $gray;
+    font-style: normal;
+    font-weight: normal;
+    margin: 0;
   }
 }
 
 .actions {
   background-color: $dropdown-bg;
-  box-shadow: 2px 0 2px rgba(0,0,0,0.2);
+  border-bottom: 1px $gray-lines solid;
   display: block;
-  min-height: 50px;
-  padding: 10px 15px;
+  padding: 14px 15px 14px 20px;
 
   .btn-info {
+    -webkit-font-smoothing: antialiased;
     background-color: $brand-info;
     border-color: transparent;
+    font-style: normal;
+    font-weight: 600;
+
+    &:hover {
+      background-color: darken($brand-info, 15%);
+    }
+  }
+
+  .btn {
+    padding: 5px 10px 7px;
   }
 }
 
 @media (min-width: $screen-sm-min) {
 
   .header-title {
-    border-top: 0;
-    padding: 60px 5px 5px;
-
-    h2 {
-      margin: 15px;
-    }
+    border-top-width: 0;
+    padding: 69px 18px 20px;
   }
 
-  .actions {
-    background-color: $dropdown-bg;
-    box-shadow: 2px 0 2px rgba(0,0,0,0.2);
-    display: block;
-    height: 50px;
-    padding: 10px 15px;
-
-    .action-buttons {
-      float: right;
-    }
+  .action-buttons {
+    float: right;
   }
+
 }

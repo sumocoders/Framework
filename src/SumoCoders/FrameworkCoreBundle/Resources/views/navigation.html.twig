@@ -23,7 +23,7 @@
 
 <div id="main-menu-inner">
     <div class="navbar navbar-deafault">
-      <a href="/" rel="home" class="logo icon-logo-application">
+      <a href="/" rel="home" class="logo icon-logo-nyche">
               <span class="sr-only">
                 {{ fallbacks.get('site_title') }}
               </span>
@@ -38,8 +38,13 @@
         </button>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
-        {{ knp_menu_render('main', {'template': 'SumoCodersFrameworkCoreBundle:menu:menu.html.twig'}) }}
+        {{ knp_menu_render('main', {'template': 'SumoCodersFrameworkCoreBundle:menu:menu.html.twig', 'ancestorClass': 'open'}) }}
 
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="#" class="menu-item">Los menu item</a>
+          </li>
+        </ul>
       </div>
     </div>
 </div>

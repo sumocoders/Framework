@@ -45,6 +45,11 @@ class MenuListener extends DefaultMenuListener
         );
         $firstChild->setExtra('orderNumber', 1);
         $menuItem->addChild($firstChild);
+
+        // add the sub-menu-item class to all sub-menu-items
+        foreach ($menuItem as $child) {
+            $child->setLinkAttribute('class', 'sub-menu-item');
+        }
     }
 }
 ```

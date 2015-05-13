@@ -30,7 +30,7 @@
 
     .controls .btn {
       background-color: $white;
-      padding: 13px 0 14px;
+      padding: 12px 0 12px;
       width: 15%;
     }
 
@@ -51,19 +51,26 @@
       border-bottom: 0;
 
       .search-box {
+        display: inline-block;
+        float: right;
         margin-left: 0;
-        margin-right: 182px;
 
         input, label {
           display: none;
         }
       }
       .controls .btn {
-        padding: 15px 0;
+        padding: 15px 20px;
+        width: auto ;
       }
 
       .fa-search {
         border-left: 1px $gray-lines solid;
+
+        &:hover {
+          background-color: $gray-darker;
+          color: $white;
+        }
       }
 
       .col-alternative {

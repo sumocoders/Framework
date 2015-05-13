@@ -11,23 +11,43 @@
   width: 100%;
 
   .breadcrumb {
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: 600;
     margin: 0;
-    padding: 11px 0;
+    padding: 14px 19px 12px;
     width: 100%;
+
+    li {
+      padding: 0 4px;
+    }
 
     li:active {
       color: $breadcrumb-active-color;
+
     }
 
     a {
       color: $breadcrumb-color;
     }
+
+  }
+
+  .breadcrumb > li + li:before {
+    content: " ";
+  }
+
+  .icon-breadcrumb-separator {
+    font-size: $font-size-icon-smallest;
+    padding: 4px;
   }
 
   .user-nav {
+    min-height: 50px;
     padding: 0;
     position: relative;
     width: 100%;
+
 
     .open > .btn-default.dropdown-toggle,
     .btn-default:hover,
@@ -44,11 +64,15 @@
       border-radius: 0;
       margin: 0;
       padding: 0;
+
+      &:focus {
+        outline: none;
+      }
     }
 
     .icon-avatar {
       font-size: $font-size-icon-large;
-      padding: 7px 10px 8px;
+      padding: 6px 10px 6px;
     }
   }
 
@@ -57,14 +81,19 @@
     position: absolute;
     top: 0;
 
-
     .btn-default {
+      -webkit-font-smoothing: antialiased;
       color: $gray-light;
+      font-style: normal;
+      font-weight: 600;
     }
 
     .dropdown-menu {
+      -webkit-font-smoothing: antialiased;
       background-color: $gray-darker;
       border-radius: 0;
+      font-style: normal;
+      font-weight: 600;
       border: 0;
       margin: 0;
     }
@@ -79,39 +108,12 @@
   }
 }
 
-.header-title {
-  border-top: 1px $gray-lines solid;
-  overflow: hidden;
-  padding: 15px 10px;
-
-  h2 {
-    margin: 5px 0;
-  }
-}
-
-.actions {
-  background-color: $dropdown-bg;
-  box-shadow: 2px 0 2px rgba(0,0,0,0.2);
-  display: block;
-  min-height: 50px;
-  padding: 10px 15px;
-
-  .btn-info {
-    background-color: $brand-info;
-    border-color: transparent;
-  }
-}
-
 @media (min-width: $screen-sm-min) {
 
   .main-wrapper {
     padding-left: 235px;
     overflow: hidden;
     width: 100%;
-  }
-
-  .navbar-collapse {
-    padding-right: 0;
   }
 
   .main-header {
@@ -127,8 +129,16 @@
 
     .btn-group {
       border-right: none;
+      display: inline-block;
+      float: right;
+      position: relative;
       right: 0;
       border-left: 1px $gray-lines solid;
+
+      .dropdown-menu {
+        right: 0;
+        left: auto;
+      }
 
       .icon-angle {
         padding: 0 15px;
@@ -140,11 +150,13 @@
       border-bottom: 0;
       float: left;
       margin: 0;
-      padding: 12px 20px;
+      padding: 17px 25px 13px 18px;
+    }
 
+    .user-nav {
 
-      .user-nav {
-        float: right;
+      .icon-avatar {
+        padding: 8px 10px 10px;
       }
     }
 
