@@ -97,8 +97,10 @@ class Installer
     {
         $content = file_get_contents($path);
 
-        foreach ($config as $variableName => $value) {
-            $content = $this->replaceSetRubyVar($variableName, $value, $content);
+        if (null !== $config) {
+            foreach ($config as $variableName => $value) {
+                $content = $this->replaceSetRubyVar($variableName, $value, $content);
+            }
         }
 
         file_put_contents($path, $content);
@@ -153,8 +155,12 @@ class Installer
      * @param array $config
      * @return array mixed
      */
-    public function arrayReplaceExisting(array $content, array $config)
+    public function arrayReplaceExisting(array $content, array $config = null)
     {
+        if (null === $config) {
+            return $content;
+        }
+
         foreach ($config as $key => $value) {
             if (is_array($value)) {
                 // if it has only numeric keys we can handle it as a value

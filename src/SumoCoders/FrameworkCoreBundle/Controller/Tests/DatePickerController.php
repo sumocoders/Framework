@@ -13,7 +13,7 @@ class DatePickerController extends Controller
      * @Template()
      * @Route("/datepicker")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $defaultData = array(
             'date_example1' => new \DateTime(),

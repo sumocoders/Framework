@@ -3,13 +3,26 @@ namespace SumoCoders\FrameworkCoreBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
+use Symfony\Component\DomCrawler\Crawler;
 
 class DatePickerControllerTest extends WebTestCase
 {
-    public function testIfChoiceRenderedCorrectly()
+    /**
+     * @param string $method
+     * @param string $url
+     * @return Crawler
+     */
+    private function getCrawlerForRequest($method, $url)
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/_tests/datepicker');
+        $crawler = $client->request($method, $url);
+
+        return $crawler;
+    }
+
+    public function testIfChoiceRenderedCorrectly()
+    {
+        $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
 
         $this->assertEquals(1, $crawler->filter('select#form_date_example1_month')->count());
         $this->assertEquals(1, $crawler->filter('select#form_date_example1_day')->count());
@@ -18,8 +31,7 @@ class DatePickerControllerTest extends WebTestCase
 
     public function testIfTextRenderedCorrectly()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/_tests/datepicker');
+        $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
 
         $this->assertEquals(1, $crawler->filter('input#form_date_example2_month')->count());
         $this->assertEquals(1, $crawler->filter('input#form_date_example2_day')->count());
@@ -28,16 +40,14 @@ class DatePickerControllerTest extends WebTestCase
 
     public function testIfSingleTextRenderedCorrectly()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/_tests/datepicker');
+        $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
 
         $this->assertEquals(1, $crawler->filter('input#form_date_example3')->count());
     }
 
     public function testIfSingleTextWithDatePickerAndDefaultDateRenderedCorrectly()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/_tests/datepicker');
+        $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
 
         $element = $crawler->filter('input#form_date_example4');
         $wrapper = $element->parents()->filter('.date-widget')->first();
@@ -59,8 +69,7 @@ class DatePickerControllerTest extends WebTestCase
 
     public function testIfSingleTextWithDatePickerRenderedCorrectly()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/_tests/datepicker');
+        $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
         $date = new \DateTime();
 
         $element = $crawler->filter('input#form_date_example5');
@@ -83,8 +92,7 @@ class DatePickerControllerTest extends WebTestCase
 
     public function testIfSingleTextWithDatePickerAndOnlyDatesInTheFutureRenderedCorrectly()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/_tests/datepicker');
+        $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
         $date = new \DateTime();
         $startDate = new \DateTime('last monday');
 
@@ -109,8 +117,7 @@ class DatePickerControllerTest extends WebTestCase
 
     public function testIfSingleTextWithDatePickerAndOnlyDatesInThePastRenderedCorrectly()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/_tests/datepicker');
+        $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
         $date = new \DateTime();
         $endDate = new \DateTime('next friday');
 
@@ -135,8 +142,7 @@ class DatePickerControllerTest extends WebTestCase
 
     public function testIfSingleTextWithDatePickerAndOnlyDatesBetweenCorrectly()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/_tests/datepicker');
+        $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
         $date = new \DateTime();
         $startDate = new \DateTime('last monday');
         $endDate = new \DateTime('next friday');
