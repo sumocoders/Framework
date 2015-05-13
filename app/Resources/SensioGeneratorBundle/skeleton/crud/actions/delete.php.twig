@@ -25,7 +25,7 @@
 {% endblock method_definition %}
 
 {% block method_body %}
-        $form = $this->createDeleteForm(${{ niceEntityName }}->getId());
+        $form = $this->createDeleteForm(${{ niceEntityName }});
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -55,22 +55,39 @@
     /**
      * Creates a form to delete a {{ entity }} entity by id.
      *
-     * @param int $id The entity id
+     * @param {{ entity }} ${{ niceEntityName }} The entity
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
+    private function createDeleteForm({{ entity }} ${{ niceEntityName }})
     {
         return $this->createFormBuilder()
             ->setAction(
                 $this->generateUrl(
                     '{{ baseRoute }}_delete',
                     array(
-                        'id' => $id,
+                        'id' => ${{ niceEntityName }}->getId(),
                     )
                 )
             )
             ->setMethod('DELETE')
-            ->add('submit', 'submit')
+            ->add(
+                'submit',
+                'submit',
+                array(
+                    'label' => $this->get('translator')->trans(
+                        'header.navigation.actions.delete'
+                    ),
+                    'attr' => array(
+                        'class' => 'fa fa-trash confirm',
+                        'data-message' => $this->get('translator')->trans(
+                            'dialogs.messages.confirmDelete',
+                            array(
+                                '%entity%' => ${{ niceEntityName }},
+                            )
+                        ),
+                    ),
+                )
+            )
             ->getForm();
     }
 {% endblock form %}
