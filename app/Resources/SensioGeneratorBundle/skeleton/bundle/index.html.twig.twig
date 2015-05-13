@@ -1,0 +1,12 @@
+{{ '{% extends "::base.html.twig" %}' }}
+
+{{ '{% block header_title %}' }}
+<h2>
+    {{ '{{ \'%s.header.title.index\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower) }}
+</h2>
+{{ '{% endblock %}' }}
+
+{{ '{% block main %}' }}
+<p>Hello {% raw %}{{ name }}{% endraw %}</p>
+{{ '{% endblock %}' }}
+

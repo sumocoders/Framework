@@ -1,0 +1,83 @@
+{% extends 'skeleton/crud/views/index.html.twig.twig' %}
+
+{% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
+{% set niceEntityName = entity|lower %}
+{% set niceEntityNamePlural = entity|lower ~ 's' %}
+{% set baseRoute = '%1$s_%2$s'|format(niceBundleName, niceEntityName) %}
+
+{% block body %}
+{{ '{% block header_title %}' }}
+    <h2>
+        {{ '{{ \'%s.header.title.index\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower) }}
+    </h2>
+{{ '{% endblock %}' }}
+
+{% if 'new' in actions %}
+{{ '{% block header_navigation %}' }}
+    <ul>
+        <li>
+            <a
+               class="icon icon-add"
+               href="{{ "{{ path('%1$s_new') }}"|format(baseRoute) }}"
+               title="{{ '{{ \'header.navigation.actions.add\'|trans|capitalize }}' }}"
+            >
+                {{ '{{ \'header.navigation.actions.add\'|trans|capitalize }}' }}
+            </a>
+        </li>
+    </ul>
+{{ '{% endblock %}' }}
+{% endif %}
+
+{{ '{% block main %}' }}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                {%- for field, metadata in fields %}
+
+                <th>{{ '{{ \'%s.%s.fields.%s\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower, entity|lower, field) }}</th>
+
+                {%- endfor %}
+
+                {%- for action in record_actions %}
+
+                <th></th>
+
+                {%- endfor %}
+
+            </tr>
+        </thead>
+        <tbody>
+            {{ '{%% for %1$s in %2$s %%}'|format(niceEntityName, niceEntityNamePlural) }}
+                <tr>
+
+                {%- for field, metadata in fields %}
+                    {%- if metadata.type in ['date', 'datetime'] %}
+
+                    <td>{{ '{% if %1$s.'|format(niceEntityName)  ~ field|replace({'_': ''}) ~ ' %}{{ %1$s.'|format(niceEntityName)  ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+                    {%- else %}
+
+                    <td>{{ "{{ %1$s."|format(niceEntityName) ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+                    {%- endif %}
+
+                    {%- if loop.last %}
+
+                    <td class="action">
+
+                        {%- include 'crud/views/others/actions.html.twig.twig' %}
+
+                    </td>
+
+                    {%- endif %}
+                {%- endfor %}
+
+                </tr>
+            {{ '{% endfor %}' }}
+        </tbody>
+    </table>
+
+    {{ '{{ knp_pagination_render(%1$s) }}'|format(niceEntityNamePlural) }}
+
+{{ '{% endblock %}' }}
+{% endblock body %}

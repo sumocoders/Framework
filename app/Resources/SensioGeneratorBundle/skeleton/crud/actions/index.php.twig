@@ -1,0 +1,45 @@
+{% extends 'skeleton/crud/actions/index.php.twig' %}
+
+{% set niceEntityName = entity|lower %}
+{% set niceEntityNamePlural = entity|lower ~ 's' %}
+
+{% block phpdoc_method_header %}
+     * Lists all {{ entity }} entities.
+     *
+     * @param Request $request
+     * @return array
+{% endblock phpdoc_method_header %}
+
+{% block phpdoc_method_annotations %}
+{% if 'annotation' == format %}
+     * @Route("/")
+     * @Method("GET")
+     * @Template()
+{% endif %}
+{% endblock phpdoc_method_annotations %}
+
+{% block method_definition %}
+    public function indexAction(Request $request)
+{% endblock method_definition %}
+
+{% block method_body %}
+        $em = $this->getDoctrine()->getManager();
+        ${{ niceEntityNamePlural }} = $em->getRepository('{{ bundle }}:{{ entity }}')->findAll();
+
+        $paginated{{ entity }}s = $this->get('knp_paginator')->paginate(
+            ${{ niceEntityNamePlural }},
+            $request->query->get('page', 1)
+        );
+{% endblock method_body %}
+
+{% block method_return %}
+{% if 'annotation' == format %}
+        return array(
+            '{{ niceEntityNamePlural }}' => $paginated{{ entity }}s,
+        );
+{% else %}
+        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:index.html.twig', array(
+            '{{ niceEntityNamePlural }}' => $paginated{{ entity }}s,
+        ));
+{% endif %}
+{% endblock method_return %}
