@@ -1,10 +1,12 @@
-.alert {
+.alert.notification {
   border: 0;
   line-height: 40px;
   margin-top: 65px;
   position: fixed;
   width: 100%;
   z-index: 99;
+  padding-bottom: 0;
+  padding-top: 0;
 
   .close {
     height: 40px;
@@ -13,61 +15,24 @@
     top: 0;
     transition: 150ms;
     width: 70px;
-  }
-}
+    text-align: center;
 
-// States
-.alert-success .close {
-  background-color: #3c9469;
-
-  &:hover {
-    background-color: darken(#3c9469, 10%);
-  }
-}
-
-.alert-warning .close {
-  background-color: #b38e2a;
-
-  &:hover {
-    background-color: darken(#b38e2a, 10%);
-  }
-}
-
-.alert-danger,
-.alert-error {
-  background-color: #ca5121;
-
-  .close {
-    background-color: #9f360c;
-
-    &:hover {
-      background-color: darken(#9f360c, 10%);
-    }
-  }
-}
-
-.alert-info {
-  background-color: #b6bcd0;
-
-  .close {
-    background-color: #8c93ab;
-
-    &:hover {
-      background-color: darken(#8c93ab, 10%);
+    i {
+      line-height: 40px;
     }
   }
 }
 
 // Media query min-width 767px
 @media screen and (min-width: 767px) {
-  .alert {
+  .alert.notification {
     padding-right: 50px;
   }
 }
 
 // Media query min-width 1025px
 @media screen and (min-width: 1025px) {
-  .alert {
+  .alert.notification {
     padding-right: 265px;
     transition: padding-right 250ms;
 

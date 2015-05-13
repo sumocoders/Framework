@@ -52,7 +52,7 @@ class Framework extends DefaultObject
 
     # link methods
     'a.confirm': click : 'askConfirmation'
-    'a.confirmPostForm': click : 'askConfirmationAndPostAsAForm'
+    'button.confirm' : click : 'askConfirmationAndSubmit'
 
     # tabs
     '.nav-tabs a' : click : 'changeTab'
@@ -151,7 +151,7 @@ class Framework extends DefaultObject
     $(this).tab('show')
 
   _calculateActionsWidths: ->
-    $('.actions li a').each(->
+    $('.actions li a, .actions li button').each(->
       $this = $(@)
       $this.attr('data-width', $this.width())
       $this.width(0)
@@ -263,37 +263,16 @@ class Framework extends DefaultObject
     $('#confirmModal').modal('show')
   false
 
-  _postAsForm: (e) =>
-    # build the form
-    # we can't use an single-style tag, because IE can't handle this
-    $form = $('<form></form>')
-      .attr('style', 'display: none;')
-      .attr('action', e.attr('href'))
-      .attr('method', 'POST')
-
-    # append the data
-    for name, value of e.data()
-      if name.substr(0, 5) == 'field'
-        $element = $('<input>').attr('type', 'hidden')
-          .attr('name', name.substr(5).toLowerCase())
-          .attr('value', value)
-        $form.append($element)
-
-    $('#confirmModal').modal('hide')
-    $('body').append($form)
-    $.event.trigger('show_loading_bar')
-    $form.submit()
-  false
-
-  askConfirmationAndPostAsAForm: (e) =>
+  askConfirmationAndSubmit: (e) =>
     e.preventDefault()
     $this = $(e.currentTarget)
     $modal = $('#confirmModal')
+    $form = $this.parents('form');
 
     $('#confirmModalMessage').html($this.data('message'))
     $modal.on('click', '#confirmModalOk', (e) =>
       e.preventDefault()
-      @_postAsForm($this)
+      $form.submit()
     )
       .modal('show')
       .on('hide', (e) =>

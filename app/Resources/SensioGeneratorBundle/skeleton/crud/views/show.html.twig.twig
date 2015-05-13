@@ -1,0 +1,65 @@
+{% extends 'skeleton/crud/views/show.html.twig.twig' %}
+
+{% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
+{% set niceEntityName = entity|lower %}
+{% set niceEntityNamePlural = entity|lower ~ 's' %}
+{% set baseRoute = '%1$s_%2$s'|format(niceBundleName, niceEntityName) %}
+
+
+{% block body %}
+{{ "{% block header_title %}" }}
+    <h2>
+        {{ '{{ \'' ~ niceBundleName ~ '.header.title.show\'|trans({\'%entity%\': ' ~ niceEntityName ~ '})|capitalize }}' }}
+    </h2>
+{{ "{% endblock %}" }}
+
+{{ "{% block header_navigation %}" }}
+    <ul>
+    {%- if 'index' in actions %}
+
+        <li>
+            <a
+                class="fa fa-list"
+                href="{{ "{{ path('" ~ baseRoute ~ "_index') }}" }}"
+                title="{{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}"
+            >
+                {{ '{{ \'header.navigation.actions.overview\'|trans|capitalize }}' }}
+            </a>
+        </li>
+    {%- endif %}
+    {%- if 'edit' in actions %}
+
+        <li>
+            <a
+                class="fa fa-pencil"
+                href="{{ "{{ path('" ~ baseRoute ~ "_edit', { 'id': " ~ niceEntityName ~"."~ identifier ~" }) }}" }}"
+                title="{{ '{{ \'header.navigation.actions.edit\'|trans|capitalize }}' }}"
+            >
+                {{ '{{ \'header.navigation.actions.edit\'|trans|capitalize }}' }}
+            </a>
+        </li>
+    {%- endif %}
+
+    </ul>
+{{ "{% endblock %}" }}
+
+{{ "{% block main %}" }}
+    <dl class="dl-horizontal">
+        {%- for field, metadata in fields %}
+
+        <dt>{{ field|capitalize }}</dt>
+        {%- if metadata.type in ['date', 'datetime'] %}
+
+        <dd>{{ '{{ ' ~ niceEntityName ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}' }}</dd>
+
+        {%- else %}
+
+        <dd>{{ '{{ ' ~ niceEntityName ~ '.' ~ field|replace({'_': ''}) ~ ' }}' }}</dd>
+
+        {%- endif %}
+
+        {%- endfor %}
+
+    </dl>
+{{ "{% endblock %}" }}
+{% endblock body %}

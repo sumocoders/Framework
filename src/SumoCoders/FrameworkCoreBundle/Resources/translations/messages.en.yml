@@ -1,0 +1,106 @@
+core:
+    interface:
+        backToTop: back to top
+
+    warnings:
+        oldBrowser: <strong>Warning:</strong> You are using an older browser. If you want to see the site as it is intended, you may want to download a new version or a decent browser like <a href="http://www.google.com/chrome‎">Chrome</a>.
+
+datagrids:
+    actions:
+        edit: edit
+        show: show
+
+datepicker:
+  pickDate: pick a date
+
+  buttons:
+    close: close
+    next: next
+    previous: previous
+    today: today
+
+  full:
+    days:
+      sunday: sunday
+      monday: monday
+      tuesday: tuesday
+      wednesday: wednesday
+      thursday: thursday
+      friday: friday
+      saturday: saturday
+
+    months:
+      january: January
+      february: February
+      march: March
+      april: April
+      may: May
+      june: June
+      july: July
+      august: August
+      september: September
+      october: October
+      november: November
+      december: December
+
+  minimal:
+    days:
+      sunday: su
+      monday: mo
+      tuesday: tu
+      wednesday: we
+      thursday: th
+      friday: fr
+      saturday: sa
+
+  short:
+    days:
+      sunday: sun
+      monday: mon
+      tuesday: tue
+      wednesday: wed
+      thursday: thu
+      friday: fri
+      saturday: sat
+
+    months:
+      january: Jan
+      february: Feb
+      march: Mar
+      april: Apr
+      may: May
+      june: Jun
+      july: Jul
+      august: Aug
+      september: Sep
+      october: Oct
+      november: Nov
+      december: Dec
+
+dialogs:
+    buttons:
+        cancel: cancel
+        ok: ok
+
+    close: close
+
+    messages:
+        confirmDelete: Are you sure you want to delete %entity%?
+
+forms:
+    buttons:
+        new: add
+        update: save
+
+header:
+    navigation:
+        actions:
+            add: add
+            delete: delete
+            edit: edit
+            overview: overview
+
+navigation:
+    titles:
+        possible_actions: possible actions
+        showHideMenu: show/hide menu
