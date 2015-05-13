@@ -125,7 +125,8 @@ body {
       top: 69px;
 
       li {
-        a, button {
+        a,
+        button {
           background-color: $gray-darker;
           border: none;
           box-sizing: border-box;
@@ -155,7 +156,8 @@ body {
           margin-left: 4px;
         }
 
-        &:hover a, &:hover button {
+        &:hover a,
+        &:hover button {
           background-color: #4ba75f;
           border: 0;
           color: #fff;
