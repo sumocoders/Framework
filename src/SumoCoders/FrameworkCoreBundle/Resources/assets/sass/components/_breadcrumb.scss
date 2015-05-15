@@ -1,14 +1,14 @@
 .breadcrumb {
-  -webkit-font-smoothing: antialiased;
   border-radius: 0;
+  -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: 600;
   margin: 0;
   padding: 14px 19px 12px;
   width: 100%;
 
-  & > li + li:before {
-    content: " ";
+  > li + li:before {
+    content: ' ';
   }
 
   li {

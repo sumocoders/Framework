@@ -8,9 +8,9 @@
 
   .progress-bar {
     //background-size: 100px 100px;
+    background-color: lighten($brand-primary, 30%);
     text-align: left;
     width: 100%;
-    background-color: lighten($brand-primary, 30%);
   }
 
   &.active .progress-bar {

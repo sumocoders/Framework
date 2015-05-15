@@ -7,10 +7,10 @@
 }
 
 .header-title-bar {
-  border-top: 1px $gray-lines solid;
   border-bottom: 1px $gray-lines solid;
+  border-top: 1px $gray-lines solid;
   overflow: hidden;
-  padding: 20px 19px 20px;
+  padding: 20px 19px;
 
   h2 {
     color: $gray;
@@ -27,9 +27,9 @@
   padding: 14px 15px 14px 20px;
 
   .btn-info {
-    -webkit-font-smoothing: antialiased;
     background-color: $brand-info;
     border-color: transparent;
+    -webkit-font-smoothing: antialiased;
     font-style: normal;
     font-weight: 600;
 
@@ -54,11 +54,10 @@
 
   .header-title-bar {
     border-top-width: 0;
-    padding: 18px;
+    padding: 16px 18px;
   }
 
   .action-buttons {
     float: right;
   }
-
 }

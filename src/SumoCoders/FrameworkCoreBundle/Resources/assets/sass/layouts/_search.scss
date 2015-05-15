@@ -3,8 +3,8 @@
   border-top: 1px $gray-lines solid;
 
   .search-box {
-    overflow: hidden;
     margin-left: 50px;
+    overflow: hidden;
 
     .form-control {
       height: 30px;
@@ -12,32 +12,32 @@
     }
     
     label {
-      color:$gray-light;
+      color: $gray-light;
       font-size: $font-size-base;
       font-style: normal;
       font-weight: normal;
       margin-left: 10px;
       margin-top: -11px;
-      top: 50%;
       position: absolute;
+      top: 50%;
     }
 
     input {
-      border: none;
+      border: 0;
       float: left;
       width: 85%;
     }
 
     .controls .btn {
       background-color: $white;
-      padding: 12px 0 12px;
+      padding: 12px 0;
       width: 15%;
     }
 
     .fa-search {
       color: $gray-light;
-      font-size: $font-size-icon-small;
       float: right;
+      font-size: $font-size-icon-small;
       width: 0;
     }
   }
@@ -48,8 +48,8 @@
   .sub-nav {
 
     .user-nav {
-      border-top: 0;
       border-bottom: 0;
+      border-top: 0;
 
       .search-box {
         border-left: 1px $gray-lines solid;

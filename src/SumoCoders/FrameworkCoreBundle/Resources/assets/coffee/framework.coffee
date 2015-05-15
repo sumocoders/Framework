@@ -68,7 +68,6 @@ class Framework extends DefaultObject
     '_initForm'
     '_initTabs'
     'setContentHeight'
-    'showLoadingBar'
   ]
 
   _initAjax: ->

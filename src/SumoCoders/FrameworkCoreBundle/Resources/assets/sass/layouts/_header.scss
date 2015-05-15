@@ -1,8 +1,8 @@
 .sub-nav {
   border-radius: 0;
   font-family: $font-family-sans-serif;
-  font-weight: 600;
   font-style: normal;
+  font-weight: 600;
   margin-bottom: 0;
   width: 100%;
 }
@@ -15,22 +15,18 @@
 
 
   .icon-angle {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg); // IE9 only
     transform: rotate(0deg);
     transition: 550ms;
   }
 
   .open {
 
-    & > .btn-default.dropdown-toggle{
+    > .btn-default.dropdown-toggle{
       background-color: $gray-darker;
       color: $white;
     }
 
     .icon-angle {
-      -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg); // IE9 only
       transform: rotate(90deg);
       transition: 550ms;
     }
@@ -46,8 +42,8 @@
     }
 
     .btn-default {
-      -webkit-font-smoothing: antialiased;
       color: $gray-light;
+      -webkit-font-smoothing: antialiased;
       font-style: normal;
       font-weight: 600;
 
@@ -59,9 +55,9 @@
     }
 
     .dropdown-menu {
-      -webkit-font-smoothing: antialiased;
       background-color: $gray-darker;
       border-radius: 0;
+      -webkit-font-smoothing: antialiased;
       font-style: normal;
       font-weight: 600;
       border: 0;
@@ -90,15 +86,15 @@
 
   .icon-avatar {
     font-size: $font-size-icon-large;
-    padding: 6px 10px 6px;
+    padding: 6px 10px;
   }
 }
 
 @media (min-width: $screen-sm-min) {
 
   .main-wrapper {
-    padding-left: 235px;
     overflow: hidden;
+    padding-left: 235px;
     width: 100%;
   }
 
@@ -117,21 +113,21 @@
   .user-nav {
 
     .btn-group {
-      border-right: none;
+      border-left: 1px $gray-lines solid;
+      border-right: 0;
       display: inline-block;
       float: right;
       position: relative;
       right: 0;
-      border-left: 1px $gray-lines solid;
 
       .dropdown-menu {
-        right: 0;
         left: auto;
+        right: 0;
       }
 
       .icon-angle {
-        padding: 0 15px;
         margin: 5px 0;
+        padding: 0 15px;
       }
     }
 
