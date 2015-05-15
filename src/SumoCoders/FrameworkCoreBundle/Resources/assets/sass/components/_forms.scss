@@ -28,3 +28,11 @@ input:focus:invalid:focus {
     margin-bottom: 20px;
   }
 }
+
+.datetime-widget select[size], .time-widget select[size] {
+  height: 34px;
+}
+
+.date-widget .faked-button {
+  color: #555;
+}

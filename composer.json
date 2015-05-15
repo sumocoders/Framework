@@ -60,6 +60,9 @@
         ],
         "post-create-project-cmd": [
           "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::createInitialConfig"
+        ],
+        "post-travis": [
+          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
         ]
     },
     "config": {

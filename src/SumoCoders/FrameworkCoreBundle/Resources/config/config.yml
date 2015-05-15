@@ -20,6 +20,10 @@ services:
     scope: request
     tags:
       - { name: knp_menu.menu, alias: main }
+  framework.date_type_extension:
+    class: SumoCoders\FrameworkCoreBundle\Form\Extension\DateTypeExtension
+    tags:
+      - { name: form.type_extension, alias: date }
   twig.framework_extension:
     class: SumoCoders\FrameworkCoreBundle\Twig\FrameworkExtension
     arguments:
@@ -57,6 +61,8 @@ twig:
     fallbacks: "@framework.fallbacks"
     jsData: "@framework.jsData"
     locales: %locales%
+  form_themes:
+    - 'SumoCodersFrameworkCoreBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
