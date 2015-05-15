@@ -67,7 +67,6 @@ class Framework extends DefaultObject
     '_initAjax'
     '_initForm'
     '_initTabs'
-    '_calculateActionsWidths'
     'setContentHeight'
   ]
 
@@ -149,18 +148,6 @@ class Framework extends DefaultObject
       $(window).scrollTop(scrolled)
 
     $(this).tab('show')
-
-  _calculateActionsWidths: ->
-    $('.actions li a').each(->
-      $this = $(@)
-      $this.attr('data-width', $this.width())
-      $this.width(0)
-      $this.hover(->
-        $this.width($this.data('width') + 20)
-      ,->
-        $this.width(-20)
-      )
-    )
 
   showLoadingBar: ->
     $('#header').addClass('progress progress-striped active')
