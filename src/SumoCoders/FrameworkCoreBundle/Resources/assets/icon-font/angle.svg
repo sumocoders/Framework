@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
-    <title>angle</title>
+<svg width="8px" height="11px" viewBox="0 0 8 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Pagina's" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="formulier" sketch:type="MSArtboardGroup" transform="translate(-1493.000000, -23.000000)" fill="#AAAFBD">
-            <g id="zoekbalk" sketch:type="MSLayerGroup" transform="translate(233.000000, -2.000000)">
-                <g id="user" transform="translate(1077.600000, 10.100000)" sketch:type="MSShapeGroup">
-                    <g id="angle" transform="translate(183.000000, 15.000000)">
-                        <path d="M10.2981463,0.13825 C10.2253049,0.07025 10.1414634,0.036375 10.046622,0.036375 C9.95204878,0.036375 9.86820732,0.07025 9.79536585,0.13825 L5.5,4.140625 L1.20476829,0.138375 C1.13192683,0.070375 1.04808537,0.0365 0.953378049,0.0365 C0.858670732,0.0365 0.774829268,0.070375 0.701987805,0.138375 L0.155609756,0.6475 C0.0826341463,0.715375 0.0462804878,0.7935 0.0462804878,0.88175 C0.0462804878,0.97 0.0827682927,1.048125 0.155609756,1.116 L5.24860976,5.861875 C5.32145122,5.92975 5.40529268,5.963625 5.5,5.963625 C5.59470732,5.963625 5.67841463,5.92975 5.7512561,5.861875 L10.8445244,1.116 C10.9173659,1.048125 10.9535854,0.97 10.9535854,0.88175 C10.9535854,0.7935 10.9173659,0.715375 10.8445244,0.647375 L10.2981463,0.13825 Z" id="Shape"></path>
+        <g id="formulier" sketch:type="MSArtboardGroup" transform="translate(-204.000000, -179.000000)" fill="#7590A9">
+            <g id="menu" sketch:type="MSLayerGroup" transform="translate(-1.000000, -2.000000)">
+                <g id="row" sketch:type="MSShapeGroup">
+                    <g transform="translate(0.000000, 86.000000)">
+                        <g id="item-sub" transform="translate(0.000000, 79.419269)">
+                            <g id="arrow" transform="translate(208.836341, 21.500000) rotate(-90.000000) translate(-208.836341, -21.500000) translate(203.776341, 18.128011)">
+                                <path d="M9.97696233,0.72764719 L9.47429453,0.155392507 C9.40728038,0.0789607493 9.33014624,0.0408853702 9.24289209,0.0408853702 C9.15588477,0.0408853702 9.07875063,0.0789607493 9.01173648,0.155392507 L5.05999994,4.65404773 L1.10838682,0.155533006 C1.04137267,0.0791012489 0.964238526,0.0410258698 0.877107795,0.0410258698 C0.789977064,0.0410258698 0.712842919,0.0791012489 0.645828773,0.155533006 L0.143160974,0.72778769 C0.0760234138,0.804078947 0.0425780483,0.891891169 0.0425780483,0.991083854 C0.0425780483,1.09027654 0.0761468284,1.17808876 0.143160974,1.25438002 L4.82872092,6.58872658 C4.89573507,6.66501784 4.97286921,6.70309322 5.05999994,6.70309322 C5.14713067,6.70309322 5.2241414,6.66501784 5.29115555,6.58872658 L9.97696233,1.25438002 C10.0439765,1.17808876 10.0772984,1.09027654 10.0772984,0.991083854 C10.0772984,0.891891169 10.0439765,0.804078947 9.97696233,0.72764719 L9.97696233,0.72764719 Z" id="Shape"></path>
+                            </g>
+                        </g>
                     </g>
                 </g>
             </g>

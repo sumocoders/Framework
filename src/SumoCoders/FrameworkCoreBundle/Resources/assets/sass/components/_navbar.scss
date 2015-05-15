@@ -50,7 +50,9 @@
     }
   }
 
-  .icon-angle {
+  .icon-angle,
+  .closed .icon-angle,
+  .closed.open .icon-angle {
     position: absolute;
     right: 15px;
     padding: 6px 10px;
@@ -58,13 +60,6 @@
     -ms-transform: rotate(0deg); // IE9 only
     transform: rotate(0deg);
     transition: 550ms;
-
-    &:hover {
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg); // IE9 only
-      transform: rotate(45deg);
-      transition: 550ms;
-    }
   }
 
   .open {
@@ -95,6 +90,13 @@
         margin-left: 10px;
         padding: 7px 20px;
       }
+    }
+
+    .icon-angle {
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg); // IE9 only
+      transform: rotate(90deg);
+      transition: 550ms;
     }
   }
 }

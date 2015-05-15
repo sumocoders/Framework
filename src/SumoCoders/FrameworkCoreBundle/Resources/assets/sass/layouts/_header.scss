@@ -49,11 +49,32 @@
     width: 100%;
 
 
-    .open > .btn-default.dropdown-toggle,
     .btn-default:hover,
     .btn-default:focus {
       background-color: $gray-darker;
       color: $white;
+    }
+
+    .icon-angle {
+      -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg); // IE9 only
+      transform: rotate(0deg);
+      transition: 550ms;
+    }
+
+    .open {
+
+      & > .btn-default.dropdown-toggle{
+        background-color: $gray-darker;
+        color: $white;
+      }
+
+      .icon-angle {
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg); // IE9 only
+        transform: rotate(90deg);
+        transition: 550ms;
+      }
     }
 
     .btn-group.open .dropdown-toggle {

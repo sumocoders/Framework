@@ -44,7 +44,7 @@ class Framework extends DefaultObject
     '#content.open' : touchend : 'toggleSmallMenu'
 
     # show action-list on iphone-size
-    '.dropdownToggle' : click : 'toggleDropdown'
+    '#main-menu-inner .dropdown-toggle' : click : 'toggleDropdown'
 
     # animate scrolling
     'a.backToTop': click : 'scrollToTop'
@@ -225,8 +225,16 @@ class Framework extends DefaultObject
     e.preventDefault()
 
     $this = $(e.currentTarget)
-    $this.toggleClass('open')
-    $this.next('ul').slideToggle()
+    $parent = $this.parent()
+
+    if $parent.hasClass 'open'
+      $parent.toggleClass 'closed'
+    else
+      $parent.removeClass 'closed'
+
+    $this.next('ul').slideToggle(200, ->
+      $parent.toggleClass('open')
+    )
 
 # Animated scroll methods
   scrollTo: (e) ->
