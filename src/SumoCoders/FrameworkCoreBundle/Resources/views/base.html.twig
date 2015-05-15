@@ -142,9 +142,13 @@
           </div>
           {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}
           <div class="header-title">
-            {% block header_title %}
+            <div class="header-title-bar">
+              <div class="container-fluid">
+                {% block header_title %}
 
-            {% endblock %}
+                {% endblock %}
+              </div>
+            </div>
           </div>
 
           {% set actions = block('header_navigation') %}

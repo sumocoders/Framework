@@ -150,13 +150,13 @@ class Framework extends DefaultObject
     $(this).tab('show')
 
   showLoadingBar: ->
-    $('#header').addClass('progress progress-striped active')
-    $('#header .container').addClass('bar')
+    $('.header-title-bar').addClass('progress progress-striped active')
+    $('.header-title-bar .container-fluid').addClass('bar')
     return
 
   hideLoadingBar: ->
-    $('#header').removeClass('progress progress-striped active')
-    $('#header .container').removeClass('bar')
+    $('.header-title-bar').removeClass('progress progress-striped active')
+    $('.header-title-bar .container-fluid').removeClass('bar')
     return
 
 # Menu methods
