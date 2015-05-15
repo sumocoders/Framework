@@ -91,91 +91,87 @@
 <![endif]-->
 
     <div id="main-wrapper" class="main-wrapper">
-        <div id="main-menu" class="main-menu" role="navigation">
-            {{ include('SumoCodersFrameworkCoreBundle::navigation.html.twig') }}
-        </div>
-        <div id="content-wrapper">
-          <div class="main-header">
-            <div class="sub-nav">
-              <div class="row">
-                <div class="col-sm-6 col-sm-push-6">
-                  <div class="user-nav">
-                    {% if bundleExists('SumoCodersFrameworkUserBundle') %}
-                    <!-- @todo: correct data from SumoCodersFrameworkUserBundle -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <i class="icon icon-avatar"></i> <span class="hidden-xs">Sumocoders</span>  <span class="icon icon-angle hidden-xs"></span>
-                      </button>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                      </ul>
-                    </div>
-                    {% endif %}
-                    {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
-                      <div class="search-box">
-                        <form action="{{ path('sumocoders_frameworksearch_default_index') }}" data-form-class="SearchForm">
-                          <div class="controls">
-                            <label for="searchQuery"> {{ 'forms.search.placeholders.search'|trans|capitalize }} </label>
-                            <input id="searchQuery" name="q" type="search" placeholder="" class="form-control">
-                            <button type="submit" class="btn fa fa-search">
-                              <span class="hide">{{ 'forms.search.buttons.search'|trans|capitalize }}</span>
-                            </button>
-                          </div>
-                        </form>
-                      </div>
-                    {% endif %}
+      <div id="main-menu" class="main-menu" role="navigation">
+        {{ include('SumoCodersFrameworkCoreBundle::navigation.html.twig') }}
+      </div>
+      <div id="content-wrapper">
+        <div class="main-header">
+          <div class="sub-nav">
+            <div class="row">
+              <div class="col-sm-6 col-sm-push-6">
+                <div class="user-nav">
+                  {% if bundleExists('SumoCodersFrameworkUserBundle') %}
+                  <!-- @todo: correct data from SumoCodersFrameworkUserBundle -->
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <i class="icon icon-avatar"></i> <span class="hidden-xs">Sumocoders</span>  <span class="icon icon-angle hidden-xs"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                    </ul>
                   </div>
+                  {% endif %}
+                  {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
+                    <div class="search-box">
+                      <form action="{{ path('sumocoders_frameworksearch_default_index') }}" data-form-class="SearchForm">
+                        <div class="controls">
+                          <label for="searchQuery"> {{ 'forms.search.placeholders.search'|trans|capitalize }} </label>
+                          <input id="searchQuery" name="q" type="search" placeholder="" class="form-control">
+                          <button type="submit" class="btn fa fa-search">
+                            <span class="hide">{{ 'forms.search.buttons.search'|trans|capitalize }}</span>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  {% endif %}
                 </div>
-                <div class="col-sm-6 col-sm-pull-6">
-                  <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <span class="icon icon-breadcrumb-separator"></span>
-                    <li><a href="#">Library</a></li>
-                    <span class="icon icon-breadcrumb-separator"></span>
-                    <li class="active">Data</li>
-                  </ol>
-                </div>
               </div>
-
-            </div>
-          </div>
-          {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}
-          <div class="header-title">
-            <div class="header-title-bar">
-              <div class="container-fluid">
-                {% block header_title %}
-
-                {% endblock %}
+              <div class="col-sm-6 col-sm-pull-6">
+                <ol class="breadcrumb">
+                  <li><a href="#">Home</a></li>
+                  <span class="icon icon-breadcrumb-separator"></span>
+                  <li><a href="#">Library</a></li>
+                  <span class="icon icon-breadcrumb-separator"></span>
+                  <li class="active">Data</li>
+                </ol>
               </div>
             </div>
           </div>
-
-          {% set actions = block('header_navigation') %}
-          {% if actions %}
-          <div class="actions clearfix">
-            <div class="action-buttons">
-              {{ actions|raw }}
-            </div>
-          </div>
-          {% endif %}
         </div>
-          <section id="main" class="main-content" role="main">
-            <div class="container-fluid">
-                {% block main %}
-                {% endblock %}
-            </div>
-          </section>
+        {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}
+        <div class="header-title">
+          <div class="header-title-bar">
+              {% block header_title %}
+
+              {% endblock %}
+          </div>
         </div>
-        <footer class="footer">
-          {% block footer %}
-            <div class="container-fluid">
-              <div class="row hidden-md hidden-lg">
-                <a href="#" class="pull-right backToTop"><i class="fa fa-arrow-circle-up"></i> {{ 'core.interface.backToTop'|trans|capitalize }}</a>
-              </div>
+        {% set actions = block('header_navigation') %}
+        {% if actions %}
+        <div class="actions clearfix">
+          <div class="action-buttons">
+            {{ actions|raw }}
+          </div>
+        </div>
+        {% endif %}
+        <section id="main" class="main-content" role="main">
+          <div class="container-fluid">
+              {% block main %}
+
+              {% endblock %}
+          </div>
+        </section>
+      </div>
+      <footer class="footer">
+        {% block footer %}
+          <div class="container-fluid">
+            <div class="row hidden-md hidden-lg">
+              <a href="#" class="pull-right backToTop"><i class="fa fa-arrow-circle-up"></i> {{ 'core.interface.backToTop'|trans|capitalize }}</a>
             </div>
-          {% endblock %}
-        </footer>
+          </div>
+        {% endblock %}
+      </footer>
     </div>
 
     {{ include('SumoCodersFrameworkCoreBundle::dialogs.html.twig') }}

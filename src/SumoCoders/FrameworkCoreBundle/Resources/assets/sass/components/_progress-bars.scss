@@ -1,11 +1,16 @@
 .progress {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  height: auto;
   margin-bottom: 0;
   overflow: visible;
 
   .progress-bar {
-    background-size: 100px 100px;
+    //background-size: 100px 100px;
     text-align: left;
     width: 100%;
+    background-color: lighten($brand-primary, 30%);
   }
 
   &.active .progress-bar {

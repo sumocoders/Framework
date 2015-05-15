@@ -1,8 +1,16 @@
 .header-title {
+
+  .progress-bar {
+    float: none;
+    width: auto;
+  }
+}
+
+.header-title-bar {
   border-top: 1px $gray-lines solid;
   border-bottom: 1px $gray-lines solid;
   overflow: hidden;
-  padding: 14px 18px 20px;
+  padding: 20px 19px 20px;
 
   h2 {
     color: $gray;
@@ -35,11 +43,18 @@
   }
 }
 
-@media (min-width: $screen-sm-min) {
+.main-content {
+  padding: 40px 20px;
+}
 
+@media (min-width: $screen-sm-min) {
   .header-title {
+    padding-top: 55px;
+  }
+
+  .header-title-bar {
     border-top-width: 0;
-    padding: 69px 18px 20px;
+    padding: 18px;
   }
 
   .action-buttons {

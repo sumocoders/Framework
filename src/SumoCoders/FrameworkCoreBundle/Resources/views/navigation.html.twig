@@ -1,32 +1,9 @@
-<!--<nav id="navbar" role="navigation" class="navbar navbar-default">
-    <div class="searchBox" role="search">
-        {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
-            <form action="{{ path('sumocoders_frameworksearch_default_index') }}" data-form-class="SearchForm">
-                <div class="controls">
-                    <input id="searchQuery" name="q" type="search" placeholder="{{ 'forms.search.placeholders.search'|trans|capitalize }}" class="form-control">
-                    <button type="submit" class="btn fa fa-search">
-                        <span class="hide">{{ 'forms.search.buttons.search'|trans|capitalize }}</span>
-                    </button>
-                </div>
-            </form>
-        {% endif %}
-    </div>
-    <div class="container">
-
-    </div>
-</nav>
-<a href="#" class="icon-arrow-show-menu" id="toggleTabletNavbar">
-  <span class="sr-only">
-    {{ 'navigation.titles.showHideMenu'|trans|capitalize }}
-  </span>
-</a> -->
-
 <div id="main-menu-inner">
     <div class="navbar navbar-deafault">
       <a href="/" rel="home" class="logo icon-logo-nyche">
-              <span class="sr-only">
-                {{ fallbacks.get('site_title') }}
-              </span>
+        <span class="sr-only">
+          {{ fallbacks.get('site_title') }}
+        </span>
       </a>
       <div class="navbar-header hidden-sm hidden-md hidden-lg">
         <a class="navbar-brand" href="#">Menu</a>
@@ -39,7 +16,6 @@
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
         {{ knp_menu_render('main', {'template': 'SumoCodersFrameworkCoreBundle:menu:menu.html.twig'}) }}
-
         <ul class="nav navbar-nav">
           <li>
             <a href="#" class="menu-item">Los menu item</a>

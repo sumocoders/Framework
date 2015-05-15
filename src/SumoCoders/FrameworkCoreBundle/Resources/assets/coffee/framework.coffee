@@ -68,6 +68,7 @@ class Framework extends DefaultObject
     '_initForm'
     '_initTabs'
     'setContentHeight'
+    'showLoadingBar'
   ]
 
   _initAjax: ->
@@ -150,13 +151,12 @@ class Framework extends DefaultObject
     $(this).tab('show')
 
   showLoadingBar: ->
-    $('.header-title-bar').addClass('progress progress-striped active')
-    $('.header-title-bar .container-fluid').addClass('bar')
+    $('.header-title').addClass('progress')
+    $('.header-title .header-title-bar').addClass('progress-bar progress-bar-striped active')
     return
 
   hideLoadingBar: ->
-    $('.header-title-bar').removeClass('progress progress-striped active')
-    $('.header-title-bar .container-fluid').removeClass('bar')
+    $('.header-title .header-title-bar').removeClass('active')
     return
 
 # Menu methods

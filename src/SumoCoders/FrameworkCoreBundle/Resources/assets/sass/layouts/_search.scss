@@ -39,18 +39,20 @@
       font-size: $font-size-icon-small;
       float: right;
       width: 0;
-
     }
   }
 }
 
 @media (min-width: $screen-sm-min) {
+
   .sub-nav {
+
     .user-nav {
       border-top: 0;
       border-bottom: 0;
 
       .search-box {
+        border-left: 1px $gray-lines solid;
         display: inline-block;
         float: right;
         margin-left: 0;
@@ -59,22 +61,18 @@
           display: none;
         }
       }
+
       .controls .btn {
         padding: 15px 20px;
         width: auto ;
       }
 
       .fa-search {
-        border-left: 1px $gray-lines solid;
 
         &:hover {
           background-color: $gray-darker;
           color: $white;
         }
-      }
-
-      .col-alternative {
-        border-left: 1px $gray-lightest solid;
       }
     }
   }
