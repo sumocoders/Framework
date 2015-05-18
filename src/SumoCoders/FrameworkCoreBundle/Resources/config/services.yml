@@ -1,0 +1,32 @@
+services:
+  framework.fallbacks:
+    class:  SumoCoders\FrameworkCoreBundle\Service\Fallbacks
+    arguments: [%fallbacks%]
+  framework.jsdata:
+    class: SumoCoders\FrameworkCoreBundle\Service\JsData
+    arguments:
+      - "@request_stack"
+  framework.menu_builder:
+    class: SumoCoders\FrameworkCoreBundle\Menu\MenuBuilder
+    calls:
+      - [setFactory, ["@knp_menu.factory"]]
+      - [setEventDispatcher, ["@event_dispatcher"]]
+  framework.menu.main:
+    class: Kpn\Menu\MenuItem
+    factory_service: framework.menu_builder
+    factory_method: createMainMenu
+    arguments:
+      - @request
+    scope: request
+    tags:
+      - { name: knp_menu.menu, alias: main }
+  framework.date_type_extension:
+    class: SumoCoders\FrameworkCoreBundle\Form\Extension\DateTypeExtension
+    tags:
+      - { name: form.type_extension, alias: date }
+  twig.framework_extension:
+    class: SumoCoders\FrameworkCoreBundle\Twig\FrameworkExtension
+    arguments:
+      - @service_container
+    tags:
+      - { name: twig.extension }
