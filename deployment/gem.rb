@@ -71,6 +71,41 @@ namespace :sumo do
       puts database_information
     end
   end
+  namespace :deploy do
+    desc "This will check if we are able to deploy. As we need to be on the
+        correct branch and it should be up-to-date"
+    task :before_deploy do
+      capifony_pretty_print "--> Checking if all conditions are met before deploying"
+
+      working_branch = (run_locally "git rev-parse --abbrev-ref HEAD").strip
+      branch_to_deploy = branch.strip
+
+      # check if we are on the same branch
+      unless working_branch == branch_to_deploy
+        message = <<-EOF
+            Your current branch (#{working_branch}) is not the same as the
+            branch (#{branch_to_deploy}) that will be deployed.
+        EOF
+        error = CommandError.new(message)
+        raise error
+      end
+
+      # check if the branch is up to date
+      run_locally "git remote update"
+      local_commit = run_locally "git rev-parse #{working_branch}"
+      remote_commit = run_locally "git rev-parse #{branch_to_deploy}"
+      unless local_commit == remote_commit
+        message = <<-EOF
+            Your current branch (#{working_branch}) is not up to date with the
+            remote branch (#{branch_to_deploy}).
+        EOF
+        error = CommandError.new(message)
+        raise error
+      end
+
+      capifony_puts_ok
+    end
+  end
 end
 
 namespace :framework do
