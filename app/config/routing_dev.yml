@@ -12,7 +12,8 @@ _configurator:
 
 _errors:
     resource: "@SumoCodersFrameworkErrorBundle/Resources/config/routing.yml"
-    prefix:   /_configurator
+    options:
+      i18n: false
 
 _main:
     resource: routing.yml
