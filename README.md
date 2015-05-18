@@ -21,7 +21,7 @@ Before you can do anything your database should be initialized.
 
 Add a user with
 
-    app/console fos:user:create <username> <email> <password>
+    app/console fos:user:create --super <username> <email> <password>
 
 You can now go to <your domain>/en/users/login and login with the given user.
 
