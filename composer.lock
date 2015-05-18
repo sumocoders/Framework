@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8dd1afc02d7f8a73dc760ecc49f971e8",
+    "hash": "5abbc6566cd2b8deccb39e64aa6ab60c",
     "packages": [
         {
             "name": "airbrake/airbrake-php",
@@ -1878,17 +1878,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.22",
+            "version": "v3.0.24",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "0fe4ec86db57c232becb694e01cdabe3c4d9af7c"
+                "reference": "79b820aee1f1daeb2717fa9471ee19275cc1d638"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/0fe4ec86db57c232becb694e01cdabe3c4d9af7c",
-                "reference": "0fe4ec86db57c232becb694e01cdabe3c4d9af7c",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/79b820aee1f1daeb2717fa9471ee19275cc1d638",
+                "reference": "79b820aee1f1daeb2717fa9471ee19275cc1d638",
                 "shasum": ""
             },
             "require": {
@@ -1934,7 +1934,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-05-02 16:23:08"
+            "time": "2015-05-16 12:57:08"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2087,17 +2087,17 @@
         },
         {
             "name": "sumocoders/framework-search-bundle",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "target-dir": "SumoCoders/FrameworkSearchBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "5887e658fb3b7257674032aca5be51b8919410df"
+                "reference": "b2063b7a01c344caeb151c493d7857f916b56844"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/5887e658fb3b7257674032aca5be51b8919410df",
-                "reference": "5887e658fb3b7257674032aca5be51b8919410df",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/b2063b7a01c344caeb151c493d7857f916b56844",
+                "reference": "b2063b7a01c344caeb151c493d7857f916b56844",
                 "shasum": ""
             },
             "require": {
@@ -2128,21 +2128,21 @@
                 "SumoCoders",
                 "search"
             ],
-            "time": "2015-05-13 15:47:56"
+            "time": "2015-05-15 11:22:28"
         },
         {
             "name": "sumocoders/framework-user-bundle",
-            "version": "v1.2.4",
+            "version": "v1.3.0",
             "target-dir": "SumoCoders/FrameworkUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "b4064df42a724b12081a28062a336ae204398b35"
+                "reference": "9b0eaa7789aa6fcfddfd27aec6e7078ef486d3e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/b4064df42a724b12081a28062a336ae204398b35",
-                "reference": "b4064df42a724b12081a28062a336ae204398b35",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/9b0eaa7789aa6fcfddfd27aec6e7078ef486d3e0",
+                "reference": "9b0eaa7789aa6fcfddfd27aec6e7078ef486d3e0",
                 "shasum": ""
             },
             "require": {
@@ -2174,7 +2174,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-05-08 13:39:03"
+            "time": "2015-05-18 13:58:11"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -2,9 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: @SumoCodersFrameworkErrorBundle/Resources/config/config.yml }
-    - { resource: @SumoCodersFrameworkUserBundle/Resources/config/config.yml }
     - { resource: @SumoCodersFrameworkCoreBundle/Resources/config/config.yml }
-    - { resource: @SumoCodersFrameworkSearchBundle/Resources/config/config.yml }
 
 # I18n Configuration
 jms_i18n_routing:

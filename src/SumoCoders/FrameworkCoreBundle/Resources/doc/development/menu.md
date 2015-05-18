@@ -22,7 +22,7 @@ class MenuListener extends DefaultMenuListener
     {
         $menu = $event->getMenu();
         $menuItem = $event->getFactory()->createItem(
-            'menu.example.index',
+            'example.menu.overview',
             array(
                 'uri' => '#',
             )
@@ -34,7 +34,7 @@ class MenuListener extends DefaultMenuListener
         $menuItem->setExtra('orderNumber', 2);
 
         $firstChild = $event->getFactory()->createItem(
-            'menu.example.first',
+            'example.menu.hello',
             array(
                 'uri' => '#',
             )
@@ -51,7 +51,7 @@ Add the configuration
 
 ```yml
 services:
-  framework_example.listener.menu_listener:
+  example_menu_listener:
     class: SumoCoders\FrameworkExampleBundle\EventListener\MenuListener
     arguments:
       - @security.authorization_checker

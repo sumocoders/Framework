@@ -67,6 +67,8 @@ class Framework extends DefaultObject
     '_initAjax'
     '_initForm'
     '_initTabs'
+    '_initTooltips'
+    '_initPopovers'
     '_calculateActionsWidths'
     'setContentHeight'
   ]
@@ -134,6 +136,16 @@ class Framework extends DefaultObject
         $('.nav-tabs a[href="#' + $(this).attr('id') + '"]')
           .parent()
           .addClass('error')
+    )
+
+  _initTooltips: ->
+    $('[data-toggle="tooltip"]').tooltip()
+
+  _initPopovers: ->
+    $('[data-toggle="popover"]').popover(
+      {
+        html: true
+      }
     )
 
   changeTab: (e) ->

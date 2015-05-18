@@ -88,6 +88,10 @@ dialogs:
         confirmDelete: Are you sure you want to delete %entity%?
 
 forms:
+    labels:
+      required: this field is required
+      optional: (optional)
+
     buttons:
         new: add
         update: save
