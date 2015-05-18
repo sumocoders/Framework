@@ -63,6 +63,12 @@ class Framework extends DefaultObject
       ajax_start : 'showLoadingBar'
       ajax_stop : 'hideLoadingBar'
 
+    # search bar
+    'a.toggle-searchbar': click : 'toggleSearchBar'
+    '.form-control' :
+      keydown : 'hideLabelD'
+      keyup : 'hideLabel'
+
   @onDomReady [
     '_initAjax'
     '_initForm'
@@ -148,6 +154,19 @@ class Framework extends DefaultObject
       $(window).scrollTop(scrolled)
 
     $(this).tab('show')
+
+  toggleSearchBar: ->
+    $('.search-box').toggleClass('open')
+    $('input[name=search]').focus();
+
+  hideLabel: ->
+    if $(this).val()
+      $('.search-form').addClass('filled')
+    else
+      $('.search-form').removeClass('filled')
+
+  hideLabelD : ->
+    $('.search-form').addClass('filled')
 
   showLoadingBar: ->
     $('.header-title').addClass('progress')
@@ -304,5 +323,6 @@ class Framework extends DefaultObject
         $('#content').css('minHeight', $(window).height())
       , 200)
     )
+
 
 window.Framework = Framework

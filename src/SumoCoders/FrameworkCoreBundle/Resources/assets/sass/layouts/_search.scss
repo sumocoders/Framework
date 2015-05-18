@@ -10,21 +10,34 @@
       height: 30px;
       margin-top: 8px;
     }
-    
-    label {
+
+    .filled .control-label {
+      display: none;
+    }
+
+    .form-control:focus + .control-label {
+      margin-top: -45px;
+      transition: all 600ms;
+    }
+
+    .control-label {
       color: $gray-light;
       font-size: $font-size-base;
       font-style: normal;
       font-weight: normal;
-      margin-left: 10px;
+      margin-left: 11px;
       margin-top: -11px;
       position: absolute;
       top: 50%;
     }
 
-    input {
+    .form-control {
       border: 0;
+      border-radius: 0;
       float: left;
+      font-family: $font-family-sans-serif;
+      font-style: normal;
+      font-weight: normal;
       width: 85%;
     }
 
@@ -39,7 +52,20 @@
       float: right;
       font-size: $font-size-icon-small;
       width: 0;
+
+      &:hover {
+        background-color: $gray-darker;
+        color: $white;
+      }
     }
+
+    .toggle-searchbar {
+      display: none;
+    }
+  }
+
+  .link-searchbar {
+    display: none;
   }
 }
 
@@ -57,21 +83,87 @@
         float: right;
         margin-left: 0;
 
-        input, label {
+        .form-control {
+          float: none;
+          height: 50px;
+          margin-top: 0;
+          width: 100%;
+        }
+
+        .search-form {
+          background: #ff0000;
+          float: left;
+          overflow: hidden;
+          transition: width 600ms;
+          width: 0;
+        }
+
+        .submit-searchbar {
           display: none;
         }
+
+        &.open {
+
+          .search-form {
+            display: block;
+            float: left;
+            transition: width 600ms;
+            width: 145px;
+          }
+
+          .toggle-searchbar {
+            display: none;
+          }
+
+          .submit-searchbar {
+            display: block;
+          }
+        }
+      }
+
+      .toggle-searchbar {
+        display: inline-block;
+        padding: 15px 20px;
       }
 
       .controls .btn {
         padding: 15px 20px;
         width: auto ;
       }
+    }
+  }
+}
 
-      .fa-search {
+@media (min-width: $screen-md-min) {
+  .sub-nav {
 
-        &:hover {
-          background-color: $gray-darker;
-          color: $white;
+    .user-nav {
+
+      .search-box {
+
+        &.open {
+
+          .search-form {
+            width: 245px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .sub-nav {
+
+    .user-nav {
+
+      .search-box {
+
+        &.open {
+
+          .search-form {
+            width: 395px;
+          }
         }
       }
     }
