@@ -3,6 +3,17 @@ label abbr[data-original-title] {
   border: 0;
 }
 
+label {
+  .help-block.inline {
+    display: inline;
+    margin-left: 5px;
+
+    i.fa {
+      color: $text-muted;
+    }
+  }
+}
+
 .form-control {
   &,
   &:focus {

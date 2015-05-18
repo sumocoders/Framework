@@ -72,6 +72,11 @@ mopa_bootstrap:
     show_legend: false
     render_required_asterisk: true
     render_optional_text: false
+    help_label:
+      tooltip:
+        icon: info
+      popover:
+        icon: info
   icons:
     icon_set: fontawesome4
 

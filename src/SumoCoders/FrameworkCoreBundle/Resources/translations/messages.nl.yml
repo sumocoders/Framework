@@ -88,6 +88,10 @@ dialogs:
         confirmDelete: Ben je zeker dat je %entity% wil verwijderen?
 
 forms:
+    labels:
+      required: dit veld is verplicht
+      optional: (optioneel)
+
     buttons:
         new: toevoegen
         update: opslaan

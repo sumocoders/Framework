@@ -1,3 +1,72 @@
+{% block form_label %}
+    {% if 'checkbox' not in block_prefixes or widget_checkbox_label in ['label', 'both'] %}
+            {% if label is not sameas(false) %}
+                {% if label is empty %}
+                    {% set label = name|humanize %}
+                {% endif %}
+                {% if not compound %}
+                    {% set label_attr = label_attr|merge({'for': id}) %}
+                {% endif %}
+                {% set label_attr_class = '' %}
+                {% if horizontal %}
+                    {% set label_attr_class = 'control-label ' ~ label_attr_class ~ horizontal_label_class %}
+                {% endif %}
+                {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ " " ~ label_attr_class ~ (required ? ' required' : ' optional') }) %}
+                <label{% for attrname,attrvalue in label_attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
+                    {{ toTranslation(id)|trans({}, translation_domain)|capitalize }}{{- block('label_asterisk') }}
+                    {% if 'collection' in form.vars.block_prefixes and widget_add_btn|default(null) and form.vars.allow_add == true %}
+                        {{ block('form_widget_add_btn') }}
+                    {% endif %}
+                    {% if help_label %}
+                        {{ block('help_label') }}
+                    {% endif %}
+                    {% if help_label_tooltip.title %}
+                        {{ block('help_label_tooltip') }}
+                    {% endif %}
+                    {% if help_label_popover.title %}
+                        {{ block('help_label_popover') }}
+                    {% endif %}
+                </label>
+
+            {% endif %}
+    {% endif %}
+{% endblock form_label %}
+
+{% block help_label_tooltip %}
+    <span class="help-block{% if help_label_tooltip.icon is not sameas(false) %} inline{% endif %}">
+        <a href="#" data-toggle="tooltip" data-placement="{{ help_label_tooltip.placement}}" data-title="{{ help_label_tooltip.title|trans({}, translation_domain) }}">
+            {% if help_label_tooltip.icon is not sameas(false) %}
+                {{ mopa_bootstrap_icon(help_label_tooltip.icon) }}
+            {% endif %}
+            {% if help_label_tooltip.text is not sameas(null) %}
+                <span class="text-muted">{{ help_label_tooltip.text }}</span>
+            {% endif %}
+        </a>
+    </span>
+{% endblock help_label_tooltip %}
+
+{% block help_label_popover %}
+    <span class="help-block{% if help_label_popover.icon is not sameas(false) %} inline{% endif %}">
+        <a href="#" data-toggle="popover" data-trigger="hover" data-placement="{{ help_label_popover.placement}}" data-title="{{ help_label_popover.title|trans({}, translation_domain) }}" data-content="{{ help_label_popover.content|trans({}, translation_domain) }}" >
+            {% if help_label_popover.icon is not sameas(false) %}
+                {{ mopa_bootstrap_icon(help_label_popover.icon) }}
+            {% endif %}
+            {% if help_label_popover.text is not sameas(null) %}
+                <span class="text-muted">{{ help_label_popover.text }}</span>
+            {% endif %}
+        </a>
+    </span>
+{% endblock help_label_popover %}
+
+
+{%- block label_asterisk -%}
+    {% if required %}
+        {%- if render_required_asterisk %}<abbr title="{{ 'forms.labels.required'|trans({}, translation_domain) }}">*</abbr>{% endif -%}
+    {% else %}
+        {%- if render_optional_text %} <small class="text-muted">{{ 'forms.labels.optional'|trans({}, translation_domain) }}</small>{% endif -%}
+    {% endif %}
+{%- endblock label_asterisk -%}
+
 {% block date_widget %}
     {% spaceless %}
         {% if widget == 'single_text' %}
