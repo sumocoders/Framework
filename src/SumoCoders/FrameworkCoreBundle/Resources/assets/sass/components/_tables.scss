@@ -1,9 +1,25 @@
-.table {
-  tr.striked td {
-    text-decoration: line-through;
+table {
+  color: $gray;
+  font-family: $font-family-sans-serif;
+
+  .success,
+  .info,
+  .warning,
+  .danger {
+
+    td,
+    th {
+      color: $white;
+    }
   }
 
-  tfoot tr:first-child td {
-    border-top: 2px solid #ddd;
+  .active {
+    background-color: $dropdown-bg;
   }
+}
+
+th {
+  color: $gray-darker;
+  font-style: normal;
+  font-weight: 600;
 }

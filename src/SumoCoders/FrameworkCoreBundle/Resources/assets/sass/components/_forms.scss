@@ -1,30 +1,21 @@
-label abbr[title],
-label abbr[data-original-title] {
-  border: 0;
-}
+.has-success {
 
-.form-control {
-  &,
-  &:focus {
-    box-shadow: none;
+  .form-control {
+    border-color: $state-success-bg;
   }
 }
 
-input:focus:invalid:focus {
-  box-shadow: none;
-}
+.has-warning {
 
-.control-label {
-  color: #7093c3;
-}
-
-.form-horizontal {
-  .has-feedback .form-control-feedback {
-    margin-top: -7px;
-    top: 50%;
+  .form-control {
+    border-color: $state-warning-bg;
+    background-color: #fff;
   }
+}
 
-  .checkbox {
-    margin-bottom: 20px;
+.has-error {
+  
+  .form-control {
+    background: $state-danger-bg;
   }
 }
