@@ -101,7 +101,6 @@
   }
 }
 
-
 @media (min-width: $screen-sm-min) {
   .logo {
     height: 65px;
@@ -113,7 +112,7 @@
     left: 0;
     position: fixed;
     width: 235px;
-    z-index: 1;
+    z-index: 999999;
 
     .navbar-header {
       float: left;

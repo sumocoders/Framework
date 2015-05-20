@@ -104,10 +104,12 @@
   }
 
   .main-header {
+    background-color: $white;
     left: 0;
     padding-left: 235px;
     position: fixed;
     width: 100%;
+    z-index: 99999;
   }
 
   .sub-nav {
