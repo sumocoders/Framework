@@ -1,4 +1,4 @@
-table {
+.table {
   color: $gray;
   font-family: $font-family-sans-serif;
 
@@ -6,11 +6,7 @@ table {
   .info,
   .warning,
   .danger {
-
-    td,
-    th {
-      color: $white;
-    }
+    color: $white;
   }
 
   .active {
