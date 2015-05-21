@@ -30,3 +30,7 @@ services:
       - @service_container
     tags:
       - { name: twig.extension }
+  framework.response_securer:
+    class: SumoCoders\FrameworkCoreBundle\EventListener\ResponseSecurer
+    tags:
+       - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
