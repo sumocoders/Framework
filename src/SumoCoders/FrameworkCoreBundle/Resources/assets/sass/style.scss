@@ -1,3 +1,7 @@
+// Base
+@import 'base/fonts';
+@import 'font-awesome/scss/font-awesome';
+
 // make sure we have to bootstrap first and overrule them with our values
 @import 'bootstrap/variables';
 
@@ -5,10 +9,9 @@
 @import 'bootstrap-variables';
 @import 'bootstrap-imports';
 
-// Base
-@import 'base/fonts';
+
+// Icons @todo: can this be removed??
 @import 'base/icons';
-@import 'font-awesome/scss/font-awesome';
 
 // Custom icon font generated with grunt-webfont
 @import 'icons';
@@ -20,7 +23,6 @@
 
 // Components
 @import 'components/alerts';
-@import 'components/blockquotes';
 @import 'components/breadcrumb';
 @import 'components/buttons';
 @import 'components/code';
