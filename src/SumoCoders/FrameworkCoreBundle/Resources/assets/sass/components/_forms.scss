@@ -1,21 +1,13 @@
-.has-success {
-
-  .form-control {
-    border-color: $state-success-bg;
-  }
-}
-
-.has-warning {
-
-  .form-control {
-    border-color: $state-warning-bg;
-    background-color: #fff;
-  }
-}
-
 .has-error {
   
   .form-control {
     background: $state-danger-bg;
+  }
+}
+
+.has-success.has-feedback {
+
+  .input-group-addon {
+    color: $white;
   }
 }
