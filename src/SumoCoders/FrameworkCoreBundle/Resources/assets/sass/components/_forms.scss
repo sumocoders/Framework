@@ -11,3 +11,8 @@
     color: $white;
   }
 }
+
+.form-control:focus {
+  border-color: $brand-info;
+  box-shadow: none;
+}

@@ -2,6 +2,7 @@
   background-color: $brand-primary;
   background-position: center center;
   background-size: 100px;
+  color: $white;
   display: block;
   height: 60px;
 }
@@ -11,18 +12,31 @@
   margin-bottom: 0;
 }
 
-.navbar-brand {
-  color: $gray-light;
-  font-style: normal;
-  font-weight: normal;
+.navbar-default {
+
+  .navbar-brand {
+    background-color: $navbar-default-bg;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  .navbar-header {
+    background-color: $white;
+  }
 }
 
-.navbar-toggle .icon-bar {
-  color: $gray-light;
-  font-size: $font-size-icon-base;
+
+.navbar-toggle {
+  border: none;
+
+  .icon-bar {
+    border-radius: 6px;
+    height: 4px;
+    width: 26px;
+  }
 }
 
-.navbar-collapse {
+.main-menu .navbar-collapse {
 
   .nav {
     margin-top: 0;
@@ -38,6 +52,7 @@
 
     &:hover {
       background-color: transparent;
+      color: $gray-dark;
       border-left: 10px $brand-primary solid;
     }
   }
@@ -72,6 +87,14 @@
       border-left: 10px $brand-primary solid;
     }
 
+    .menu-item {
+      color: $gray-dark;
+
+      &:hover {
+        color: $gray-dark;
+      }
+    }
+
     .dropdown-menu {
       position: relative;
       padding-top: 0;
@@ -82,7 +105,7 @@
         color: $white;
       }
       
-     li a {
+      li a {
         -webkit-font-smoothing: antialiased;
         color: $gray-light;
         font-style: normal;
@@ -132,16 +155,16 @@
     .dropdown.first {
       border-top: none;
     }
-  }
 
-  .navbar-collapse {
-    padding-left: 0;
-    padding-right: 0;
+    .navbar-collapse {
+      padding-left: 0;
+      padding-right: 0;
 
-    .dropdown-menu {
+      .dropdown-menu {
 
-      li a {
-        padding: 7px 20px;
+        li a {
+          padding: 7px 20px;
+        }
       }
     }
   }
