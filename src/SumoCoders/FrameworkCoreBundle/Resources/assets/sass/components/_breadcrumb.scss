@@ -1,4 +1,4 @@
-.breadcrumb {
+.main-header .breadcrumb {
   border-radius: 0;
   -webkit-font-smoothing: antialiased;
   font-style: normal;
@@ -10,7 +10,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
-
 
   > li + li:before {
     content: ' ';
@@ -34,9 +33,9 @@
   padding: 4px;
 }
 
-@media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-sm-min) {
 
-  .breadcrumb {
+  .main-header .breadcrumb {
     border-bottom: 0;
     float: left;
     padding: 17px 25px 13px 18px;
