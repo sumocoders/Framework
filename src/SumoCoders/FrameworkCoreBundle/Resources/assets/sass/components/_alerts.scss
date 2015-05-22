@@ -1,8 +1,9 @@
 .alert {
   border: 0;
   line-height: 40px;
-  margin-top: 65px;
-  position: fixed;
+  left: 0;
+  position: static;
+  top: 0;
   width: 100%;
   z-index: 99;
 
@@ -11,68 +12,21 @@
     opacity: 1;
     right: 0;
     top: 0;
-    transition: 150ms;
     width: 70px;
-  }
-}
-
-// States
-.alert-success .close {
-  background-color: #3c9469;
-
-  &:hover {
-    background-color: darken(#3c9469, 10%);
-  }
-}
-
-.alert-warning .close {
-  background-color: #b38e2a;
-
-  &:hover {
-    background-color: darken(#b38e2a, 10%);
-  }
-}
-
-.alert-danger,
-.alert-error {
-  background-color: #ca5121;
-
-  .close {
-    background-color: #9f360c;
 
     &:hover {
-      background-color: darken(#9f360c, 10%);
+      color: $gray-light;
     }
   }
-}
 
-.alert-info {
-  background-color: #b6bcd0;
-
-  .close {
-    background-color: #8c93ab;
+  .alert-link {
+    font-weight: normal;
+    color: $white;
+    text-decoration: underline;
 
     &:hover {
-      background-color: darken(#8c93ab, 10%);
+      color: $gray-lighter;
     }
   }
 }
 
-// Media query min-width 767px
-@media screen and (min-width: 767px) {
-  .alert {
-    padding-right: 50px;
-  }
-}
-
-// Media query min-width 1025px
-@media screen and (min-width: 1025px) {
-  .alert {
-    padding-right: 265px;
-    transition: padding-right 250ms;
-
-    &.subnav {
-      padding-right: 495px;
-    }
-  }
-}
