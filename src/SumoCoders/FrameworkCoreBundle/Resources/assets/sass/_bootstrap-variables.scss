@@ -282,7 +282,7 @@ $zindex-dropdown:          1000;
 $zindex-popover:           1060;
 $zindex-tooltip:           1070;
 $zindex-navbar-fixed:      1030;
-$zindex-modal:             1040;
+$zindex-modal:             99999999;
 
 
 //== Media queries breakpoints
@@ -604,7 +604,7 @@ $modal-title-padding:         15px;
 $modal-title-line-height:     $line-height-base;
 
 //** Background color of modal content area
-$modal-content-bg:                             #fff;
+$modal-content-bg:                             $white;
 //** Modal content border color
 $modal-content-border-color:                   rgba(0,0,0,.2);
 //** Modal content border color **for IE8**
