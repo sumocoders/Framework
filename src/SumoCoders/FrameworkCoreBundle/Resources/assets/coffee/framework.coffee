@@ -73,6 +73,8 @@ class Framework extends DefaultObject
     '_initAjax'
     '_initForm'
     '_initTabs'
+    # uncomment when you need it
+    #'_initTooltip'
     'setContentHeight'
   ]
 
@@ -140,6 +142,9 @@ class Framework extends DefaultObject
           .parent()
           .addClass('error')
     )
+
+  _initTooltip: ->
+    $('[data-toggle="tooltip"]').tooltip()
 
   changeTab: (e) ->
     # if the browser supports history.pushState(), use it to update the URL
