@@ -80,6 +80,7 @@ class Framework extends DefaultObject
     '_initDisableSelection'
     '_initAutoComplete'
     '_initDatepicker'
+    '_initSlider'
     'setContentHeight'
   ]
 
@@ -191,6 +192,9 @@ class Framework extends DefaultObject
 
   _initDatepicker: ->
     $( ".datepicker" ).datepicker();
+
+  _initSlider: ->
+    $( ".slider" ).slider();
 
   changeTab: (e) ->
     # if the browser supports history.pushState(), use it to update the URL
