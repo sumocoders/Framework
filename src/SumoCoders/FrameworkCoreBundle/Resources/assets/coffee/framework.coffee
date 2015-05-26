@@ -185,12 +185,12 @@ class Framework extends DefaultObject
       "Scala"
       "Scheme"
     ]
-    $( "#tags" ).autocomplete({
+    $( ".tags" ).autocomplete({
       source: availableTags
     });
 
   _initDatepicker: ->
-    $( "#datepicker" ).datepicker();
+    $( ".datepicker" ).datepicker();
 
   changeTab: (e) ->
     # if the browser supports history.pushState(), use it to update the URL
