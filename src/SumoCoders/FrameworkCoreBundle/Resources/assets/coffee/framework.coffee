@@ -78,6 +78,8 @@ class Framework extends DefaultObject
     '_initPopover'
     '_initSortable'
     '_initDisableSelection'
+    '_initAutoComplete'
+    '_initDatepicker'
     'setContentHeight'
   ]
 
@@ -157,6 +159,38 @@ class Framework extends DefaultObject
 
   _initDisableSelection: ->
     $( ".sortable" ).disableSelection();
+
+  _initAutoComplete: ->
+    availableTags = [
+      "ActionScript"
+      "AppleScript"
+      "Asp"
+      "BASIC"
+      "C"
+      "C++"
+      "Clojure"
+      "COBOL"
+      "ColdFusion"
+      "Erlang"
+      "Fortran"
+      "Groovy"
+      "Haskell"
+      "Java"
+      "JavaScript"
+      "Lisp"
+      "Perl"
+      "PHP"
+      "Python"
+      "Ruby"
+      "Scala"
+      "Scheme"
+    ]
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+
+  _initDatepicker: ->
+    $( "#datepicker" ).datepicker();
 
   changeTab: (e) ->
     # if the browser supports history.pushState(), use it to update the URL
