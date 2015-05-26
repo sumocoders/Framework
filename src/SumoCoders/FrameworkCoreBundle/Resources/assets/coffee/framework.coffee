@@ -76,6 +76,8 @@ class Framework extends DefaultObject
     # uncomment when you need it
     #'_initTooltip'
     '_initPopover'
+    '_initSortable'
+    '_initDisableSelection'
     'setContentHeight'
   ]
 
@@ -149,6 +151,12 @@ class Framework extends DefaultObject
 
   _initPopover: ->
     $('[data-toggle="popover"]').popover()
+
+  _initSortable: ->
+    $( ".sortable" ).sortable();
+
+  _initDisableSelection: ->
+    $( ".sortable" ).disableSelection();
 
   changeTab: (e) ->
     # if the browser supports history.pushState(), use it to update the URL
