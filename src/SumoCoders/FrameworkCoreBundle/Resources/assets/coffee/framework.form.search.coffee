@@ -1,9 +1,11 @@
 class SearchForm extends Form
-  constructor: ->
+  constructor: (form) ->
+    @form = form
     @_initSearch()
 
   _initSearch: ->
     $searchField = $('.searchBox input[name=q]', @form);
+    route = $(@form).attr('action') + '.json'
 
     $searchField.autocomplete(
       position:
@@ -15,10 +17,9 @@ class SearchForm extends Form
             margin: 0
           elements.element.element.css(newPosition)
       source: (request, response) ->
-        # @todo correct route
         $.ajax
           type: 'GET'
-          url: '/' + Data.get('request.locale') + '/search.json'
+          url: route
           data: { q: request.term }
           success: (data) ->
             items = []
