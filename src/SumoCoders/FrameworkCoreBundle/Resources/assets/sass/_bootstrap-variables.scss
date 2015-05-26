@@ -16,9 +16,9 @@ $gray-light:             #9EAFBD;
 $gray-lighter:           #bbcdde;
 $gray-lightest:          #f1f7f9;
 $gray-lines:             #d6e1e6;
-$white:                  #fff;
+$white:                  $white;
 
-$brand-default:         #fff;
+$brand-default:         $white;
 $brand-primary:         #1FD2C5;
 $brand-success:         #20c664;
 $brand-info:            #6ac1e0;
@@ -31,7 +31,7 @@ $brand-danger:          #d83f1e;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff;
+$body-bg:               $white;
 //** Global text color on `<body>`.
 $text-color:            $gray-light;
 
@@ -122,7 +122,7 @@ $border-radius-large:       6px;
 $border-radius-small:       3px;
 
 //** Global color for active items (e.g., navs or dropdowns).
-$component-active-color:    #fff;
+$component-active-color:    $white;
 //** Global background color for active items (e.g., navs or dropdowns).
 $component-active-bg:       $brand-primary;
 
@@ -279,7 +279,7 @@ $dropdown-caret-color:           $gray-dark;
 
 $zindex-navbar:            1000;
 $zindex-dropdown:          1000;
-$zindex-popover:           1060;
+$zindex-popover:           999999;
 $zindex-tooltip:           999999;
 $zindex-navbar-fixed:      1030;
 $zindex-modal:             99999999;
@@ -403,7 +403,7 @@ $navbar-inverse-border:                     darken($navbar-inverse-bg, 10%);
 
 // Inverted navbar links
 $navbar-inverse-link-color:                 lighten($gray-light, 15%);
-$navbar-inverse-link-hover-color:           #fff;
+$navbar-inverse-link-hover-color:           $white;
 $navbar-inverse-link-hover-bg:              transparent;
 $navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color;
 $navbar-inverse-link-active-bg:             darken($navbar-inverse-bg, 10%);
@@ -412,12 +412,12 @@ $navbar-inverse-link-disabled-bg:           transparent;
 
 // Inverted navbar brand label
 $navbar-inverse-brand-color:                $navbar-inverse-link-color;
-$navbar-inverse-brand-hover-color:          #fff;
+$navbar-inverse-brand-hover-color:          $white;
 $navbar-inverse-brand-hover-bg:             transparent;
 
 // Inverted navbar toggle
 $navbar-inverse-toggle-hover-bg:            #333;
-$navbar-inverse-toggle-icon-bar-bg:         #fff;
+$navbar-inverse-toggle-icon-bar-bg:         $white;
 $navbar-inverse-toggle-border-color:        #333;
 
 
@@ -455,7 +455,7 @@ $nav-pills-active-link-hover-color:         $component-active-color;
 //##
 
 $pagination-color:                     $gray-light;
-$pagination-bg:                        #fff;
+$pagination-bg:                        $white;
 $pagination-border:                    $gray-lighter;
 
 $pagination-hover-color:               $white;
@@ -528,7 +528,7 @@ $state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%);
 //** Tooltip max width
 $tooltip-max-width:           200px;
 //** Tooltip text color
-$tooltip-color:               #fff;
+$tooltip-color:               $white;
 //** Tooltip background color
 $tooltip-bg:                  #000;
 $tooltip-opacity:             .9;
@@ -656,7 +656,7 @@ $alert-danger-border:         $state-danger-border;
 //** Background color of the whole progress component
 $progress-bg:                 #f5f5f5;
 //** Progress bar text color
-$progress-bar-color:          #fff;
+$progress-bar-color:          $white;
 //** Variable for setting rounded corners on progress bar.
 $progress-border-radius:      0;
 
@@ -677,7 +677,7 @@ $progress-bar-info-bg:        $brand-info;
 //##
 
 //** Background color on `.list-group-item`
-$list-group-bg:                 #fff;
+$list-group-bg:                 $white;
 //** `.list-group-item` border color
 $list-group-border:             #ddd;
 //** List group border radius
@@ -710,7 +710,7 @@ $list-group-link-heading-color: #333;
 //
 //##
 
-$panel-bg:                    #fff;
+$panel-bg:                    $white;
 $panel-body-padding:          15px;
 $panel-heading-padding:       10px 15px;
 $panel-footer-padding:        $panel-heading-padding;
@@ -724,7 +724,7 @@ $panel-default-text:          $gray-dark;
 $panel-default-border:        #ddd;
 $panel-default-heading-bg:    #f5f5f5;
 
-$panel-primary-text:          #fff;
+$panel-primary-text:          $white;
 $panel-primary-border:        $brand-primary;
 $panel-primary-heading-bg:    $brand-primary;
 
@@ -776,15 +776,15 @@ $well-border:                 $gray-lines;
 //
 //##
 
-$badge-color:                 #fff;
+$badge-color:                 $white;
 //** Linked badge text color on hover
-$badge-link-hover-color:      #fff;
+$badge-link-hover-color:      $white;
 $badge-bg:                    $gray-light;
 
 //** Badge text color in active nav link
 $badge-active-color:          $link-color;
 //** Badge background color in active nav link
-$badge-active-bg:             #fff;
+$badge-active-bg:             $white;
 
 $badge-font-weight:           bold;
 $badge-line-height:           1;
@@ -813,15 +813,15 @@ $breadcrumb-separator:          ">";
 
 $carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6);
 
-$carousel-control-color:                      #fff;
+$carousel-control-color:                      $white;
 $carousel-control-width:                      15%;
 $carousel-control-opacity:                    .5;
 $carousel-control-font-size:                  20px;
 
-$carousel-indicator-active-bg:                #fff;
-$carousel-indicator-border-color:             #fff;
+$carousel-indicator-active-bg:                $white;
+$carousel-indicator-border-color:             $white;
 
-$carousel-caption-color:                      #fff;
+$carousel-caption-color:                      $white;
 
 
 //== Close
@@ -830,7 +830,7 @@ $carousel-caption-color:                      #fff;
 
 $close-font-weight:           bold;
 $close-color:                 #000;
-$close-text-shadow:           0 1px 0 #fff;
+$close-text-shadow:           0 1px 0 $white;
 
 
 //== Code
@@ -840,7 +840,7 @@ $close-text-shadow:           0 1px 0 #fff;
 $code-color:                  #c7254e;
 $code-bg:                     #f9f2f4;
 
-$kbd-color:                   #fff;
+$kbd-color:                   $white;
 $kbd-bg:                      #333;
 
 $pre-bg:                      #f5f5f5;

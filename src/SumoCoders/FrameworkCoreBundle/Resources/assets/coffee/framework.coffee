@@ -75,6 +75,7 @@ class Framework extends DefaultObject
     '_initTabs'
     # uncomment when you need it
     #'_initTooltip'
+    '_initPopover'
     'setContentHeight'
   ]
 
@@ -145,6 +146,9 @@ class Framework extends DefaultObject
 
   _initTooltip: ->
     $('[data-toggle="tooltip"]').tooltip()
+
+  _initPopover: ->
+    $('[data-toggle="popover"]').popover()
 
   changeTab: (e) ->
     # if the browser supports history.pushState(), use it to update the URL
