@@ -18,10 +18,15 @@
     background-color: $navbar-default-bg;
     font-style: normal;
     font-weight: normal;
+
+    &:hover {
+      color: $gray-dark;
+      background-color: $navbar-default-bg;
+    }
   }
 
   .navbar-header {
-    background-color: $white;
+    background-color: $navbar-default-bg;
   }
 }
 
@@ -36,90 +41,105 @@
   }
 }
 
-.main-menu .navbar-collapse {
+.main-menu {
 
-  .nav {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+  .navbar-default {
 
-  .menu-item {
-    border-left: 10px transparent solid;
-    color: $gray-dark;
-    font-style: normal;
-    font-weight: bold;
-    padding: 12px 50px 12px 10px;
-
-    &:hover {
+    .navbar-brand {
       background-color: transparent;
-      color: $gray-dark;
-      border-left: 10px $brand-primary solid;
+      color: $gray-light;
+    }
+
+    .navbar-header {
+      background-color: $white;
     }
   }
 
-  li {
-    border-top: 1px $gray-lines solid;
+  .navbar-collapse {
 
-    a:focus {
-      background-color: transparent;
-    }
-  }
-
-  .icon-angle,
-  .closed .icon-angle,
-  .closed.open .icon-angle {
-    position: absolute;
-    right: 15px;
-    padding: 6px 6px;
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg); // IE9 only
-    transform: rotate(0deg);
-    transition: 550ms;
-  }
-
-  .open {
-
-    & > a,
-    & > li,
-    & > .dropdown-toggle:focus,
-    & > .dropdown-toggle:hover {
-      background-color: transparent;
-      border-left: 10px $brand-primary solid;
+    .nav {
+      margin-top: 0;
+      margin-bottom: 0;
     }
 
     .menu-item {
+      border-left: 10px transparent solid;
       color: $gray-dark;
+      font-style: normal;
+      font-weight: bold;
+      padding: 12px 50px 12px 10px;
 
       &:hover {
+        background-color: transparent;
         color: $gray-dark;
+        border-left: 10px $brand-primary solid;
       }
     }
 
-    .dropdown-menu {
-      position: relative;
-      padding-top: 0;
-      padding-bottom: 0;
+    li {
+      border-top: 1px $gray-lines solid;
 
-      .current .sub-menu-item, li a:hover {
-        background-color: $brand-primary;
-        color: $white;
-      }
-      
-      li a {
-        -webkit-font-smoothing: antialiased;
-        color: $gray-light;
-        font-style: normal;
-        font-weight: 600;
-        margin-left: 10px;
-        padding: 7px 20px;
+      a:focus {
+        background-color: transparent;
       }
     }
 
-    .icon-angle {
-      -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg); // IE9 only
-      transform: rotate(90deg);
+    .icon-angle,
+    .closed .icon-angle,
+    .closed.open .icon-angle {
+      position: absolute;
+      right: 15px;
+      padding: 6px 6px;
+      -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg); // IE9 only
+      transform: rotate(0deg);
       transition: 550ms;
+    }
+
+    .open {
+
+      & > a,
+      & > li,
+      & > .dropdown-toggle:focus,
+      & > .dropdown-toggle:hover {
+        background-color: transparent;
+        border-left: 10px $brand-primary solid;
+      }
+
+      .menu-item {
+        color: $gray-dark;
+
+        &:hover {
+          color: $gray-dark;
+        }
+      }
+
+      .dropdown-menu {
+        position: relative;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .current .sub-menu-item, li a:hover {
+          background-color: $brand-primary;
+          color: $white;
+        }
+        
+        li a {
+          -webkit-font-smoothing: antialiased;
+          color: $gray-light;
+          font-style: normal;
+          font-weight: 600;
+          margin-left: 10px;
+          padding: 7px 20px;
+        }
+      }
+
+      .icon-angle {
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg); // IE9 only
+        transform: rotate(90deg);
+        transition: 550ms;
+      }
     }
   }
 }
