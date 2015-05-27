@@ -1,16 +1,48 @@
-
 .has-error {
   
   .form-control {
-    background: $state-danger-bg;
+    background: lighten($state-danger-bg, 25%);
+    color: $state-danger-bg;
+    border-color: $state-danger-bg;
     box-shadow: none;
+  }
+
+  .checkbox,
+  .control-label {
+    color: $state-danger-bg;
   }
 }
 
-.has-success.has-feedback {
+.has-warning {
+  
+  .form-control {
+    border-color: $state-warning-bg;
+    box-shadow: none;
+  }
 
-  .input-group-addon {
+  .checkbox,
+  .control-label {
+    color: $state-warning-bg;
+  }
+}
+
+.has-success {
+
+  .form-control {
+    border-color: $state-success-bg;
     color: $white;
+  }
+  
+  .checkbox,
+  .control-label {
+    color: $state-success-bg;
+  }
+
+  .has-feedback {
+
+    .input-group-addon {
+      color: $white;
+    }
   }
 }
 
