@@ -81,6 +81,7 @@ class Framework extends DefaultObject
     '_initAutoComplete'
     '_initDatepicker'
     '_initSlider'
+    '_initSelect2'
     'setContentHeight'
   ]
 
@@ -156,45 +157,48 @@ class Framework extends DefaultObject
     $('[data-toggle="popover"]').popover()
 
   _initSortable: ->
-    $( ".sortable" ).sortable();
+    $( '.sortable' ).sortable();
 
   _initDisableSelection: ->
-    $( ".sortable" ).disableSelection();
+    $( '.sortable' ).disableSelection();
 
   _initAutoComplete: ->
     availableTags = [
-      "ActionScript"
-      "AppleScript"
-      "Asp"
-      "BASIC"
-      "C"
-      "C++"
-      "Clojure"
-      "COBOL"
-      "ColdFusion"
-      "Erlang"
-      "Fortran"
-      "Groovy"
-      "Haskell"
-      "Java"
-      "JavaScript"
-      "Lisp"
-      "Perl"
-      "PHP"
-      "Python"
-      "Ruby"
-      "Scala"
-      "Scheme"
+      'ActionScript'
+      'AppleScript'
+      'Asp'
+      'BASIC'
+      'C'
+      'C++'
+      'Clojure'
+      'COBOL'
+      'ColdFusion'
+      'Erlang'
+      'Fortran'
+      'Groovy'
+      'Haskell'
+      'Java'
+      'JavaScript'
+      'Lisp'
+      'Perl'
+      'PHP'
+      'Python'
+      'Ruby'
+      'Scala'
+      'Scheme'
     ]
-    $( ".tags" ).autocomplete({
+    $( '.tags' ).autocomplete(
       source: availableTags
-    });
+    )
 
   _initDatepicker: ->
-    $( ".datepicker" ).datepicker();
+    $( '.datepicker' ).datepicker()
 
   _initSlider: ->
-    $( ".slider" ).slider();
+    $( '.slider' ).slider()
+
+  _initSelect2: ->
+    $('.select2').select2()
 
   changeTab: (e) ->
     # if the browser supports history.pushState(), use it to update the URL
