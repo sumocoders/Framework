@@ -1,5 +1,15 @@
 .helper-classes {
   color: $white;
+
+  .text-success {
+    color: $state-success-bg;
+  }
+  .text-warning {
+    color: $state-warning-bg;
+  }
+  .text-danger {
+    color: $state-danger-bg;
+  }
 }
 
 .helper-classes-bg p {
