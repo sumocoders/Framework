@@ -7,8 +7,8 @@
     overflow: hidden;
 
     .form-control {
-      height: 30px;
-      margin-top: 8px;
+      height: 42px;
+      margin-top: 2px;
     }
 
     .filled .control-label {
@@ -43,7 +43,7 @@
 
     .controls .btn {
       background-color: $white;
-      padding: 7px 0;
+      padding: 8px 0;
       width: 15%;
     }
 
@@ -91,7 +91,6 @@
         }
 
         .search-form {
-          background: #ff0000;
           float: left;
           overflow: hidden;
           transition: width 600ms;

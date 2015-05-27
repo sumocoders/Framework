@@ -10,7 +10,7 @@ class SearchForm extends Form
         using: (position, elements) ->
           newPosition =
             left: position.left
-            top: 55
+            top: position.top
             bottom: 'auto'
             margin: 0
           elements.element.element.css(newPosition)

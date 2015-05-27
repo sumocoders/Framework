@@ -2,6 +2,7 @@
   
   .form-control {
     background: $state-danger-bg;
+    box-shadow: none;
   }
 }
 
@@ -15,4 +16,8 @@
 .form-control:focus {
   border-color: $brand-info;
   box-shadow: none;
+}
+
+.form-control {
+    box-shadow: none;
 }
