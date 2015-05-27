@@ -25,7 +25,7 @@
 
   .open {
 
-    > .btn-default.dropdown-toggle{
+    > .btn-default.dropdown-toggle {
       background-color: $gray-darker;
       color: $white;
     }
@@ -47,9 +47,6 @@
 
     .btn-default {
       color: $gray-light;
-      -webkit-font-smoothing: antialiased;
-      font-style: normal;
-      font-weight: 600;
       overflow: hidden;
 
       &:hover,
@@ -72,8 +69,10 @@
     a {
       color: $white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: lighten($gray-dark, .5%);
+        outline: none;
       }
     }
   }

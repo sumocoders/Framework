@@ -30,7 +30,6 @@
   }
 }
 
-
 .navbar-toggle {
   border: none;
 
@@ -64,24 +63,21 @@
 
     .menu-item {
       border-left: 10px transparent solid;
-      color: $gray-dark;
+      color: $gray;
       font-style: normal;
       font-weight: bold;
       padding: 12px 50px 12px 10px;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: transparent;
-        color: $gray-dark;
+        color: $gray;
         border-left: 10px $brand-primary solid;
       }
     }
 
     li {
       border-top: 1px $gray-lines solid;
-
-      a:focus {
-        background-color: transparent;
-      }
     }
 
     .icon-angle,
@@ -107,10 +103,11 @@
       }
 
       .menu-item {
-        color: $gray-dark;
+        color: $gray;
 
-        &:hover {
-          color: $gray-dark;
+        &:hover,
+        &:focus {
+          color: $gray;
         }
       }
 
@@ -125,7 +122,6 @@
         }
         
         li a {
-          -webkit-font-smoothing: antialiased;
           color: $gray-light;
           font-style: normal;
           font-weight: 600;
