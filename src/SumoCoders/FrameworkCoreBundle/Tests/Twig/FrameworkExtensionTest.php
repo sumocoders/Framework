@@ -78,4 +78,36 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals('framework_extension', $this->frameworkExtension->getName());
     }
+
+    public function testConvertToTranslationTrim()
+    {
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation(' foo'));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo '));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation(' foo '));
+    }
+
+    public function testConvertToTranslationToLowerCase()
+    {
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo'));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('FOO'));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('FoO'));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('fOo'));
+    }
+
+    public function testConvertToTranslationReplaceFakeSpaces()
+    {
+        $this->assertEquals('f.o.o', $this->frameworkExtension->convertToTranslation('f_o_o'));
+        $this->assertEquals('f.o.o', $this->frameworkExtension->convertToTranslation('f-o-o'));
+        $this->assertEquals('f.o.o', $this->frameworkExtension->convertToTranslation('f o o'));
+        $this->assertEquals('f.o.o', $this->frameworkExtension->convertToTranslation('f_o_o_'));
+        $this->assertEquals('f.o.o', $this->frameworkExtension->convertToTranslation('_f_o_o'));
+        $this->assertEquals('f.o.o', $this->frameworkExtension->convertToTranslation('_f_o_o_'));
+    }
+
+    public function testTranslationWithNumbersAtTheEnd()
+    {
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo1'));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo123'));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo 123'));
+    }
 }

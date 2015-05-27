@@ -9,71 +9,73 @@ class Form
 
 # date fields
   _dateFieldOptions:
-    dateFormat: 'dd/mm/yy'
+    currentText:      Locale.get 'datepicker.buttons.today'
+    closeText:        Locale.get 'datepicker.buttons.close'
+    nextText:         Locale.get 'datepicker.buttons.next'
+    prevText:         Locale.get 'datepicker.buttons.previous'
+    firstDay:         1
+    hideIfNoPrevNext: true
+    showAnim:         'slideDown'
+    zIndex:           9999
+    dateFormat:       'dd/mm/yy'
     dayNames: [
-      Locale.msg 'DatePickerFullSunday'
-      Locale.msg 'DatePickerFullMonday'
-      Locale.msg 'DatePickerFullTuesday'
-      Locale.msg 'DatePickerFullWednesday'
-      Locale.msg 'DatePickerFullThursday'
-      Locale.msg 'DatePickerFullFriday'
-      Locale.msg 'DatePickerFullSaturday'
+      Locale.get 'datepicker.full.days.sunday'
+      Locale.get 'datepicker.full.days.monday'
+      Locale.get 'datepicker.full.days.tuesday'
+      Locale.get 'datepicker.full.days.Wednesday'
+      Locale.get 'datepicker.full.days.thursday'
+      Locale.get 'datepicker.full.days.friday'
+      Locale.get 'datepicker.full.days.saturday'
     ]
     dayNamesMin: [
-      Locale.msg 'DatePickerMinimalSunday'
-      Locale.msg 'DatePickerMinimalMonday'
-      Locale.msg 'DatePickerMinimalTuesday'
-      Locale.msg 'DatePickerMinimalWednesday'
-      Locale.msg 'DatePickerMinimalThursday'
-      Locale.msg 'DatePickerMinimalFriday'
-      Locale.msg 'DatePickerMinimalSaturday'
+      Locale.get 'datepicker.minimal.days.sunday'
+      Locale.get 'datepicker.minimal.days.monday'
+      Locale.get 'datepicker.minimal.days.tuesday'
+      Locale.get 'datepicker.minimal.days.wednesday'
+      Locale.get 'datepicker.minimal.days.thursday'
+      Locale.get 'datepicker.minimal.days.friday'
+      Locale.get 'datepicker.minimal.days.saturday'
     ]
     dayNamesShort: [
-      Locale.msg 'DatePickerShortSunday'
-      Locale.msg 'DatePickerShortMonday'
-      Locale.msg 'DatePickerShortTuesday'
-      Locale.msg 'DatePickerShortWednesday'
-      Locale.msg 'DatePickerShortThursday'
-      Locale.msg 'DatePickerShortFriday'
-      Locale.msg 'DatePickerShortSaturday'
+      Locale.get 'datepicker.short.days.sunday'
+      Locale.get 'datepicker.short.days.monday'
+      Locale.get 'datepicker.short.days.tuesday'
+      Locale.get 'datepicker.short.days.wednesday'
+      Locale.get 'datepicker.short.days.thursday'
+      Locale.get 'datepicker.short.days.friday'
+      Locale.get 'datepicker.short.days.saturday'
     ]
     monthNames: [
-      Locale.msg 'DatePickerFullJanuary'
-      Locale.msg 'DatePickerFullFebruary'
-      Locale.msg 'DatePickerFullMarch'
-      Locale.msg 'DatePickerFullApril'
-      Locale.msg 'DatePickerFullMay'
-      Locale.msg 'DatePickerFullJune'
-      Locale.msg 'DatePickerFullJuly'
-      Locale.msg 'DatePickerFullAugust'
-      Locale.msg 'DatePickerFullSeptember'
-      Locale.msg 'DatePickerFullOctober'
-      Locale.msg 'DatePickerFullNovember'
-      Locale.msg 'DatePickerFullDecember'
+      Locale.get 'datepicker.full.months.january'
+      Locale.get 'datepicker.full.months.february'
+      Locale.get 'datepicker.full.months.march'
+      Locale.get 'datepicker.full.months.april'
+      Locale.get 'datepicker.full.months.may'
+      Locale.get 'datepicker.full.months.june'
+      Locale.get 'datepicker.full.months.july'
+      Locale.get 'datepicker.full.months.august'
+      Locale.get 'datepicker.full.months.september'
+      Locale.get 'datepicker.full.months.october'
+      Locale.get 'datepicker.full.months.november'
+      Locale.get 'datepicker.full.months.december'
     ]
     monthNamesShort: [
-      Locale.msg 'DatePickerShortJanuary'
-      Locale.msg 'DatePickerShortFebruary'
-      Locale.msg 'DatePickerShortMarch'
-      Locale.msg 'DatePickerShortApril'
-      Locale.msg 'DatePickerShortMay'
-      Locale.msg 'DatePickerShortJune'
-      Locale.msg 'DatePickerShortJuly'
-      Locale.msg 'DatePickerShortAugust'
-      Locale.msg 'DatePickerShortSeptember'
-      Locale.msg 'DatePickerShortOctober'
-      Locale.msg 'DatePickerShortNovember'
-      Locale.msg 'DatePickerShortDecember'
+      Locale.get 'datepicker.short.months.january'
+      Locale.get 'datepicker.short.months.february'
+      Locale.get 'datepicker.short.months.march'
+      Locale.get 'datepicker.short.months.april'
+      Locale.get 'datepicker.short.months.may'
+      Locale.get 'datepicker.short.months.june'
+      Locale.get 'datepicker.short.months.july'
+      Locale.get 'datepicker.short.months.august'
+      Locale.get 'datepicker.short.months.september'
+      Locale.get 'datepicker.short.months.october'
+      Locale.get 'datepicker.short.months.november'
+      Locale.get 'datepicker.short.months.december'
     ]
-    firstDay: 1
-    hideIfNoPrevNext: true
-    nextText: Locale.lbl 'Next'
-    prevText: Locale.lbl 'Previous'
-    closeText: Locale.lbl 'Close'
-    showAnim: 'slideDown'
 
   _parseDate: (element, key) ->
-    throw Error('No ' + key + ' passed through the data-attributes') if not element.data(key)?
+    return '' if not element.data(key)?
     data = element.data(key).split '-'
     new Date(
       parseInt(data[0], 10),
@@ -83,57 +85,53 @@ class Form
 
   _dateFields: ->
     $.datepicker.setDefaults @_dateFieldOptions
-    @_normalDateFields()
-    @_startingFromDateFields()
-    @_untilDateFields()
-    @_rangeDateFields()
-    return
 
-  _normalDateFields: ->
-    $('.inputDatefieldNormal', @form).each((i, el) =>
-      $(el).datepicker()
+    $('[data-date-type] input[type="text"]', @form).each((i, el) =>
+      $dateWrapper = $(el).parents('[data-provider="datepicker"]')
+      initialDate = @_parseDate($dateWrapper, 'date')
+
+      $(el).datepicker(
+        altField:    '#' + $dateWrapper.data('linkField')
+        altFormat:   $dateWrapper.data('linkFormat').replace('yyyy', 'yy')
+        defaultDate: initialDate
+      )
+
+      switch $dateWrapper.data('dateType')
+        when 'start'
+          startDate = @_parseDate($dateWrapper, 'minimumDate')
+          $(el).datepicker('option', 'minDate', startDate)
+
+          if initialDate != '' && initialDate < startDate
+            initialDate = startDate
+
+        when 'until'
+          endDate = @_parseDate($dateWrapper, 'maximumDate')
+          $(el).datepicker('option', 'maxDate', endDate)
+
+          if initialDate != '' && startDate > initialDate
+            initialDate = startDate
+
+        when 'range'
+          startDate = @_parseDate($dateWrapper, 'minimumDate')
+          $(el).datepicker('option', 'minDate', startDate)
+
+          if initialDate != '' && initialDate < startDate
+            initialDate = startDate
+
+          endDate = @_parseDate($dateWrapper, 'maximumDate')
+          $(el).datepicker('option', 'maxDate', endDate)
+
+          if initialDate != '' && startDate > initialDate
+            initialDate = startDate
+
+      # show initial date if provided
+      $(el).val($.datepicker.formatDate(@_dateFieldOptions.dateFormat, initialDate)) unless initialDate == ''
     )
-    return
 
-  _startingFromDateFields: =>
-    $('.inputDatefieldFrom', @form).each((i, el) =>
-      $el = $(el)
-      startDate = @_parseDate($el, 'startdate')
+    $('[data-date-type] a', @form).on 'click', () ->
+      el = $(this).parents('[data-provider="datepicker"]').find('input:first')
+      $(el).datepicker('show') unless $(el).datepicker('widget').is(':visible')
 
-      $el.datepicker()
-        .datepicker('option', 'minDate', startDate)
-      if new Date() < startDate
-        $el.datepicker('option', 'defaultDate', startDate)
-    )
-    return
-
-  _untilDateFields: =>
-    $('.inputDatefieldTill', @form).each((i, el) =>
-      $el = $(el)
-      endDate = @_parseDate($el, 'enddate')
-
-      $el.datepicker()
-        .datepicker('option', 'maxDate', endDate)
-      if new Date() > endDate
-        $el.datepicker('option', 'defaultDate', endDate)
-    )
-    return
-
-  _rangeDateFields: =>
-    $('.inputDatefieldRange', @form).each((i, el) =>
-      $el = $(el)
-      startDate = @_parseDate($el, 'startdate')
-      endDate = @_parseDate($el, 'enddate')
-
-      $el.datepicker()
-        .datepicker('option', 'minDate', startDate)
-        .datepicker('option', 'maxDate', endDate)
-
-      if new Date() < startDate
-        $el.datepicker('option', 'defaultDate', startDate)
-      if new Date() > endDate
-        $el.datepicker('option', 'defaultDate', endDate)
-    )
     return
 
   # fixes
@@ -150,7 +148,7 @@ class Form
 
         if $this.val() == $this.attr 'placeholder'
           $this.val('')
-            .removeClass('placeholder')
+          .removeClass('placeholder')
       )
 
       $input.on('blur', ->
@@ -158,7 +156,7 @@ class Form
 
         if($this.val() == '' || $this.val() == $this.attr('placeholder'))
           $this.val($this.attr('placeholder'))
-            .addClass('placeholder')
+          .addClass('placeholder')
       )
 
       $input.blur

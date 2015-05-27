@@ -52,7 +52,7 @@ class Framework extends DefaultObject
 
     # link methods
     'a.confirm': click : 'askConfirmation'
-    'a.confirmPostForm': click : 'askConfirmationAndPostAsAForm'
+    'button.confirm' : click : 'askConfirmationAndSubmit'
 
     # tabs
     '.nav-tabs a' : click : 'changeTab'
@@ -82,6 +82,7 @@ class Framework extends DefaultObject
     '_initDatepicker'
     '_initSlider'
     '_initSelect2'
+    '_calculateActionsWidths'
     'setContentHeight'
   ]
 
@@ -150,12 +151,6 @@ class Framework extends DefaultObject
           .addClass('error')
     )
 
-  _initTooltip: ->
-    $('[data-toggle="tooltip"]').tooltip()
-
-  _initPopover: ->
-    $('[data-toggle="popover"]').popover()
-
   _initSortable: ->
     $( '.sortable' ).sortable();
 
@@ -200,6 +195,16 @@ class Framework extends DefaultObject
   _initSelect2: ->
     $('.select2').select2()
 
+  _initTooltip: ->
+    $('[data-toggle="tooltip"]').tooltip()
+
+  _initPopover: ->
+    $('[data-toggle="popover"]').popover(
+      {
+        html: true
+      }
+    )
+
   changeTab: (e) ->
     # if the browser supports history.pushState(), use it to update the URL
     # with the fragment identifier, without triggering a scroll/jump
@@ -226,6 +231,18 @@ class Framework extends DefaultObject
 
   hideLabelD : ->
     $('.search-form').addClass('filled')
+
+  _calculateActionsWidths: ->
+    $('.actions li a, .actions li button').each(->
+      $this = $(@)
+      $this.attr('data-width', $this.width())
+      $this.width(0)
+      $this.hover(->
+        $this.width($this.data('width') + 20)
+      ,->
+        $this.width(-20)
+      )
+    )
 
   showLoadingBar: ->
     $('.header-title').addClass('progress')
@@ -335,37 +352,16 @@ class Framework extends DefaultObject
     $('#confirmModal').modal('show')
   false
 
-  _postAsForm: (e) =>
-    # build the form
-    # we can't use an single-style tag, because IE can't handle this
-    $form = $('<form></form>')
-      .attr('style', 'display: none;')
-      .attr('action', e.attr('href'))
-      .attr('method', 'POST')
-
-    # append the data
-    for name, value of e.data()
-      if name.substr(0, 5) == 'field'
-        $element = $('<input>').attr('type', 'hidden')
-          .attr('name', name.substr(5).toLowerCase())
-          .attr('value', value)
-        $form.append($element)
-
-    $('#confirmModal').modal('hide')
-    $('body').append($form)
-    $.event.trigger('show_loading_bar')
-    $form.submit()
-  false
-
-  askConfirmationAndPostAsAForm: (e) =>
+  askConfirmationAndSubmit: (e) =>
     e.preventDefault()
     $this = $(e.currentTarget)
     $modal = $('#confirmModal')
+    $form = $this.parents('form');
 
     $('#confirmModalMessage').html($this.data('message'))
     $modal.on('click', '#confirmModalOk', (e) =>
       e.preventDefault()
-      @_postAsForm($this)
+      $form.submit()
     )
       .modal('show')
       .on('hide', (e) =>

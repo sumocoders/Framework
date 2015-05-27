@@ -21,7 +21,7 @@ Before you can do anything your database should be initialized.
 
 Add a user with
 
-    app/console fos:user:create <username> <email> <password>
+    app/console fos:user:create --super <username> <email> <password>
 
 You can now go to <your domain>/en/users/login and login with the given user.
 
@@ -41,23 +41,24 @@ See [https://github.com/phiamo/MopaBootstrapBundle](https://github.com/phiamo/Mo
 
 ### Frontend
 
-* [Frontend Development](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/frontend-development.md)
-* [Using Grunt](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/grunt.md)
+* [Frontend Development](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/frontend/frontend-development.md)
+* [Using Grunt](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/frontend/grunt.md)
 
 ### Development
 
-* [Creating new bundles](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/creating-new-bundles.md)
-* [Fixtures](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/fixtures.md)
-* [Database Changes/Migrations](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/migrations.md)
-* [Adding items into the menu/navigation](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/menu.md)
-* [Adding a language switch](./src/SumCoders/FrameworkCoreBundle/Resources/doc/language-switch.md)
+* [Creating new bundles](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/creating-new-bundles.md)
+* [Fixtures](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/fixtures.md)
+* [Database Changes/Migrations](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/migrations.md)
+* [Adding items into the menu/navigation](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/menu.md)
+* [Adding a language switch](./src/SumCoders/FrameworkCoreBundle/Resources/doc/development/language-switch.md)
+* [Using Datepickers](./src/SumCoders/FrameworkCoreBundle/Resources/doc/development/using-date-pickers.md)
 
 ### Putting your project online
 
-* [Deployment](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/deployment.md)
+* [Deployment](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/deployment/deployment.md)
 
 ### Issues
 
-* [Known issues](./src/SumCoders/FrameworkCoreBundle/Resources/doc/issues.md)
+* [Known issues](./src/SumCoders/FrameworkCoreBundle/Resources/doc/issues/issues.md)
 
 

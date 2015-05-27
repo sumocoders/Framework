@@ -31,8 +31,8 @@
         "knplabs/knp-menu-bundle": "2.0.*@dev",
 
         "sumocoders/framework-error-bundle": "~1.5",
-        "sumocoders/framework-user-bundle": "~1.2",
-        "sumocoders/framework-search-bundle": "~1.0"
+        "sumocoders/framework-user-bundle": "~1.3",
+        "sumocoders/framework-search-bundle": "~1.2"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
@@ -60,6 +60,9 @@
         ],
         "post-create-project-cmd": [
           "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::createInitialConfig"
+        ],
+        "post-travis": [
+          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
         ]
     },
     "config": {

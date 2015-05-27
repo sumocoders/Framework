@@ -32,6 +32,6 @@ security:
         - { path: ^/\w\w/user/send-email, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/\w\w/user/check-email, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/\w\w/user/reset, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/(_(profiler|wdt))/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(_(profiler|wdt|tests))/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/\w\w/locale.json, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: ROLE_USER }

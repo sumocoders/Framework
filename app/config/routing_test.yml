@@ -1,0 +1,6 @@
+_tests:
+    resource: "@SumoCodersFrameworkCoreBundle/Resources/config/routing_test.yml"
+    prefix:   /_tests
+
+_main:
+    resource: routing.yml

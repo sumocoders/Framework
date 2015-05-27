@@ -1,3 +1,4 @@
+
 .has-error {
   
   .form-control {
@@ -20,4 +21,12 @@
 
 .form-control {
     box-shadow: none;
+}
+
+.datetime-widget select[size], .time-widget select[size] {
+  height: 34px;
+}
+
+.date-widget .faked-button {
+  color: #555;
 }

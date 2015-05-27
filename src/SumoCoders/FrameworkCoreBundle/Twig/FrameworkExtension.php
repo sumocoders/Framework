@@ -30,7 +30,11 @@ class FrameworkExtension extends \Twig_Extension
             new \Twig_SimpleFunction(
                 'bundleExists',
                 array($this, 'bundleExists')
-            )
+            ),
+            new \Twig_SimpleFunction(
+                'toTranslation',
+                array($this, 'convertToTranslation')
+            ),
         );
     }
 
@@ -45,6 +49,25 @@ class FrameworkExtension extends \Twig_Extension
         $bundles = $this->container->getParameter('kernel.bundles');
 
         return array_key_exists($bundle, $bundles);
+    }
+
+    /**
+     * Convert a given string into a string that will/can be used as a id for
+     * translations
+     *
+     * @param string $stringToConvert
+     * @return string
+     */
+    public function convertToTranslation($stringToConvert)
+    {
+        $stringToConvert = trim($stringToConvert);
+        $stringToConvert = mb_strtolower($stringToConvert);
+        $stringToConvert = str_replace(array('_', '-', ' '), '.', $stringToConvert);
+
+        // remove numbers if they appear at the end
+        $stringToConvert = preg_replace('/\d+$/', '', $stringToConvert);
+
+        return trim($stringToConvert, '.');
     }
 
     /**

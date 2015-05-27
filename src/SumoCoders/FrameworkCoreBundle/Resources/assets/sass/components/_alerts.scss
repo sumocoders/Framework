@@ -1,4 +1,4 @@
-.alert {
+.alert.notification {
   border: 0;
   line-height: 40px;
   left: 0;
@@ -6,6 +6,8 @@
   top: 0;
   width: 100%;
   z-index: 99;
+  padding-bottom: 0;
+  padding-top: 0;
 
   .close {
     height: 40px;
@@ -29,4 +31,3 @@
     }
   }
 }
-

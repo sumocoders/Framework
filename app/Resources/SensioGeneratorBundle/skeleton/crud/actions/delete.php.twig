@@ -1,0 +1,95 @@
+{% extends 'skeleton/crud/actions/edit.php.twig' %}
+
+{% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
+{% set niceEntityName = entity|lower %}
+{% set niceEntityNamePlural = entity|lower ~ 's' %}
+{% set baseRoute = '%1$s_%2$s'|format(niceBundleName, niceEntityName) %}
+
+{% block phpdoc_method_header %}
+     * Deletes a {{ entity }} entity.
+     *
+     * @param Request $request
+     * @param {{ entity }} ${{ niceEntityName }}
+     * @return array
+{% endblock phpdoc_method_header %}
+
+{% block phpdoc_method_annotations %}
+{% if 'annotation' == format %}
+     * @Route("/{id}")
+     * @Method("DELETE")
+{% endif %}
+{% endblock phpdoc_method_annotations %}
+
+{% block method_definition %}
+    public function deleteAction(Request $request, {{ entity }} ${{ niceEntityName }})
+{% endblock method_definition %}
+
+{% block method_body %}
+        $form = $this->createDeleteForm(${{ niceEntityName }});
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove(${{ niceEntityName }});
+            $em->flush();
+
+            $this->addFlash(
+                'success',
+                $this->get('translator')->trans(
+                    '{{ niceBundleName }}.flash.success.delete',
+                    array(
+                        '%{{ niceEntityName }}%' => ${{ niceEntityName }},
+                    )
+                )
+            );
+        }
+{% endblock method_body %}
+
+{% block method_return %}
+        return $this->redirect(
+            $this->generateUrl('{{ baseRoute }}_index')
+        );
+{% endblock method_return %}
+
+{% block form %}
+    /**
+     * Creates a form to delete a {{ entity }} entity by id.
+     *
+     * @param {{ entity }} ${{ niceEntityName }} The entity
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm({{ entity }} ${{ niceEntityName }})
+    {
+        return $this->createFormBuilder()
+            ->setAction(
+                $this->generateUrl(
+                    '{{ baseRoute }}_delete',
+                    array(
+                        'id' => ${{ niceEntityName }}->getId(),
+                    )
+                )
+            )
+            ->setMethod('DELETE')
+            ->add(
+                'submit',
+                'submit',
+                array(
+                    'label' => ucfirst(
+                        $this->get('translator')->trans(
+                            'header.navigation.actions.delete'
+                        )
+                    ),
+                    'attr' => array(
+                        'class' => 'fa fa-trash confirm',
+                        'data-message' => $this->get('translator')->trans(
+                            'dialogs.messages.confirmDelete',
+                            array(
+                                '%entity%' => ${{ niceEntityName }},
+                            )
+                        ),
+                    ),
+                )
+            )
+            ->getForm();
+    }
+{% endblock form %}

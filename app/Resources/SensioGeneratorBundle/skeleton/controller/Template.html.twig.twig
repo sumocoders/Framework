@@ -1,0 +1,11 @@
+{{ '{% extends "::base.html.twig" %}' }}
+
+{{ '{% block header_title %}' }}
+    <h2>
+        {{ '{{ \'%s.header.title.%s\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower, action.basename) }}
+    </h2>
+{{ '{% endblock %}' }}
+
+{{ '{% block main %}' }}
+    <p>Welcome to the {{ bundle }}:{{ controller }}:{{ action.basename }} page</p>
+{{ '{% endblock %}' }}
