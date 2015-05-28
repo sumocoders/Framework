@@ -38,11 +38,9 @@
     color: $state-success-bg;
   }
 
-  .has-feedback {
-
-    .input-group-addon {
-      color: $white;
-    }
+  .input-group-addon {
+    color: $white;
+    border-color: $state-success-bg;
   }
 }
 
