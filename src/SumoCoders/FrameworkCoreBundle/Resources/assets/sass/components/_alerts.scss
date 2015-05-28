@@ -1,37 +1,37 @@
-.alert.notification {
-  border: 0;
-  line-height: 40px;
-  left: 0;
-  position: static;
-  top: 0;
-  width: 100%;
-  z-index: 99;
-  padding-bottom: 0;
-  padding-top: 0;
-
-  .close {
-    height: 40px;
-    opacity: 1;
-    right: 0;
-    top: 0;
-    width: 70px;
-
-    &:hover {
-      color: $gray-light;
-    }
-  }
-
-  .alert-link {
-    font-weight: normal;
-    color: $white;
-    text-decoration: underline;
-
-    &:hover {
-      color: $gray-lighter;
-    }
-  }
-}
-
 .alert {
   padding: 15px;
+  
+  .notification {
+    border: 0;
+    left: 0;
+    line-height: 40px;
+    padding-bottom: 0;
+    padding-top: 0;
+    position: static;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+
+    .close {
+      height: 40px;
+      opacity: 1;
+      right: 0;
+      top: 0;
+      width: 70px;
+
+      &:hover {
+        color: $gray-light;
+      }
+    }
+
+    .alert-link {
+      color: $white;
+      font-weight: normal;
+      text-decoration: underline;
+
+      &:hover {
+        color: $gray-lighter;
+      }
+    }
+  }
 }
