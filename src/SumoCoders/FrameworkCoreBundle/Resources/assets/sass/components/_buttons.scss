@@ -1,6 +1,8 @@
-.btn-group {
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-weight: 600;
+.btn {
+  margin-bottom: 4px;
 }
 
+.btn-group-vertical .btn,
+.btn.dropdown-toggle {
+  margin-bottom: 0;
+}
