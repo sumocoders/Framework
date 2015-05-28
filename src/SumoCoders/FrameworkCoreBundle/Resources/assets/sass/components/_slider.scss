@@ -3,6 +3,10 @@
 
   .ui-state-default, .ui-widget-content .ui-state-default {
     background: $gray;
+
+    &:focus {
+        outline: none;
+    }
   }
 }
 
