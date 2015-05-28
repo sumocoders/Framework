@@ -339,7 +339,7 @@ class Framework extends DefaultObject
     e.preventDefault()
 
     $('html, body').stop().animate({
-      scrollTop: $('#content').offset().top
+      scrollTop: $('#main-wrapper').offset().top
     }, 500)
 
 # Link methods
