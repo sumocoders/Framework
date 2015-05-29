@@ -73,8 +73,7 @@ class Framework extends DefaultObject
     '_initAjax'
     '_initForm'
     '_initTabs'
-    # uncomment when you need it
-    #'_initTooltip'
+    '_initTooltip'
     '_initPopover'
     '_initSortable'
     '_initDisableSelection'
@@ -85,6 +84,7 @@ class Framework extends DefaultObject
     '_calculateActionsWidths'
     'setContentHeight'
   ]
+  
 
   _initAjax: ->
     # set some defaults for AJAX-request
@@ -187,7 +187,9 @@ class Framework extends DefaultObject
     )
 
   _initDatepicker: ->
-    $( '.datepicker' ).datepicker()
+    $( '.datepicker' ).datepicker(
+      dateFormat: "dd-mm-yy"
+    )
 
   _initSlider: ->
     $( '.slider' ).slider()
