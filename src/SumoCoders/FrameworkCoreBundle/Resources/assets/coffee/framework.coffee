@@ -84,7 +84,7 @@ class Framework extends DefaultObject
     '_calculateActionsWidths'
     'setContentHeight'
   ]
-  
+
 
   _initAjax: ->
     # set some defaults for AJAX-request
@@ -380,6 +380,5 @@ class Framework extends DefaultObject
         $('#content').css('minHeight', $(window).height())
       , 200)
     )
-
 
 window.Framework = Framework
