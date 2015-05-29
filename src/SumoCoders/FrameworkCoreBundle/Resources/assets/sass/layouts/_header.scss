@@ -145,10 +145,6 @@
   li:active {
     color: $breadcrumb-active-color;
   }
-
-  a {
-    color: $breadcrumb-color;
-  }
 }
 
 @media (min-width: $screen-md-min) {

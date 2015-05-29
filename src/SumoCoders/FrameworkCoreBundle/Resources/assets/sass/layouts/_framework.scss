@@ -20,6 +20,10 @@
   }
 }
 
+a {
+
+}
+
 .actions {
   background-color: $dropdown-bg;
   border-bottom: 1px $gray-lines solid;
@@ -45,6 +49,16 @@
 
 .main-content {
   padding: 40px 20px;
+
+  p a {
+    border-bottom: 1px solid $link-color;
+    transition: all 0.5s ease 0s;
+
+    &:hover {
+      color: $gray-dark;
+      border-color: transparent;
+    }
+  }
 }
 
 .backToTop {
