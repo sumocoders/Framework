@@ -6,3 +6,9 @@
 .btn.dropdown-toggle {
   margin-bottom: 0;
 }
+
+@media (min-width: $screen-sm-min) {
+  .btn {
+    margin-bottom: 0px;
+  }
+}
