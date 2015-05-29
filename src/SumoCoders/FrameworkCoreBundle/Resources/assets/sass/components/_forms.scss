@@ -2,17 +2,26 @@ form .btn {
   margin-bottom: 0;
 }
 
-.form-inline .input-group {
-  margin-bottom: 0;
+.help-block {
+  color: $gray-light;
+  font-size: $font-size-small;
 }
 
 .has-error {
   
   .form-control {
-    background: lighten($state-danger-bg, 25%);
-    color: $state-danger-bg;
+    background: $white;
     border-color: $state-danger-bg;
     box-shadow: none;
+
+    &:focus {
+      border-color: $state-danger-bg;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($state-danger-bg, .6);
+    }
+  }
+
+  .form-control-feedback {
+    color: $state-danger-bg;
   }
 
   .checkbox,
@@ -26,6 +35,15 @@ form .btn {
   .form-control {
     border-color: $state-warning-bg;
     box-shadow: none;
+
+    &:focus {
+      border-color: $state-warning-bg;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($state-warning-bg, .6);
+    }
+  }
+
+  .form-control-feedback {
+    color: $state-warning-bg;
   }
 
   .checkbox,
@@ -38,30 +56,54 @@ form .btn {
 
   .form-control {
     border-color: $state-success-bg;
-    color: $white;
+
+    &:focus {
+      border-color: $state-success-bg;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($state-success-bg, .6);
+    }
   }
-  
+
+  .form-control-feedback {
+    color: $state-success-bg;
+  }
+
   .checkbox,
   .control-label {
     color: $state-success-bg;
   }
 
   .input-group-addon {
-    color: $white;
     border-color: $state-success-bg;
+    color: $white;
   }
 }
 
-.form-control:focus {
-  border-color: $brand-info;
-  box-shadow: none;
-}
-
 .form-control {
-    box-shadow: none;
+  box-shadow: 0;
+
+  &:focus {
+    border-color: $input-color-focus;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($input-color-focus, .6);
+  }
 }
 
-.datetime-widget select[size], .time-widget select[size] {
+.form-inline {
+
+  .control-label {
+    margin-right: 5px;
+  }
+
+  .form-control {
+    margin-right: 10px;
+  }
+
+  .input-group {
+    margin-bottom: 0;
+  }
+}
+
+.datetime-widget select[size], 
+.time-widget select[size] {
   height: 34px;
 }
 

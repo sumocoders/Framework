@@ -47,6 +47,7 @@
             'assets/vendor/jquery-ui/jquery-ui.min.js'
             'assets/vendor/select2/select2.min.js'
             'assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js'
+            'assets/vendor/Chart.js/Chart.js'
             'assets/icons/grunticon.loader.js'
             'assets/js/frameworkcorebundle.grunticon.js'
             output='js/vendors.js'
@@ -68,6 +69,7 @@
             'assets/js/frameworkcorebundle.framework.js'
             'assets/js/frameworkcorebundle.framework.form.search.js'
             'assets/js/frameworkcorebundle.app.js'
+            'assets/js/frameworkcorebundle.framework.charts.js'
             output='js/app.js'
         %}
             <script src="{{ asset_url }}"></script>
@@ -119,7 +121,7 @@
                         <div class="controls">
                           <div class="search-form">
                             <label for="searchQuery" class="control-label"> {{ 'search.forms.placeholders.term'|trans|capitalize }} </label>
-                            <input id="searchQuery" name="q" type="search" placeholder="" class="form-control">
+                            <input id="searchQuery" name="q" type="search" placeholder="Zoek naar ..." class="form-control">
                           </div>
                           <a class="btn fa fa-search toggle-searchbar" href="#" role="button"> </a>
                           <button type="submit" class="btn fa fa-search submit-searchbar">
@@ -135,9 +137,7 @@
               <div class="col-sm-6 col-sm-pull-6 col-md-4 col-md-pull-8 col-alternative">
                 <ol class="breadcrumb">
                   <li><a href="#">Home</a></li>
-                  <span class="icon icon-breadcrumb-separator"></span>
                   <li><a href="#">Library</a></li>
-                  <span class="icon icon-breadcrumb-separator"></span>
                   <li class="active">Data</li>
                 </ol>
               </div>

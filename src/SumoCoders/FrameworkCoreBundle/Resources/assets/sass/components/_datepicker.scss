@@ -10,10 +10,11 @@
   }
 }
 
-.ui-state-default, .ui-widget-content .ui-state-default {
+.ui-state-default, 
+.ui-widget-content .ui-state-default {
   background: $gray-lightest;
-  color: $gray;
   border: $gray;
+  color: $gray;
 }
 
 .ui-datepicker-today .ui-state-default {

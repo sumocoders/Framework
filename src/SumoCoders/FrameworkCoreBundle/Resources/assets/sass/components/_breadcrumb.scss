@@ -1,4 +1,4 @@
-.main-header .breadcrumb {
+.breadcrumb {
   border-radius: 0;
   font-style: normal;
   font-weight: 600;
@@ -11,7 +11,8 @@
   width: 100%;
 
   > li + li:before {
-    content: ' ';
+    @extend .icon;
+    @extend .icon-breadcrumb-separator;
   }
 
   li {
@@ -29,7 +30,7 @@
 
 .icon-breadcrumb-separator {
   font-size: $font-size-icon-smallest;
-  padding: 4px;
+  padding-right: 10px;
 }
 
 @media (min-width: $screen-sm-min) {

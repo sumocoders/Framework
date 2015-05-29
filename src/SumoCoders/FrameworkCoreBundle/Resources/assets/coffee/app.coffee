@@ -8,7 +8,7 @@ class App extends Framework
 
 App.current = new App()
 
-$ ->
-  App.current.domReady()
+#$ ->
+  #App.current.domReady()
 
 window.App = App

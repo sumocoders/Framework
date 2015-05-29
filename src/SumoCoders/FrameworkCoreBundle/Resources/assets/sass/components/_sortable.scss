@@ -1,7 +1,14 @@
 .sortable {
+  cursor: move;
 
   .ui-state-default {
     list-style: none;
     padding: 10px;
+    border: 1px solid $gray-lines;
   }
+
+ .fa-th-large {
+   padding: 0 5px;
+   color: $gray-lines;
+ }
 }

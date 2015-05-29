@@ -4,7 +4,7 @@ class SearchForm extends Form
     @_initSearch()
 
   _initSearch: ->
-    $searchField = $('.searchBox input[name=q]', @form);
+    $searchField = $('.searchBox input[name=q]', @form)
     route = $(@form).attr('action') + '.json'
 
     $searchField.autocomplete(

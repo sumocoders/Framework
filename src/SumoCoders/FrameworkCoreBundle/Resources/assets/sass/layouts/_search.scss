@@ -5,30 +5,20 @@
   .search-box {
     margin-left: 50px;
     overflow: hidden;
+    z-index: 666;
 
     .form-control {
       height: 42px;
       margin-top: 2px;
     }
 
-    .filled .control-label {
-      display: none;
-    }
-
-    .form-control:focus + .control-label {
+    .form-control:focus {
       margin-top: -45px;
       transition: all 600ms;
     }
 
     .control-label {
-      color: $gray-light;
-      font-size: $font-size-base;
-      font-style: normal;
-      font-weight: normal;
-      margin-left: 11px;
-      margin-top: -11px;
-      position: absolute;
-      top: 50%;
+      display: none;
     }
 
     .form-control {
