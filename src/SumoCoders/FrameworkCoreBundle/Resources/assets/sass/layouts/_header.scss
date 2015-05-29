@@ -46,6 +46,7 @@
     border-right: 1px $gray-lines solid;
     position: absolute;
     top: 0;
+    z-index: 700;
 
     &.open .dropdown-toggle {
       box-shadow: none;
