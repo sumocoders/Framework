@@ -21,35 +21,36 @@ class MenuListener extends DefaultMenuListener
     public function onConfigureMenu(ConfigureMenuEvent $event)
     {
         $menu = $event->getMenu();
+    
+        // if you need to add a menu with subitems you can use a shortcut like this
+        $childs = array(
+            'this.is.the.label' => 'sumocoders_frameworkexample_route_name',
+            'another.label' => $event->getFactory()->createItem(
+                'another.label',
+                array(
+                    'route' => 'sumocoders_frameworkexample_default_hello',
+                    'routeParameters' => array(
+                        'name' => 'John Doe',
+                    ),
+                )
+            ),
+        );
+
+        $menuItem = $this->createItemWithChilds(
+            $event->getFactory(),
+            'a.label',
+            1000,
+            $childs
+        );
+
+        $menu->addChild($menuItem);
+    
         $menuItem = $event->getFactory()->createItem(
             'example.menu.overview',
             array(
-                'uri' => '#',
+                'route' => 'sumocoders_frameworkexample_route_name',
             )
         );
-            $menuItem->setAttribute('class', 'dropdown');
-            $menuItem->setAttribute('icon', 'icon icon-angle');
-            $menuItem->setChildrenAttribute('class', 'dropdown-menu');
-            $menuItem->setChildrenAttribute('role', 'menu');
-            $menuItem->setLinkAttribute('class', 'dropdown-toggle');
-            $menuItem->setLinkAttribute('data-toggle', 'dropdown');
-            $menuItem->setLinkAttribute('role', 'button');
-            $menuItem->setLinkAttribute('aria-expanded', 'false');
-            $menuItem->setExtra('orderNumber', 1);
-
-        $firstChild = $event->getFactory()->createItem(
-            'example.menu.hello',
-            array(
-                'uri' => '#',
-            )
-        );
-        $firstChild->setExtra('orderNumber', 1);
-        $menuItem->addChild($firstChild);
-
-        // add the sub-menu-item class to all sub-menu-items
-        foreach ($menuItem as $child) {
-            $child->setLinkAttribute('class', 'sub-menu-item');
-        }
     }
 }
 ```
