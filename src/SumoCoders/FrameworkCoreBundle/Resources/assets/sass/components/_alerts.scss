@@ -23,15 +23,18 @@
         color: $gray-light;
       }
     }
+  }
 
-    .alert-link {
-      color: $white;
-      font-weight: normal;
-      text-decoration: underline;
+  .alert-link {
+    color: $white;
+    font-weight: bold;
+    border-bottom: 1px solid $white;
+    transition: all 0.3s ease 0s;
 
-      &:hover {
-        color: $gray-lighter;
-      }
+    &:hover {
+      color: $gray;
+      text-decoration: none;
+      border-bottom-color: $gray;
     }
   }
 }

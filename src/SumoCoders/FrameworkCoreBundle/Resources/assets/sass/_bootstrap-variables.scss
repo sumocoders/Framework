@@ -12,7 +12,7 @@ $gray-base:              #000;
 $gray-darker:            #2f4050;
 $gray-dark:              #38556e;
 $gray:                   #68839b;
-$gray-light:             #9EAFBD;
+$gray-light:             #8FA0B1;
 $gray-lighter:           #bbcdde;
 $gray-lightest:          #f1f7f9;
 $gray-lines:             #d6e1e6;
@@ -36,11 +36,11 @@ $body-bg:               $white;
 $text-color:            $gray-light;
 
 //** Global textual link color.
-$link-color:            $gray-dark;
+$link-color:            $text-color;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      darken($link-color, 15%);
+$link-hover-color:      $gray;
 //** Link hover decoration.
-$link-hover-decoration: underline;
+$link-hover-decoration: none;
 
 
 //== Typography
@@ -630,7 +630,7 @@ $modal-sm:                    300px;
 
 $alert-padding:               0 0 0 25px;
 $alert-border-radius:         0;
-$alert-link-font-weight:      bold;
+$alert-link-font-weight:      normal;
 
 $alert-success-bg:            $state-success-bg;
 $alert-success-text:          $state-success-text;
