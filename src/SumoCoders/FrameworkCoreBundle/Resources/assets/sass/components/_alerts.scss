@@ -32,9 +32,9 @@
     transition: all 0.3s ease 0s;
 
     &:hover {
-      color: $gray;
+      color: $gray-dark;
       text-decoration: none;
-      border-bottom-color: $gray;
+      border-bottom-color: $gray-dark;
     }
   }
 }
