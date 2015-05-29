@@ -99,14 +99,15 @@
               <div class="col-sm-6 col-sm-push-6 col-md-8 col-md-push-4 col-alternative">
                 <div class="user-nav">
                   {% if bundleExists('SumoCodersFrameworkUserBundle') %}
-                  <!-- @todo: correct data from SumoCodersFrameworkUserBundle -->
                   <div class="btn-group">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <i class="icon icon-avatar"></i> <span class="hidden-xs hidden-sm">Sumocoders</span>  <span class="icon icon-angle hidden-xs hidden-sm"></span>
+                      <i class="icon icon-avatar"></i>
+                      <span class="hidden-xs hidden-sm">{{ app.user.username }}</span>
+                      <span class="icon icon-angle hidden-xs hidden-sm"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
+                      <li><a href="{{ path('sumocoders_frameworkuser_user_edit', {'id': app.user.id }) }}">{{ 'user.header.actions.settings'|trans|capitalize }}</a></li>
+                      <li><a href="{{ path('fos_user_security_logout') }}">{{ 'user.header.actions.logout'|trans|capitalize }}</a></li>
                     </ul>
                   </div>
                   {% endif %}
