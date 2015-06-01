@@ -1,6 +1,5 @@
 .ui-autocomplete.ui-widget-content {
   border-color: $gray-lines;
-  padding: 10px;
 
   .ui-menu-item {
 
@@ -16,10 +15,16 @@
     &:focus {
       outline: none;
     }
+
+    &:hover, {
+      background-color: $brand-primary;
+      color: $white;
+    }
   }
 
   .ui-state-focus {
-    background: transparent;
+    background: $brand-primary;
+    color: $white;
     border: none;
     margin: 0;
 
