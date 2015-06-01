@@ -25,6 +25,7 @@
     }
   }
 
+
   .alert-link {
     color: $white;
     font-weight: bold;
@@ -36,5 +37,15 @@
       text-decoration: none;
       border-bottom-color: $gray-dark;
     }
+  }
+}
+
+.alert-dismissible {
+
+  .close {
+    color: $white;
+    opacity: 1;
+    position: static;
+    top: 0;
   }
 }
