@@ -6,13 +6,26 @@ form .btn {
   margin-bottom: 0;
 }
 
+.help-block {
+  color: $gray-light;
+  font-size: $font-size-small;
+}
+
 .has-error {
   
   .form-control {
-    background: lighten($state-danger-bg, 25%);
-    color: $state-danger-bg;
+    background: $white;
     border-color: $state-danger-bg;
     box-shadow: none;
+
+    &:focus {
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba($state-danger-bg, 0.6);
+      border-color: $state-danger-bg;
+    }
+  }
+
+  .form-control-feedback {
+    color: $state-danger-bg;
   }
 
   .checkbox,
@@ -26,6 +39,15 @@ form .btn {
   .form-control {
     border-color: $state-warning-bg;
     box-shadow: none;
+
+    &:focus {
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba($state-warning-bg, 0.6);
+      border-color: $state-warning-bg;
+    }
+  }
+
+  .form-control-feedback {
+    color: $state-warning-bg;
   }
 
   .checkbox,
@@ -38,9 +60,17 @@ form .btn {
 
   .form-control {
     border-color: $state-success-bg;
-    color: $white;
+
+    &:focus {
+      border-color: $state-success-bg;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba($state-success-bg, 0.6);
+    }
   }
-  
+
+  .form-control-feedback {
+    color: $state-success-bg;
+  }
+
   .checkbox,
   .control-label {
     color: $state-success-bg;
@@ -52,13 +82,24 @@ form .btn {
   }
 }
 
-.form-control:focus {
-  border-color: $brand-info;
-  box-shadow: none;
-}
-
 .form-control {
     box-shadow: none;
+
+  &:focus {
+    border-color: $input-color-focus;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba($input-color-focus, 0.6);
+  }
+}
+
+.form-inline {
+
+  .control-label {
+    margin-right: 5px;
+  }
+
+  .form-control {
+    margin-right: 10px;
+  }
 }
 
 .datetime-widget select[size], .time-widget select[size] {
