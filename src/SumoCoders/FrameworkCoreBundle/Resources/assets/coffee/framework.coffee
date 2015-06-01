@@ -192,7 +192,12 @@ class Framework extends DefaultObject
     )
 
   _initSlider: ->
-    $( '.slider' ).slider()
+    $( '.slider' ).slider({
+      min: 0
+      max: 50
+      values: [ 10, 40 ]
+      range: true
+    })
 
   _initSelect2: ->
     $('.select2').select2()
