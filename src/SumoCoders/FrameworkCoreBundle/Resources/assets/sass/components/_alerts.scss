@@ -1,41 +1,16 @@
 .alert {
   padding: 15px;
-  
-  .notification {
-    border: 0;
-    left: 0;
-    line-height: 40px;
-    padding-bottom: 0;
-    padding-top: 0;
-    position: static;
-    top: 0;
-    width: 100%;
-    z-index: 99;
-
-    .close {
-      height: 40px;
-      opacity: 1;
-      right: 0;
-      top: 0;
-      width: 70px;
-
-      &:hover {
-        color: $gray-light;
-      }
-    }
-  }
-
 
   .alert-link {
+    border-bottom: 1px solid $white;
     color: $white;
     font-weight: bold;
-    border-bottom: 1px solid $white;
-    transition: all 0.3s ease 0s;
+    transition: all .3s ease 0s;
 
     &:hover {
+      border-bottom-color: $gray-dark;
       color: $gray-dark;
       text-decoration: none;
-      border-bottom-color: $gray-dark;
     }
   }
 }

@@ -1,35 +1,32 @@
 .ui-autocomplete.ui-widget-content {
   border-color: $gray-lines;
 
-  .ui-menu-item {
-
-    a {
-      color: $gray-light;
-
-      &:focus {
-        outline: none;
-        outline-offset: 0;
-      }
-    }
+  .ui-menu-item a {
+    color: $gray-light;
 
     &:focus {
       outline: none;
-    }
-
-    &:hover, {
-      background-color: $brand-primary;
-      color: $white;
+      outline-offset: 0;
     }
   }
 
-  .ui-state-focus {
-    background: $brand-primary;
-    color: $white;
-    border: none;
-    margin: 0;
+  &:focus {
+    outline: none;
+  }
 
-    a {
-      color: darken($gray-light, 20%);
-    }
+  &:hover, {
+    background-color: $brand-primary;
+    color: $white;
+  }
+}
+
+.ui-state-focus {
+  background: $brand-primary;
+  border: 0;
+  color: $white;
+  margin: 0;
+
+  a {
+    color: darken($gray-light, 20%);
   }
 }
