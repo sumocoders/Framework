@@ -34,14 +34,14 @@ class DefaultObject
 class Framework extends DefaultObject
   @events
     # toggle menu on full size
-    '#navbar .nav li a' : click : 'toggleSubNavigation'
+    #'#navbar .nav li a' : click : 'toggleSubNavigation'
 
     # togle menu on ipad-size
-    '#toggleTabletNavbar' : click : 'toggleMediumMenu'
+    #'#toggleTabletNavbar' : click : 'toggleMediumMenu'
 
     # toggle menu on iphone-size
-    '#toggleMenu' : click : 'toggleSmallMenu'
-    '#content.open' : touchend : 'toggleSmallMenu'
+    #'#toggleMenu' : click : 'toggleSmallMenu'
+    #'#content.open' : touchend : 'toggleSmallMenu'
 
     # show action-list on iphone-size
     '#main-menu-inner .dropdown-toggle' : click : 'toggleDropdown'
