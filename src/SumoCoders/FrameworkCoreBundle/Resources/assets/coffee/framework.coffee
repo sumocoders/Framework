@@ -66,7 +66,7 @@ class Framework extends DefaultObject
     # search bar
     'a.toggle-searchbar': click : 'toggleSearchBar'
     '.form-control' :
-      keydown : 'hideLabelD'
+      keypress : 'hideLabelD'
       keyup : 'hideLabel'
 
   @onDomReady [
@@ -228,7 +228,7 @@ class Framework extends DefaultObject
 
   toggleSearchBar: ->
     $('.search-box').toggleClass('open')
-    $('input[name=search]').focus();
+    $('input[name=q]').focus();
 
   hideLabel: ->
     if $(this).val()
