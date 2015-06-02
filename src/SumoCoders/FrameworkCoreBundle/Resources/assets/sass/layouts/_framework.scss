@@ -61,23 +61,9 @@
   margin: 15px;
 }
 
-/*.form-control[disabled],
-.form-control[readonly],
-fieldset[disabled] .form-control,
-.btn[disabled],
-.disabled {
-  cursor: not-allowed;
+.btn[disabled] {
   pointer-events: all;
 }
-
-.disabled > a {
-  pointer-events: none;
-}
-
-.pagination > .disabled > span,
-.pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
-  cursor: not-allowed;
-}*/
 
 
 @media (min-width: $screen-sm-min) {
