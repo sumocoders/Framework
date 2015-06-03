@@ -31,6 +31,8 @@ class DefaultObject
         else
           $document.on(action, selector, @[callback])
 
+window.DefaultObject = DefaultObject
+
 class Framework extends DefaultObject
   @events
     # toggle menu on full size
@@ -40,8 +42,8 @@ class Framework extends DefaultObject
     #'#toggleTabletNavbar' : click : 'toggleMediumMenu'
 
     # toggle menu on iphone-size
-    '#toggleMenu' : click : 'toggleSmallMenu'
-    '#content.open' : touchend : 'toggleSmallMenu'
+    #'#toggleMenu' : click : 'toggleSmallMenu'
+    #'#content.open' : touchend : 'toggleSmallMenu'
 
     # show action-list on iphone-size
     '#main-menu-inner .dropdown-toggle' : click : 'toggleDropdown'
