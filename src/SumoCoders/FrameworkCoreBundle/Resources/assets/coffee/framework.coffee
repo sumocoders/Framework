@@ -308,7 +308,7 @@ class Framework extends DefaultObject
     else
       $parent.removeClass 'closed'
 
-    $this.next('ul').slideToggle(2000, ->
+    $this.next('ul').slideToggle(200, ->
       $parent.toggleClass('open')
     )
 
