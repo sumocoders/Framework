@@ -2,10 +2,12 @@ services:
   framework.fallbacks:
     class:  SumoCoders\FrameworkCoreBundle\Service\Fallbacks
     arguments: [%fallbacks%]
+
   framework.jsdata:
     class: SumoCoders\FrameworkCoreBundle\Service\JsData
     arguments:
       - "@request_stack"
+
   framework.menu_builder:
     class: SumoCoders\FrameworkCoreBundle\Menu\MenuBuilder
     calls:
@@ -19,17 +21,35 @@ services:
       - @request
     scope: request
     tags:
-      - { name: knp_menu.menu, alias: main }
+      - { name: knp_menu.menu, alias: side_menu }
+
+  framework.breadcrumb_builder:
+    class: SumoCoders\FrameworkCoreBundle\BreadCrumb\BreadCrumbBuilder
+    arguments:
+      - @knp_menu.factory
+      - @event_dispatcher
+  framework.breadcrumb.main:
+    class: Kpn\Menu\MenuItem
+    factory_service: framework.breadcrumb_builder
+    factory_method: createBreadCrumb
+    arguments:
+      - @request
+    scope: request
+    tags:
+      - { name: knp_menu.menu, alias: breadcrumb }
+
   framework.date_type_extension:
     class: SumoCoders\FrameworkCoreBundle\Form\Extension\DateTypeExtension
     tags:
       - { name: form.type_extension, alias: date }
+
   twig.framework_extension:
     class: SumoCoders\FrameworkCoreBundle\Twig\FrameworkExtension
     arguments:
       - @service_container
     tags:
       - { name: twig.extension }
+
   framework.response_securer:
     class: SumoCoders\FrameworkCoreBundle\EventListener\ResponseSecurer
     tags:

@@ -62,10 +62,20 @@ class FrameworkExtension extends \Twig_Extension
     {
         $stringToConvert = trim($stringToConvert);
         $stringToConvert = mb_strtolower($stringToConvert);
-        $stringToConvert = str_replace(array('_', '-', ' '), '.', $stringToConvert);
+        $stringToConvert = str_replace(
+            array('_', '-', ' ', 'bundle', 'framework'),
+            '.',
+            $stringToConvert
+        );
+
+        if (substr($stringToConvert, 0, 11) == 'sumocoders.') {
+            $stringToConvert = substr($stringToConvert, 11);
+        }
 
         // remove numbers if they appear at the end
         $stringToConvert = preg_replace('/\d+$/', '', $stringToConvert);
+
+        $stringToConvert = preg_replace('/\.+/', '.', $stringToConvert);
 
         return trim($stringToConvert, '.');
     }
