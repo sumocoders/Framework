@@ -1,4 +1,4 @@
-class Charts extends App
+class Charts extends DefaultObject
   @events
   #    '#element' : event : 'functionName'
     #'a' : click : 'test'
@@ -14,6 +14,7 @@ class Charts extends App
   ]
 
   initLineChart: ->
+    console.log 'tetten'
     data = {
       labels: ["January", "February", "March", "April", "May", "June", "July"],
       datasets: [
