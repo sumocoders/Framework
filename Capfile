@@ -9,7 +9,7 @@ set :repository,  "xxx"
 require 'capifony_symfony2'
 set :stages,        %w(production staging)
 set :default_stage, 'staging'
-set :stage_dir,     'app/config'
+set :stage_dir,     'deployment/stages'
 
 require 'capistrano/ext/multistage'
 
