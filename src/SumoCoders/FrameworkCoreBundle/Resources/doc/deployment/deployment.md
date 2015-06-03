@@ -1,10 +1,10 @@
 # Using deployment
 
-We use Capifony as a base, but we extended it with our own specific 
+We use Capifony as a base, but we extended it with our own specific
 configuration for usage with the framework.
 
-All configuration for the specific stage (staging, production) is done in the 
-`app/config/`-folder, wherein each stage has its own file.
+All configuration for the specific stage (staging, production) is done in the
+`deployments/stages/`-folder, wherein each stage has its own file.
 
 General configuration is done in the Capfile.
 
@@ -18,32 +18,32 @@ When you create a project you will need to fill in 3 variables:
 * `:project`, the `xxx` should be replaced with the name of the project.
 * `:repository`, the `xxx` should be replaced with the url of the git-repo.
 
-Remark: when choosing a name for the project, please don't use generic names 
-as: site, app, ... as it makes no sense when there are multiple projects for 
+Remark: when choosing a name for the project, please don't use generic names
+as: site, app, ... as it makes no sense when there are multiple projects for
 that client.
 
-### app/config/staging.rb
+### deployments/stages/staging.rb
 
-In the is file you can configure which branch should be deployed on the 
+In the is file you can configure which branch should be deployed on the
 staging-server. By default this is the staging-branch
 
 * `:branch`, if needed you can replace `staging` with your branch.
 
 Remark: when you change this, make sure you notify other people, as when they
-deploy and are not working on your branch your changes will be lost. Also make 
+deploy and are not working on your branch your changes will be lost. Also make
 sure that you change it back before creating a Pull Request.
 
-### production.rb
+### deployments/stages/production.rb
 
-In the is file you can configure production specific items. In most cases the 
-server-layout will be different from the staging-server, so there is somewhat 
+In the is file you can configure production specific items. In most cases the
+server-layout will be different from the staging-server, so there is somewhat
 more to configure.
 
 The default production.rb is inspired on the Hostbots-server-layout.
 
 * `set :host`, replace `xxx` with the hostname/ip of the server.
 * `set :user`, replace `xxx` with the ssh-username.
-* `set :domain`, replace `xxx` with the final domain of the application, 
+* `set :domain`, replace `xxx` with the final domain of the application,
     without http(s)://.
 * `set :deploy_to`, you can alter this if you need to deploy the application in
     a specific directory.
@@ -56,30 +56,30 @@ Sometimes it can be usefull to set the site into maintenance mode.
 Disable the site:
 
     cap <stage> deploy:web:disable
-    
+
 You can specify a reason for the downtime by setting a REASON:
 
     cap <stage> deploy:web:disable REASON="the reason"
-    
+
 You can specify when the site will be back online by setting a DEADLINE:
 
     cap <stage> deploy:web:disable DEADLINE="at 20 june 2015 14:00"
-    
+
 Enable the site:
 
     cap <stage> deploy:web:disable
 
 ## Deploying the site for the first time
 
-First of all you need to create the database. If you are deploying to the 
+First of all you need to create the database. If you are deploying to the
 SumoCoders-staging server you can use the following command:
 
     cap staging sumo:db:create
-    
+
 Deploy for the first time:
 
     cap <stage> deploy
-    
+
 A lot of questions will be asked, this will generate the `parameters.yml`-file.
 Answer the questions with sane things.
 
@@ -115,7 +115,7 @@ Depending on the environment you should give other answers:
 * secret: this should be a random string
 * errbit_api_key: the api key you have created for this project
 
-When this is done you have two options: creating an empty database, or putting 
+When this is done you have two options: creating an empty database, or putting
 your local database online.
 
 The second one is the one which requires the least amount of work:
@@ -123,7 +123,7 @@ The second one is the one which requires the least amount of work:
     cap database:copy:to_remote
 
 The first options requires some extra steps. First of all you should create the
-schema. As we use migrations this is best done by migrating the "empty" 
+schema. As we use migrations this is best done by migrating the "empty"
 database to the latest migration:
 
     cap <stage> symfony:doctrine:migrations:migrate
