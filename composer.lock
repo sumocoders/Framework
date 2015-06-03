@@ -2087,30 +2087,17 @@
         },
         {
             "name": "sumocoders/framework-example-bundle",
-<<<<<<< HEAD
-            "version": "v1.1.0",
-=======
             "version": "dev-bootstrap-template",
->>>>>>> temporary enable deployment - revert this
             "target-dir": "SumoCoders/FrameworkExampleBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
-<<<<<<< HEAD
-                "reference": "d93e9ea23c81c3ca0b77411a4ee3a042752a9718"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/d93e9ea23c81c3ca0b77411a4ee3a042752a9718",
-                "reference": "d93e9ea23c81c3ca0b77411a4ee3a042752a9718",
-=======
                 "reference": "61396593995f8d897d8f8b3e5986947088fe7891"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/61396593995f8d897d8f8b3e5986947088fe7891",
                 "reference": "61396593995f8d897d8f8b3e5986947088fe7891",
->>>>>>> temporary enable deployment - revert this
                 "shasum": ""
             },
             "require": {
@@ -2144,11 +2131,7 @@
                 "SumoCoders",
                 "example"
             ],
-<<<<<<< HEAD
-            "time": "2015-05-15 11:23:37"
-=======
             "time": "2015-06-02 09:39:31"
->>>>>>> temporary enable deployment - revert this
         },
         {
             "name": "sumocoders/framework-search-bundle",
