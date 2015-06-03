@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8d3e6fe8c51ac060e332ab8ee581c03f",
+    "hash": "81ca0a5a5c490493a4491afce6926f76",
     "packages": [
         {
             "name": "airbrake/airbrake-php",
@@ -1993,16 +1993,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v2.0.2",
+            "version": "v2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "cecb1397087dc9c733796eda6e9d121336039cdc"
+                "reference": "2c2a71f1c77d9765c12638c4724d9ca23658a810"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/cecb1397087dc9c733796eda6e9d121336039cdc",
-                "reference": "cecb1397087dc9c733796eda6e9d121336039cdc",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/2c2a71f1c77d9765c12638c4724d9ca23658a810",
+                "reference": "2c2a71f1c77d9765c12638c4724d9ca23658a810",
                 "shasum": ""
             },
             "require": {
@@ -2034,7 +2034,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2015-04-21 07:52:05"
+            "time": "2015-05-28 14:22:40"
         },
         {
             "name": "sumocoders/framework-error-bundle",
@@ -2087,17 +2087,30 @@
         },
         {
             "name": "sumocoders/framework-example-bundle",
+<<<<<<< HEAD
             "version": "v1.1.0",
+=======
+            "version": "dev-bootstrap-template",
+>>>>>>> temporary enable deployment - revert this
             "target-dir": "SumoCoders/FrameworkExampleBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
+<<<<<<< HEAD
                 "reference": "d93e9ea23c81c3ca0b77411a4ee3a042752a9718"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/d93e9ea23c81c3ca0b77411a4ee3a042752a9718",
                 "reference": "d93e9ea23c81c3ca0b77411a4ee3a042752a9718",
+=======
+                "reference": "61396593995f8d897d8f8b3e5986947088fe7891"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/61396593995f8d897d8f8b3e5986947088fe7891",
+                "reference": "61396593995f8d897d8f8b3e5986947088fe7891",
+>>>>>>> temporary enable deployment - revert this
                 "shasum": ""
             },
             "require": {
@@ -2131,21 +2144,25 @@
                 "SumoCoders",
                 "example"
             ],
+<<<<<<< HEAD
             "time": "2015-05-15 11:23:37"
+=======
+            "time": "2015-06-02 09:39:31"
+>>>>>>> temporary enable deployment - revert this
         },
         {
             "name": "sumocoders/framework-search-bundle",
-            "version": "v1.2.0",
+            "version": "dev-searchbar",
             "target-dir": "SumoCoders/FrameworkSearchBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "b2063b7a01c344caeb151c493d7857f916b56844"
+                "reference": "ac21293a43762829549e762da7c83fef6ea4b075"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/b2063b7a01c344caeb151c493d7857f916b56844",
-                "reference": "b2063b7a01c344caeb151c493d7857f916b56844",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/ac21293a43762829549e762da7c83fef6ea4b075",
+                "reference": "ac21293a43762829549e762da7c83fef6ea4b075",
                 "shasum": ""
             },
             "require": {
@@ -2176,21 +2193,21 @@
                 "SumoCoders",
                 "search"
             ],
-            "time": "2015-05-15 11:22:28"
+            "time": "2015-05-29 08:17:32"
         },
         {
             "name": "sumocoders/framework-user-bundle",
-            "version": "v1.3.0",
+            "version": "dev-usernav",
             "target-dir": "SumoCoders/FrameworkUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "9b0eaa7789aa6fcfddfd27aec6e7078ef486d3e0"
+                "reference": "730927d43cf8ac9285262188bc6f3b25ecc6660b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/9b0eaa7789aa6fcfddfd27aec6e7078ef486d3e0",
-                "reference": "9b0eaa7789aa6fcfddfd27aec6e7078ef486d3e0",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/730927d43cf8ac9285262188bc6f3b25ecc6660b",
+                "reference": "730927d43cf8ac9285262188bc6f3b25ecc6660b",
                 "shasum": ""
             },
             "require": {
@@ -2222,7 +2239,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-05-18 13:58:11"
+            "time": "2015-05-29 13:05:46"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3095,16 +3112,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "2.0.16",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "934fd03eb6840508231a7f73eb8940cf32c3b66c"
+                "reference": "28a6b34e91d789b2608072ab3c82eaae7cdb973c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/934fd03eb6840508231a7f73eb8940cf32c3b66c",
-                "reference": "934fd03eb6840508231a7f73eb8940cf32c3b66c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/28a6b34e91d789b2608072ab3c82eaae7cdb973c",
+                "reference": "28a6b34e91d789b2608072ab3c82eaae7cdb973c",
                 "shasum": ""
             },
             "require": {
@@ -3127,7 +3144,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -3153,7 +3170,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-04-11 04:35:00"
+            "time": "2015-06-03 07:01:01"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3413,16 +3430,16 @@
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.3.1",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "74ffb87f527f24616f72460e54b595f508dccb5c"
+                "reference": "253c005852591fd547fc18cd5b7b43a1ec82d8f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/74ffb87f527f24616f72460e54b595f508dccb5c",
-                "reference": "74ffb87f527f24616f72460e54b595f508dccb5c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/253c005852591fd547fc18cd5b7b43a1ec82d8f7",
+                "reference": "253c005852591fd547fc18cd5b7b43a1ec82d8f7",
                 "shasum": ""
             },
             "require": {
@@ -3464,7 +3481,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-04-02 05:36:41"
+            "time": "2015-05-29 05:19:18"
         },
         {
             "name": "sebastian/comparator",
@@ -3940,6 +3957,9 @@
         "friendsofsymfony/user-bundle": 20,
         "mopa/bootstrap-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
+        "sumocoders/framework-user-bundle": 20,
+        "sumocoders/framework-search-bundle": 20,
+        "sumocoders/framework-example-bundle": 20,
         "composer/composer": 20
     },
     "prefer-stable": true,
