@@ -31,6 +31,8 @@ class DefaultObject
         else
           $document.on(action, selector, @[callback])
 
+window.DefaultObject = DefaultObject
+
 class Framework extends DefaultObject
   @events
     # toggle menu on full size

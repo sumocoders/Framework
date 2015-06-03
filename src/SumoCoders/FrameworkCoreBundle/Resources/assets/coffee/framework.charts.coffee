@@ -1,4 +1,4 @@
-class Charts extends App
+class Charts extends DefaultObject
   @events
   #    '#element' : event : 'functionName'
     #'a' : click : 'test'
