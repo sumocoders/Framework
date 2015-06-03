@@ -7,6 +7,16 @@
     overflow: hidden;
     z-index: 666;
 
+    .form-control {
+      height: 42px;
+      margin-top: 2px;
+    }
+
+    .form-control:focus {
+      margin-top: -45px;
+      transition: all 600ms;
+    }
+
     .control-label {
       display: none;
     }
@@ -18,13 +28,7 @@
       font-family: $font-family-sans-serif;
       font-style: normal;
       font-weight: normal;
-      height: 42px;
-      margin-top: 2px;
       width: 85%;
-
-      &:focus {
-        box-shadow: none;
-      }
     }
 
     .controls .btn {
@@ -57,86 +61,99 @@
 
 @media (min-width: $screen-sm-min) {
 
-  .user-nav {
-    border-bottom: 0;
-    border-top: 0;
+  .sub-nav {
 
-    .search-box {
-      border-left: 1px $gray-lines solid;
-      display: inline-block;
-      float: right;
-      margin-left: 0;
+    .user-nav {
+      border-bottom: 0;
+      border-top: 0;
 
-      .form-control {
-        float: none;
-        height: 50px;
-        margin-top: 0;
-        width: 100%;
-      }
+      .search-box {
+        border-left: 1px $gray-lines solid;
+        display: inline-block;
+        float: right;
+        margin-left: 0;
 
-      .search-form {
-        float: left;
-        overflow: hidden;
-        transition: width 600ms;
-        width: 0;
-      }
-
-      .submit-searchbar {
-        display: none;
-      }
-
-      &.open {
-
-        .search-form {
-          display: block;
-          float: left;
-          transition: width 600ms;
-          width: 145px;
+        .form-control {
+          float: none;
+          height: 50px;
+          margin-top: 0;
+          width: 100%;
         }
 
-        .toggle-searchbar {
-          display: none;
+        .search-form {
+          float: left;
+          overflow: hidden;
+          transition: width 600ms;
+          width: 0;
         }
 
         .submit-searchbar {
-          display: block;
+          display: none;
+        }
+
+        &.open {
+
+          .search-form {
+            display: block;
+            float: left;
+            transition: width 600ms;
+            width: 145px;
+          }
+
+          .toggle-searchbar {
+            display: none;
+          }
+
+          .submit-searchbar {
+            display: block;
+          }
         }
       }
-    }
 
-    .toggle-searchbar {
-      display: inline-block;
-      padding: 15px 20px;
-    }
+      .toggle-searchbar {
+        display: inline-block;
+        padding: 15px 20px;
+      }
 
-    .controls .btn {
-      padding: 11px 20px;
-      width: auto;
+      .controls .btn {
+        padding: 11px 20px;
+        width: auto ;
+      }
     }
   }
 }
 
 @media (min-width: $screen-md-min) {
+  .sub-nav {
 
-  .user-nav {
+    .user-nav {
 
-    .search-box {
+      .search-box {
 
-      &.open .search-form {
-        width: 245px;
+        &.open {
+
+          .search-form {
+            width: 245px;
+          }
+        }
       }
     }
   }
 }
 
 @media (min-width: $screen-lg-min) {
+  .sub-nav {
 
-  .user-nav {
+    .user-nav {
 
-    .search-box {
+      .search-box {
 
-      &.open .search-form {
-        width: 395px;
+        &.open {
+
+          .search-form {
+            width: 395px;
+          }
+        }
       }
     }
   }
