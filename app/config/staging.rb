@@ -1,4 +1,4 @@
-set :branch, "staging"
+set :branch, "redesign-2015"
 
 ### DO NOT EDIT BELOW ###
 set :host,          "dev.sumocoders.eu"
