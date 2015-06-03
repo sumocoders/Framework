@@ -65,9 +65,7 @@ class Framework extends DefaultObject
 
     # search bar
     'a.toggle-searchbar': click : 'toggleSearchBar'
-    '.form-control' :
-      keydown : 'hideLabelD'
-      keyup : 'hideLabel'
+    
 
   @onDomReady [
     '_initAjax'
@@ -84,7 +82,6 @@ class Framework extends DefaultObject
     '_calculateActionsWidths'
     'setContentHeight'
   ]
-
 
   _initAjax: ->
     # set some defaults for AJAX-request
@@ -228,16 +225,7 @@ class Framework extends DefaultObject
 
   toggleSearchBar: ->
     $('.search-box').toggleClass('open')
-    $('input[name=search]').focus();
-
-  hideLabel: ->
-    if $(this).val()
-      $('.search-form').addClass('filled')
-    else
-      $('.search-form').removeClass('filled')
-
-  hideLabelD : ->
-    $('.search-form').addClass('filled')
+    $('input[name=q]').focus();
 
   _calculateActionsWidths: ->
     $('.actions li a, .actions li button').each(->

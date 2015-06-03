@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new SumoCoders\FrameworkUserBundle\SumoCodersFrameworkUserBundle(),
             new SumoCoders\FrameworkSearchBundle\SumoCodersFrameworkSearchBundle(),
             new SumoCoders\FrameworkErrorBundle\SumoCodersFrameworkErrorBundle(),
+            new SumoCoders\FrameworkExampleBundle\SumoCodersFrameworkExampleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

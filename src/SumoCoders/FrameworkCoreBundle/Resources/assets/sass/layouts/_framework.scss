@@ -48,11 +48,11 @@
 
   p a {
     border-bottom: 1px solid $link-color;
-    transition: all 0.5s ease 0s;
+    transition: all .5s ease 0s;
 
     &:hover {
-      color: $gray-dark;
       border-color: transparent;
+      color: $gray-dark;
     }
   }
 }

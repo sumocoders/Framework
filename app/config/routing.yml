@@ -10,3 +10,7 @@ sumo_coders_framework_core:
 
 sumo_coders_users_bundle:
   resource: "@SumoCodersFrameworkUserBundle/Resources/config/routing.yml"
+
+sumo_coders_example_bundle:
+  resource: "@SumoCodersFrameworkExampleBundle/Resources/config/routing.yml"
+  prefix: /example
