@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5abbc6566cd2b8deccb39e64aa6ab60c",
+    "hash": "8d3e6fe8c51ac060e332ab8ee581c03f",
     "packages": [
         {
             "name": "airbrake/airbrake-php",
@@ -2084,6 +2084,54 @@
                 "errbit"
             ],
             "time": "2015-05-04 12:17:00"
+        },
+        {
+            "name": "sumocoders/framework-example-bundle",
+            "version": "v1.1.0",
+            "target-dir": "SumoCoders/FrameworkExampleBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
+                "reference": "d93e9ea23c81c3ca0b77411a4ee3a042752a9718"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/d93e9ea23c81c3ca0b77411a4ee3a042752a9718",
+                "reference": "d93e9ea23c81c3ca0b77411a4ee3a042752a9718",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "sensio/framework-extra-bundle": "~3.0",
+                "symfony/framework-bundle": "~2.6",
+                "symfony/monolog-bundle": "~2.6",
+                "symfony/symfony": "2.6.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "SumoCoders\\FrameworkExampleBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tijs Verkoyen",
+                    "email": "tijs@sumocoders.be"
+                }
+            ],
+            "description": "Example bundle for our mini-framework",
+            "keywords": [
+                "SumoCoders",
+                "example"
+            ],
+            "time": "2015-05-15 11:23:37"
         },
         {
             "name": "sumocoders/framework-search-bundle",
