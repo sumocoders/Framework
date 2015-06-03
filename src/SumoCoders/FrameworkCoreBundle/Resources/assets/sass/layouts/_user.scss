@@ -39,11 +39,12 @@
       }
 
       .input-group-addon {
-        background-color: $gray-lighter;
+        background-color: $white;
         background-position: center center;
 
         &.icon-user,
         &.icon-lock {
+          border: 1px solid $gray-light;
           color: $gray-light;
           font-size: 24px;
           line-height: 44px;
@@ -59,7 +60,7 @@
       }
 
       .form-control {
-        border: 2px solid $gray-lines;
+        border: 1px solid $gray-light;
         margin-left: -4px;
       }
     }
@@ -72,7 +73,6 @@
     }
 
     .btn {
-      margin-top: 46px;
       padding-left: 21px;
       padding-right: 21px;
       text-align: left;
