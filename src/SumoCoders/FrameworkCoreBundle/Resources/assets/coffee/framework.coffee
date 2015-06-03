@@ -34,10 +34,10 @@ class DefaultObject
 class Framework extends DefaultObject
   @events
     # toggle menu on full size
-    '#navbar .nav li a' : click : 'toggleSubNavigation'
+    #'#navbar .nav li a' : click : 'toggleSubNavigation'
 
     # togle menu on ipad-size
-    '#toggleTabletNavbar' : click : 'toggleMediumMenu'
+    #'#toggleTabletNavbar' : click : 'toggleMediumMenu'
 
     # toggle menu on iphone-size
     '#toggleMenu' : click : 'toggleSmallMenu'
@@ -65,9 +65,7 @@ class Framework extends DefaultObject
 
     # search bar
     'a.toggle-searchbar': click : 'toggleSearchBar'
-    '.form-control' :
-      keypress : 'hideLabelD'
-      keyup : 'hideLabel'
+    
 
   @onDomReady [
     '_initAjax'
@@ -84,7 +82,6 @@ class Framework extends DefaultObject
     '_calculateActionsWidths'
     'setContentHeight'
   ]
-
 
   _initAjax: ->
     # set some defaults for AJAX-request
@@ -230,15 +227,6 @@ class Framework extends DefaultObject
     $('.search-box').toggleClass('open')
     $('input[name=q]').focus();
 
-  hideLabel: ->
-    if $(this).val()
-      $('.search-form').addClass('filled')
-    else
-      $('.search-form').removeClass('filled')
-
-  hideLabelD : ->
-    $('.search-form').addClass('filled')
-
   _calculateActionsWidths: ->
     $('.actions li a, .actions li button').each(->
       $this = $(@)
@@ -320,7 +308,7 @@ class Framework extends DefaultObject
     else
       $parent.removeClass 'closed'
 
-    $this.next('ul').slideToggle(200, ->
+    $this.next('ul').slideToggle(2000, ->
       $parent.toggleClass('open')
     )
 
