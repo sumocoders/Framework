@@ -1,11 +1,12 @@
 .slider {
   border-color: $gray-lighter;
 
-  .ui-state-default, .ui-widget-content .ui-state-default {
+  .ui-state-default, 
+  .ui-widget-content .ui-state-default {
     background: $gray;
 
     &:focus {
-        outline: none;
+      outline: none;
     }
   }
 }

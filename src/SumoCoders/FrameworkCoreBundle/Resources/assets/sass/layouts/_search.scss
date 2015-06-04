@@ -7,11 +7,6 @@
     overflow: hidden;
     z-index: 666;
 
-    .form-control {
-      height: 42px;
-      margin-top: 2px;
-    }
-
     .form-control:focus {
       margin-top: -45px;
       transition: all 600ms;
@@ -28,6 +23,8 @@
       font-family: $font-family-sans-serif;
       font-style: normal;
       font-weight: normal;
+      height: 42px;
+      margin-top: 2px;
       width: 85%;
     }
 
@@ -117,7 +114,7 @@
 
       .controls .btn {
         padding: 11px 20px;
-        width: auto ;
+        width: auto;
       }
     }
   }

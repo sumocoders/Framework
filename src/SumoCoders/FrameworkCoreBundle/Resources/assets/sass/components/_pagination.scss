@@ -1,20 +1,20 @@
 .pagination {
 
   li a {
-    border-top: none;
-    border-bottom: none;
+    border-bottom: 0;
+    border-top: 0;
   }
 
   li:first-child > a {
     border-bottom-left-radius: 0;
+    border-left: 0;
     border-top-left-radius: 0;
-    border-left: none;
   }
 
   li:last-child > a {
     border-bottom-right-radius: 0;
+    border-right: 0;
     border-top-right-radius: 0;
-    border-right: none;
   }
 }
 
