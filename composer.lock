@@ -2101,12 +2101,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
-                "reference": "a98be147dfdf2f9511b53984f122e7c999ff461c"
+                "reference": "b4788b48b9d3fcbbd195a2229469b6bff01f188c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/a98be147dfdf2f9511b53984f122e7c999ff461c",
-                "reference": "a98be147dfdf2f9511b53984f122e7c999ff461c",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/b4788b48b9d3fcbbd195a2229469b6bff01f188c",
+                "reference": "b4788b48b9d3fcbbd195a2229469b6bff01f188c",
                 "shasum": ""
             },
             "require": {
@@ -2140,7 +2140,7 @@
                 "SumoCoders",
                 "example"
             ],
-            "time": "2015-06-03 13:46:46"
+            "time": "2015-06-04 12:20:29"
         },
         {
             "name": "sumocoders/framework-search-bundle",
