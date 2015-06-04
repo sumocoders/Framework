@@ -2,7 +2,7 @@
     {% if 'checkbox' not in block_prefixes or widget_checkbox_label in ['label', 'both'] %}
             {% if label is not sameas(false) %}
                 {% if label is empty %}
-                    {% set label = name|humanize %}
+                    {% set label = id %}
                 {% endif %}
                 {% if not compound %}
                     {% set label_attr = label_attr|merge({'for': id}) %}
@@ -13,7 +13,7 @@
                 {% endif %}
                 {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ " " ~ label_attr_class ~ (required ? ' required' : ' optional') }) %}
                 <label{% for attrname,attrvalue in label_attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
-                    {{ toTranslation(id)|trans({}, translation_domain)|capitalize }}{{- block('label_asterisk') }}
+                    {{ toTranslation(label)|trans({}, translation_domain)|capitalize }}{{- block('label_asterisk') }}
                     {% if 'collection' in form.vars.block_prefixes and widget_add_btn|default(null) and form.vars.allow_add == true %}
                         {{ block('form_widget_add_btn') }}
                     {% endif %}
