@@ -1,17 +1,20 @@
 class Charts extends DefaultObject
   @events
   #    '#element' : event : 'functionName'
-    #'a' : click : 'test'
 
   @onDomReady [
 #    'functionName'
-    'initLineChart'
-    'initBarChart'
-    'initRadarChart'
-    'initPolarAreaChart'
-    'initPieChart'
-    'initDoughnutChart'
+    'initCharts'
   ]
+
+  initCharts: ->
+    if $('.chart').length > 0
+      @initLineChart()
+      @initBarChart()
+      @initRadarChart()
+      @initPolarAreaChart()
+      @initPieChart()
+      @initDoughnutChart()
 
   initLineChart: ->
     data = {
