@@ -1,10 +1,14 @@
 .logo {
-  background-color: $brand-primary;
   background-position: center center;
-  background-size: 100px;
+  background-size: 100%;
   color: $white;
   display: block;
-  min-height: 60px;
+  min-height: 120px;
+}
+
+.wrapper-brand {
+  background-color: $brand-primary;
+  padding: 20px;
 }
 
 .navbar {
