@@ -305,10 +305,7 @@ class Framework extends DefaultObject
     $this = $(e.currentTarget)
     $parent = $this.parent()
 
-    if $parent.hasClass 'open'
-      $parent.toggleClass 'closed'
-    else
-      $parent.removeClass 'closed'
+    $parent.toggleClass 'active'
 
     $this.next('ul').slideToggle(200, ->
       $parent.toggleClass('open')
