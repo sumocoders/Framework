@@ -4,7 +4,7 @@
   background-size: 100px;
   color: $white;
   display: block;
-  height: 60px;
+  min-height: 60px;
 }
 
 .navbar {
@@ -147,7 +147,7 @@
 
 @media (min-width: $screen-sm-min) {
   .logo {
-    height: 65px;
+
   }
   
   .main-menu {
