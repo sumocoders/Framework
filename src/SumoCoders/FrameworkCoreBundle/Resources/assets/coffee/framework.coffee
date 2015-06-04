@@ -35,16 +35,6 @@ window.DefaultObject = DefaultObject
 
 class Framework extends DefaultObject
   @events
-    # toggle menu on full size
-    #'#navbar .nav li a' : click : 'toggleSubNavigation'
-
-    # togle menu on ipad-size
-    #'#toggleTabletNavbar' : click : 'toggleMediumMenu'
-
-    # toggle menu on iphone-size
-    #'#toggleMenu' : click : 'toggleSmallMenu'
-    #'#content.open' : touchend : 'toggleSmallMenu'
-
     # show action-list on iphone-size
     '#main-menu-inner .dropdown-toggle' : click : 'toggleDropdown'
 
@@ -81,7 +71,6 @@ class Framework extends DefaultObject
     '_initDatepicker'
     '_initSlider'
     '_initSelect2'
-    '_calculateActionsWidths'
     'setContentHeight'
   ]
 
@@ -229,18 +218,6 @@ class Framework extends DefaultObject
     $('.search-box').toggleClass('open')
     $('input[name=q]').focus();
 
-  _calculateActionsWidths: ->
-    $('.actions li a, .actions li button').each(->
-      $this = $(@)
-      $this.attr('data-width', $this.width())
-      $this.width(0)
-      $this.hover(->
-        $this.width($this.data('width') + 20)
-      ,->
-        $this.width(-20)
-      )
-    )
-
   showLoadingBar: ->
     $('.header-title').addClass('progress')
     $('.header-title .header-title-bar').addClass('progress-bar progress-bar-striped active')
@@ -257,47 +234,6 @@ class Framework extends DefaultObject
       $('#toggleTabletNavbar, #navbar, #content, .alert').removeClass('subnav')
     else
       $('#toggleTabletNavbar, #navbar, #content, .alert').addClass('subnav')
-
-  toggleSubNavigation: (e) =>
-    @subNavOpen
-    $this = $(e.currentTarget)
-    $subNav = $this.next('ul')
-
-    if $subNav.length > 0
-      e.preventDefault()
-      # not open
-      if !@subNavOpen
-        $this.addClass('active')
-        $subNav.addClass('open').slideDown()
-        @_setClassesBasedOnSubNavigation()
-        @subNavOpen = true
-      else
-        # already open, so close
-        if $subNav.is('.open')
-          $this.removeClass('active')
-          $subNav.removeClass('open').slideUp()
-          @_setClassesBasedOnSubNavigation()
-          @subNavOpen = false
-
-        # replace the current subnavigation
-        else
-          $('#navbar .nav li a.active').removeClass('active')
-          $('.subNavigation.open').removeClass('open')
-          $this.addClass('active')
-          $subNav.addClass('open').slideDown()
-          @_setClassesBasedOnSubNavigation()
-      false
-
-  toggleMediumMenu: (e) ->
-    e.preventDefault()
-
-    $('#navbar').toggleClass('open')
-    $(e.currentTarget).toggleClass('open')
-
-  toggleSmallMenu: (e) ->
-    e.preventDefault()
-
-    $('#content').toggleClass('open')
 
   toggleDropdown: (e) ->
     e.preventDefault()
