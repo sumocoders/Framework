@@ -1,14 +1,14 @@
 .logo {
   background-position: center center;
-  background-size: 100%;
+  background-size: 35%;
   color: $white;
   display: block;
-  min-height: 120px;
+  min-height: 50px;
 }
 
 .wrapper-brand {
   background-color: $brand-primary;
-  padding: 20px;
+  padding: 5px;
 }
 
 .navbar {
@@ -86,10 +86,10 @@
     }
     
     .dropdown-menu {
-      position: relative;
-      top: auto;
       margin: 0;
       padding: 0;
+      position: relative;
+      top: auto;
 
       li a {
         color: $gray-light;
@@ -101,20 +101,20 @@
     }
 
     .icon-angle {
+      margin-top: -8px;
       position: absolute;
       right: 15px;
-      transition: 300ms;
       top: 50%;
-      margin-top: -8px;
       transform-origin: 4px 50%;
+      transition: 300ms;
     }
 
     .open {
 
       .dropdown-menu {
-        position: relative;
-        padding-top: 0;
         padding-bottom: 0;
+        padding-top: 0;
+        position: relative;
 
         .current .sub-menu-item, 
         li a:hover {
@@ -153,7 +153,12 @@
 
 @media (min-width: $screen-sm-min) {
   .logo {
+    background-size: 100%;
+    height: 120px;
+  }
 
+  .wrapper-brand {
+    padding: 20px;
   }
   
   .main-menu {
