@@ -2194,12 +2194,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "f97766e5de5614834af593c8a828b3694111ec55"
+                "reference": "7db3c0f3c61269d388002ec794ed8289a6920bb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/f97766e5de5614834af593c8a828b3694111ec55",
-                "reference": "f97766e5de5614834af593c8a828b3694111ec55",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/7db3c0f3c61269d388002ec794ed8289a6920bb9",
+                "reference": "7db3c0f3c61269d388002ec794ed8289a6920bb9",
                 "shasum": ""
             },
             "require": {
