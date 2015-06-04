@@ -89,20 +89,42 @@
       position: relative;
       top: auto;
       margin: 0;
-      padding: 0
+      padding: 0;
+
+      li a {
+        color: $gray-light;
+        font-style: normal;
+        font-weight: 600;
+        margin-left: 10px;
+        padding: 7px 20px;
+      }
     }
 
-    .icon-angle,
-    .closed .icon-angle,
-    .closed.open .icon-angle {
-      padding: 6px;
+    .icon-angle {
       position: absolute;
       right: 15px;
-      transform: rotate(0deg);
       transition: 300ms;
+      top: 50%;
+      margin-top: -8px;
+      transform-origin: 4px 50%;
     }
 
     .open {
+
+      .dropdown-menu {
+        position: relative;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .current .sub-menu-item, 
+        li a:hover {
+          background-color: $brand-primary;
+          color: $white;
+        }
+      }
+    }
+
+    .active {
 
       & > a,
       & > li,
@@ -118,26 +140,6 @@
         &:hover,
         &:focus {
           color: $gray;
-        }
-      }
-
-      .dropdown-menu {
-        position: relative;
-        padding-top: 0;
-        padding-bottom: 0;
-
-        .current .sub-menu-item, 
-        li a:hover {
-          background-color: $brand-primary;
-          color: $white;
-        }
-        
-        li a {
-          color: $gray-light;
-          font-style: normal;
-          font-weight: 600;
-          margin-left: 10px;
-          padding: 7px 20px;
         }
       }
 
@@ -187,7 +189,6 @@
       padding-right: 0;
 
       .dropdown-menu {
-        transition: all 1000ms ease;
 
         li a {
           padding: 7px 20px;
