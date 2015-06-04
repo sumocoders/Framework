@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "hash": "81ca0a5a5c490493a4491afce6926f76",
@@ -2149,12 +2149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "80ee6d0737621ccfcac736bc5b26128d8832d837"
+                "reference": "0fe6271b9310209f73ccf003f27a652b517b4e8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/80ee6d0737621ccfcac736bc5b26128d8832d837",
-                "reference": "80ee6d0737621ccfcac736bc5b26128d8832d837",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/0fe6271b9310209f73ccf003f27a652b517b4e8f",
+                "reference": "0fe6271b9310209f73ccf003f27a652b517b4e8f",
                 "shasum": ""
             },
             "require": {
