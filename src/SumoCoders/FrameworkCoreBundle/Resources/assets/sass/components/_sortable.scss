@@ -2,13 +2,13 @@
   cursor: move;
 
   .ui-state-default {
+    border: 1px solid $gray-lines;
     list-style: none;
     padding: 10px;
-    border: 1px solid $gray-lines;
   }
 
- .fa-th-large {
-   padding: 0 5px;
-   color: $gray-lines;
- }
+  .fa-th-large {
+    color: $gray-lines;
+    padding: 0 5px;
+  }
 }

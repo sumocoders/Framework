@@ -6,6 +6,8 @@
   &.reset_password {
 
     .logo {
+      background-color: $brand-primary;
+      background-size: 70%;
       border-radius: 50%;
       height: 150px;
       margin: 10% auto;
@@ -33,6 +35,7 @@
       .input-group-addon,
       .btn,
       .form-control {
+        color: $gray;
         display: inline-block;
         float: none;
         vertical-align: middle;

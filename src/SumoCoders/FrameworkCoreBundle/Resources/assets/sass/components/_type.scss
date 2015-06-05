@@ -29,7 +29,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #8d94ab;
+  color: $gray-light;
 }
 
 h1 {
@@ -37,7 +37,7 @@ h1 {
 }
 
 h2 {
-  color: #577385;
+  color: $gray;
 }
 
 h4 {
@@ -88,8 +88,5 @@ h4 {
   }
 }
 
-.text-info {
-  color: #6b798d;
-}
 
 
