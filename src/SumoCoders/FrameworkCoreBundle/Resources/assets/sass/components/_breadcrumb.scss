@@ -1,13 +1,11 @@
 .breadcrumb {
   border-radius: 0;
+  display: block;
+  float: left;
   font-style: normal;
   font-weight: 600;
   margin: 0;
-  overflow: hidden;
-  overflow-x: scroll;
   padding: 14px 19px 12px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   width: 100%;
 
   > li + li:before {
@@ -17,6 +15,7 @@
 
   li {
     padding: 0 4px;
+    display: inline;
 
     &:active {
       color: $breadcrumb-active-color;
@@ -33,11 +32,17 @@
   padding-right: 10px;
 }
 
+.touch .breadcrumb {
+  overflow-x: scroll;
+}
+
 @media (min-width: $screen-sm-min) {
 
   .main-header .breadcrumb {
     border-bottom: 0;
-    float: left;
+    overflow: hidden;
     padding: 17px 25px 13px 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
