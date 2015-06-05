@@ -1,6 +1,6 @@
 .logo {
   background-position: center center;
-  background-size: 35%;
+  background-size: auto 50px;
   color: $white;
   display: block;
   min-height: 50px;
@@ -153,8 +153,7 @@
 
 @media (min-width: $screen-sm-min) {
   .logo {
-    background-size: 100%;
-    height: 120px;
+    background-size: auto 30px;
   }
 
   .wrapper-brand {
