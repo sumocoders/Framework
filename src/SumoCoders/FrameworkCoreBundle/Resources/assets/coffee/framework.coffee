@@ -59,7 +59,7 @@ class Framework extends DefaultObject
     'a.toggle-searchbar': click : 'toggleSearchBar'
 
     #clickable table row
-    '.table tr': click : 'clickabkeTablerow'
+    '.table tr': click : 'clickableTablerow'
     
 
   @onDomReady [
@@ -75,6 +75,7 @@ class Framework extends DefaultObject
     '_initSlider'
     '_initSelect2'
   ]
+
 
   _initAjax: ->
     # set some defaults for AJAX-request
@@ -303,7 +304,7 @@ class Framework extends DefaultObject
       )
   false
 
-  clickabkeTablerow: ->
+  clickableTablerow: ->
     window.document.location = $('.action a').attr("href")
 
 window.Framework = Framework
