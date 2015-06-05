@@ -57,6 +57,9 @@ class Framework extends DefaultObject
 
     # search bar
     'a.toggle-searchbar': click : 'toggleSearchBar'
+
+    #clickable table row
+    '.table tr': click : 'clickabkeTablerow'
     
 
   @onDomReady [
@@ -140,6 +143,8 @@ class Framework extends DefaultObject
 
   _initSortable: ->
     $( '.sortable' ).sortable();
+    handle: 'button'
+    cancel: ''
 
   _initDisableSelection: ->
     $( '.sortable' ).disableSelection();
@@ -298,5 +303,7 @@ class Framework extends DefaultObject
       )
   false
 
+  clickabkeTablerow: ->
+    window.document.location = $('.action a').attr("href")
 
 window.Framework = Framework
