@@ -98,6 +98,8 @@ forms:
     buttons:
         new: add
         update: save
+        addItem: add
+        removeItem: remove
 
 header:
     navigation:

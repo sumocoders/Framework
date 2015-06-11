@@ -60,7 +60,7 @@ class Framework extends DefaultObject
 
     #clickable table row
     '.table tr': click : 'clickableTablerow'
-    
+
 
   @onDomReady [
     '_initAjax'
@@ -142,6 +142,7 @@ class Framework extends DefaultObject
           .addClass('error')
     )
 
+<<<<<<< HEAD
   _initSortable: ->
     $( '.sortable' ).sortable();
     handle: 'button'

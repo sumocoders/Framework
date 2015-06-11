@@ -63,17 +63,22 @@ class FrameworkExtension extends \Twig_Extension
         $stringToConvert = trim($stringToConvert);
         $stringToConvert = mb_strtolower($stringToConvert);
         $stringToConvert = str_replace(
-            array('_', '-', ' ', 'bundle', 'framework'),
+            array('_', '-', ' ', 'framework'),
             '.',
             $stringToConvert
         );
+
+        // the first item will mostly be the prefix of the namespace
+        $stringToConvert = preg_replace('/(.*)\.(.*)bundle/U', '$1$2', $stringToConvert);
+        $stringToConvert = str_replace('bundle', '', $stringToConvert);
 
         if (substr($stringToConvert, 0, 11) == 'sumocoders.') {
             $stringToConvert = substr($stringToConvert, 11);
         }
 
-        // remove numbers if they appear at the end
+        // remove numbers if they appear at the end or as single items
         $stringToConvert = preg_replace('/\d+$/', '', $stringToConvert);
+        $stringToConvert = preg_replace('/\.\d*\./', '.', $stringToConvert);
 
         $stringToConvert = preg_replace('/\.+/', '.', $stringToConvert);
 

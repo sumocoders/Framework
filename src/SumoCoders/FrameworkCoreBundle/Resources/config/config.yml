@@ -77,6 +77,21 @@ mopa_bootstrap:
         icon: info
       popover:
         icon: info
+    collection:
+      widget_add_btn:
+        label: forms.buttons.addItem
+        icon: plus
+        attr:
+          class: btn btn-success btn-sm
+      widget_remove_btn:
+        label: forms.buttons.removeItem
+        icon: trash
+        wrapper_div:
+          class: col-sm-1 pull-right
+        horizontal_wrapper_div:
+          class: false
+        attr:
+          class: btn btn-danger
   icons:
     icon_set: fontawesome4
 

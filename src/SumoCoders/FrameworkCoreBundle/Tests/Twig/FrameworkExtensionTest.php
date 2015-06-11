@@ -130,4 +130,28 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals('foo.bar', $this->frameworkExtension->convertToTranslation('foo.......bar'));
     }
+
+    public function testTranslationsWithNumbersAsSingleItems()
+    {
+        $this->assertEquals('f.o.o', $this->frameworkExtension->convertToTranslation('f_1_o_o'));
+    }
+
+    public function testIfFrameworkIsRemoved()
+    {
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('framework_foo'));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('framework_foo_framework'));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo_framework'));
+    }
+
+    public function testIfBundleIsCleaned()
+    {
+        $this->assertEquals(
+            'core.foo',
+            $this->frameworkExtension->convertToTranslation('SumoCoders_FrameworkCoreBundle_foo')
+        );
+        $this->assertEquals(
+            'namespacenameofthe.foo',
+            $this->frameworkExtension->convertToTranslation('Namespace_NameOfTheBundle_foo')
+        );
+    }
 }

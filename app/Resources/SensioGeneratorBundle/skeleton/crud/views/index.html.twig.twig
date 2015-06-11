@@ -34,7 +34,7 @@
             <tr>
                 {%- for field, metadata in fields %}
 
-                <th>{{ '{{ \'%s.%s.fields.%s\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower, entity|lower, field) }}</th>
+                <th>{{ '{{ \'%s.%s.%s\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower, entity|lower, field) }}</th>
 
                 {%- endfor %}
 

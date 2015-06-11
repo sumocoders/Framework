@@ -14,9 +14,6 @@
                 {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ " " ~ label_attr_class ~ (required ? ' required' : ' optional') }) %}
                 <label{% for attrname,attrvalue in label_attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
                     {{ toTranslation(label)|trans({}, translation_domain)|capitalize }}{{- block('label_asterisk') }}
-                    {% if 'collection' in form.vars.block_prefixes and widget_add_btn|default(null) and form.vars.allow_add == true %}
-                        {{ block('form_widget_add_btn') }}
-                    {% endif %}
                     {% if help_label %}
                         {{ block('help_label') }}
                     {% endif %}
@@ -181,3 +178,118 @@
         {% endif %}
     {% endspaceless %}
 {% endblock datetime_widget %}
+
+{% block collection_widget %}
+{% spaceless %}
+    {% if prototype is defined %}
+        {% set prototype_markup = form_row(prototype) %}
+        {% set data_prototype_name = form.vars.form.vars.prototype.vars.name|default('__name__') %}
+        {% set data_prototype_label = form.vars.form.vars.prototype.vars.label|default('__name__label__') %}
+        {% set widget_form_group_attr = widget_form_group_attr|merge({
+            'data-prototype': prototype_markup,
+            'data-prototype-name': data_prototype_name,
+            'data-prototype-label': data_prototype_label
+        })|merge(attr) %}
+    {% endif %}
+    {# Add row by default use attr.class to change#}
+	{% if 'collection' in form.vars.block_prefixes and attr.class is defined %}
+        {% set widget_form_group_attr = widget_form_group_attr|merge({'class': widget_form_group_attr.class|default('row') ~ ' ' ~ attr.class}) %}
+    {% endif %}
+    {# collection item adds class {form_id}_form-group  too #}
+    {% set widget_form_group_attr = widget_form_group_attr|merge({'id': 'collection' ~ id ~ '_form_group', 'class': widget_form_group_attr.class ~ ' collection-items ' ~ id ~ '_form_group'}) %}
+
+    <div {% for attrname,attrvalue in widget_form_group_attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
+        {# Add initial prototype form #}
+        {% if form.vars.value|length == 0 and prototype is defined %}
+            {% for name in prototype_names %}
+                {{ prototype_markup|replace({'__name__': name})|raw }}
+            {% endfor %}
+        {% endif %}
+        {{ block('form_widget') }}
+    </div>
+
+    {% if 'collection' in form.vars.block_prefixes and widget_add_btn|default(null) and form.vars.allow_add == true %}
+        {{ block('form_widget_add_btn') }}
+    {% endif %}
+
+{% endspaceless %}
+{% endblock collection_widget %}
+
+{% block form_widget_remove_btn %}
+    {% spaceless %}
+        {% if widget_remove_btn.wrapper_div.class is defined and widget_remove_btn.wrapper_div.class is not sameas(false) %}
+            <div class="{{ widget_remove_btn.wrapper_div.class }}">
+        {% endif %}
+        {% if widget_remove_btn.horizontal_wrapper_div.class is defined and widget_remove_btn.horizontal_wrapper_div.class is not sameas(false) %}
+         <div class="{{ widget_remove_btn.horizontal_wrapper_div.class }}">
+        {% endif %}
+        {% if widget_remove_btn|default(null) %}
+            {% set button_type = 'remove' %}
+            {% set button_values = widget_remove_btn %}
+
+            <a {% for attrname,attrvalue in button_values.attr %} {{attrname}}="{{attrvalue}}"{% endfor %} data-collection-{{ button_type }}-btn=".{{ form.vars['id'] }}_form_group"
+             {% if button_values.attr.title is not defined and button_values.label is defined %}
+                title="{{ button_values.label|trans({}, translation_domain) }}"
+             {% endif %}
+            >
+                {% if button_values.icon is not null %}
+                    {{ mopa_bootstrap_icon(button_values.icon, button_values.icon_inverted|default(false)) }}
+                {% endif %}
+                {% if button_values.label is defined %}
+                    <span class="hide">
+                        {{ button_values.label|trans({}, translation_domain) }}
+                    </span>
+                {% endif %}
+            </a>
+        {% endif %}
+        {% if widget_remove_btn.horizontal_wrapper_div.class is defined and widget_remove_btn.horizontal_wrapper_div.class is not sameas(false) %}
+            </div>
+        {% endif %}
+        {% if widget_remove_btn.wrapper_div.class is defined and widget_remove_btn.wrapper_div.class is not sameas(false) %}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_widget_remove_btn %}
+
+{% block form_row %}
+    {% spaceless %}
+        {% if 'tab' in form.vars.block_prefixes %}
+            {{ block('form_tab') }}
+        {% elseif embed_form is sameas(true) %}
+            {{ widget_prefix|trans({}, translation_domain)|raw }} {{ form_widget(form, _context) }} {{ widget_suffix|trans({}, translation_domain)|raw }}
+        {% else %}
+            {{ block('widget_form_group_start') }}
+
+            {% set show_horizontal_wrapper = horizontal and not (form.parent is not null and 'collection' in form.parent.vars.block_prefixes and form.parent.vars.horizontal_wrap_children is sameas(false)) %}
+
+            {% if form.parent is not null and 'collection' in form.parent.vars.block_prefixes %}
+                {% set horizontal_input_wrapper_class = 'col-sm-11' %}
+                {% set show_horizontal_wrapper = true %}
+            {% endif %}
+
+            {% if horizontal and not label_render %}
+                {% set horizontal_input_wrapper_class = horizontal_input_wrapper_class ~ ' ' ~ horizontal_label_offset_class %}
+            {% endif %}
+
+            {% if show_horizontal_wrapper %}
+                <div class="{{ horizontal_input_wrapper_class }}">
+            {% endif %}
+
+            {{ widget_prefix|trans({}, translation_domain)|raw }} {{ form_widget(form, _context) }} {{ widget_suffix|trans({}, translation_domain)|raw }}
+
+            {% set type = type|default('text') %}
+            {% if type != 'hidden' %}
+                {{ block('form_message') }}
+            {% endif %}
+
+            {% if show_horizontal_wrapper %}
+                </div>
+            {% endif %}
+
+            {% if form.parent is not null and 'collection' in form.parent.vars.block_prefixes and widget_remove_btn|default(null) and form.parent.vars.allow_delete|default(false) %}
+                {{ block('form_widget_remove_btn') }}
+            {% endif -%}
+            {{ block('widget_form_group_end') }}
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_row %}

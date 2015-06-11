@@ -8,7 +8,7 @@ form .btn {
 }
 
 .has-error {
-  
+
   .form-control {
     background: $white;
     border-color: $state-danger-bg;
@@ -31,7 +31,7 @@ form .btn {
 }
 
 .has-warning {
-  
+
   .form-control {
     border-color: $state-warning-bg;
     box-shadow: none;
@@ -104,4 +104,12 @@ form .btn {
 
 .select2 {
   width: 100%;
+}
+
+.datetime-widget select[size], .time-widget select[size] {
+  height: 34px;
+}
+
+.date-widget .faked-button {
+  color: #555;
 }
