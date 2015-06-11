@@ -47,7 +47,7 @@
     <dl class="dl-horizontal">
         {%- for field, metadata in fields %}
 
-        <dt>{{ field|capitalize }}</dt>
+        <dt>{{ '{{ \'%s.%s.%s\'|trans|capitalize }}'|format(bundle|replace({'Bundle': ''})|lower, entity|lower, field) }}</dt>
         {%- if metadata.type in ['date', 'datetime'] %}
 
         <dd>{{ '{{ ' ~ niceEntityName ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}' }}</dd>
