@@ -2,6 +2,11 @@
   border: 0;
   transition: all 150ms;
 
+  &.btn-default {
+    border-style: solid !important;
+    border-width: 1px !important;
+  }
+
   &.icon-arrow-white-right {
     background-position: right 20px center;
   }
