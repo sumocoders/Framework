@@ -123,7 +123,7 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('fooBundle'));
         $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo.frameworkBundle'));
         $this->assertEquals('foo.bar', $this->frameworkExtension->convertToTranslation('FooBundle.bar'));
-        $this->assertEquals('foo.bar', $this->frameworkExtension->convertToTranslation('FooBundle.barBundle'));
+        $this->assertEquals('foobar', $this->frameworkExtension->convertToTranslation('Foo.barBundle'));
     }
 
     public function testTranslationWithDotsInTheString()

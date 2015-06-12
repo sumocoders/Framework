@@ -90,7 +90,7 @@ class MenuBuilder
 
             $orderNumber = $menuItem->getExtra('orderNumber');
 
-            if (null !== $orderNumber) {
+            if ($orderNumber !== null) {
                 if (!isset($menuOrderArray[$orderNumber])) {
                     $menuOrderArray[$orderNumber] = $menuItem->getName();
                 } else {

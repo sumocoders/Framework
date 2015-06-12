@@ -89,7 +89,7 @@ class Framework extends DefaultObject
       window.location.reload() if XMLHttpRequest.status == 403
 
       if ajaxOptions?
-        textStatus = Locale.err('GeneralError')
+        textStatus = Locale.err 'GeneralError'
 
         if XMLHttpRequest.responseText?
           json = $.parseJSON(XMLHttpRequest.responseText)
@@ -113,10 +113,10 @@ class Framework extends DefaultObject
 
     # show spinners
     $(document).ajaxStart(() =>
-      $.event.trigger('ajax_start')
+      $.event.trigger 'ajax_start'
     )
     $(document).ajaxStop(() =>
-      $.event.trigger('ajax_stop')
+      $.event.trigger 'ajax_stop'
     )
 
   _initForm: ->
@@ -128,11 +128,11 @@ class Framework extends DefaultObject
 
   _initTabs: ->
     url = document.location.toString()
-    if url.match('#')
+    if url.match '#'
       anchor = '#' + url.split('#')[1]
 
       if $('.nav-tabs a[href='+anchor+']').length > 0
-        $('.nav-tabs a[href='+anchor+']').tab('show')
+        $('.nav-tabs a[href='+anchor+']').tab 'show'
 
     $('.tab-content .tab-pane').each(() ->
       if($(this).find('.error').length > 0)
@@ -142,12 +142,12 @@ class Framework extends DefaultObject
     )
 
   _initSortable: ->
-    $( '.sortable' ).sortable();
+    $( '.sortable' ).sortable()
     handle: 'button'
     cancel: ''
 
   _initDisableSelection: ->
-    $( '.sortable' ).disableSelection();
+    $( '.sortable' ).disableSelection()
 
   _initDatepicker: ->
     $( '.datepicker' ).datepicker(
@@ -187,28 +187,28 @@ class Framework extends DefaultObject
       window.location.hash = '#'+ this.getAttribute('href').split('#')[1]
       $(window).scrollTop(scrolled)
 
-    $(this).tab('show')
+    $(this).tab 'show'
 
   toggleSearchBar: ->
-    $('.search-box').toggleClass('open')
-    $('input[name=q]').focus();
+    $('.search-box').toggleClass 'open'
+    $('input[name=q]').focus()
 
   showLoadingBar: ->
-    $('.header-title').addClass('progress')
-    $('.header-title .header-title-bar').addClass('progress-bar progress-bar-striped active')
+    $('.header-title').addClass 'progress'
+    $('.header-title .header-title-bar').addClass 'progress-bar progress-bar-striped active'
     return
 
   hideLoadingBar: ->
-    $('.header-title .header-title-bar').removeClass('active')
+    $('.header-title .header-title-bar').removeClass 'active'
     return
 
 # Menu methods
   _setClassesBasedOnSubNavigation: () =>
     # we can't use toggle class as we don't know what the current state is
     if($('#navbar .nav ul.open').length == 0)
-      $('#toggleTabletNavbar, #navbar, #content, .alert').removeClass('subnav')
+      $('#toggleTabletNavbar, #navbar, #content, .alert').removeClass 'subnav'
     else
-      $('#toggleTabletNavbar, #navbar, #content, .alert').addClass('subnav')
+      $('#toggleTabletNavbar, #navbar, #content, .alert').addClass 'subnav'
 
   toggleDropdown: (e) ->
     e.preventDefault()
@@ -219,15 +219,15 @@ class Framework extends DefaultObject
     $parent.toggleClass 'active'
 
     $this.next('ul').slideToggle(200, ->
-      $parent.toggleClass('open')
+      $parent.toggleClass 'open'
     )
 
 # Animated scroll methods
   scrollTo: (e) ->
     $anchor = $(e.currentTarget)
-    href = $anchor.attr('href')
-    url = href.substr(0, href.indexOf('#'))
-    hash = href.substr(href.indexOf('#'))
+    href = $anchor.attr 'href'
+    url = href.substr(0, href.indexOf '#')
+    hash = href.substr(href.indexOf '#')
 
     # check if we have an url, and if it is on the current page and
     # the element exists
@@ -252,8 +252,8 @@ class Framework extends DefaultObject
     e.preventDefault()
     $this = $(e.currentTarget)
 
-    $('#confirmModalOk').attr('href', $this.attr('href'))
-    $('#confirmModalMessage').html($this.data('message'))
+    $('#confirmModalOk').attr('href', $this.attr 'href')
+    $('#confirmModalMessage').html($this.data 'message')
     $('#confirmModal').modal('show')
   false
 
@@ -261,14 +261,14 @@ class Framework extends DefaultObject
     e.preventDefault()
     $this = $(e.currentTarget)
     $modal = $('#confirmModal')
-    $form = $this.parents('form');
+    $form = $this.parents 'form'
 
-    $('#confirmModalMessage').html($this.data('message'))
+    $('#confirmModalMessage').html($this.data 'message')
     $modal.on('click', '#confirmModalOk', (e) =>
       e.preventDefault()
       $form.submit()
     )
-      .modal('show')
+      .modal 'show'
       .on('hide', (e) =>
         $modal.off('click', '#confirmModalOk')
       )

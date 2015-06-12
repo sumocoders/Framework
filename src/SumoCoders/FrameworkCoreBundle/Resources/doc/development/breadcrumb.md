@@ -19,7 +19,7 @@ In your controller you should use the code below:
 $breadCrumbBuilder = $this->get('framework.breadcrumb_builder');
 
 // disable the default behaviour
-$breadCrumbBuilder->setDontExtractFromTheRequest();
+$breadCrumbBuilder->dontExtractFromTheRequest();
 
 // add a full item ourself
 $factory = $this->get('knp_menu.factory');

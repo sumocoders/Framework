@@ -20,7 +20,7 @@ class SearchForm extends Form
         $.ajax
           type: 'GET'
           url: route
-          data: { q: request.term }
+          data: { term: request.term }
           success: (data) ->
             items = []
             for value in data.data.results

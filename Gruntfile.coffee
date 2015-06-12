@@ -183,6 +183,7 @@ module.exports = (grunt) ->
         filter: 'isFile'
         src:  [
           'src/**/Resources/assets/coffee/**'
+          'vendor/sumocoders/**/Resources/assets/coffee/**'
         ]
         rename: (dest, src) ->
           chunks = src.split('/')
@@ -258,6 +259,7 @@ module.exports = (grunt) ->
         files: [
           '<%= assetsPath %>/coffee/**'
           'src/**/Resources/assets/coffee/**'
+          'vendor/sumocoders/**/Resources/assets/coffee/**'
         ]
         tasks: [
           'sync:coffee'

@@ -82,7 +82,7 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
     public function testIfBreadCrumbIsEmptyWhenDontExtraFromTheRequestIsEnabled()
     {
         $this->createSimpleBreadCrumb();
-        $this->breadCrumbBuilder->setDontExtractFromTheRequest();
+        $this->breadCrumbBuilder->dontExtractFromTheRequest();
 
         $request = $this->getMock('\Symfony\Component\HttpFoundation\Request');
         $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($request);
@@ -95,7 +95,7 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
         $this->createSimpleBreadCrumb();
         $request = $this->getMock('\Symfony\Component\HttpFoundation\Request');
 
-        $this->breadCrumbBuilder->setDontExtractFromTheRequest();
+        $this->breadCrumbBuilder->dontExtractFromTheRequest();
         $this->breadCrumbBuilder->addSimpleItem('first', 'http://www.example.org');
         $this->breadCrumbBuilder->addSimpleItem('last', 'http://www.example.org');
 
@@ -114,7 +114,7 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
         $this->createSimpleBreadCrumb();
 
         $this->breadCrumbBuilder->addSimpleItem('first', 'http://www.example.org');
-        $this->breadCrumbBuilder->setItems(array());
+        $this->breadCrumbBuilder->overwriteItems(array());
 
         $request = $this->getMock('\Symfony\Component\HttpFoundation\Request');
         $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($request);
@@ -134,7 +134,7 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
         $last = new MenuItem('last', $this->getFactory(null));
         $this->breadCrumbBuilder->addItem($last);
 
-        $this->breadCrumbBuilder->setDontExtractFromTheRequest();
+        $this->breadCrumbBuilder->dontExtractFromTheRequest();
         $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($request);
 
         $this->assertEquals(2, count($breadCrumb->getChildren()));

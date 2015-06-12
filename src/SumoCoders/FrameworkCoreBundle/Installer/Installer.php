@@ -19,7 +19,7 @@ class Installer
      */
     public function getDecoratedMessage($message, $type = null, $isDecorated = true)
     {
-        if ($isDecorated && null !== $type) {
+        if ($isDecorated && $type !== null) {
             $message = '<' . $type . '>' . $message . '</' . $type . '>';
         }
 
@@ -35,7 +35,7 @@ class Installer
     public function ask(IOInterface $io, $question, $default = null)
     {
         $question = $this->getDecoratedMessage($question, 'question', $io->isDecorated()) . ' ';
-        if (null !== $default) {
+        if ($default !== null) {
             $question .= '(' . $this->getDecoratedMessage($default, 'comment', $io->isDecorated()) . ')';
         }
         $question .= ': ';
@@ -96,7 +96,7 @@ class Installer
     {
         $content = file_get_contents($path);
 
-        if (null !== $config) {
+        if ($config !== null) {
             foreach ($config as $variableName => $value) {
                 $content = $this->replaceSetRubyVar($variableName, $value, $content);
             }

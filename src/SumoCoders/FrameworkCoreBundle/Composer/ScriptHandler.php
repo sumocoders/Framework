@@ -40,7 +40,8 @@ class ScriptHandler
             $config['database_user'] = $config['database_name'];
 
             if ($information['is_local']) {
-                $config['database_host'] = '10.11.12.13';    // this is the ip-address of our Vagrantbox
+                // this is the ip-address of our Vagrantbox
+                $config['database_host'] = '10.11.12.13';
                 $config['database_user'] = 'root';
                 $config['database_password'] = 'root';
             }

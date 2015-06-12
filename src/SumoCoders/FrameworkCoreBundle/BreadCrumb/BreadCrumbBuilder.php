@@ -13,7 +13,7 @@ final class BreadCrumbBuilder
     /**
      * @var bool
      */
-    private $dontExtractFromTheRoute = false;
+    private $extractFromRoute = true;
 
     /**
      * @var EventDispatcherInterface
@@ -41,109 +41,6 @@ final class BreadCrumbBuilder
     }
 
     /**
-     * Add items into the breadcrumb based on a given child.
-     *
-     * @param MenuItem $item
-     * @param string   $locale
-     */
-    protected function addItemsBasedOnTheChild(MenuItem $item, $locale)
-    {
-        if (null !== $item) {
-            $items = array();
-            $temporaryItem = $item;
-
-            while (null !== $temporaryItem->getParent()) {
-                $breadCrumb = new MenuItem($temporaryItem->getName(), $this->factory);
-                $breadCrumb->setLabel($temporaryItem->getLabel());
-
-                if ('#' !== $temporaryItem->getUri() && null !== $temporaryItem->getUri()) {
-                    $breadCrumb->setUri($temporaryItem->getUri());
-                }
-                $items[] = $breadCrumb;
-
-                $temporaryItem = $temporaryItem->getParent();
-            }
-
-            $home = new MenuItem('core.menu.home', $this->factory);
-            $home->setLabel('core.menu.home');
-            $home->setUri('/' . $locale);
-            $this->items[] = $home;
-
-            $this->items = array_merge($this->items, array_reverse($items));
-        }
-    }
-
-    /**
-     * Grab the menu
-     *
-     * This method will use the ConfigureMenuEvent to get all the items
-     *
-     * @return \Knp\Menu\ItemInterface
-     */
-    protected function getTheMenu()
-    {
-        $menu = $this->factory->createItem('root');
-
-        $this->eventDispatcher->dispatch(
-            ConfigureMenuEvent::EVENT_NAME,
-            new ConfigureMenuEvent(
-                $this->factory,
-                $menu
-            )
-        );
-
-        return $menu;
-    }
-
-    /**
-     * Find an item in the menu based on its URI
-     *
-     * @param MenuItem $menuItem
-     * @param          $uri
-     * @return MenuItem|null
-     */
-    protected function findItemBasedOnUri(MenuItem $menuItem, $uri)
-    {
-        if ($uri === $menuItem->getUri()) {
-            return $menuItem;
-        }
-
-        if (!$menuItem->hasChildren()) {
-            return null;
-        }
-
-        foreach ($menuItem->getChildren() as $child) {
-            $item = $this->findItemBasedOnUri(
-                $child,
-                $uri
-            );
-
-            if (null !== $item) {
-                return $item;
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * Extract the items for the breadcrumb based on request
-     *
-     * @param Request $request
-     */
-    protected function extractItemsBasedOnTheRequest(Request $request)
-    {
-        if ($this->dontExtractFromTheRoute) {
-            return;
-        }
-
-        $this->extractItemsBasedOnUri(
-            $request->getPathInfo(),
-            $request->getLocale()
-        );
-    }
-
-    /**
      * @param Request $request
      * @return \Knp\Menu\ItemInterface
      */
@@ -167,12 +64,11 @@ final class BreadCrumbBuilder
     }
 
     /**
-     * @param bool $isCustom
      * @return BreadCrumbBuilder
      */
-    public function setDontExtractFromTheRequest($isCustom = true)
+    public function dontExtractFromTheRequest()
     {
-        $this->dontExtractFromTheRoute = $isCustom;
+        $this->extractFromRoute = false;
 
         return $this;
     }
@@ -186,14 +82,14 @@ final class BreadCrumbBuilder
      */
     public function extractItemsBasedOnUri($uri, $locale)
     {
-        $this->setDontExtractFromTheRequest(true);
+        $this->dontExtractFromTheRequest();
 
         $item = $this->findItemBasedOnUri(
             $this->getTheMenu(),
             $uri
         );
 
-        if (null !== $item) {
+        if ($item !== null) {
             $this->addItemsBasedOnTheChild($item, $locale);
         }
 
@@ -224,7 +120,7 @@ final class BreadCrumbBuilder
     {
         $item = new MenuItem($label, $this->factory);
         $item->setLabel($label);
-        if (null !== $uri) {
+        if ($uri !== null) {
             $item->setUri($uri);
         }
 
@@ -239,10 +135,113 @@ final class BreadCrumbBuilder
      * @param array $items
      * @return BreadCrumbBuilder
      */
-    public function setItems(array $items)
+    public function overwriteItems(array $items)
     {
         $this->items = $items;
 
         return $this;
+    }
+
+    /**
+     * Add items into the breadcrumb based on a given child.
+     *
+     * @param MenuItem $item
+     * @param string   $locale
+     */
+    private function addItemsBasedOnTheChild(MenuItem $item, $locale)
+    {
+        if ($item !== null) {
+            $items = array();
+            $temporaryItem = $item;
+
+            while ($temporaryItem->getParent() !== null) {
+                $breadCrumb = new MenuItem($temporaryItem->getName(), $this->factory);
+                $breadCrumb->setLabel($temporaryItem->getLabel());
+
+                if ($temporaryItem->getUri() !== '#' && $temporaryItem->getUri() !== null) {
+                    $breadCrumb->setUri($temporaryItem->getUri());
+                }
+                $items[] = $breadCrumb;
+
+                $temporaryItem = $temporaryItem->getParent();
+            }
+
+            $home = new MenuItem('core.menu.home', $this->factory);
+            $home->setLabel('core.menu.home');
+            $home->setUri('/' . $locale);
+            $this->items[] = $home;
+
+            $this->items = array_merge($this->items, array_reverse($items));
+        }
+    }
+
+    /**
+     * Grab the menu
+     *
+     * This method will use the ConfigureMenuEvent to get all the items
+     *
+     * @return \Knp\Menu\ItemInterface
+     */
+    private function getTheMenu()
+    {
+        $menu = $this->factory->createItem('root');
+
+        $this->eventDispatcher->dispatch(
+            ConfigureMenuEvent::EVENT_NAME,
+            new ConfigureMenuEvent(
+                $this->factory,
+                $menu
+            )
+        );
+
+        return $menu;
+    }
+
+    /**
+     * Find an item in the menu based on its URI
+     *
+     * @param MenuItem $menuItem
+     * @param          $uri
+     * @return MenuItem|null
+     */
+    private function findItemBasedOnUri(MenuItem $menuItem, $uri)
+    {
+        if ($uri === $menuItem->getUri()) {
+            return $menuItem;
+        }
+
+        if (!$menuItem->hasChildren()) {
+            return null;
+        }
+
+        foreach ($menuItem->getChildren() as $child) {
+            $item = $this->findItemBasedOnUri(
+                $child,
+                $uri
+            );
+
+            if ($item !== null) {
+                return $item;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Extract the items for the breadcrumb based on request
+     *
+     * @param Request $request
+     */
+    private function extractItemsBasedOnTheRequest(Request $request)
+    {
+        if (!$this->extractFromRoute) {
+            return;
+        }
+
+        $this->extractItemsBasedOnUri(
+            $request->getPathInfo(),
+            $request->getLocale()
+        );
     }
 }

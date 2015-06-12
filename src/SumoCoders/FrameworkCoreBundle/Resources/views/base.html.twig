@@ -70,7 +70,6 @@
             'assets/js/frameworkcorebundle.framework.js'
             'assets/js/frameworkcorebundle.framework.form.search.js'
             'assets/js/frameworkcorebundle.app.js'
-            'assets/js/frameworkcorebundle.framework.charts.js'
             output='js/app.js'
         %}
             <script src="{{ asset_url }}"></script>
@@ -122,7 +121,7 @@
                         <div class="controls">
                           <div class="search-form">
                             <label for="searchQuery" class="control-label"> {{ 'search.forms.placeholders.term'|trans|capitalize }} </label>
-                            <input id="searchQuery" name="q" type="search" placeholder="Zoek naar ..." class="form-control">
+                            <input id="searchQuery" name="term" type="search" placeholder="Zoek naar ..." class="form-control">
                           </div>
                           <a class="btn fa fa-search toggle-searchbar" href="#" role="button"> </a>
                           <button type="submit" class="btn fa fa-search submit-searchbar">

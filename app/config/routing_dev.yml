@@ -17,3 +17,7 @@ _errors:
 
 _main:
     resource: routing.yml
+
+sumo_coders_example_bundle:
+  resource: "@SumoCodersFrameworkExampleBundle/Resources/config/routing.yml"
+  prefix: /example
