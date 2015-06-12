@@ -2103,12 +2103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
-                "reference": "b4788b48b9d3fcbbd195a2229469b6bff01f188c"
+                "reference": "4af08513b75005853ad265d4c61c55771c65ba44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/7fc05d86451bb5c30824df0b47fffe799e82861f",
-                "reference": "b4788b48b9d3fcbbd195a2229469b6bff01f188c",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/4af08513b75005853ad265d4c61c55771c65ba44",
+                "reference": "4af08513b75005853ad265d4c61c55771c65ba44",
                 "shasum": ""
             },
             "require": {
@@ -2142,7 +2142,7 @@
                 "SumoCoders",
                 "example"
             ],
-            "time": "2015-06-04 12:20:29"
+            "time": "2015-06-12 07:25:13"
         },
         {
             "name": "sumocoders/framework-search-bundle",
@@ -2151,12 +2151,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "5914963d4900f83385935e670a0f7418a2dd9f23"
+                "reference": "bf0272a5d200db2495fe0346d2a305780fbcb762"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/5914963d4900f83385935e670a0f7418a2dd9f23",
-                "reference": "5914963d4900f83385935e670a0f7418a2dd9f23",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/bf0272a5d200db2495fe0346d2a305780fbcb762",
+                "reference": "bf0272a5d200db2495fe0346d2a305780fbcb762",
                 "shasum": ""
             },
             "require": {
@@ -2187,7 +2187,7 @@
                 "SumoCoders",
                 "search"
             ],
-            "time": "2015-06-11 16:29:30"
+            "time": "2015-06-12 07:45:34"
         },
         {
             "name": "sumocoders/framework-user-bundle",
@@ -2196,12 +2196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "ba862bf3f0ca727d0237c0e6d64cf5cc2fbe2f52"
+                "reference": "9fd3e8d8e1da4f87ea20f1a84e1c7dde2fa465d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/d51c9cd5ed4069bdd931ce6995a003fc8fbcf8d0",
-                "reference": "ba862bf3f0ca727d0237c0e6d64cf5cc2fbe2f52",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/9fd3e8d8e1da4f87ea20f1a84e1c7dde2fa465d0",
+                "reference": "9fd3e8d8e1da4f87ea20f1a84e1c7dde2fa465d0",
                 "shasum": ""
             },
             "require": {
@@ -2233,7 +2233,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-06-11 16:25:59"
+            "time": "2015-06-12 07:41:40"
         },
         {
             "name": "swiftmailer/swiftmailer",
