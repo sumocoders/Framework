@@ -43,7 +43,10 @@ module.exports = (grunt) ->
       dev:
         options:
           outputStyle: 'expanded'
-          lineNumbers: true
+          sourceMap: true
+          sourceMapEmbed: true
+          sourceMapContents: true
+          outFile: '<%= webAssetsPath %>/css/style.css'
         files: [
           expand: true
           cwd: '<%= assetsPath %>/sass'
