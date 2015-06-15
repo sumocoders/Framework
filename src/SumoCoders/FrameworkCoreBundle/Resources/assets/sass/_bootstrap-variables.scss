@@ -22,7 +22,7 @@ $brand-default:         $white;
 $brand-primary:         #1fd2c5;
 $brand-success:         #20c664;
 $brand-info:            #6ac1e0;
-$brand-warning:         #8fb1b4;
+$brand-warning:         #eec733;
 $brand-danger:          #d83f1e;
 
 
@@ -176,8 +176,8 @@ $btn-info-bg:                    $brand-info;
 $btn-info-border:                $btn-info-bg;
 
 $btn-warning-color:              $white;
-$btn-warning-bg:                 #eec733;
-$btn-warning-border:             #eec733;
+$btn-warning-bg:                 $brand-warning;
+$btn-warning-border:             $brand-warning;
 
 $btn-danger-color:               $white;
 $btn-danger-bg:                  $brand-danger;
@@ -513,7 +513,7 @@ $state-info-bg:                  $brand-info;
 $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%);
 
 $state-warning-text:             $white;
-$state-warning-bg:               #eec733;
+$state-warning-bg:               $brand-warning;
 $state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%);
 
 $state-danger-text:              $white;
@@ -873,4 +873,3 @@ $page-header-border-color:    $gray-lighter;
 $dl-horizontal-offset:        $component-offset-horizontal;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter;
-
