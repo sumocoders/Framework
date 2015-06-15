@@ -116,6 +116,14 @@
     position: fixed;
     width: 100%;
     z-index: 99999;
+
+    .breadcrumnb {
+      border-bottom: 0;
+      overflow: hidden;
+      padding: 17px 25px 13px 18px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   .sub-nav {
