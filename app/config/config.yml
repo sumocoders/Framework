@@ -3,7 +3,3 @@ imports:
     - { resource: security.yml }
     - { resource: @SumoCodersFrameworkErrorBundle/Resources/config/config.yml }
     - { resource: @SumoCodersFrameworkCoreBundle/Resources/config/config.yml }
-
-# I18n Configuration
-jms_i18n_routing:
-  locales: %locales%
