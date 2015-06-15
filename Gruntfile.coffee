@@ -160,19 +160,20 @@ module.exports = (grunt) ->
           htmlDemo: false
           templateOptions:
             classPrefix: 'icon-'
+          engine: 'node'
 
     # Shell config
     shell:
       options:
         stdout: true
       clearCache:
-        command: 'app/console cache:clear'
+        command: 'php app/console cache:clear'
       asseticDump:
-        command: 'app/console assetic:dump'
+        command: 'php app/console assetic:dump'
       asseticWatch:
-        command: 'app/console assetic:watch'
+        command: 'php app/console assetic:watch'
       assetsInstall:
-        command: 'app/console assets:install'
+        command: 'php app/console assets:install'
 
     # Sync configuration
     sync:
