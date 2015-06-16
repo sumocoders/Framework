@@ -102,6 +102,15 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
+                'date_example9',
+                'date',
+                array(
+                    'widget' => 'single_text',
+                    'datepicker' => true,
+                    'required' => false,
+                )
+            )
+            ->add(
                 'datetime_example1',
                 'datetime',
                 array(
