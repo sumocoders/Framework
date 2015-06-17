@@ -196,10 +196,10 @@ $input-bg:                       $white;
 $input-bg-disabled:              $gray-lightest;
 
 //** Text color for `<input>`s
-$input-color:                    #8fa0b1;
+$input-color:                    $gray-light;
 $input-color-focus:              #37bdf6;
 //** `<input>` border color
-$input-border:                   #adc8d4;
+$input-border:                   $gray-lighter;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -211,7 +211,7 @@ $input-border-radius-large:      $border-radius-large;
 $input-border-radius-small:      $border-radius-small;
 
 //** Border color for inputs on focus
-$input-border-focus:             $brand-info;
+$input-border-focus:             $gray-light;
 
 //** Placeholder text color
 $input-color-placeholder:        lighten($input-color, 20%);
