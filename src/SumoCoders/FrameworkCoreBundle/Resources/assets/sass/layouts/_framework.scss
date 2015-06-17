@@ -1,9 +1,6 @@
-.header-title {
-
-  .progress-bar {
-    float: none;
-    width: auto;
-  }
+.header-title .progress-bar {
+  float: none;
+  width: auto;
 }
 
 .header-title-bar {
@@ -33,7 +30,8 @@
     font-style: normal;
     font-weight: 600;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: darken($brand-info, 15%);
     }
   }
@@ -45,14 +43,6 @@
 
 .main-content {
   padding: 40px 20px;
-
-  p a {
-    transition: all .5s ease 0s;
-
-    &:hover {
-      color: $gray-dark;
-    }
-  }
 }
 
 .backToTop {
