@@ -11,7 +11,7 @@ $bootstrap-sass-asset-helper: false;
 $gray-base:              #000;
 $gray-darker:            #2f4050;
 $gray-dark:              #38556e;
-$gray:                   #68839b;
+$gray:                   #5d7489;
 $gray-light:             #8fa0b1;
 $gray-lighter:           #bbcdde;
 $gray-lightest:          #f1f7f9;
@@ -33,7 +33,7 @@ $brand-danger:          #d83f1e;
 //** Background color for `<body>`.
 $body-bg:               $white;
 //** Global text color on `<body>`.
-$text-color:            $gray-light;
+$text-color:            $gray;
 
 //** Global textual link color.
 $link-color:            $text-color;
@@ -802,7 +802,7 @@ $breadcrumb-bg:                 $white;
 //** Breadcrumb text color
 $breadcrumb-color:              $gray;
 //** Text color of current page in the breadcrumb
-$breadcrumb-active-color:       $gray-light;
+$breadcrumb-active-color:       $gray-dark;
 //** Textual separator for between breadcrumb elements
 $breadcrumb-separator:          '>';
 
