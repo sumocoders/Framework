@@ -46,7 +46,7 @@ module.exports = (grunt) ->
           sourceMap: true
           sourceMapEmbed: true
           sourceMapContents: true
-          outFile: '<%= webAssetsPath %>/css/style.css'
+          outFile: '<%= webAssetsPath %>/css/'
         files: [
           expand: true
           cwd: '<%= assetsPath %>/sass'
@@ -101,6 +101,8 @@ module.exports = (grunt) ->
     autoprefixer:
       all:
         src: '<%= webAssetsPath %>/css/*.css'
+        options:
+          map: true
 
     # Clean configuration
     clean:
@@ -163,7 +165,7 @@ module.exports = (grunt) ->
           htmlDemo: false
           templateOptions:
             classPrefix: 'icon-'
-    
+
     # Shell config
     shell:
       options:
