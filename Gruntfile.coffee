@@ -319,6 +319,7 @@ module.exports = (grunt) ->
           'sync:sass'
           'sass:dev'
           'autoprefixer'
+          'shell:asseticDump'
         ]
         options:
           livereload: true
