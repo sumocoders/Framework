@@ -86,6 +86,8 @@ class Form
     )
 
   _dateFields: ->
+    return if (!$.isFunction($.fn.datepicker))
+
     $.datepicker.setDefaults @_dateFieldOptions
 
     $('[data-date-type] input[type="text"]', @form).each((i, el) =>
