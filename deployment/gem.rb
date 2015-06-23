@@ -192,6 +192,29 @@ namespace :framework do
     end
   end
 
+  namespace :redirect do
+    desc "Enable a redirect page, all traffic will be redirected to this page."
+    task :enable do
+      production_url = ask("What is the production url (include the protocol)?", "http://#{domain}")
+
+      capifony_pretty_print "--> Enabling the redirect page"
+
+      run %{
+        mkdir -p #{shared_path}/redirect/web &&
+        wget --quiet -O #{shared_path}/redirect/web/index.php http://static.sumocoders.be/redirect/index.phps &&
+        wget --quiet -O #{shared_path}/redirect/web/.htaccess http://static.sumocoders.be/redirect/htaccess
+      }
+
+      run "if [ -f #{shared_path}/redirect/web/index.php ]; then sed -i 's|<real-url>|#{production_url}|' #{shared_path}/redirect/web/index.php; fi"
+      run %{
+        rm -f #{current_path} &&
+        ln -s #{shared_path}/redirect #{current_path}
+      }
+
+      capifony_puts_ok
+    end
+  end
+
   namespace :assets do
     desc "run grunt build to compile the assets"
     task :precompile do
