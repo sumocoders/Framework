@@ -6,12 +6,13 @@
   &.reset_password {
 
     .logo {
-      background-color: $brand-primary;
-      background-size: 70%;
-      border-radius: 50%;
+      width: 150px;
       height: 150px;
       margin: 10% auto;
-      width: 150px;
+
+      border-radius: 50%;
+      background-color: $brand-primary;
+      background-size: 70%;
     }
 
     .control-group {
@@ -35,10 +36,12 @@
       .input-group-addon,
       .btn,
       .form-control {
-        color: $gray;
         display: inline-block;
         float: none;
+
         vertical-align: middle;
+
+        color: $gray;
       }
 
       .input-group-addon {
@@ -47,8 +50,10 @@
 
         &.icon-user,
         &.icon-lock {
-          border: 1px solid $input-border;
           color: $gray-light;
+          border: 1px solid $input-border;
+          border-right: 0;
+
           font-size: 24px;
           line-height: 44px;
         }
@@ -56,10 +61,11 @@
 
       .input-group-addon,
       .btn {
-        border: 0;
+        width: 13.75%;
         height: 46px;
         padding: 0 5px;
-        width: 13.75%;
+
+        border: 0;
       }
 
       .form-control {
@@ -75,8 +81,9 @@
     }
 
     .btn {
-      padding-left: 21px;
       padding-right: 21px;
+      padding-left: 21px;
+
       text-align: left;
 
       .icon {
@@ -86,7 +93,9 @@
 
     .alert {
       position: relative;
+
       padding: 0 25px;
+
       border-radius: 4px;
     }
 
@@ -100,7 +109,7 @@
   #users.login,
   #users.forgot_password,
   #users.reset_password {
-    margin: 0 auto;
     width: 400px;
+    margin: 0 auto 40px;
   }
 }
