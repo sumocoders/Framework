@@ -5,16 +5,6 @@
   &.forgot_password,
   &.reset_password {
 
-    .logo {
-      width: 150px;
-      height: 150px;
-      margin: 10% auto;
-
-      border-radius: 50%;
-      background-color: $brand-primary;
-      background-size: 70%;
-    }
-
     .control-group {
       margin-bottom: 27px;
 
@@ -36,12 +26,10 @@
       .input-group-addon,
       .btn,
       .form-control {
+        color: $gray;
         display: inline-block;
         float: none;
-
         vertical-align: middle;
-
-        color: $gray;
       }
 
       .input-group-addon {
@@ -93,9 +81,7 @@
 
     .alert {
       position: relative;
-
       padding: 0 25px;
-
       border-radius: 4px;
     }
 
