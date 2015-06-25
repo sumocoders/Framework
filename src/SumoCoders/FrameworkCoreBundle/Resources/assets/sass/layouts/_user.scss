@@ -38,10 +38,9 @@
 
         &.icon-user,
         &.icon-lock {
-          color: $gray-light;
           border: 1px solid $input-border;
           border-right: 0;
-
+          color: $gray-light;
           font-size: 24px;
           line-height: 44px;
         }
@@ -49,11 +48,10 @@
 
       .input-group-addon,
       .btn {
-        width: 13.75%;
+        border: 0;
         height: 46px;
         padding: 0 5px;
-
-        border: 0;
+        width: 13.75%;
       }
 
       .form-control {
@@ -69,19 +67,12 @@
     }
 
     .btn {
-      padding-right: 21px;
       padding-left: 21px;
-
+      padding-right: 21px;
       text-align: left;
-
-      .icon {
-        float: right;
-      }
     }
 
     .alert {
-      position: relative;
-      padding: 0 25px;
       border-radius: 4px;
     }
 
