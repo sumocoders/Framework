@@ -25,6 +25,7 @@
     "bootstrap-tagsinput": "~0.4.2",
     "select2-bootstrap-css": "~1.4.6",
     "select2": "~3.5.2",
-    "Chart.js": "~1.0.2"
+    "Chart.js": "~1.0.2",
+    "jquery-ui-touch-punch-improved": "~0.3.1"
   }
 }
