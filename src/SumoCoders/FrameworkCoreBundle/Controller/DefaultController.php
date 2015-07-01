@@ -17,7 +17,24 @@ class DefaultController extends Controller
      */
     public function generateLocaleAction(Request $request)
     {
-        $translations = $this->getAllTranslations($request->getLocale());
+        $translations = array();
+
+        // fetch the translations for the fallback languages
+        $fallbackLocales = $this->get('translator')->getFallbackLocales();
+        foreach (array_reverse($fallbackLocales) as $locale) {
+            if ($locale !== $request->getLocale()) {
+                $translations = array_merge(
+                    $translations,
+                    $this->getAllTranslations($locale)
+                );
+            }
+        }
+
+        // overwrite the translations that exist in our current languages
+        $translations = array_merge(
+            $translations,
+            $this->getAllTranslations($request->getLocale())
+        );
 
         // cache the result when we're in production environment
         if ($this->container->get('kernel')->getEnvironment() === 'prod') {
