@@ -5,15 +5,6 @@
   &.forgot_password,
   &.reset_password {
 
-    .logo {
-      background-color: $brand-primary;
-      background-size: 70%;
-      border-radius: 50%;
-      height: 150px;
-      margin: 10% auto;
-      width: 150px;
-    }
-
     .control-group {
       margin-bottom: 27px;
 
@@ -47,7 +38,8 @@
 
         &.icon-user,
         &.icon-lock {
-          border: 1px solid $gray-light;
+          border: 1px solid $input-border;
+          border-right: 0;
           color: $gray-light;
           font-size: 24px;
           line-height: 44px;
@@ -63,7 +55,6 @@
       }
 
       .form-control {
-        border: 1px solid $gray-light;
         margin-left: -4px;
       }
     }
@@ -79,15 +70,9 @@
       padding-left: 21px;
       padding-right: 21px;
       text-align: left;
-
-      .icon {
-        float: right;
-      }
     }
 
     .alert {
-      position: relative;
-      padding: 0 25px;
       border-radius: 4px;
     }
 
@@ -101,7 +86,7 @@
   #users.login,
   #users.forgot_password,
   #users.reset_password {
-    margin: 0 auto;
     width: 400px;
+    margin: 0 auto 40px;
   }
 }

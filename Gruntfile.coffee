@@ -43,7 +43,10 @@ module.exports = (grunt) ->
       dev:
         options:
           outputStyle: 'expanded'
-          lineNumbers: true
+          sourceMap: true
+          sourceMapEmbed: true
+          sourceMapContents: true
+          outFile: '<%= webAssetsPath %>/css/'
         files: [
           expand: true
           cwd: '<%= assetsPath %>/sass'
@@ -98,6 +101,8 @@ module.exports = (grunt) ->
     autoprefixer:
       all:
         src: '<%= webAssetsPath %>/css/*.css'
+        options:
+          map: true
 
     # Clean configuration
     clean:
@@ -317,6 +322,7 @@ module.exports = (grunt) ->
           'sync:sass'
           'sass:dev'
           'autoprefixer'
+          'shell:asseticDump'
         ]
         options:
           livereload: true

@@ -84,14 +84,12 @@
     li {
       border-top: 1px $gray-lines solid;
     }
-    
+
     .dropdown-menu {
       margin: 0;
       padding: 0;
       position: relative;
       top: auto;
-      margin: 0;
-      padding: 0;
 
       li a {
         color: $gray-light;
@@ -109,9 +107,6 @@
       top: 50%;
       transform-origin: 4px 50%;
       transition: 300ms;
-      top: 50%;
-      margin-top: -8px;
-      transform-origin: 4px 50%;
     }
 
     .open {
@@ -121,7 +116,7 @@
         padding-top: 0;
         position: relative;
 
-        .current .sub-menu-item, 
+        .current .sub-menu-item,
         li a:hover {
           background-color: $brand-primary;
           color: $white;
@@ -164,7 +159,7 @@
   .wrapper-brand {
     padding: 20px;
   }
-  
+
   .main-menu {
     background-color: $navbar-default-bg;
     box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
@@ -180,7 +175,7 @@
       width: 235px;
     }
 
-    ul, 
+    ul,
     li {
       width: 100%;
     }

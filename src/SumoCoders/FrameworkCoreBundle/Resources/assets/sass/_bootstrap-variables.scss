@@ -11,7 +11,7 @@ $bootstrap-sass-asset-helper: false;
 $gray-base:              #000;
 $gray-darker:            #2f4050;
 $gray-dark:              #38556e;
-$gray:                   #68839b;
+$gray:                   #5d7489;
 $gray-light:             #8fa0b1;
 $gray-lighter:           #bbcdde;
 $gray-lightest:          #f1f7f9;
@@ -22,7 +22,7 @@ $brand-default:         $white;
 $brand-primary:         #1fd2c5;
 $brand-success:         #20c664;
 $brand-info:            #6ac1e0;
-$brand-warning:         #8fb1b4;
+$brand-warning:         #eec733;
 $brand-danger:          #d83f1e;
 
 
@@ -33,12 +33,12 @@ $brand-danger:          #d83f1e;
 //** Background color for `<body>`.
 $body-bg:               $white;
 //** Global text color on `<body>`.
-$text-color:            $gray-light;
+$text-color:            $gray;
 
 //** Global textual link color.
 $link-color:            $text-color;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      $gray;
+$link-hover-color:      $gray-dark;
 //** Link hover decoration.
 $link-hover-decoration: none;
 
@@ -55,7 +55,7 @@ $font-family-base:        $font-family-sans-serif;
 
 $font-size-base:          14px;
 $font-size-large:         ceil(($font-size-base * 1.25)); // ~18px
-$font-size-small:         ceil(($font-size-base * .85)); // ~12px;
+$font-size-small:         ceil(($font-size-base * .85)); // ~12px
 
 $font-size-h1:            ceil(($font-size-base * 1.79)); // ~ 25px
 $font-size-h2:            ceil(($font-size-base * 1.5)); // ~21px
@@ -78,7 +78,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit;
 $headings-font-weight:    500;
-$headings-line-height:    1.1;
+$headings-line-height:    1.15;
 $headings-color:          inherit;
 
 
@@ -144,13 +144,13 @@ $table-condensed-cell-padding:  5px;
 //** Default background color used for all tables.
 $table-bg:                      transparent;
 //** Background color used for `.table-striped`.
-$table-bg-accent:               #f3fcfd;
+$table-bg-accent:               $gray-lightest;
 //** Background color used for `.table-hover`.
-$table-bg-hover:                #f3fcfd;
+$table-bg-hover:                $gray-lightest;
 $table-bg-active:               $table-bg-hover;
 
 //** Border color for table and cell borders.
-$table-border-color:            #cedce2;
+$table-border-color:            $gray-lines;
 
 
 //== Buttons
@@ -164,8 +164,8 @@ $btn-default-bg:                 $brand-default;
 $btn-default-border:             $btn-default-color;
 
 $btn-primary-color:              $white;
-$btn-primary-bg:                 #337ab7;
-$btn-primary-border:             #337ab7;
+$btn-primary-bg:                 $brand-primary;
+$btn-primary-border:             $brand-primary;
 
 $btn-success-color:              $white;
 $btn-success-bg:                 $brand-success;
@@ -176,8 +176,8 @@ $btn-info-bg:                    $brand-info;
 $btn-info-border:                $btn-info-bg;
 
 $btn-warning-color:              $white;
-$btn-warning-bg:                 #eec733;
-$btn-warning-border:             #eec733;
+$btn-warning-bg:                 $brand-warning;
+$btn-warning-border:             $brand-warning;
 
 $btn-danger-color:               $white;
 $btn-danger-bg:                  $brand-danger;
@@ -193,13 +193,13 @@ $btn-link-disabled-color:        #a6bfca;
 //** `<input>` background color
 $input-bg:                       $white;
 //** `<input disabled>` background color
-$input-bg-disabled:              #f1f7f9;
+$input-bg-disabled:              $gray-lightest;
 
 //** Text color for `<input>`s
-$input-color:                    #8fa0b1;
+$input-color:                    $gray-light;
 $input-color-focus:              #37bdf6;
 //** `<input>` border color
-$input-border:                   #adc8d4;
+$input-border:                   $gray-lighter;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -211,7 +211,7 @@ $input-border-radius-large:      $border-radius-large;
 $input-border-radius-small:      $border-radius-small;
 
 //** Border color for inputs on focus
-$input-border-focus:             $brand-info;
+$input-border-focus:             $gray-light;
 
 //** Placeholder text color
 $input-color-placeholder:        lighten($input-color, 20%);
@@ -480,7 +480,7 @@ $pager-bg:                             $pagination-bg;
 $pager-border:                         $pagination-border;
 $pager-border-radius:                  15px;
 
-$pager-hover-color:                          $pagination-hover-color;
+$pager-hover-color:                    $pagination-hover-color;
 $pager-hover-bg:                       $pagination-hover-bg;
 
 $pager-active-bg:                      $pagination-active-bg;
@@ -513,7 +513,7 @@ $state-info-bg:                  $brand-info;
 $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%);
 
 $state-warning-text:             $white;
-$state-warning-bg:               #eec733;
+$state-warning-bg:               $brand-warning;
 $state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%);
 
 $state-danger-text:              $white;
@@ -628,7 +628,7 @@ $modal-sm:                    300px;
 //
 //## Define alert colors, border radius, and padding.
 
-$alert-padding:               0 0 0 25px;
+$alert-padding:               15px;
 $alert-border-radius:         0;
 $alert-link-font-weight:      normal;
 
@@ -795,14 +795,14 @@ $badge-border-radius:         10px;
 //
 //##
 
-$breadcrumb-padding-vertical:   8px;
-$breadcrumb-padding-horizontal: 15px;
+$breadcrumb-padding-vertical:   14px;
+$breadcrumb-padding-horizontal: 19px;
 //** Breadcrumb background color
 $breadcrumb-bg:                 $white;
 //** Breadcrumb text color
 $breadcrumb-color:              $gray;
 //** Text color of current page in the breadcrumb
-$breadcrumb-active-color:       $gray-light;
+$breadcrumb-active-color:       $gray-dark;
 //** Textual separator for between breadcrumb elements
 $breadcrumb-separator:          '>';
 
@@ -841,7 +841,7 @@ $code-color:                  #c7254e;
 $code-bg:                     #f9f2f4;
 
 $kbd-color:                   $white;
-$kbd-bg:                      #333;
+$kbd-bg:                      $brand-primary;
 
 $pre-bg:                      #f5f5f5;
 $pre-color:                   $gray-dark;
@@ -873,4 +873,3 @@ $page-header-border-color:    $gray-lighter;
 $dl-horizontal-offset:        $component-offset-horizontal;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter;
-

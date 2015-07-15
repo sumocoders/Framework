@@ -1,56 +1,19 @@
 .breadcrumb {
-  border-radius: 0;
-  display: block;
-  float: left;
-  font-style: normal;
   font-weight: 600;
   margin: 0;
-  padding: 14px 19px 12px;
-  width: 100%;
 
   > li + li:before {
     @extend .icon;
     @extend .icon-breadcrumb-separator;
+    font-size: $font-size-icon-smallest;
+    padding-right: 10px;
   }
 
   li {
     padding: 0 4px;
-    display: inline;
-
-    &:active {
-      color: $breadcrumb-active-color;
-    }
   }
-
-  a {
-    color: $breadcrumb-color;
-  }
-}
-
-.icon-breadcrumb-separator {
-  font-size: $font-size-icon-smallest;
-  padding-right: 10px;
 }
 
 .touch .breadcrumb {
-  overflow: hidden;
   overflow-x: scroll;
-  text-overflow: clip;
-}
-
-@media (min-width: $screen-sm-min) {
-
-  .main-header .breadcrumb {
-    border-bottom: 0;
-    overflow: hidden;
-    padding: 17px 25px 13px 18px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .touch .breadcrumb {
-    overflow: hidden;
-    overflow-x: scroll;
-    text-overflow: clip;
-  }
 }

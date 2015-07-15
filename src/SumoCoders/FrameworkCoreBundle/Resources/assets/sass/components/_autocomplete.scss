@@ -1,21 +1,14 @@
 .ui-autocomplete.ui-widget-content {
+  background: none;
   border-color: $gray-lines;
 
   .ui-menu-item a {
     color: $gray-light;
-
-    &:focus {
-      outline: none;
-      outline-offset: 0;
-    }
   }
 
-  &:focus {
-    outline: none;
-  }
-
-  &:hover, {
-    background-color: $brand-primary;
+  .ui-state-focus {
+    background: $brand-primary;
+    border-color: $brand-primary;
     color: $white;
   }
 }

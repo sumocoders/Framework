@@ -26,11 +26,10 @@
 
   .icon-angle {
     transform: rotate(0deg);
-    transition: 550ms;
+    transition: transform .4s;
   }
 
   .open {
-
     > .btn-default.dropdown-toggle {
       background-color: $gray-darker;
       color: $white;
@@ -38,7 +37,6 @@
 
     .icon-angle {
       transform: rotate(90deg);
-      transition: 550ms;
     }
   }
 
@@ -79,7 +77,6 @@
       &:hover,
       &:focus {
         background-color: lighten($gray-dark, .5%);
-        outline: none;
       }
     }
   }
@@ -89,10 +86,6 @@
     border-radius: 0;
     margin: 0;
     padding: 0;
-
-    &:focus {
-      outline: none;
-    }
   }
 
   .icon-avatar {
@@ -104,7 +97,6 @@
 @media (min-width: $screen-sm-min) {
 
   .main-wrapper {
-    overflow: hidden;
     padding-left: 235px;
     width: 100%;
   }
@@ -116,6 +108,14 @@
     position: fixed;
     width: 100%;
     z-index: 99999;
+
+    .breadcrumnb {
+      border-bottom: 0;
+      overflow: hidden;
+      padding: 17px 25px 13px 18px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   .sub-nav {
@@ -149,16 +149,8 @@
 }
 
 @media (min-width: $screen-md-min) {
-
-  .user-nav {
-
-    .btn-group {
-
-      .icon-angle {
-        margin: 5px 0;
-        padding: 0 15px;
-      }
-    }
+  .user-nav .btn-group .icon-angle {
+    margin: 5px 0;
+    padding: 0 15px;
   }
-
 }

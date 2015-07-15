@@ -73,8 +73,8 @@ class Framework extends DefaultObject
     '_initDatepicker'
     '_initSlider'
     '_initSelect2'
+    'setContentHeight'
   ]
-
 
   _initAjax: ->
     # set some defaults for AJAX-request
@@ -273,6 +273,16 @@ class Framework extends DefaultObject
         $modal.off('click', '#confirmModalOk')
       )
   false
+
+  setContentHeight: =>
+    $('#content').css('minHeight', $(window).height())
+    timeout = null
+    $(window).on('resize', (e) ->
+      clearTimeout(timeout)
+      timeout = setTimeout( ->
+        $('#content').css('minHeight', $(window).height())
+      , 200)
+    )
 
   clickableTablerow: ->
     window.document.location = $('.action a').attr("href")

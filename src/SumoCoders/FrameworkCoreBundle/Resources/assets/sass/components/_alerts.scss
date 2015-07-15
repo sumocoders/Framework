@@ -1,26 +1,19 @@
 .alert {
-  padding: 15px;
-
   .alert-link {
-    border-bottom: 1px solid $white;
     color: $white;
     font-weight: bold;
-    transition: all .3s ease 0s;
+    text-decoration: underline;
+    transition: .3s;
 
-    &:hover {
-      border-bottom-color: $gray-dark;
+    &:hover,
+    &:focus {
       color: $gray-dark;
-      text-decoration: none;
     }
   }
 }
 
-.alert-dismissible {
-
-  .close {
-    color: $white;
-    opacity: 1;
-    position: static;
-    top: 0;
-  }
+.alert-dismissible .close {
+  color: $white;
+  opacity: 1;
+  position: static;
 }
