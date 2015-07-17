@@ -165,7 +165,6 @@ module.exports = (grunt) ->
           htmlDemo: false
           templateOptions:
             classPrefix: 'icon-'
-          engine: 'node'
 
     # Shell config
     shell:
