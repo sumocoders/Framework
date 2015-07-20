@@ -2,7 +2,9 @@
     {% if 'checkbox' not in block_prefixes or widget_checkbox_label in ['label', 'both'] %}
             {% if label is not sameas(false) %}
                 {% if label is empty %}
-                    {% set label = id %}
+                    {% set label = toTranslation(id)|trans({}, translation_domain)|capitalize %}
+                {% else %}
+                    {% set label = label|trans({}, translation_domain)|capitalize %}
                 {% endif %}
                 {% if not compound %}
                     {% set label_attr = label_attr|merge({'for': id}) %}
@@ -13,7 +15,7 @@
                 {% endif %}
                 {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ " " ~ label_attr_class ~ (required ? ' required' : ' optional') }) %}
                 <label{% for attrname,attrvalue in label_attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
-                    {{ toTranslation(label)|trans({}, translation_domain)|capitalize }}{{- block('label_asterisk') }}
+                    {{ label }}{{- block('label_asterisk') }}
                     {% if help_label %}
                         {{ block('help_label') }}
                     {% endif %}
@@ -58,9 +60,9 @@
 
 {%- block label_asterisk -%}
     {% if required %}
-        {%- if render_required_asterisk %}<abbr title="{{ 'forms.labels.required'|trans }}">*</abbr>{% endif -%}
+        {%- if render_required_asterisk %}<abbr title="{{ 'forms.labels.required'|trans({}, translation_domain) }}">*</abbr>{% endif -%}
     {% else %}
-        {%- if render_optional_text %} <small class="text-muted">{{ 'forms.labels.optional'|trans }}</small>{% endif -%}
+        {%- if render_optional_text %} <small class="text-muted">{{ 'forms.labels.optional'|trans({}, translation_domain) }}</small>{% endif -%}
     {% endif %}
 {%- endblock label_asterisk -%}
 
