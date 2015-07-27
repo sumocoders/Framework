@@ -26,12 +26,12 @@ charset = utf-8
 ## Indenting section
 
 # 4 spaces indenting
-[*.{json,php,xml,yml}]
+[*.{json,php,xml}]
 indent_size = 4
 indent_style = space
 
 # 2 spaces indenting
-[*.{coffee,css,html,html.twig,rb,scss}]
+[*.{coffee,css,html,html.twig,rb,scss,yml}]
 indent_size = 2
 indent_style = space
 
