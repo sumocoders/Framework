@@ -53,7 +53,7 @@
                 {%- for field, metadata in fields %}
                     {%- if metadata.type in ['date', 'datetime'] %}
 
-                    <td>{{ '{% if %1$s.'|format(niceEntityName)  ~ field|replace({'_': ''}) ~ ' %}{{ %1$s.'|format(niceEntityName)  ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+                    <td>{{ '{% if ' ~ '%1$s.'|format(niceEntityName)  ~ field|replace({'_': ''}) ~ ' %}{{ %1$s.'|format(niceEntityName)  ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
 
                     {%- else %}
 
