@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e97df2ebb3dcf35b1fb59c0c1e1fbbe4",
+    "hash": "ff3fa5ba67b44807be5f1f4d7d0d04ef",
     "packages": [
         {
             "name": "dbtlr/php-airbrake",
@@ -565,7 +565,7 @@
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
-            "version": "dev-master",
+            "version": "1.0.1",
             "target-dir": "Doctrine/Bundle/MigrationsBundle",
             "source": {
                 "type": "git",
@@ -574,7 +574,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/eaa9eb5ea101dc494d7f57d1a86905e56a211d49",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/1e8cd4415bd2f893eb828216b529a75e8b61d579",
                 "reference": "1e8cd4415bd2f893eb828216b529a75e8b61d579",
                 "shasum": ""
             },
@@ -803,36 +803,38 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "abb87d84ed21fd30c27bd3b52252a495a36d32fb"
+                "reference": "06272b0dddb64bb386280d30c01f3aab0be52d23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/67f02686c6c779ae50489728b91026bc8199720c",
-                "reference": "abb87d84ed21fd30c27bd3b52252a495a36d32fb",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/06272b0dddb64bb386280d30c01f3aab0be52d23",
+                "reference": "06272b0dddb64bb386280d30c01f3aab0be52d23",
                 "shasum": ""
             },
             "require": {
-                "doctrine/dbal": "~2.0",
-                "php": ">=5.3.2",
+                "doctrine/dbal": "~2.2",
+                "php": ">=5.4.0",
                 "symfony/console": "~2.3",
                 "symfony/yaml": "~2.3"
-            },
-            "conflict": {
-                "doctrine/orm": "<2.4"
             },
             "require-dev": {
                 "doctrine/coding-standard": "dev-master",
                 "doctrine/orm": "2.*",
-                "phpunit/phpunit": "~4.0",
+                "johnkary/phpunit-speedtrap": "~1.0@dev",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "~4.7",
                 "satooshi/php-coveralls": "0.6.*"
             },
             "suggest": {
                 "symfony/console": "to run the migration from the console"
             },
+            "bin": [
+                "bin/doctrine-migrations"
+            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "v1.0.x-dev"
                 }
             },
             "autoload": {
@@ -860,7 +862,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-05-26 15:30:26"
+            "time": "2015-08-04 11:57:26"
         },
         {
             "name": "doctrine/orm",
@@ -993,12 +995,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "92d5624f2a29e74d8fd9d2a94d7ed7998a8c2809"
+                "reference": "c2e68acfb2b5786cd455fd9ae3b6d7f255f12646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/3efbc08a97f218d0a4524dee926fc4381e3d0947",
-                "reference": "92d5624f2a29e74d8fd9d2a94d7ed7998a8c2809",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/c2e68acfb2b5786cd455fd9ae3b6d7f255f12646",
+                "reference": "c2e68acfb2b5786cd455fd9ae3b6d7f255f12646",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1054,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2015-05-05 15:08:24"
+            "time": "2015-08-03 00:52:58"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1893,22 +1895,22 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.28",
+            "version": "v3.0.31",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "8175618b07793b9d43c3be931f3d8d4c14c9e866"
+                "reference": "3a900814bd57bf20f9453ae81ff8772bc95d7fff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/8175618b07793b9d43c3be931f3d8d4c14c9e866",
-                "reference": "8175618b07793b9d43c3be931f3d8d4c14c9e866",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/3a900814bd57bf20f9453ae81ff8772bc95d7fff",
+                "reference": "3a900814bd57bf20f9453ae81ff8772bc95d7fff",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "sensiolabs/security-checker": "~2.0",
+                "sensiolabs/security-checker": "~3.0",
                 "symfony/class-loader": "~2.2",
                 "symfony/framework-bundle": "~2.3",
                 "symfony/process": "~2.2"
@@ -1949,20 +1951,20 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-06-01 15:04:20"
+            "time": "2015-08-03 10:07:12"
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v3.0.8",
+            "version": "v3.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "a30fc18bf147bc25faf6b1d54bf55cfad4b63cba"
+                "reference": "18fc2063c4d6569cdca47a39fbac32342eb65f3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/a30fc18bf147bc25faf6b1d54bf55cfad4b63cba",
-                "reference": "a30fc18bf147bc25faf6b1d54bf55cfad4b63cba",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/18fc2063c4d6569cdca47a39fbac32342eb65f3c",
+                "reference": "18fc2063c4d6569cdca47a39fbac32342eb65f3c",
                 "shasum": ""
             },
             "require": {
@@ -2004,24 +2006,23 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2015-05-29 18:27:23"
+            "time": "2015-08-03 11:59:27"
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v2.0.5",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "2c2a71f1c77d9765c12638c4724d9ca23658a810"
+                "reference": "8d32035cfe692efb3dddd0d828f8261280ec9006"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/2c2a71f1c77d9765c12638c4724d9ca23658a810",
-                "reference": "2c2a71f1c77d9765c12638c4724d9ca23658a810",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/8d32035cfe692efb3dddd0d828f8261280ec9006",
+                "reference": "8d32035cfe692efb3dddd0d828f8261280ec9006",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
                 "symfony/console": "~2.0"
             },
             "bin": [
@@ -2030,7 +2031,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -2049,7 +2050,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2015-05-28 14:22:40"
+            "time": "2015-08-03 10:03:32"
         },
         {
             "name": "sumocoders/framework-error-bundle",
@@ -2107,12 +2108,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "498fe81261abcd54aa5887188a078072506946db"
+                "reference": "270abbe4b5361b45434f21a0d494cc19ce288358"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/498fe81261abcd54aa5887188a078072506946db",
-                "reference": "498fe81261abcd54aa5887188a078072506946db",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/270abbe4b5361b45434f21a0d494cc19ce288358",
+                "reference": "270abbe4b5361b45434f21a0d494cc19ce288358",
                 "shasum": ""
             },
             "require": {
@@ -2143,7 +2144,7 @@
                 "SumoCoders",
                 "search"
             ],
-            "time": "2015-06-11 13:08:26"
+            "time": "2015-08-04 15:17:34"
         },
         {
             "name": "sumocoders/framework-user-bundle",
@@ -2152,12 +2153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "0ef9b79711eb6292ac14b2eada5dee5964453286"
+                "reference": "d775652f6ccf5146a5595dc274d115dbdd46aee6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/0ef9b79711eb6292ac14b2eada5dee5964453286",
-                "reference": "0ef9b79711eb6292ac14b2eada5dee5964453286",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/d775652f6ccf5146a5595dc274d115dbdd46aee6",
+                "reference": "d775652f6ccf5146a5595dc274d115dbdd46aee6",
                 "shasum": ""
             },
             "require": {
@@ -2189,7 +2190,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-07-07 15:18:46"
+            "time": "2015-08-04 15:18:25"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2427,16 +2428,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.6.9",
+            "version": "v2.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b06539573ccf64dd3a62852685f052553d02c5ba"
+                "reference": "c6ab380a577e7bfb8db6e6f3105f470f97c83235"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b06539573ccf64dd3a62852685f052553d02c5ba",
-                "reference": "b06539573ccf64dd3a62852685f052553d02c5ba",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/c6ab380a577e7bfb8db6e6f3105f470f97c83235",
+                "reference": "c6ab380a577e7bfb8db6e6f3105f470f97c83235",
                 "shasum": ""
             },
             "require": {
@@ -2540,7 +2541,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-05-29 22:55:07"
+            "time": "2015-07-26 10:44:22"
         },
         {
             "name": "twig/extensions",
@@ -3307,16 +3308,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.6.10",
+            "version": "4.7.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7b5fe98b28302a8b25693b2298bca74463336975"
+                "reference": "9b97f9d807b862c2de2a36e86690000801c85724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7b5fe98b28302a8b25693b2298bca74463336975",
-                "reference": "7b5fe98b28302a8b25693b2298bca74463336975",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9b97f9d807b862c2de2a36e86690000801c85724",
+                "reference": "9b97f9d807b862c2de2a36e86690000801c85724",
                 "shasum": ""
             },
             "require": {
@@ -3327,10 +3328,10 @@
                 "ext-spl": "*",
                 "php": ">=5.3.3",
                 "phpspec/prophecy": "~1.3,>=1.3.1",
-                "phpunit/php-code-coverage": "~2.0,>=2.0.11",
+                "phpunit/php-code-coverage": "~2.1",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
-                "phpunit/php-timer": "~1.0",
+                "phpunit/php-timer": ">=1.0.6",
                 "phpunit/phpunit-mock-objects": "~2.3",
                 "sebastian/comparator": "~1.1",
                 "sebastian/diff": "~1.2",
@@ -3349,7 +3350,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.6.x-dev"
+                    "dev-master": "4.7.x-dev"
                 }
             },
             "autoload": {
@@ -3375,7 +3376,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-06-03 05:03:30"
+            "time": "2015-07-13 11:28:34"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3905,12 +3906,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
-                "reference": "599d759faa8cafe6d738221e6312818bd290dbf7"
+                "reference": "175d36ef3ab5c8708efe871ee4ec63540606ab83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/599d759faa8cafe6d738221e6312818bd290dbf7",
-                "reference": "599d759faa8cafe6d738221e6312818bd290dbf7",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/175d36ef3ab5c8708efe871ee4ec63540606ab83",
+                "reference": "175d36ef3ab5c8708efe871ee4ec63540606ab83",
                 "shasum": ""
             },
             "require": {
@@ -3944,7 +3945,7 @@
                 "SumoCoders",
                 "example"
             ],
-            "time": "2015-06-12 07:33:50"
+            "time": "2015-08-04 15:41:44"
         }
     ],
     "aliases": [],
