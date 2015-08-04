@@ -43,7 +43,10 @@ module.exports = (grunt) ->
       dev:
         options:
           outputStyle: 'expanded'
-          lineNumbers: true
+          sourceMap: true
+          sourceMapEmbed: true
+          sourceMapContents: true
+          outFile: '<%= webAssetsPath %>/css/'
         files: [
           expand: true
           cwd: '<%= assetsPath %>/sass'
@@ -98,6 +101,8 @@ module.exports = (grunt) ->
     autoprefixer:
       all:
         src: '<%= webAssetsPath %>/css/*.css'
+        options:
+          map: true
 
     # Clean configuration
     clean:
@@ -166,13 +171,13 @@ module.exports = (grunt) ->
       options:
         stdout: true
       clearCache:
-        command: 'app/console cache:clear'
+        command: 'php app/console cache:clear'
       asseticDump:
-        command: 'app/console assetic:dump'
+        command: 'php app/console assetic:dump'
       asseticWatch:
-        command: 'app/console assetic:watch'
+        command: 'php app/console assetic:watch'
       assetsInstall:
-        command: 'app/console assets:install'
+        command: 'php app/console assets:install'
 
     # Sync configuration
     sync:
@@ -183,6 +188,7 @@ module.exports = (grunt) ->
         filter: 'isFile'
         src:  [
           'src/**/Resources/assets/coffee/**'
+          'vendor/sumocoders/**/Resources/assets/coffee/**'
         ]
         rename: (dest, src) ->
           chunks = src.split('/')
@@ -258,6 +264,7 @@ module.exports = (grunt) ->
         files: [
           '<%= assetsPath %>/coffee/**'
           'src/**/Resources/assets/coffee/**'
+          'vendor/sumocoders/**/Resources/assets/coffee/**'
         ]
         tasks: [
           'sync:coffee'
@@ -314,6 +321,7 @@ module.exports = (grunt) ->
           'sync:sass'
           'sass:dev'
           'autoprefixer'
+          'shell:asseticDump'
         ]
         options:
           livereload: true

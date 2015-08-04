@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>angle</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="angle" sketch:type="MSArtboardGroup" fill="#7590A9">
+            <path d="M93.9908254,18.1411094 C93.3230026,17.3794364 92.55433,17 91.6848075,17 C90.8177448,17 90.0490723,17.3794364 89.3812495,18.1411094 L50.000615,62.9720072 L10.6212105,18.1425095 C9.9533877,17.3808365 9.18471512,17.0014001 8.31642256,17.0014001 C7.44812999,17.0014001 6.6794574,17.3808365 6.01163464,18.1425095 L1.00234907,23.8452562 C0.333296438,24.6055291 0,25.480613 0,26.4691078 C0,27.4576025 0.334526314,28.3326864 1.00234907,29.0929593 L47.6958271,82.2518554 C48.3636499,83.0121283 49.1323225,83.3915647 50.000615,83.3915647 C50.8689076,83.3915647 51.6363503,83.0121283 52.3041731,82.2518554 L99.0001109,29.0929593 C99.6679339,28.3326864 100,27.4576025 100,26.4691078 C100,25.480613 99.6679339,24.6055291 99.0001109,23.8438561 L93.9908254,18.1411094 Z" id="Shape" sketch:type="MSShapeGroup" transform="translate(50.000000, 50.195782) rotate(-90.000000) translate(-50.000000, -50.195782) "></path>
+        </g>
+    </g>
+</svg>

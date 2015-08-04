@@ -1,355 +1,74 @@
-body {
-  &.login,
-  &.forgot_password,
-  &.reset_password {
-    background: $gray-lightest;
-  }
+.header-title .progress-bar {
+  float: none;
+  width: auto;
 }
 
-// Search auto-complete
-.ui-corner-all {
-  border-radius: 0;
-}
-
-.ui-menu .ui-menu-item a {
-  border-bottom: 1px solid #aaa;
-  cursor: pointer;
-  padding: 10px;
-  text-shadow: none;
-
-  &:hover,
-  &.ui-state-focus {
-    background: #dfdfdf;
-    color: $gray-dark;
-    text-shadow: none;
-  }
-}
-
-#toggleTabletNavbar {
-  display: none;
-}
-
-#contentWrap {
-  @include clearfix;
-  position: relative;
-}
-
-#content {
-  background-color: #fff;
-  float: right;
-  position: relative;
-  transition: all 250ms;
-  width: 100%;
-  z-index: 20;
-
-  &.open {
-    float: right;
-    margin-right: -85%;
-    transition: all 250ms;
-  }
-}
-
-#header,
-.taskbar {
-  background: $gray-dark;
-  box-sizing: border-box;
-  height: 65px;
-  position: fixed;
-  width: 100%;
-  z-index: 99;
-
-  &.progress-striped .progress-bar {
-    background-color: $gray-dark;
-  }
-
-  .container {
-    padding: 0 25px;
-  }
-
-  #toggleMenu {
-    color: #fff;
-    display: inline-block;
-    float: left;
-    font-size: 26px;
-    height: 24px;
-    margin: 19px 16px 0 0;
-    width: 30px;
-  }
-
-  .title {
-    float: left;
-    width: 75%;
-  }
+.header-title-bar {
+  border-bottom: 1px $gray-lines solid;
+  border-top: 1px $gray-lines solid;
+  overflow: hidden;
+  padding: 20px 19px;
 
   h2 {
-    color: #fff;
-    font-size: $font-size-base * 1.2;
-    font-weight: bold;
-    margin-top: 22px;
-    text-transform: uppercase;
-  }
-
-  .actions {
-    float: right;
-    height: 65px;
-    margin-right: -25px;
-    position: relative;
-    width: 25%;
-    z-index: 9999;
-
-    .dropdownToggle {
-      background-color: rgba(0, 0, 0, .46);
-      color: #fff;
-      display: block;
-      float: right;
-      font-size: 30px;
-      height: 65px;
-      line-height: 65px;
-      margin-bottom: 4px;
-      text-align: center;
-      width: 70px;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
-
-    ul {
-      @include clearfix;
-      display: none;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      right: 0;
-      top: 69px;
-
-      li {
-        a,
-        button {
-          background-color: $gray-darker;
-          border: none;
-          box-sizing: border-box;
-          color: $gray-darker;
-          display: block;
-          font-size: $font-size-base * 1.29;
-          height: 65px;
-          line-height: 65px;
-          margin-bottom: 4px;
-          overflow: hidden;
-          padding: 0 0 0 70px;
-          text-decoration: none;
-          transition: all 500ms;
-          white-space: nowrap;
-          border-radius: 0;
-
-          &:before {
-            color: #fff;
-            font-size: 20px;
-            margin-left: -45px;
-            margin-right: 20px;
-          }
-        }
-
-        button {
-          margin-bottom: 0;
-          margin-left: 4px;
-        }
-
-        &:hover a,
-        &:hover button {
-          background-color: #4ba75f;
-          border: 0;
-          color: #fff;
-        }
-
-        &:hover button {
-          background-color: $brand-danger;
-
-          &:before {
-            margin-left: -85px;
-          }
-        }
-      }
-    }
-  }
-}
-
-.taskbar {
-  background-color: $gray-lighter;
-  margin: 30px 0 40px;
-  position: relative;
-
-  .actions {
-    .dropdownToggle {
-      background-color: #8c8d94;
-    }
-
-    ul li {
-      a {
-        background-color: #8c8d94;
-        color: #8c8d94;
-      }
-
-      &:hover a {
-        color: #fff;
-      }
-    }
-  }
-}
-
-#completeReminderModal {
-  form {
+    color: $gray;
+    font-style: normal;
+    font-weight: normal;
     margin: 0;
   }
+}
 
-  .controls textarea {
-    box-sizing: border-box;
-    width: 100%;
+.actions {
+  background-color: $dropdown-bg;
+  border-bottom: 1px $gray-lines solid;
+  display: block;
+  padding: 14px 15px 10px 20px;
+
+  .btn-info {
+    background-color: $brand-info;
+    border-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+      background-color: darken($brand-info, 15%);
+    }
+  }
+
+  .btn {
+    padding: 5px 10px 7px;
   }
 }
 
-#main {
-  padding-bottom: 30px;
-  padding-top: 120px;
+.main-content {
+  padding: 40px 20px;
 }
 
-@media screen and (min-width: 767px) {
-
-  .container {
-    padding: 0;
-    width: 100%;
-  }
-
-  #toggleTabletNavbar {
-    background-color: $gray-darker;
-    background-position: 60px center;
-    background-size: 30px auto;
-    display: block;
-    height: 100%;
-    left: -50px;
-    position: fixed;
-    transition: left 250ms;
-    width: 100px;
-    z-index: 25;
-
-    &.open {
-      left: 215px;
-      transition: left 250ms;
-
-      &.subnav {
-        left: 445px;
-      }
-    }
-  }
-
-  #header,
-  .taskbar {
-    padding-right: 50px;
-
-    .container {
-      @include clearfix;
-    }
-
-    .title {
-      float: left;
-      width: 55%;
-    }
-
-    h2 {
-      font-size: $font-size-base * 1.71;
-    }
-
-    .actions {
-      @include clearfix;
-      margin-right: 0;
-      position: fixed;
-      right: 0;
-      width: 50%;
-
-      ul {
-        @include clearfix;
-        display: block !important;
-        float: right;
-        height: auto;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        top: auto;
-
-        li {
-          float: left;
-
-          a {
-            display: block;
-            height: 65px;
-            margin-bottom: 0;
-            margin-left: 4px;
-            width: auto;
-
-            &.icon-list {
-              background-color: rgba(0,0,0,0.46);
-            }
-
-            &.icon-print {
-              background-color: rgba(0,0,0,0.46);
-            }
-
-            &.icon-add {
-              background-color: rgba(0,0,0,0.46);
-            }
-          }
-
-          &:hover a {
-            background-color: #4ba75f;
-            padding-right: 20px;
-          }
-        }
-      }
-    }
-  }
-
-  .taskbar .actions {
-    position: absolute;
-  }
-
-  #content {
-    box-sizing: border-box;
-    padding-left: 50px;
-    width: 100%;
-
-    &.open {
-      margin: 0;
-    }
-  }
-
-  #main .container {
-    box-sizing: border-box;
-    padding: 0 25px;
-  }
+.backToTop {
+  margin: 15px;
 }
 
-@media screen and (min-width: 1025px) {
-
-  #header {
-    padding-right: 265px;
-    transition: all 250ms;
-  }
-
-  #content {
-    padding-left: 265px;
-
-    &.subnav {
-      padding-left: 495px;
-
-      #header {
-        padding-right: 495px;
-      }
-    }
-  }
-
-  #toggleTabletNavbar {
-    display: none;
-  }
+.btn[disabled] {
+  pointer-events: all;
 }
 
+
+@media (min-width: $screen-sm-min) {
+  .header-title {
+    padding-top: 55px;
+  }
+
+  .header-title-bar {
+    border-top-width: 0;
+    padding: 16px 18px;
+  }
+
+  .actions {
+    padding: 14px 15px 14px 20px;
+  }
+
+  .action-buttons {
+    float: right;
+  }
+}

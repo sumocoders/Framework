@@ -63,7 +63,7 @@ doctrine_migrations:
 # I18n Configuration
 jms_i18n_routing:
   default_locale: "%locale%"
-  locales: ~
+  locales: %locales%
   strategy: prefix
 
 # Mopa Configuration

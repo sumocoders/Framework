@@ -76,7 +76,6 @@ class Form
 
   _parseDate: (element, key) ->
     return '' if not element.data(key)?
-    return '' if element.data(key) == ''
 
     data = element.data(key).split '-'
     new Date(

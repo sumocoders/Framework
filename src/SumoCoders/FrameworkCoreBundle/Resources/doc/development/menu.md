@@ -21,26 +21,36 @@ class MenuListener extends DefaultMenuListener
     public function onConfigureMenu(ConfigureMenuEvent $event)
     {
         $menu = $event->getMenu();
+
+        // if you need to add a menu with subitems you can use a shortcut like this
+        $childs = array(
+            'this.is.the.label' => 'sumocoders_frameworkexample_route_name',
+            'another.label' => $event->getFactory()->createItem(
+                'another.label',
+                array(
+                    'route' => 'sumocoders_frameworkexample_default_hello',
+                    'routeParameters' => array(
+                        'name' => 'John Doe',
+                    ),
+                )
+            ),
+        );
+
+        $menuItem = $this->createItemWithChilds(
+            $event->getFactory(),
+            'a.label',
+            1000,
+            $childs
+        );
+
+        $menu->addChild($menuItem);
+
         $menuItem = $event->getFactory()->createItem(
             'example.menu.overview',
             array(
-                'uri' => '#',
+                'route' => 'sumocoders_frameworkexample_route_name',
             )
         );
-        $menuItem->setAttribute('id', 'example');
-        $menuItem->setAttribute('icon', 'iconExample');
-        $menuItem->setChildrenAttribute('class', 'subNavigation');
-        $menuItem->setLinkAttribute('class', 'toggleSubNavigation');
-        $menuItem->setExtra('orderNumber', 2);
-
-        $firstChild = $event->getFactory()->createItem(
-            'example.menu.hello',
-            array(
-                'uri' => '#',
-            )
-        );
-        $firstChild->setExtra('orderNumber', 1);
-        $menuItem->addChild($firstChild);
     }
 }
 ```

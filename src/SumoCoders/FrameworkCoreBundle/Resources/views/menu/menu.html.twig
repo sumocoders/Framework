@@ -2,7 +2,7 @@
 
 {% block label %}
     {% if item.attributes.icon is defined %}
-        <i class="{{ item.attributes.icon }}"></i>&#160;&#160;
+        <i class="{{ item.attributes.icon }}"></i>
     {% endif %}
    {{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'messages'))|capitalize }}
 {% endblock %}

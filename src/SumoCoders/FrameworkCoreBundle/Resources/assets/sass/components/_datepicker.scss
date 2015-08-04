@@ -1,0 +1,20 @@
+.ui-widget-header {
+  background: $gray-light;
+  border-color: $gray-light;
+}
+
+.ui-datepicker th {
+  color: $gray-light;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+  background: $gray-lightest;
+  border: $gray;
+  color: $gray;
+}
+
+.ui-datepicker-today .ui-state-default {
+  background: $brand-primary;
+  color: $white;
+}

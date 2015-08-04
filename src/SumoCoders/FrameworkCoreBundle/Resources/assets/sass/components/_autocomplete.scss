@@ -1,0 +1,25 @@
+.ui-autocomplete.ui-widget-content {
+  background: none;
+  border-color: $gray-lines;
+
+  .ui-menu-item a {
+    color: $gray-light;
+  }
+
+  .ui-state-focus {
+    background: $brand-primary;
+    border-color: $brand-primary;
+    color: $white;
+  }
+}
+
+.ui-state-focus {
+  background: $brand-primary;
+  border: 0;
+  color: $white;
+  margin: 0;
+
+  a {
+    color: darken($gray-light, 20%);
+  }
+}

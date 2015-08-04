@@ -1,20 +1,9 @@
-.content a:focus {
-  background-color: shade($gray-lightest, 10%);
-  border-radius: 3px;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5 {
   font-weight: 100;
-  margin-bottom: 12px;
-}
-
-h1,
-h2 {
-  line-height: 1.2;
 }
 
 h1,
@@ -27,26 +16,6 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  margin-bottom: 10.5px;
-}
-
-h3,
-h4,
-h5,
-h6 {
-  color: #8d94ab;
-}
-
-h1 {
-  color: $gray-dark;
-}
-
-h2 {
-  color: #577385;
-}
-
-h4 {
-  margin-bottom: 10.5px;
 }
 
 @media screen and (min-width: 767px) {
@@ -92,9 +61,3 @@ h4 {
     font-size: 18px;
   }
 }
-
-.text-info {
-  color: #6b798d;
-}
-
-

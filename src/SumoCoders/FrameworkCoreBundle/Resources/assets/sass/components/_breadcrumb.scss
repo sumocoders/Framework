@@ -1,0 +1,19 @@
+.breadcrumb {
+  font-weight: 600;
+  margin: 0;
+
+  > li + li:before {
+    @extend .icon;
+    @extend .icon-breadcrumb-separator;
+    font-size: $font-size-icon-smallest;
+    padding-right: 10px;
+  }
+
+  li {
+    padding: 0 4px;
+  }
+}
+
+.touch .breadcrumb {
+  overflow-x: scroll;
+}

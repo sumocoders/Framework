@@ -1,9 +1,18 @@
 .table {
-  tr.striked td {
-    text-decoration: line-through;
+  .success,
+  .info,
+  .warning,
+  .danger {
+    color: $white;
   }
 
-  tfoot tr:first-child td {
-    border-top: 2px solid #ddd;
+  .active {
+    background-color: $dropdown-bg;
   }
+}
+
+th {
+  color: $gray-darker;
+  font-style: normal;
+  font-weight: 600;
 }

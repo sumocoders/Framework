@@ -1,43 +1,19 @@
-.alert.notification {
-  border: 0;
-  line-height: 40px;
-  margin-top: 65px;
-  position: fixed;
-  width: 100%;
-  z-index: 99;
-  padding-bottom: 0;
-  padding-top: 0;
+.alert {
+  .alert-link {
+    color: $white;
+    font-weight: bold;
+    text-decoration: underline;
+    transition: .3s;
 
-  .close {
-    height: 40px;
-    opacity: 1;
-    right: 0;
-    top: 0;
-    transition: 150ms;
-    width: 70px;
-    text-align: center;
-
-    i {
-      line-height: 40px;
+    &:hover,
+    &:focus {
+      color: $gray-dark;
     }
   }
 }
 
-// Media query min-width 767px
-@media screen and (min-width: 767px) {
-  .alert.notification {
-    padding-right: 50px;
-  }
-}
-
-// Media query min-width 1025px
-@media screen and (min-width: 1025px) {
-  .alert.notification {
-    padding-right: 265px;
-    transition: padding-right 250ms;
-
-    &.subnav {
-      padding-right: 495px;
-    }
-  }
+.alert-dismissible .close {
+  color: $white;
+  opacity: 1;
+  position: static;
 }

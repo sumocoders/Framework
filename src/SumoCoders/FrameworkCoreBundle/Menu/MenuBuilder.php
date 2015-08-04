@@ -57,7 +57,7 @@ class MenuBuilder
     public function createMainMenu()
     {
         $menu = $this->factory->createItem('root');
-        $menu->setChildrenAttribute('class', 'nav');
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $this->eventDispatcher->dispatch(
             ConfigureMenuEvent::EVENT_NAME,
@@ -90,7 +90,7 @@ class MenuBuilder
 
             $orderNumber = $menuItem->getExtra('orderNumber');
 
-            if (null !== $orderNumber) {
+            if ($orderNumber !== null) {
                 if (!isset($menuOrderArray[$orderNumber])) {
                     $menuOrderArray[$orderNumber] = $menuItem->getName();
                 } else {

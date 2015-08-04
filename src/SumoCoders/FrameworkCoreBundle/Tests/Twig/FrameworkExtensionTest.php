@@ -111,6 +111,26 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo 123'));
     }
 
+    public function testTranslationWithSumoCodersInTheString()
+    {
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('SumoCoders.foo'));
+        $this->assertEquals('foo.sumocoders', $this->frameworkExtension->convertToTranslation('foo.sumocoders'));
+        $this->assertEquals('foo.bar', $this->frameworkExtension->convertToTranslation('SumoCoders.foo.bar'));
+    }
+
+    public function testTranslationWithBundleInTheString()
+    {
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('fooBundle'));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo.frameworkBundle'));
+        $this->assertEquals('foo.bar', $this->frameworkExtension->convertToTranslation('FooBundle.bar'));
+        $this->assertEquals('foobar', $this->frameworkExtension->convertToTranslation('Foo.barBundle'));
+    }
+
+    public function testTranslationWithDotsInTheString()
+    {
+        $this->assertEquals('foo.bar', $this->frameworkExtension->convertToTranslation('foo.......bar'));
+    }
+
     public function testTranslationsWithNumbersAsSingleItems()
     {
         $this->assertEquals('f.o.o', $this->frameworkExtension->convertToTranslation('f_1_o_o'));

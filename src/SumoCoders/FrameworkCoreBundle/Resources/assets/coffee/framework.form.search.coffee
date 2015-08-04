@@ -4,7 +4,7 @@ class SearchForm extends Form
     @_initSearch()
 
   _initSearch: ->
-    $searchField = $('.searchBox input[name=q]', @form);
+    $searchField = $('.searchBox input[name=q]', @form)
     route = $(@form).attr('action') + '.json'
 
     $searchField.autocomplete(
@@ -12,15 +12,15 @@ class SearchForm extends Form
         using: (position, elements) ->
           newPosition =
             left: position.left
-            top: 'auto'
-            bottom: elements.target.height
+            top: position.top
+            bottom: 'auto'
             margin: 0
           elements.element.element.css(newPosition)
       source: (request, response) ->
         $.ajax
           type: 'GET'
           url: route
-          data: { q: request.term }
+          data: { term: request.term }
           success: (data) ->
             items = []
             for value in data.data.results

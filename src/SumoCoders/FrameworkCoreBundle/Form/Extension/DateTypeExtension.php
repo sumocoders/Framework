@@ -2,8 +2,8 @@
 
 namespace SumoCoders\FrameworkCoreBundle\Form\Extension;
 
-use SumoCoders\FrameworkCoreBundle\Exception\MissingOptionException;
 use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\Exception\InvalidConfigurationException;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -42,22 +42,22 @@ final class DateTypeExtension extends AbstractTypeExtension
         switch ($options['date_type']) {
             case 'start':
                 if (!isset($options['minimum_date'])) {
-                    throw new MissingOptionException('minimum_date is missing');
+                    throw new InvalidConfigurationException('minimum_date is missing');
                 }
                 $view->vars['minimum_date'] = $options['minimum_date'];
                 break;
             case 'until':
                 if (!isset($options['maximum_date'])) {
-                    throw new MissingOptionException('maximum_date is missing');
+                    throw new InvalidConfigurationException('maximum_date is missing');
                 }
                 $view->vars['maximum_date'] = $options['maximum_date'];
                 break;
             case 'range':
                 if (!isset($options['minimum_date'])) {
-                    throw new MissingOptionException('minimum_date is missing');
+                    throw new InvalidConfigurationException('minimum_date is missing');
                 }
                 if (!isset($options['maximum_date'])) {
-                    throw new MissingOptionException('maximum_date is missing');
+                    throw new InvalidConfigurationException('maximum_date is missing');
                 }
                 $view->vars['maximum_date'] = $options['maximum_date'];
                 $view->vars['minimum_date'] = $options['minimum_date'];

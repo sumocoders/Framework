@@ -35,18 +35,8 @@ window.DefaultObject = DefaultObject
 
 class Framework extends DefaultObject
   @events
-    # toggle menu on full size
-    '#navbar .nav li a' : click : 'toggleSubNavigation'
-
-    # togle menu on ipad-size
-    '#toggleTabletNavbar' : click : 'toggleMediumMenu'
-
-    # toggle menu on iphone-size
-    '#toggleMenu' : click : 'toggleSmallMenu'
-    '#content.open' : touchend : 'toggleSmallMenu'
-
     # show action-list on iphone-size
-    '.dropdownToggle' : click : 'toggleDropdown'
+    '#main-menu-inner .dropdown-toggle' : click : 'toggleDropdown'
 
     # animate scrolling
     'a.backToTop': click : 'scrollToTop'
@@ -65,13 +55,24 @@ class Framework extends DefaultObject
       ajax_start : 'showLoadingBar'
       ajax_stop : 'hideLoadingBar'
 
+    # search bar
+    'a.toggle-searchbar': click : 'toggleSearchBar'
+
+    #clickable table row
+    '.table tr': click : 'clickableTablerow'
+
+
   @onDomReady [
     '_initAjax'
     '_initForm'
     '_initTabs'
-    '_initTooltips'
-    '_initPopovers'
-    '_calculateActionsWidths'
+    '_initTooltip'
+    '_initPopover'
+    '_initSortable'
+    '_initDisableSelection'
+    '_initDatepicker'
+    '_initSlider'
+    '_initSelect2'
     'setContentHeight'
   ]
 
@@ -88,7 +89,7 @@ class Framework extends DefaultObject
       window.location.reload() if XMLHttpRequest.status == 403
 
       if ajaxOptions?
-        textStatus = Locale.err('GeneralError')
+        textStatus = Locale.err 'GeneralError'
 
         if XMLHttpRequest.responseText?
           json = $.parseJSON(XMLHttpRequest.responseText)
@@ -112,10 +113,10 @@ class Framework extends DefaultObject
 
     # show spinners
     $(document).ajaxStart(() =>
-      $.event.trigger('ajax_start')
+      $.event.trigger 'ajax_start'
     )
     $(document).ajaxStop(() =>
-      $.event.trigger('ajax_stop')
+      $.event.trigger 'ajax_stop'
     )
 
   _initForm: ->
@@ -127,11 +128,11 @@ class Framework extends DefaultObject
 
   _initTabs: ->
     url = document.location.toString()
-    if url.match('#')
+    if url.match '#'
       anchor = '#' + url.split('#')[1]
 
       if $('.nav-tabs a[href='+anchor+']').length > 0
-        $('.nav-tabs a[href='+anchor+']').tab('show')
+        $('.nav-tabs a[href='+anchor+']').tab 'show'
 
     $('.tab-content .tab-pane').each(() ->
       if($(this).find('.error').length > 0)
@@ -140,10 +141,34 @@ class Framework extends DefaultObject
           .addClass('error')
     )
 
-  _initTooltips: ->
+  _initSortable: ->
+    $( '.sortable' ).sortable()
+    handle: 'button'
+    cancel: ''
+
+  _initDisableSelection: ->
+    $( '.sortable' ).disableSelection()
+
+  _initDatepicker: ->
+    $( '.datepicker' ).datepicker(
+      dateFormat: "dd-mm-yy"
+    )
+
+  _initSlider: ->
+    $( '.slider' ).slider({
+      min: 0
+      max: 50
+      values: [ 10, 40 ]
+      range: true
+    })
+
+  _initSelect2: ->
+    $('.select2').select2()
+
+  _initTooltip: ->
     $('[data-toggle="tooltip"]').tooltip()
 
-  _initPopovers: ->
+  _initPopover: ->
     $('[data-toggle="popover"]').popover(
       {
         html: true
@@ -162,92 +187,47 @@ class Framework extends DefaultObject
       window.location.hash = '#'+ this.getAttribute('href').split('#')[1]
       $(window).scrollTop(scrolled)
 
-    $(this).tab('show')
+    $(this).tab 'show'
 
-  _calculateActionsWidths: ->
-    $('.actions li a, .actions li button').each(->
-      $this = $(@)
-      $this.attr('data-width', $this.width())
-      $this.width(0)
-      $this.hover(->
-        $this.width($this.data('width') + 20)
-      ,->
-        $this.width(-20)
-      )
-    )
+  toggleSearchBar: ->
+    $('.search-box').toggleClass 'open'
+    $('input[name=q]').focus()
 
   showLoadingBar: ->
-    $('#header').addClass('progress progress-striped active')
-    $('#header .container').addClass('bar')
+    $('.header-title').addClass 'progress'
+    $('.header-title .header-title-bar').addClass 'progress-bar progress-bar-striped active'
     return
 
   hideLoadingBar: ->
-    $('#header').removeClass('progress progress-striped active')
-    $('#header .container').removeClass('bar')
+    $('.header-title .header-title-bar').removeClass 'active'
     return
 
 # Menu methods
   _setClassesBasedOnSubNavigation: () =>
     # we can't use toggle class as we don't know what the current state is
     if($('#navbar .nav ul.open').length == 0)
-      $('#toggleTabletNavbar, #navbar, #content, .alert').removeClass('subnav')
+      $('#toggleTabletNavbar, #navbar, #content, .alert').removeClass 'subnav'
     else
-      $('#toggleTabletNavbar, #navbar, #content, .alert').addClass('subnav')
-
-  toggleSubNavigation: (e) =>
-    @subNavOpen
-    $this = $(e.currentTarget)
-    $subNav = $this.next('ul')
-
-    if $subNav.length > 0
-      e.preventDefault()
-      # not open
-      if !@subNavOpen
-        $this.addClass('active')
-        $subNav.addClass('open').slideDown()
-        @_setClassesBasedOnSubNavigation()
-        @subNavOpen = true
-      else
-        # already open, so close
-        if $subNav.is('.open')
-          $this.removeClass('active')
-          $subNav.removeClass('open').slideUp()
-          @_setClassesBasedOnSubNavigation()
-          @subNavOpen = false
-
-        # replace the current subnavigation
-        else
-          $('#navbar .nav li a.active').removeClass('active')
-          $('.subNavigation.open').removeClass('open')
-          $this.addClass('active')
-          $subNav.addClass('open').slideDown()
-          @_setClassesBasedOnSubNavigation()
-      false
-
-  toggleMediumMenu: (e) ->
-    e.preventDefault()
-
-    $('#navbar').toggleClass('open')
-    $(e.currentTarget).toggleClass('open')
-
-  toggleSmallMenu: (e) ->
-    e.preventDefault()
-
-    $('#content').toggleClass('open')
+      $('#toggleTabletNavbar, #navbar, #content, .alert').addClass 'subnav'
 
   toggleDropdown: (e) ->
     e.preventDefault()
 
     $this = $(e.currentTarget)
-    $this.toggleClass('open')
-    $this.next('ul').slideToggle()
+    $parent = $this.parent()
+
+    $parent.toggleClass 'active'
+
+    $this.next('ul').slideToggle(200, ->
+      $parent.toggleClass 'open'
+    )
 
 # Animated scroll methods
   scrollTo: (e) ->
     $anchor = $(e.currentTarget)
-    href = $anchor.attr('href')
-    url = href.substr(0, href.indexOf('#'))
-    hash = href.substr(href.indexOf('#'))
+    href = $anchor.attr 'href'
+    url = href.substr(0, href.indexOf '#')
+    hash = href.substr(href.indexOf '#')
 
     # check if we have an url, and if it is on the current page and
     # the element exists
@@ -264,7 +244,7 @@ class Framework extends DefaultObject
     e.preventDefault()
 
     $('html, body').stop().animate({
-      scrollTop: $('#content').offset().top
+      scrollTop: $('#main-wrapper').offset().top
     }, 500)
 
 # Link methods
@@ -272,8 +252,8 @@ class Framework extends DefaultObject
     e.preventDefault()
     $this = $(e.currentTarget)
 
-    $('#confirmModalOk').attr('href', $this.attr('href'))
-    $('#confirmModalMessage').html($this.data('message'))
+    $('#confirmModalOk').attr('href', $this.attr 'href')
+    $('#confirmModalMessage').html($this.data 'message')
     $('#confirmModal').modal('show')
   false
 
@@ -281,14 +261,14 @@ class Framework extends DefaultObject
     e.preventDefault()
     $this = $(e.currentTarget)
     $modal = $('#confirmModal')
-    $form = $this.parents('form');
+    $form = $this.parents 'form'
 
-    $('#confirmModalMessage').html($this.data('message'))
+    $('#confirmModalMessage').html($this.data 'message')
     $modal.on('click', '#confirmModalOk', (e) =>
       e.preventDefault()
       $form.submit()
     )
-      .modal('show')
+      .modal 'show'
       .on('hide', (e) =>
         $modal.off('click', '#confirmModalOk')
       )
@@ -303,5 +283,8 @@ class Framework extends DefaultObject
         $('#content').css('minHeight', $(window).height())
       , 200)
     )
+
+  clickableTablerow: ->
+    window.document.location = $('.action a').attr("href")
 
 window.Framework = Framework
