@@ -76,6 +76,10 @@ class Form
 
   _parseDate: (element, key) ->
     return '' if not element.data(key)?
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     data = element.data(key).split '-'
     new Date(
       parseInt(data[0], 10),
@@ -84,6 +88,8 @@ class Form
     )
 
   _dateFields: ->
+    return if (!$.isFunction($.fn.datepicker))
+
     $.datepicker.setDefaults @_dateFieldOptions
 
     $('[data-date-type] input[type="text"]', @form).each((i, el) =>

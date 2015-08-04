@@ -15,7 +15,7 @@
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "doctrine/migrations": "1.0.x-dev",
-        "doctrine/doctrine-migrations-bundle": "2.1.*@dev",
+        "doctrine/doctrine-migrations-bundle": "1.0.*@dev",
         "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.6",
         "symfony/swiftmailer-bundle": "~2.3",
@@ -31,16 +31,16 @@
         "knplabs/knp-menu-bundle": "2.0.*@dev",
 
         "sumocoders/framework-error-bundle": "~1.5",
-        "sumocoders/framework-user-bundle": "dev-usernav",
-        "sumocoders/framework-search-bundle": "dev-searchbar",
-        "sumocoders/framework-example-bundle": "dev-bootstrap-template"
+        "sumocoders/framework-user-bundle": "dev-master",
+        "sumocoders/framework-search-bundle": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
         "composer/composer": "1.0.*@dev",
         "sensio/generator-bundle": "~2.5",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
-        "fzaninotto/faker": "*"
+        "fzaninotto/faker": "*",
+        "sumocoders/framework-example-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

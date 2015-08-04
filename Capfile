@@ -1,8 +1,8 @@
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 
-set :client,  'sumocoders'
-set :project, 'framework2015'
-set :repository,  "git@github.com:sumocoders/Framework.git"
+set :client,  'xxx'
+set :project, 'xxx'
+set :repository,  'xxx'
 
 ### DO NOT EDIT BELOW ###
 

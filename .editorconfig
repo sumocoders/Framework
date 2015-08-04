@@ -1,0 +1,47 @@
+## EditorConfig is awesome: http://EditorConfig.org
+root = true
+
+
+## Newlines section
+
+# Make sure all files use lf as line ending
+[*.{coffee,css,htaccess,html,js,json,md,php,rb,scss,twig,xml,yml}]
+end_of_line = lf
+
+[{.bowerrc,.editorconfig,.gitignore,Capfile,Gemfile,Sumofile}]
+end_of_line = lf
+
+# Make sure we have an empty line at the end
+[*.{coffee,htaccess,html,html.twig,js,md,php}]
+insert_final_newline = true
+
+[{.bowerrc,.editorconfig,.gitignore,Capfile,Gemfile,Sumofile}]
+insert_final_newline = true
+
+## Charset section
+[*.{coffee,css,htaccess,html,js,json,md,php,rb,scss,twig,xml,yml}]
+charset = utf-8
+
+
+## Indenting section
+
+# 4 spaces indenting
+[*.{json,php,xml}]
+indent_size = 4
+indent_style = space
+
+# 2 spaces indenting
+[*.{coffee,css,html,html.twig,rb,scss,yml}]
+indent_size = 2
+indent_style = space
+
+[{.bowerrc,.gitignore,Capfile,Gemfile}]
+indent_size = 2
+indent_style = space
+
+
+## Misc section
+
+# Remove empty lines
+[*.{coffee,js,json,php,md,xml,yml}]
+trim_trailing_whitespace = true

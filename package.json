@@ -15,20 +15,20 @@
   "devDependencies": {
     "bower": "^1.4.1",
     "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^2.2.0",
+    "grunt-autoprefixer": "^3.0.3",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-coffee": "^0.12.0",
-    "grunt-contrib-compass": "^1.0.1",
-    "grunt-contrib-copy": "^0.7.0",
-    "grunt-contrib-imagemin": "^0.9.3",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-compass": "^1.0.3",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-imagemin": "^0.9.4",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-fontgen": "^0.2.1",
-    "grunt-grunticon": "^2.1.2",
-    "grunt-sass": "^0.18.0",
-    "grunt-shell": "^1.1.1",
+    "grunt-fontgen": "^0.2.2",
+    "grunt-grunticon": "^2.2.0",
+    "grunt-sass": "^1.0.0",
+    "grunt-shell": "^1.1.2",
     "grunt-sync": "^0.2.3",
-    "grunt-webfont": "^0.5.1",
+    "grunt-webfont": "^0.5.3",
     "gulp": "^3.9.0",
     "gulp-coffee": "^2.3.1",
     "gulp-file": "^0.2.0",
@@ -40,6 +40,6 @@
     "gulp-sass": "^2.0.4",
     "gulp-shell": "^0.4.2",
     "gulp-util": "^3.0.6",
-    "load-grunt-tasks": "^3.1.0"
+    "load-grunt-tasks": "^3.2.0"
   }
 }

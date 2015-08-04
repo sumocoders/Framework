@@ -88,6 +88,26 @@
   &.placeholder {
     color: $input-color-placeholder;
   }
+
+  .input-group {
+    margin-bottom: 0;
+  }
+}
+
+.select2 {
+  width: 100%;
+}
+
+.datetime-widget select[size], .time-widget select[size] {
+  height: 34px;
+}
+
+.date-widget .faked-button {
+  color: #555;
+}
+
+label abbr[title] {
+  border: 0;
 }
 
 .form-inline {
@@ -119,4 +139,12 @@
 
 label abbr[title] {
   border: 0;
+}
+
+.datetime-widget select[size], .time-widget select[size] {
+  height: 34px;
+}
+
+.date-widget .faked-button {
+  color: #555;
 }

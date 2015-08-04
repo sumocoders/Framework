@@ -166,4 +166,26 @@ class DatePickerControllerTest extends WebTestCase
         $this->assertEquals('hidden', $element->attr('type'));
         $this->assertEquals($date->format('Y-m-d'), $element->attr('value'));
     }
+
+    public function testIfSingleTextWithoutDefaultDateRenderedCorrectly()
+    {
+        $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
+
+        $element = $crawler->filter('input#form_date_example9');
+        $wrapper = $element->parents()->filter('.date-widget')->first();
+
+        $this->assertEquals(1, $element->count());
+        $this->assertEquals(1, $wrapper->count());
+
+        // check if it has all the required data-attributes
+        $this->assertEquals('datepicker', $wrapper->attr('data-provider'));
+        $this->assertEquals('', $wrapper->attr('data-date'));
+        $this->assertEquals('form_date_example9', $wrapper->attr('data-link-field'));
+        $this->assertEquals('yyyy-mm-dd', $wrapper->attr('data-link-format'));
+        $this->assertEquals('normal', $wrapper->attr('data-date-type'));
+
+        // check if the actual element is hidden
+        $this->assertEquals('hidden', $element->attr('type'));
+        $this->assertEquals('', $element->attr('value'));
+    }
 }

@@ -3,7 +3,7 @@
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
 
-$env = getenv('SYMFONY_ENV') ? : 'prod';
+$env = getenv('SYMFONY_ENV') ?: 'prod';
 $debug = getenv('SYMFONY_DEBUG') === '1';
 
 if (isset($_SERVER['HTTP_HOST']) && substr_count($_SERVER['HTTP_HOST'], '.dev')) {

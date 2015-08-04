@@ -21,7 +21,7 @@ class MenuListener extends DefaultMenuListener
     public function onConfigureMenu(ConfigureMenuEvent $event)
     {
         $menu = $event->getMenu();
-    
+
         // if you need to add a menu with subitems you can use a shortcut like this
         $childs = array(
             'this.is.the.label' => 'sumocoders_frameworkexample_route_name',
@@ -44,7 +44,7 @@ class MenuListener extends DefaultMenuListener
         );
 
         $menu->addChild($menuItem);
-    
+
         $menuItem = $event->getFactory()->createItem(
             'example.menu.overview',
             array(
