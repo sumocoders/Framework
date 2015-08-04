@@ -35,7 +35,6 @@ before_script:
 
   # create some bogus files
   - mkdir -p web/assets/css && touch web/assets/css/style.css
-  - mkdir -p web/assets/icons && touch web/assets/icons/grunticon.loader.js
 
   # generate all required assets
   - grunt sync:coffee sync:fonts sync:images sync:js sync:sass coffee
