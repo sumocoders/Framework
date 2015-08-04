@@ -76,10 +76,7 @@ class Form
 
   _parseDate: (element, key) ->
     return '' if not element.data(key)?
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     data = element.data(key).split '-'
     new Date(
       parseInt(data[0], 10),
