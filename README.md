@@ -42,7 +42,7 @@ See [https://github.com/phiamo/MopaBootstrapBundle](https://github.com/phiamo/Mo
 ### Frontend
 
 * [Frontend Development](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/frontend/frontend-development.md)
-* [Using Grunt](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/frontend/grunt.md)
+* [Using Gulp](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/frontend/gulp.md)
 
 ### Development
 

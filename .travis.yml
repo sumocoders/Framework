@@ -27,8 +27,8 @@ before_script:
   # install bower
   - npm install bower@"^1.3.12"
 
-  # install required grunt-packages
-  - npm install grunt@"^0.4.5" load-grunt-tasks@"^3.1.0" grunt-concurrent@"^1.0.0" grunt-sync@"^0.2.3" grunt-contrib-coffee@"^0.12.0"
+  # install required gulp-packages
+  - npm install
 
   # install bower-packages
   - bower install
@@ -38,7 +38,7 @@ before_script:
   - mkdir -p web/assets/icons && touch web/assets/icons/grunticon.loader.js
 
   # generate all required assets
-  - grunt sync:coffee sync:fonts sync:images sync:js sync:sass coffee
+  - gulp build
   - php app/console assets:instal --env=test
   - php app/console assetic:dump --env=test
 

@@ -216,13 +216,16 @@ namespace :framework do
   end
 
   namespace :assets do
-    desc "run grunt build to compile the assets"
+    desc "run gulp build to compile the assets"
     task :precompile do
-      if !File.exist?("Gruntfile.coffee")
-        logger.important "No Gruntfile.coffee found"
-      else
+      if File.exist?("Gruntfile.coffee")
         capifony_pretty_print "--> Running grunt build"
         run_locally "grunt build"
+        capifony_puts_ok
+      end
+      if File.exist?("gulpfile.js")
+        capifony_pretty_print "--> Running gulp build"
+        run_locally "gulp build"
         capifony_puts_ok
       end
     end
