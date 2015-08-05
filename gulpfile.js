@@ -220,6 +220,22 @@ gulp.task('sass:cleanup', function() {
   ]);
 });
 
+gulp.task('translations', ['translations:cleanup'], function() {
+  gulp.src(
+      [
+        './app/Resources/translations/**',
+        './src/**/Resources/translations/**',
+        './vendor/sumocoders/**/Resources/assets/translations/**'
+      ]
+  )
+      .pipe(livereload());
+});
+gulp.task('translations:cleanup', function() {
+  shell([
+    'rm -rf ./app/cache/dev'
+  ]);
+});
+
 gulp.task('watch', function() {
   livereload.listen();
 
@@ -266,6 +282,15 @@ gulp.task('watch', function() {
       ],
       ['sass']
   ).on('change', handleWatchEvent);
+  gulp.watch(
+      [
+        './app/Resources/translations/**',
+        './src/**/Resources/translations/**',
+        './vendor/sumocoders/**/Resources/assets/translations/**'
+      ],
+      ['translations']
+  ).on('change', handleWatchEvent);
+
 });
 
 // public tasks
