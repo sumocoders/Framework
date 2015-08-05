@@ -92,13 +92,13 @@ class ScriptHandler
     }
 
     /**
-     * Run grunt build
+     * Run gulp build
      *
      * @param Event $event
      */
-    public static function gruntBuild(Event $event)
+    public static function gulpBuild(Event $event)
     {
-        static::runCommandOnlyInDevMode('grunt build', $event->getIO(), $event->isDevMode());
+        static::runCommandOnlyInDevMode('gulp build', $event->getIO(), $event->isDevMode());
     }
 
     /**
