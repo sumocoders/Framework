@@ -232,7 +232,7 @@ gulp.task('translations', ['translations:cleanup'], function() {
 });
 gulp.task('translations:cleanup', function() {
   shell([
-    'rm -rf ./app/cache/dev'
+    'rm -rf ./app/cache/dev/translation'
   ]);
 });
 
