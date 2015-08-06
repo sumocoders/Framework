@@ -191,7 +191,7 @@ class Framework extends DefaultObject
 
   toggleSearchBar: ->
     $('.search-box').toggleClass 'open'
-    $('input[name=q]').focus()
+    $('input[name=term]').focus()
 
   showLoadingBar: ->
     $('.header-title').addClass 'progress'
