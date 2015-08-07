@@ -1,9 +1,13 @@
 .ui-autocomplete.ui-widget-content {
-  background: none;
   border-color: $gray-lines;
+  z-index: 100000;
 
   .ui-menu-item a {
     color: $gray-light;
+  }
+
+  .ui-state-focus a {
+    color: $white;
   }
 
   .ui-state-focus {
@@ -13,6 +17,11 @@
   }
 }
 
+.ui-menu .ui-menu-item {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
 .ui-state-focus {
   background: $brand-primary;
   border: 0;
@@ -20,6 +29,6 @@
   margin: 0;
 
   a {
-    color: darken($gray-light, 20%);
+    color: $white;
   }
 }
