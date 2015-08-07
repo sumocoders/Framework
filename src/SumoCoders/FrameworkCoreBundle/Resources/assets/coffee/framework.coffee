@@ -199,7 +199,7 @@ class Framework extends DefaultObject
     return
 
   hideLoadingBar: ->
-    $('.header-title .header-title-bar').removeClass 'active'
+    $('.header-title .header-title-bar').removeClass 'progress-bar progress-bar-striped active'
     return
 
 # Menu methods
