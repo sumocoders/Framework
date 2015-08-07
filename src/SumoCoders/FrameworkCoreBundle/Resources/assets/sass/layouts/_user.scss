@@ -5,6 +5,16 @@
   &.forgot_password,
   &.reset_password {
 
+    .logo {
+      background-size: auto 100%;
+      height: 150px;
+      margin: 10% auto;
+    }
+
+    abbr {
+      font-weight: 300;
+    }
+
     .control-group {
       margin-bottom: 27px;
 
