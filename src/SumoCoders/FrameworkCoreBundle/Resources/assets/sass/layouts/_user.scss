@@ -5,6 +5,10 @@
   &.forgot_password,
   &.reset_password {
 
+    .logo img {
+      margin: 30px auto;
+    }
+
     .control-group {
       margin-bottom: 27px;
 

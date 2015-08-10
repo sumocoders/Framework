@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     rename = require('gulp-rename'),
+    consolidate = require('gulp-consolidate'),
     coffee = require('gulp-coffee'),
     imagemin = require('gulp-imagemin'),
     fontgen = require('gulp-fontgen'),
@@ -155,20 +156,24 @@ gulp.task('icons', function() {
         './vendor/sumocoders/**/Resources/assets/icon-font/**/*.svg',
       ]
   )
-      .pipe(iconfontcss({
-        fontName:   'icons',
-        path:       'scss',
-        targetPath: '../../../assets/sass/_icons.scss',
-        fontPath:   '../fonts/'
-      }))
-      .on('end', function() { showStatus('icons', 'icon-font SCSS generated', 'success')})
       .pipe(iconfont({
-        fontName:  'icons',
-        normalize: true
+        fontName:   'icons',
       }))
-      .on('end', function() { showStatus('icons', 'icon-font generated', 'success')})
+      .on('glyphs', function(glyphs) {
+        var options = {
+          glyphs: glyphs,
+          fontName: 'icons',
+          fontPath: '../fonts/',
+          className: 'icon'
+        };
+
+        gulp.src('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/base/_iconfont-template.scss')
+          .pipe(consolidate('lodash', options))
+          .pipe(rename({ basename: '_icons' }))
+          .pipe(gulp.dest('./assets/sass/'));
+      })
       .pipe(gulp.dest(config.assetsDir + '/fonts'))
-      .on('end', function() { showStatus('icons', 'icon-font saved', 'success')})
+      .on('end', function() { showStatus('icons', 'icon-font generated', 'success')})
       .pipe(livereload());
 });
 
