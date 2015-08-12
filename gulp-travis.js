@@ -1,24 +1,13 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     rename = require('gulp-rename'),
-    coffee = require('gulp-coffee');
+    coffee = require('gulp-coffee'),
+    stripPath = require('./gulp-helpers/strip-path');
 
 var config = {
   temporaryDir: './assets',
   assetsDir:    './web/assets'
 };
-
-var minify = true;
-
-function getStrippedPath(folderToSearch, path) {
-  var startOfFolderToSearch = path.indexOf(folderToSearch);
-
-  if (startOfFolderToSearch !== -1) {
-    return path.substr(startOfFolderToSearch + folderToSearch.length);
-  }
-
-  return '';
-}
 
 gulp.task('coffee', function() {
   gulp.src(
@@ -53,7 +42,7 @@ gulp.task('js', function() {
           return;
         }
 
-        path.dirname = getStrippedPath('/js/', path.dirname);
+        path.dirname = stripPath('/js/', path.dirname);
       }))
       .pipe(gulp.dest(config.assetsDir + '/js'));
 });

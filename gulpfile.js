@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     gulpSequence = require('gulp-sequence').use(gulp),
     shell = require('gulp-shell'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    stripPath = require('./gulp-helpers/strip-path');
 
 var config = {
   temporaryDir: './assets',
@@ -20,15 +21,6 @@ var config = {
 
 var minify = true;
 
-function getStrippedPath(folderToSearch, path) {
-  var startOfFolderToSearch = path.indexOf(folderToSearch);
-
-  if (startOfFolderToSearch !== -1) {
-    return path.substr(startOfFolderToSearch + folderToSearch.length);
-  }
-
-  return '';
-}
 function showStatus(task, message, type) {
   message = '--> [' + task + '] ' + message;
 
@@ -88,7 +80,7 @@ gulp.task('js', function() {
           return;
         }
 
-        path.dirname = getStrippedPath('/js/', path.dirname);
+        path.dirname = stripPath('/js/', path.dirname);
       }))
       .on('end', function() { showStatus('js', 'JS-files renamed', 'success')})
       .pipe(gulp.dest(config.assetsDir + '/js'))
@@ -110,7 +102,7 @@ gulp.task('images', function() {
           return;
         }
 
-        path.dirname = getStrippedPath('/images/', path.dirname);
+        path.dirname = stripPath('/images/', path.dirname);
       }))
       .on('end', function() { showStatus('images', 'image-files renamed', 'success')})
       .pipe(imagemin())
@@ -186,7 +178,7 @@ gulp.task('sass:centralise_sass_files', ['sass:cleanup'], function() {
       ]
   )
       .pipe(rename(function(path) {
-        path.dirname = getStrippedPath('/sass/', path.dirname);
+        path.dirname = stripPath('/sass/', path.dirname);
       }))
       .on('end', function() { showStatus('sass', 'scss-files renamed', 'success')})
       .pipe(gulp.dest(config.temporaryDir + '/sass'))
