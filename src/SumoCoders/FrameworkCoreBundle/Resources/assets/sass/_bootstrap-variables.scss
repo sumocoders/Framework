@@ -36,9 +36,9 @@ $body-bg:               $white;
 $text-color:            $gray;
 
 //** Global textual link color.
-$link-color:            $text-color;
+$link-color:            $brand-primary;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      $gray-dark;
+$link-hover-color:      darken($brand-primary, 10%);
 //** Link hover decoration.
 $link-hover-decoration: none;
 
@@ -261,7 +261,7 @@ $dropdown-link-active-color:     $dropdown-link-hover-color;
 $dropdown-link-active-bg:        $dropdown-link-hover-bg;
 
 //** Disabled dropdown menu item background color.
-$dropdown-link-disabled-color:   $gray-light;
+$dropdown-link-disabled-color:   $gray-lighter;
 
 //** Text color for headers within dropdown menus.
 $dropdown-header-color:          $gray-light;
