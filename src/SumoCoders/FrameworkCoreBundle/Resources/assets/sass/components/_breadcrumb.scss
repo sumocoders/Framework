@@ -4,7 +4,7 @@
 
   > li + li:before {
     @extend .icon;
-    @extend .icon-breadcrumb-separator;
+    @extend .icon-angle;
     font-size: $font-size-icon-smallest;
     padding-right: 10px;
   }

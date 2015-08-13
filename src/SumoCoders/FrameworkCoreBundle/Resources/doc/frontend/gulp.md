@@ -1,6 +1,6 @@
-# Using grunt
+# Using gulp
 
-We are using grunt to handle a shitload of frontend related tasks, below you 
+We are using gulp to handle a shitload of frontend related tasks, below you 
 can find all stuff that is done. This is more a guide for you to understand 
 what is happening.
 
@@ -48,20 +48,10 @@ We will look into all bundle in the `src` folder for svg files in the
 `Resources/assets/icon-font` folder. These svg icons will be embedded in a
 CSS file which will be asynchronously loaded into the web page. If the browser
 doesn't support SVG, another CSS file with PNG fallbacks will be loaded.
-All of this happens through [grunticon](https://github.com/filamentgroup/grunticon).
 The class names are automatically generated based on the file name of the icon.
 For example, the icon with the name `arrow.svg` will generate a CSS class
 with the name `icon-arrow`. To keep the class names consistent, always use
 dashes in the file names, no underscores.
-
-Icons can be styled with CSS but can not be extended with Sass, because 
-the CSS with the icons gets loaded asynchronously for performance reasons.
-
-More possibilities of grunticon include inline embedding of icons, creating 
-color variations of the same icon and recoloring certain parts of icons.
-Please refer to the [plugin's documentation](https://github.com/filamentgroup/grunticon)
-for more info
-
 
 ### Images
 
@@ -76,8 +66,7 @@ overwritten.
 You can link to the font-files with the compass-shortcurt image-url('filename')`
 in your scss-files.
 
-When running `grunt build` the images will be optimized for web with the 
-[grunt-contrib-imagemin-plugin](https://www.npmjs.com/package/grunt-contrib-imagemin).
+When running `gulp build` the images will be optimized for web.
 
 You can use the `asset`-method in twig templates like below:
 
@@ -104,11 +93,11 @@ We will look into all bundles in the `src`-folder for all files in the
 (optionally) created will be preserved.
 
 After that the files will be compiled into `web/assets/css`. When running 
-`grunt build` the files will be compiled as minified as possible, so without 
+`gulp build` the files will be compiled as minified as possible, so without 
 any comments.
 
 When the sass/scss-files are compiled we use the 
-[grunt-autoprefixer-plugin](https://www.npmjs.com/package/grunt-autoprefixer)
+[gulp-autoprefixer-plugin](https://www.npmjs.com/package/gulp-autoprefixer)
 
 If you want you can combine multiple generated css files into one by using 
 Assetic:
@@ -137,7 +126,7 @@ But in most cases you will just use
 
 ### While developing
 
-    grunt serve
+    gurlp serve
     
 We have implemented live-reload, so your changes will be reloaded in the 
 browser. This will only happen in the dev-environment.
@@ -145,7 +134,7 @@ browser. This will only happen in the dev-environment.
 
 ### Before launching your website
 
-    grunt build
+    gulp build
     
 You don't have to bother if you are using deployment as we will handle it for 
 you.

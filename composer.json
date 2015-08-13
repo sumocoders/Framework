@@ -49,7 +49,7 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
-            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gruntBuild"
+            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gulpBuild"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -57,7 +57,7 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
-            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gruntBuild"
+            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gulpBuild"
         ],
         "post-create-project-cmd": [
           "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::createInitialConfig"
