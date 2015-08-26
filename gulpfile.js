@@ -19,7 +19,7 @@ var config = {
   assetsDir:    './web/assets'
 };
 
-var minify = true;
+var minify = false;
 
 function showStatus(task, message, type) {
   message = '--> [' + task + '] ' + message;
@@ -200,7 +200,8 @@ gulp.task('sass:generate_css', ['sass:centralise_sass_files', 'icons'], function
           './web/assets/vendor/bootstrap-sass/assets/stylesheets',
           './web/assets/vendor'
         ],
-        outputStyle:  outputStyle
+        outputStyle:  outputStyle,
+        precision: 10
 
       }).on('error', showError))
       .on('end', function() { showStatus('sass', 'SCSS-files compiled', 'success')})
