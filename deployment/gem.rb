@@ -108,6 +108,19 @@ namespace :sumo do
   end
 end
 
+namespace :sumodev do
+  namespace :db do
+    desc "Create the database if it doesn't exists yet"
+    task :create do
+      sumo.db.create
+    end
+    desc "Get info about the database"
+    task :info do
+      sumo.db.info
+    end
+  end
+end
+
 namespace :framework do
   namespace :setup do
     desc "link the document root to the current/web-folder"
