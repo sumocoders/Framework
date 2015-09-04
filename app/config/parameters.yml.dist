@@ -10,6 +10,7 @@ parameters:
     database_name:
     database_user:
     database_password:
+    database_version: 5.5
 
     # Mail configuration
     mailer_transport: mail
