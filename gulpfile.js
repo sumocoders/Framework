@@ -19,7 +19,7 @@ var config = {
   assetsDir:    './web/assets'
 };
 
-var minify = false;
+var minify = true;
 
 function showStatus(task, message, type) {
   message = '--> [' + task + '] ' + message;
@@ -44,7 +44,7 @@ function handleWatchEvent(event) {
 }
 
 gulp.task('coffee', function() {
-  gulp.src(
+  return gulp.src(
       [
         './src/**/Resources/assets/coffee/***.coffee',
         './vendor/sumocoders/**/Resources/assets/coffee/***.coffee'
@@ -67,7 +67,7 @@ gulp.task('coffee', function() {
 });
 
 gulp.task('js', function() {
-  gulp.src(
+  return gulp.src(
       [
         './src/**/Resources/assets/js/**',
         './vendor/sumocoders/**/Resources/assets/js/**'
@@ -89,7 +89,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('images', function() {
-  gulp.src(
+  return gulp.src(
       [
         './src/**/Resources/assets/images/**',
         './vendor/sumocoders/**/Resources/assets/images/**'
@@ -118,7 +118,7 @@ gulp.task('fonts', gulpSequence(
 ));
 
 gulp.task('fonts:generate', function() {
-  gulp.src(
+  return gulp.src(
       [
         './src/**/Resources/assets/fonts/**/*.ttf',
         './src/**/Resources/assets/fonts/**/*.otf',
@@ -142,7 +142,7 @@ gulp.task('fonts:generate', function() {
 gulp.task('del:cleanup_useless_font_css', shell.task('rm -rf ' + config.assetsDir + '/fonts/*.css'));
 
 gulp.task('icons', function() {
-  gulp.src(
+  return gulp.src(
       [
         './src/**/Resources/assets/icon-font/**/*.svg',
         './vendor/sumocoders/**/Resources/assets/icon-font/**/*.svg',
@@ -171,7 +171,7 @@ gulp.task('icons', function() {
 
 gulp.task('sass', ['sass:generate_css']);
 gulp.task('sass:centralise_sass_files', ['sass:cleanup'], function() {
-  gulp.src(
+  return gulp.src(
       [
         './src/**/Resources/assets/sass/**',
         './vendor/sumocoders/**/Resources/assets/sass/**'
@@ -190,7 +190,7 @@ gulp.task('sass:generate_css', ['sass:centralise_sass_files', 'icons'], function
     outputStyle = 'expanded';
   }
 
-  gulp.src(
+  return gulp.src(
       [
         config.temporaryDir + '/sass/style.scss'
       ]
@@ -211,15 +211,14 @@ gulp.task('sass:generate_css', ['sass:centralise_sass_files', 'icons'], function
       .on('end', function() { showStatus('sass', 'CSS-files generated', 'success')})
       .pipe(livereload());
 });
-gulp.task('sass:cleanup', function() {
-  shell([
+gulp.task('sass:cleanup', shell.task([
     'rm -rf ./assets/sass',
     'rm -rf ./web/css'
-  ]);
-});
+  ])
+);
 
 gulp.task('translations', ['translations:cleanup'], function() {
-  gulp.src(
+  return gulp.src(
       [
         './app/Resources/translations/**',
         './src/**/Resources/translations/**',
@@ -228,13 +227,15 @@ gulp.task('translations', ['translations:cleanup'], function() {
   )
       .pipe(livereload());
 });
-gulp.task('translations:cleanup', function() {
-  shell([
+gulp.task('translations:cleanup', shell.task([
     'rm -rf ./app/cache/dev/translations'
-  ]);
-});
+  ])
+);
 
-gulp.task('watch', function() {
+gulp.task('watch:cleanup', shell.task(['rm -rf ./app/cache']));
+gulp.task('watch', ['watch:cleanup'], function() {
+  minify = false;
+
   livereload.listen();
 
   gulp.watch(
@@ -301,6 +302,5 @@ gulp.task('build', function() {
 });
 
 gulp.task('serve', function() {
-  minify = false;
   gulp.start('watch');
 });
