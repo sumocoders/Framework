@@ -12,7 +12,11 @@
 
 .wrapper-brand {
   background-color: $brand-primary;
-  padding: 5px;
+  padding: 20px;
+
+  .logo img {
+    margin: 0 auto;
+  }
 }
 
 .navbar {
