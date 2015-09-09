@@ -34,7 +34,7 @@
     {% endblock %}
 
     {% block head_javascripts %}
-        <script>
+        <script type="text/javascript">
             var jsData = {{ jsData|raw }};
         </script>
 
@@ -52,14 +52,14 @@
             '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
             output='js/vendors.js'
         %}
-            <script src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
 
         {% javascripts
             'assets/js/sumo_plugins.js'
             output='js/sumo_plugins.js'
         %}
-            <script src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
 
         {% javascripts
@@ -71,7 +71,7 @@
             'assets/js/frameworkcorebundle.app.js'
             output='js/app.js'
         %}
-            <script src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}
 
