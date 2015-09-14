@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "97bf2bef665cdb941a3805590708a5d6",
+    "hash": "18da0a7ebc11d755edbc8f4fd9a1101a",
     "packages": [
         {
             "name": "dbtlr/php-airbrake",
@@ -2148,17 +2148,17 @@
         },
         {
             "name": "sumocoders/framework-user-bundle",
-            "version": "dev-master",
+            "version": "v1.5.0",
             "target-dir": "SumoCoders/FrameworkUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "d775652f6ccf5146a5595dc274d115dbdd46aee6"
+                "reference": "9e40b5985bcabd459ff1c75e3d8f21c66f6dbb39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/d775652f6ccf5146a5595dc274d115dbdd46aee6",
-                "reference": "d775652f6ccf5146a5595dc274d115dbdd46aee6",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/9e40b5985bcabd459ff1c75e3d8f21c66f6dbb39",
+                "reference": "9e40b5985bcabd459ff1c75e3d8f21c66f6dbb39",
                 "shasum": ""
             },
             "require": {
@@ -2190,7 +2190,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2015-08-04 15:18:25"
+            "time": "2015-09-14 10:26:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3956,7 +3956,6 @@
         "friendsofsymfony/user-bundle": 20,
         "mopa/bootstrap-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
-        "sumocoders/framework-user-bundle": 20,
         "sumocoders/framework-search-bundle": 20,
         "composer/composer": 20,
         "sumocoders/framework-example-bundle": 20

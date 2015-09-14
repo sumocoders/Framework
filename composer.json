@@ -31,7 +31,7 @@
         "knplabs/knp-menu-bundle": "2.0.*@dev",
 
         "sumocoders/framework-error-bundle": "~1.5",
-        "sumocoders/framework-user-bundle": "dev-master",
+        "sumocoders/framework-user-bundle": "~1.5",
         "sumocoders/framework-search-bundle": "dev-master"
     },
     "require-dev": {
