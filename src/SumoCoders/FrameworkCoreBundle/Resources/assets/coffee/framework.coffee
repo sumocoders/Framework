@@ -142,20 +142,40 @@ class Framework extends DefaultObject
     )
 
   _initSortable: ->
-    $( '.sortable' ).sortable()
-    handle: 'button'
-    cancel: ''
+    $sortable = $ '.sortable'
+
+    return if ($sortable.length == 0)
+    return if (!$.isFunction($.fn.sortable))
+
+    $sortable.sortable
+      handle: 'button'
+      cancel: ''
 
   _initDisableSelection: ->
-    $( '.sortable' ).disableSelection()
+    $sortable = $ '.sortable'
+
+    return if ($sortable.length == 0)
+    return if (!$.isFunction($.fn.disableSelection))
+
+    $sortable.disableSelection()
 
   _initDatepicker: ->
-    $( '.datepicker' ).datepicker(
+    $datepicker = $ '.datepicker'
+
+    return if ($datepicker.length == 0)
+    return if (!$.isFunction($.fn.datepicker))
+
+    $datepicker.datepicker(
       dateFormat: "dd-mm-yy"
     )
 
   _initSlider: ->
-    $( '.slider' ).slider({
+    $slider = $ '.slider'
+
+    return if ($slider.length == 0)
+    return if (!$.isFunction($.fn.slider))
+
+    $slider.slider({
       min: 0
       max: 50
       values: [ 10, 40 ]
@@ -163,7 +183,12 @@ class Framework extends DefaultObject
     })
 
   _initSelect2: ->
-    $('.select2').select2()
+    $select2 = $ '.select2'
+
+    return if ($select2.length == 0)
+    return if (!$.isFunction($.fn.select2))
+
+    $select2.select2()
 
   _initTooltip: ->
     $('[data-toggle="tooltip"]').tooltip()
