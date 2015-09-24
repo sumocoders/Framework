@@ -3,3 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: @SumoCodersFrameworkErrorBundle/Resources/config/config.yml }
     - { resource: @SumoCodersFrameworkCoreBundle/Resources/config/config.yml }
+
+framework:
+  templating:
+    assets_version: 1
