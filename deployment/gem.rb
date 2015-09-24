@@ -259,6 +259,19 @@ namespace :framework do
   end
 end
 
+# found in https://gist.github.com/jakzal/1400923
+namespace :symfony do
+  namespace :assets do
+    desc "Updates assets version"
+    task :update_version do
+        capifony_pretty_print "--> Update assets version"
+        run "sed -i 's/\\(assets_version: \\)\\(.*\\)$/\\1 #{real_revision}/g' #{latest_release}/app/config/config.yml"
+        capifony_puts_ok
+    end
+  end
+end
+
+before 'symfony:assetic:dump', 'symfony.assets.update_version'
 before 'symfony:assetic:dump', 'symfony:cache:clear'
 
 after "deploy", "deploy:cleanup", "framework:errbit:notify"

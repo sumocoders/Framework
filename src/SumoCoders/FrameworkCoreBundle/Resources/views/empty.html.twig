@@ -50,14 +50,14 @@
             'assets/vendor/respond/dest/respond.min.js'
             output='js/vendors.js'
         %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="{{ asset(asset_url) }}"></script>
         {% endjavascripts %}
 
         {% javascripts
             'assets/js/sumo_plugins.js'
             output='js/sumo_plugins.js'
         %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="{{ asset(asset_url) }}"></script>
         {% endjavascripts %}
 
         {% javascripts
@@ -69,7 +69,7 @@
             'assets/js/frameworkcorebundle.app.js'
             output='js/app.js'
         %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="{{ asset(asset_url) }}"></script>
         {% endjavascripts %}
     {% endblock %}
 
