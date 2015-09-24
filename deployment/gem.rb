@@ -271,7 +271,7 @@ namespace :symfony do
   end
 end
 
-before 'symfony:assetic:dump', 'symfony.assets.update_version'
+before 'symfony:assetic:dump', 'symfony:assets:update_version'
 before 'symfony:assetic:dump', 'symfony:cache:clear'
 
 after "deploy", "deploy:cleanup", "framework:errbit:notify"
