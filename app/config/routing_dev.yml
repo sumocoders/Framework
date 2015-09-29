@@ -17,3 +17,8 @@ _main:
 sumo_coders_example_bundle:
   resource: "@SumoCodersFrameworkExampleBundle/Resources/config/routing.yml"
   prefix: /example
+
+JMSTranslationBundle_ui:
+    resource: @JMSTranslationBundle/Controller/
+    type:     annotation
+    prefix:   /_trans
