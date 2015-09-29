@@ -54,3 +54,11 @@ services:
     class: SumoCoders\FrameworkCoreBundle\EventListener\ResponseSecurer
     tags:
        - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+  framework.menu_listener:
+    class: SumoCoders\FrameworkCoreBundle\EventListener\MenuListener
+    arguments:
+      - @security.authorization_checker
+      - @security.token_storage
+    tags:
+      - { name: kernel.event_listener, event: framework_core.configure_menu, method: onConfigureMenu }
