@@ -25,6 +25,7 @@
                         type: 'POST',
                         headers: {'X-HTTP-METHOD-OVERRIDE': 'PUT'},
                         data: {'_method': 'PUT', 'message': $(this).val()},
+                        dataType: 'html',
                         error: function() {
                             $(self).parent().prepend('<div class="alert-message error">Translation could not be saved</div>');
                         },
@@ -59,53 +60,71 @@
 
 {% block main %}
 
+  <div class="row">
     <form id="config" action="{{ path("jms_translation_index") }}" method="get">
-        <select name="config" class="span3">
-            {% for config in configs %}
-            <option value="{{ config }}"{% if config == selectedConfig %} selected="selected"{% endif %}>{{ config }}</option>
-            {% endfor %}
-        </select>
+      <div class="form-group">
+        <div class="col-sm-3">
+          <select name="config" class="form-control">
+              {% for config in configs %}
+              <option value="{{ config }}"{% if config == selectedConfig %} selected="selected"{% endif %}>{{ config }}</option>
+              {% endfor %}
+          </select>
+        </div>
 
-        <select name="domain" class="span3">
-            {% for domain in domains %}
-            <option value="{{ domain }}"{% if domain == selectedDomain %} selected="selected"{% endif %}>{{ domain }}</option>
-            {% endfor %}
-        </select>
+        <div class="col-sm-3">
+          <select name="domain" class="form-control">
+              {% for domain in domains %}
+              <option value="{{ domain }}"{% if domain == selectedDomain %} selected="selected"{% endif %}>{{ domain }}</option>
+              {% endfor %}
+          </select>
+        </div>
 
-        <select name="locale" class="span2">
-            {% for locale in locales %}
-            <option value="{{ locale }}"{% if locale == selectedLocale %} selected="selected"{% endif %}>{{ locale }}</option>
-            {% endfor %}
-        </select>
+        <div class="col-sm-2">
+          <select name="locale" class="form-control">
+              {% for locale in locales %}
+              <option value="{{ locale }}"{% if locale == selectedLocale %} selected="selected"{% endif %}>{{ locale }}</option>
+              {% endfor %}
+          </select>
+        </div>
+      </div>
     </form>
+  </div>
 
-    {% if isWriteable is sameas(false) %}
-    <div class="alert-message error">
-        The translation file "<strong>{{ file }}</strong>" is not writable.
+  {% if isWriteable is sameas(false) %}
+  <div class="alert-message error">
+      The translation file "<strong>{{ file }}</strong>" is not writable.
+  </div>
+  {% endif %}
+
+  {% if "xliff" != format %}
+  <div class="alert-message warning">
+      Due to limitations of the different loaders/dumpers, some features are unfortunately limited to the XLIFF format.
+
+      <br /><br />
+
+      However, you can easily convert your existing translation files to the XLIFF format by running:<br />
+      <code>php app/console translation:extract {{ selectedLocale }} --config={{ selectedConfig }} --output-format=xliff</code>
+  </div>
+  {% endif %}
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Available Messages</h2>
     </div>
-    {% endif %}
+  </div>
 
-    {% if "xliff" != format %}
-    <div class="alert-message warning">
-        Due to limitations of the different loaders/dumpers, some features are unfortunately limited to the XLIFF format.
-
-        <br /><br />
-
-        However, you can easily convert your existing translation files to the XLIFF format by running:<br />
-        <code>php app/console translation:extract {{ selectedLocale }} --config={{ selectedConfig }} --output-format=xliff</code>
+  {% if newMessages is not empty %}
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>New Messages</h3>
+      {% include "JMSTranslationBundle:Translate:messages.html.twig" with {"messages": newMessages} %}
     </div>
-    {% endif %}
+  </div>
+  {% endif %}
 
-    <h2>Available Messages</h2>
-
-    {% if newMessages is not empty %}
-    <h3>New Messages</h3>
-    {% include "JMSTranslationBundle:Translate:messages.html.twig" with {"messages": newMessages} %}
-    {% endif %}
-
-    {% if existingMessages is not empty %}
-    <h3>Existing Messages</h3>
-    {% include "JMSTranslationBundle:Translate:messages.html.twig" with {"messages": existingMessages} %}
-    {% endif %}
+  {% if existingMessages is not empty %}
+  <h3>Existing Messages</h3>
+  {% include "JMSTranslationBundle:Translate:messages.html.twig" with {"messages": existingMessages} %}
+  {% endif %}
 
 {% endblock %}
