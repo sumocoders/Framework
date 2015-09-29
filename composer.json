@@ -28,6 +28,7 @@
         "mopa/bootstrap-bundle": "3.*@dev",
         "jms/i18n-routing-bundle": "1.*",
         "jms/translation-bundle": "1.1.*",
+        "jms/di-extra-bundle": "1.6.*",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
 
         "sumocoders/framework-error-bundle": "~1.5",

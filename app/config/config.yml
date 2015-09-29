@@ -3,3 +3,19 @@ imports:
     - { resource: security.yml }
     - { resource: @SumoCodersFrameworkErrorBundle/Resources/config/config.yml }
     - { resource: @SumoCodersFrameworkCoreBundle/Resources/config/config.yml }
+
+jms_translation:
+    configs:
+        app:
+            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
+            output_dir: %kernel.root_dir%/Resources/translations
+            ignored_domains: [routes]
+            excluded_names: ["*TestCase.php", "*Test.php", "DefaultMenuListener.php"]
+            excluded_dirs: [cache, data, logs]
+            extractors: [jms_i18n_routing]
+
+services:
+    twig.text_extension:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - name: twig.extension
