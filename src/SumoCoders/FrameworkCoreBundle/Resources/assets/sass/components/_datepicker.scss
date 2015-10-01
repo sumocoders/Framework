@@ -3,8 +3,12 @@
   border-color: $gray-light;
 }
 
-.ui-datepicker th {
-  color: $gray-light;
+.ui-datepicker {
+  z-index: 2 !important;
+
+  th {
+    color: $gray-light;
+  }
 }
 
 .ui-state-default,

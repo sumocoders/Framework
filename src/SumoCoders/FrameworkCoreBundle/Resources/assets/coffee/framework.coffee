@@ -148,7 +148,7 @@ class Framework extends DefaultObject
     return if (!$.isFunction($.fn.sortable))
 
     $sortable.sortable
-      handle: 'button'
+      handle: ''
       cancel: ''
 
   _initDisableSelection: ->
