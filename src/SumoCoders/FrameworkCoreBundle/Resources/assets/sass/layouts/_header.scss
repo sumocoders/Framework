@@ -22,6 +22,7 @@
   padding: 0;
   position: relative;
   width: 100%;
+  z-index: 1;
 
 
   .icon-angle:before {
@@ -58,6 +59,10 @@
       &:focus {
         background-color: $gray-darker;
         color: $white;
+      }
+
+      span {
+        padding: 5px 0;
       }
     }
 

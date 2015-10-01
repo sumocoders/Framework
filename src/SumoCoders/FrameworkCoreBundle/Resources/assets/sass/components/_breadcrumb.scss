@@ -1,6 +1,8 @@
 .breadcrumb {
   font-weight: 600;
   margin: 0;
+  white-space: nowrap;
+  z-index: 99;
 
   > li + li:before {
     @extend .icon;
