@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "18da0a7ebc11d755edbc8f4fd9a1101a",
+    "hash": "7cdaf54485427e6f220fb8c2c544f74b",
+    "content-hash": "aede8f94493e563d81274008041a0022",
     "packages": [
         {
             "name": "dbtlr/php-airbrake",
@@ -16,7 +17,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dbtlr/php-airbrake/zipball/0b6e6cae88a3c9c359a796091ae9a2ba40f82859",
+                "url": "https://api.github.com/repos/dbtlr/php-airbrake/zipball/69fd4782219ba22fcfe4c278de1eebbbe38f0950",
                 "reference": "0b6e6cae88a3c9c359a796091ae9a2ba40f82859",
                 "shasum": ""
             },
@@ -807,7 +808,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/087f738cf8f984807efa44e6405d28b5f6009d2f",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/f4f5bdf6cc84011513ca6b582f85330a09a5037b",
                 "reference": "06272b0dddb64bb386280d30c01f3aab0be52d23",
                 "shasum": ""
             },
@@ -999,7 +1000,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/3906465fbaa9d71de3404b8c3667e451d07f9984",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/d5b28c367d393f9d9fbc48c4138b2a74d51c0c83",
                 "reference": "c2e68acfb2b5786cd455fd9ae3b6d7f255f12646",
                 "shasum": ""
             },
@@ -1415,7 +1416,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2103,17 +2104,17 @@
         },
         {
             "name": "sumocoders/framework-search-bundle",
-            "version": "dev-master",
+            "version": "v1.2.1",
             "target-dir": "SumoCoders/FrameworkSearchBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "270abbe4b5361b45434f21a0d494cc19ce288358"
+                "reference": "498fe81261abcd54aa5887188a078072506946db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/270abbe4b5361b45434f21a0d494cc19ce288358",
-                "reference": "270abbe4b5361b45434f21a0d494cc19ce288358",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/498fe81261abcd54aa5887188a078072506946db",
+                "reference": "498fe81261abcd54aa5887188a078072506946db",
                 "shasum": ""
             },
             "require": {
@@ -2144,7 +2145,7 @@
                 "SumoCoders",
                 "search"
             ],
-            "time": "2015-08-04 15:17:34"
+            "time": "2015-06-11 13:08:26"
         },
         {
             "name": "sumocoders/framework-user-bundle",
@@ -2250,12 +2251,12 @@
             "version": "v2.6.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/AsseticBundle.git",
+                "url": "https://github.com/symfony/assetic-bundle.git",
                 "reference": "422b0add2110f0cf9bc7a873a386ea053f4a89f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/AsseticBundle/zipball/422b0add2110f0cf9bc7a873a386ea053f4a89f0",
+                "url": "https://api.github.com/repos/symfony/assetic-bundle/zipball/422b0add2110f0cf9bc7a873a386ea053f4a89f0",
                 "reference": "422b0add2110f0cf9bc7a873a386ea053f4a89f0",
                 "shasum": ""
             },
@@ -2315,12 +2316,12 @@
             "version": "v2.7.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/MonologBundle.git",
+                "url": "https://github.com/symfony/monolog-bundle.git",
                 "reference": "9320b6863404c70ebe111e9040dab96f251de7ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/9320b6863404c70ebe111e9040dab96f251de7ac",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/9320b6863404c70ebe111e9040dab96f251de7ac",
                 "reference": "9320b6863404c70ebe111e9040dab96f251de7ac",
                 "shasum": ""
             },
@@ -2374,12 +2375,12 @@
             "version": "v2.3.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/SwiftmailerBundle.git",
+                "url": "https://github.com/symfony/swiftmailer-bundle.git",
                 "reference": "970b13d01871207e81d17b17ddda025e7e21e797"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/970b13d01871207e81d17b17ddda025e7e21e797",
+                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/970b13d01871207e81d17b17ddda025e7e21e797",
                 "reference": "970b13d01871207e81d17b17ddda025e7e21e797",
                 "shasum": ""
             },
@@ -3901,17 +3902,17 @@
         },
         {
             "name": "sumocoders/framework-example-bundle",
-            "version": "dev-master",
+            "version": "v1.1.0",
             "target-dir": "SumoCoders/FrameworkExampleBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
-                "reference": "1b472bf18496aa1b68ac3c7b1d426f8a6ce4b5fd"
+                "reference": "d93e9ea23c81c3ca0b77411a4ee3a042752a9718"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/1b472bf18496aa1b68ac3c7b1d426f8a6ce4b5fd",
-                "reference": "1b472bf18496aa1b68ac3c7b1d426f8a6ce4b5fd",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/d93e9ea23c81c3ca0b77411a4ee3a042752a9718",
+                "reference": "d93e9ea23c81c3ca0b77411a4ee3a042752a9718",
                 "shasum": ""
             },
             "require": {
@@ -3945,7 +3946,7 @@
                 "SumoCoders",
                 "example"
             ],
-            "time": "2015-08-10 13:08:37"
+            "time": "2015-05-15 11:23:37"
         }
     ],
     "aliases": [],
@@ -3956,9 +3957,7 @@
         "friendsofsymfony/user-bundle": 20,
         "mopa/bootstrap-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
-        "sumocoders/framework-search-bundle": 20,
-        "composer/composer": 20,
-        "sumocoders/framework-example-bundle": 20
+        "composer/composer": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
