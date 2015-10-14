@@ -1,9 +1,109 @@
 imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
-    - { resource: @SumoCodersFrameworkErrorBundle/Resources/config/config.yml }
-    - { resource: @SumoCodersFrameworkCoreBundle/Resources/config/config.yml }
+  - { resource: parameters.yml }
+  - { resource: security.yml }
+  - { resource: @SumoCodersFrameworkErrorBundle/Resources/config/config.yml }
 
+# Framework configuration
 framework:
+  translator: { fallback: "%locale%" }
+  secret:     "%secret%"
+  http_method_override: true
+  csrf_protection: ~
+  form:            ~
+  session:
+    handler_id:  ~
+    save_path: "%kernel.root_dir%/sessions/"
+  router:
+    resource: "%kernel.root_dir%/config/routing.yml"
+    strict_requirements: ~
+  validation: { enable_annotations: true }
   templating:
+    engines: ['twig']
+    assets_version_format: '%%s?v=%%s'
     assets_version: 1
+  default_locale:  "%locale%"
+  trusted_hosts:   ~
+  trusted_proxies: ~
+  fragments:       ~
+
+# Twig Configuration
+twig:
+  debug:  %kernel.debug%
+  strict_variables: %kernel.debug%
+  globals:
+    fallbacks: "@framework.fallbacks"
+    jsData: "@framework.jsData"
+    locales: %locales%
+  form_themes:
+    - 'SumoCodersFrameworkCoreBundle:Form:fields.html.twig'
+
+# Assetic Configuration
+assetic:
+  debug:  "%kernel.debug%"
+  workers:
+    cache_busting: ~
+  filters:
+    cssrewrite: ~
+
+# Doctrine Configuration
+doctrine:
+  dbal:
+    driver:   "%database_driver%"
+    host:     "%database_host%"
+    port:     "%database_port%"
+    dbname:   "%database_name%"
+    user:     "%database_user%"
+    password: "%database_password%"
+    charset:  UTF8
+    server_version: "%database_version%"
+
+  orm:
+    auto_generate_proxy_classes: "%kernel.debug%"
+    auto_mapping: true
+
+doctrine_migrations:
+    dir_name: %kernel.root_dir%/migrations
+    namespace: SumoCodersFramework\Migrations
+    table_name: migration_versions
+    name: Application Migrations
+
+# I18n Configuration
+jms_i18n_routing:
+  default_locale: "%locale%"
+  locales: %locales%
+  strategy: prefix
+
+# Mopa Configuration
+mopa_bootstrap:
+  form:
+    show_legend: false
+    render_required_asterisk: true
+    render_optional_text: false
+    help_label:
+      tooltip:
+        icon: info
+      popover:
+        icon: info
+    collection:
+      widget_add_btn:
+        label: forms.buttons.addItem
+        icon: plus
+        attr:
+          class: btn btn-success btn-sm
+      widget_remove_btn:
+        label: forms.buttons.removeItem
+        icon: trash
+        wrapper_div:
+          class: col-sm-1 pull-right
+        horizontal_wrapper_div:
+          class: false
+        attr:
+          class: btn btn-danger
+  icons:
+    icon_set: fontawesome4
+
+# KPN Pagination Configuration
+knp_paginator:
+  template:
+    pagination: MopaBootstrapBundle:Pagination:sliding.html.twig
+    sortable: MopaBootstrapBundle:Pagination:sortable_link.html.twig
