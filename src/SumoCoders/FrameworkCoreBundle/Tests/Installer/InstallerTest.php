@@ -4,7 +4,7 @@ namespace SumoCoders\FrameworkCoreBundle\Tests\Composer;
 
 use SumoCoders\FrameworkCoreBundle\Installer\Installer;
 
-class InstallerHelperTest extends \PHPUnit_Framework_TestCase
+class InstallerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var Installer
