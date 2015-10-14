@@ -1472,7 +1472,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2111,17 +2111,17 @@
         },
         {
             "name": "sumocoders/framework-search-bundle",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "target-dir": "SumoCoders/FrameworkSearchBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "e112b66acb6cf55ee742f6e64b5a4425cec747b5"
+                "reference": "bb2b6cf2146a4cb8641e261bf316c8a9edbc2b94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/e112b66acb6cf55ee742f6e64b5a4425cec747b5",
-                "reference": "e112b66acb6cf55ee742f6e64b5a4425cec747b5",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/bb2b6cf2146a4cb8641e261bf316c8a9edbc2b94",
+                "reference": "bb2b6cf2146a4cb8641e261bf316c8a9edbc2b94",
                 "shasum": ""
             },
             "require": {
@@ -2152,7 +2152,7 @@
                 "SumoCoders",
                 "search"
             ],
-            "time": "2015-10-14 09:55:23"
+            "time": "2015-10-14 11:40:18"
         },
         {
             "name": "sumocoders/framework-user-bundle",
