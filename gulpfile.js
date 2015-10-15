@@ -192,7 +192,7 @@ gulp.task('sass:generate_css', ['sass:centralise_sass_files', 'icons'], function
 
   return gulp.src(
       [
-        config.temporaryDir + '/sass/style.scss'
+        config.temporaryDir + '/sass/*.scss'
       ]
   )
       .pipe(sass({
