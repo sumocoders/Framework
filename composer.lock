@@ -2062,17 +2062,17 @@
         },
         {
             "name": "sumocoders/framework-error-bundle",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "target-dir": "SumoCoders/FrameworkErrorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkErrorBundle.git",
-                "reference": "a2b47e8f86f97e504859da04fe3a74941f98f461"
+                "reference": "f9371008e40f8a5493fadcff576a1effe2494d4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/a2b47e8f86f97e504859da04fe3a74941f98f461",
-                "reference": "a2b47e8f86f97e504859da04fe3a74941f98f461",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/f9371008e40f8a5493fadcff576a1effe2494d4f",
+                "reference": "f9371008e40f8a5493fadcff576a1effe2494d4f",
                 "shasum": ""
             },
             "require": {
@@ -2107,7 +2107,7 @@
                 "SumoCoders",
                 "errbit"
             ],
-            "time": "2015-10-16 10:55:29"
+            "time": "2015-10-16 11:24:45"
         },
         {
             "name": "sumocoders/framework-search-bundle",
