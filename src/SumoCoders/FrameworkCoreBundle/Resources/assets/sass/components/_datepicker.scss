@@ -4,7 +4,7 @@
 }
 
 .ui-datepicker {
-  z-index: 2 !important;
+  z-index: 9999 !important;
 
   th {
     color: $gray-light;
