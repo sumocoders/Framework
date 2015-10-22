@@ -132,3 +132,15 @@ label abbr[title] {
 .date-widget .faked-button {
   color: #555;
 }
+
+.popover {
+  max-width: none;
+  width: 250px;
+}
+
+@media (min-width: $screen-md-min) {
+
+  .popover {
+    width: 300px;
+  }
+}
