@@ -37,14 +37,6 @@ twig:
   form_themes:
     - 'SumoCodersFrameworkCoreBundle:Form:fields.html.twig'
 
-# Assetic Configuration
-assetic:
-  debug:  "%kernel.debug%"
-  workers:
-    cache_busting: ~
-  filters:
-    cssrewrite: ~
-
 # Doctrine Configuration
 doctrine:
   dbal:
