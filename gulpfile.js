@@ -239,8 +239,7 @@ gulp.task('translations:cleanup', shell.task([
   ])
 );
 
-gulp.task('watch:cleanup', shell.task(['rm -rf ./app/cache']));
-gulp.task('watch', ['watch:cleanup'], function() {
+gulp.task('watch', [], function() {
   minify = false;
 
   livereload.listen();
