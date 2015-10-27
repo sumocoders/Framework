@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
+    plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     consolidate = require('gulp-consolidate'),
     coffee = require('gulp-coffee'),
@@ -51,6 +52,7 @@ gulp.task('coffee', function() {
         './vendor/sumocoders/**/Resources/assets/coffee/***.coffee'
       ]
   )
+      .pipe(plumber())
       .pipe(sourcemaps.init())
       .pipe(coffee({}).on('error', gutil.log))
       .on('end', function() { showStatus('coffee', 'Coffee-files compiled', 'success')})
@@ -193,6 +195,7 @@ gulp.task('sass:generate_css', ['icons'], function() {
       ]
   )
       .pipe(sourcemaps.init())
+      .pipe(plumber())
       .pipe(sass({
         includePaths: [
           './web/assets/vendor/bootstrap-sass/assets/stylesheets',
