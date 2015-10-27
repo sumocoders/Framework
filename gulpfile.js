@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     consolidate = require('gulp-consolidate'),
+    concat = require('gulp-concat'),
     coffee = require('gulp-coffee'),
     imagemin = require('gulp-imagemin'),
     fontgen = require('gulp-fontgen'),
@@ -14,6 +15,7 @@ var gulp = require('gulp'),
     gulpSequence = require('gulp-sequence').use(gulp),
     shell = require('gulp-shell'),
     livereload = require('gulp-livereload'),
+    exec = require('child_process').exec,
     stripPath = require('./gulp-helpers/strip-path');
 
 var config = {
@@ -94,6 +96,25 @@ gulp.task('js', function() {
       .pipe(gulp.dest(config.assetsDir + '/js'))
       .on('end', function() { showStatus('js', 'JS-files saved', 'success')})
       .pipe(livereload());
+});
+
+gulp.task('js:vendor', function() {
+  var cmd = 'cat src/SumoCoders/FrameworkCoreBundle/Resources/views/base.html.twig | grep assets/vendor/ | grep text/javascript | awk -F"\'" \'{print $2}\' | awk -F"\'" \'{print $1}\'';
+
+  exec(cmd, function(error, stdout, stderr) {
+    // reform our files string to get an array understandable by gulp
+    var files = stdout.split('\n');
+    files = files.filter(function(file){ return file !== '' });
+    for (index = 0; index < files.length; ++index) {
+      files[index] = './web' + files[index];
+    }
+
+    return gulp.src(files)
+      .pipe(sourcemaps.init())
+      .pipe(concat('vendor.js'))
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest(config.assetsDir + '/js'));
+  });
 });
 
 gulp.task('images', function() {
@@ -306,7 +327,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('build', function() {
-  gulp.start('coffee', 'js', 'images', 'fonts', 'sass', 'sass:cleanup');
+  gulp.start('coffee', 'js', 'js:vendor', 'images', 'fonts', 'sass', 'sass:cleanup');
 });
 
 gulp.task('serve', function() {
