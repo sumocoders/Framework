@@ -16,6 +16,7 @@ var gulp = require('gulp'),
     shell = require('gulp-shell'),
     livereload = require('gulp-livereload'),
     exec = require('child_process').exec,
+    parseTwig = require('./gulp-helpers/parse-twig'),
     stripPath = require('./gulp-helpers/strip-path');
 
 var config = {
@@ -99,48 +100,8 @@ gulp.task('js', function() {
 });
 
 gulp.task('js:concat', ['js', 'coffee'], function() {
-  var cmd = 'cat src/SumoCoders/FrameworkCoreBundle/Resources/views/base.html.twig | grep script -C1 | grep asset -C1';
-
-  var inputFiles = [];
-  var grouped = [];
-  var fullGroup = started = false;
-
-  exec(cmd, function(error, stdout, stderr) {
-    // group which files should be concatted to which files
-    var lines = stdout.split('\n');
-    lines.forEach(function(line) {
-      // check if an environment check starts here
-      if (line.indexOf('app.environment') > -1) {
-        started = true;
-        return;
-      }
-
-      if (!started) {
-        return;
-      }
-
-      // find the url and add it as destination or source script file
-      if (line.indexOf('asset(\'') > -1) {
-        var url = /asset\('([^']+)'\)/g.exec(line)[1];
-        if (fullGroup) {
-          // we already have collected the dev files. Fetch the production file
-          grouped[url] = inputFiles;
-          inputFiles = [];
-          fullGroup = started = false;
-          return;
-        }
-
-        // add a file
-        inputFiles.push('./web' + url);
-        return;
-      }
-
-      // if we encounter an else statement, we'll get the prod file next
-      if (line.indexOf('else') > -1) {
-        fullGroup = true;
-      }
-    });
-
+  var file = 'src/SumoCoders/FrameworkCoreBundle/Resources/views/base.html.twig';
+  var action = function(grouped) {
     // loop trough all the collected js groups and concat them
     for (var destination in grouped) {
       gulp.src(grouped[destination])
@@ -149,7 +110,9 @@ gulp.task('js:concat', ['js', 'coffee'], function() {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.assetsDir + '/js'));
     }
-  });
+  }
+
+  parseTwig(file, action);
 });
 
 gulp.task('images', function() {
