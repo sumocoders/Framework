@@ -98,22 +98,43 @@ gulp.task('js', function() {
       .pipe(livereload());
 });
 
-gulp.task('js:vendor', function() {
-  var cmd = 'cat src/SumoCoders/FrameworkCoreBundle/Resources/views/base.html.twig | grep assets/vendor/ | grep text/javascript | awk -F"\'" \'{print $2}\' | awk -F"\'" \'{print $1}\'';
+gulp.task('js:concat', function() {
+  var cmd = 'cat src/SumoCoders/FrameworkCoreBundle/Resources/views/base.html.twig | grep script -C1 | grep asset -C1';
 
+  var grouped = [];
+  var inputFiles = [];
+  var fullGroup = false;
   exec(cmd, function(error, stdout, stderr) {
-    // reform our files string to get an array understandable by gulp
-    var files = stdout.split('\n');
-    files = files.filter(function(file){ return file !== '' });
-    for (index = 0; index < files.length; ++index) {
-      files[index] = './web' + files[index];
-    }
+    // group which files should be concatted to which files
+    var lines = stdout.split('\n');
+    lines.forEach(function(line) {
+      if (line.indexOf('asset(\'') > -1) {
+        // strip the asset from it
+        var url = /asset\('([^']+)'\)/g.exec(line)[1];
+        if (fullGroup) {
+          // we already have collected the dev files. Fetch the production file
+          grouped[url] = inputFiles;
+          inputFiles = [];
+          fullGroup = false;
+        } else {
+          // add a file
+          inputFiles.push('./web' + url);
+        }
+      }
+      // if we encounter an else statement, we'll get the prod file next
+      if (line.indexOf('else') > -1) {
+        fullGroup = true;
+      }
+    });
 
-    return gulp.src(files)
-      .pipe(sourcemaps.init())
-      .pipe(concat('vendor.js'))
-      .pipe(sourcemaps.write())
-      .pipe(gulp.dest(config.assetsDir + '/js'));
+    // loop trough all the collected js groups and concat them
+    for (var destination in grouped) {
+      gulp.src(grouped[destination])
+        .pipe(sourcemaps.init())
+        .pipe(concat(stripPath('/assets/js/', destination)))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(config.assetsDir + '/js'));
+    }
   });
 });
 
@@ -327,7 +348,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('build', function() {
-  gulp.start('coffee', 'js', 'js:vendor', 'images', 'fonts', 'sass', 'sass:cleanup');
+  gulp.start('coffee', 'js', 'js:concat', 'images', 'fonts', 'sass', 'sass:cleanup');
 });
 
 gulp.task('serve', function() {
