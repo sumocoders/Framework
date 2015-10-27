@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "252902533f85dca785899ebe89119f15",
-    "content-hash": "bf5df161fe7653bc87743ba55cd6cb7b",
+    "hash": "7b67a4ee05724553dd4e6990d48197dd",
+    "content-hash": "73c7a1c33e5d035f0735f1cc9597cb4c",
     "packages": [
         {
             "name": "dbtlr/php-airbrake",
@@ -2032,6 +2032,54 @@
             "time": "2015-10-16 11:24:45"
         },
         {
+            "name": "sumocoders/framework-example-bundle",
+            "version": "v3.0.0",
+            "target-dir": "SumoCoders/FrameworkExampleBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
+                "reference": "9e87a8851581d515eadf690869525d9e3b310cc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/9e87a8851581d515eadf690869525d9e3b310cc3",
+                "reference": "9e87a8851581d515eadf690869525d9e3b310cc3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "sensio/framework-extra-bundle": "~3.0",
+                "symfony/framework-bundle": "~2.6",
+                "symfony/monolog-bundle": "~2.6",
+                "symfony/symfony": "2.6.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "SumoCoders\\FrameworkExampleBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tijs Verkoyen",
+                    "email": "tijs@sumocoders.be"
+                }
+            ],
+            "description": "Example bundle for our mini-framework",
+            "keywords": [
+                "SumoCoders",
+                "example"
+            ],
+            "time": "2015-10-27 16:42:34"
+        },
+        {
             "name": "sumocoders/framework-search-bundle",
             "version": "v2.0.2",
             "target-dir": "SumoCoders/FrameworkSearchBundle",
@@ -3842,54 +3890,6 @@
             ],
             "description": "This bundle generates code for you",
             "time": "2015-03-17 06:36:52"
-        },
-        {
-            "name": "sumocoders/framework-example-bundle",
-            "version": "v2.0.1",
-            "target-dir": "SumoCoders/FrameworkExampleBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
-                "reference": "1b472bf18496aa1b68ac3c7b1d426f8a6ce4b5fd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/1b472bf18496aa1b68ac3c7b1d426f8a6ce4b5fd",
-                "reference": "1b472bf18496aa1b68ac3c7b1d426f8a6ce4b5fd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*",
-                "sensio/framework-extra-bundle": "~3.0",
-                "symfony/framework-bundle": "~2.6",
-                "symfony/monolog-bundle": "~2.6",
-                "symfony/symfony": "2.6.*"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "SumoCoders\\FrameworkExampleBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tijs Verkoyen",
-                    "email": "tijs@sumocoders.be"
-                }
-            ],
-            "description": "Example bundle for our mini-framework",
-            "keywords": [
-                "SumoCoders",
-                "example"
-            ],
-            "time": "2015-08-10 13:08:37"
         }
     ],
     "aliases": [],

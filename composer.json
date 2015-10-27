@@ -31,15 +31,15 @@
 
         "sumocoders/framework-error-bundle": "~2.0",
         "sumocoders/framework-user-bundle": "~2.0",
-        "sumocoders/framework-search-bundle": "~2.0"
+        "sumocoders/framework-search-bundle": "~2.0",
+        "sumocoders/framework-example-bundle": "^3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
         "composer/composer": "1.0.*@dev",
         "sensio/generator-bundle": "~2.5",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
-        "fzaninotto/faker": "*",
-        "sumocoders/framework-example-bundle": "~2.0"
+        "fzaninotto/faker": "*"
     },
     "scripts": {
         "post-install-cmd": [
