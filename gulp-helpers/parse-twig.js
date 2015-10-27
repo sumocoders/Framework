@@ -57,8 +57,6 @@ module.exports = function(action) {
     if (file.isNull()) return cb(null, file);
     if (file.isStream()) return cb(new PluginError('parse-twig', 'Streaming is not supported'));
 
-    console.log(file.path);
-
     parse(file.path, cb);
   });
 };
