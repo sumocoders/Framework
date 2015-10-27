@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     consolidate = require('gulp-consolidate'),
     concat = require('gulp-concat'),
     coffee = require('gulp-coffee'),
+    uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     fontgen = require('gulp-fontgen'),
     iconfont = require('gulp-iconfont'),
@@ -103,9 +104,8 @@ gulp.task('js:concat', ['js', 'coffee'], function() {
     // loop trough all the collected js groups and concat them
     for (var destination in grouped) {
       gulp.src(grouped[destination])
-        .pipe(sourcemaps.init())
         .pipe(concat(stripPath('/assets/js/', destination)))
-        .pipe(sourcemaps.write())
+        .pipe(uglify())
         .pipe(gulp.dest(config.assetsDir + '/js'));
     }
   }
