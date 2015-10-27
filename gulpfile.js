@@ -15,7 +15,6 @@ var gulp = require('gulp'),
     stripPath = require('./gulp-helpers/strip-path');
 
 var config = {
-  temporaryDir: './assets',
   assetsDir:    './web/assets'
 };
 
@@ -168,30 +167,14 @@ gulp.task('icons', function() {
         gulp.src('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/base/_iconfont-template.scss')
           .pipe(consolidate('lodash', options))
           .pipe(rename({ basename: '_icons' }))
-          .pipe(gulp.dest('./assets/sass/'));
+          .pipe(gulp.dest('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/'));
       })
       .pipe(gulp.dest(config.assetsDir + '/fonts'))
-      .on('end', function() { showStatus('icons', 'icon-font generated', 'success')})
-      .pipe(livereload());
+      .on('end', function() { showStatus('icons', 'icon-font generated', 'success')});
 });
 
 gulp.task('sass', ['sass:generate_css']);
-gulp.task('sass:centralise_sass_files', ['sass:cleanup'], function() {
-  return gulp.src(
-      [
-        './app/Resources/assets/sass/**',
-        './src/**/Resources/assets/sass/**',
-        './vendor/sumocoders/**/Resources/assets/sass/**'
-      ]
-  )
-      .pipe(rename(function(path) {
-        path.dirname = stripPath('/sass/', path.dirname);
-      }))
-      .on('end', function() { showStatus('sass', 'scss-files renamed', 'success')})
-      .pipe(gulp.dest(config.temporaryDir + '/sass'))
-      .on('end', function() { showStatus('sass', 'scss-files saved', 'success')});
-});
-gulp.task('sass:generate_css', ['sass:centralise_sass_files', 'icons'], function() {
+gulp.task('sass:generate_css', ['icons'], function() {
   var outputStyle = 'compressed';
   if (minify === false) {
     outputStyle = 'expanded';
@@ -199,7 +182,9 @@ gulp.task('sass:generate_css', ['sass:centralise_sass_files', 'icons'], function
 
   return gulp.src(
       [
-        config.temporaryDir + '/sass/*.scss'
+        './app/Resources/assets/sass/**',
+        './src/**/Resources/assets/sass/**',
+        './vendor/sumocoders/**/Resources/assets/sass/**'
       ]
   )
       .pipe(sass({
@@ -218,9 +203,8 @@ gulp.task('sass:generate_css', ['sass:centralise_sass_files', 'icons'], function
       .on('end', function() { showStatus('sass', 'CSS-files generated', 'success')})
       .pipe(livereload());
 });
-gulp.task('sass:cleanup', shell.task([
-    'rm -rf ./assets/sass',
-    'rm -rf ./web/css'
+gulp.task('sass:cleanup', ['sass'], shell.task([
+    'rm src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/_icons.scss'
   ])
 );
 
@@ -292,7 +276,7 @@ gulp.task('watch', [], function() {
         './src/**/Resources/assets/sass/**',
         './vendor/sumocoders/**/Resources/assets/sass/**'
       ],
-      ['sass']
+      ['sass','sass:cleanup']
   ).on('change', handleWatchEvent);
   gulp.watch(
       [
@@ -311,7 +295,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('build', function() {
-  gulp.start('coffee', 'js', 'images', 'fonts', 'sass');
+  gulp.start('coffee', 'js', 'images', 'fonts', 'sass', 'sass:cleanup');
 });
 
 gulp.task('serve', function() {
