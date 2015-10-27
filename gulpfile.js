@@ -196,6 +196,7 @@ gulp.task('sass:generate_css', ['icons'], function() {
         precision: 10
 
       }).on('error', showError))
+      .pipe(rename(function(path){ path.dirname = ''; }))
       .on('end', function() { showStatus('sass', 'SCSS-files compiled', 'success')})
       .pipe(autoprefixer({}))
       .on('end', function() { showStatus('sass', 'Added prefixes', 'success')})
