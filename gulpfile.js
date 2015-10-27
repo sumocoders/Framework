@@ -46,6 +46,7 @@ function handleWatchEvent(event) {
 gulp.task('coffee', function() {
   return gulp.src(
       [
+        './app/Resources/assets/coffee/***.coffee',
         './src/**/Resources/assets/coffee/***.coffee',
         './vendor/sumocoders/**/Resources/assets/coffee/***.coffee'
       ]
@@ -69,6 +70,7 @@ gulp.task('coffee', function() {
 gulp.task('js', function() {
   return gulp.src(
       [
+        './app/Resources/assets/js/**',
         './src/**/Resources/assets/js/**',
         './vendor/sumocoders/**/Resources/assets/js/**'
       ]
@@ -91,6 +93,7 @@ gulp.task('js', function() {
 gulp.task('images', function() {
   return gulp.src(
       [
+        './app/Resources/assets/images/**',
         './src/**/Resources/assets/images/**',
         './vendor/sumocoders/**/Resources/assets/images/**'
       ]
@@ -120,6 +123,8 @@ gulp.task('fonts', gulpSequence(
 gulp.task('fonts:generate', function() {
   return gulp.src(
       [
+        './app/Resources/assets/fonts/**/*.ttf',
+        './app/Resources/assets/fonts/**/*.otf',
         './src/**/Resources/assets/fonts/**/*.ttf',
         './src/**/Resources/assets/fonts/**/*.otf',
         './vendor/sumocoders/**/Resources/assets/fonts/**/*.ttf',
@@ -144,6 +149,7 @@ gulp.task('del:cleanup_useless_font_css', shell.task('rm -rf ' + config.assetsDi
 gulp.task('icons', function() {
   return gulp.src(
       [
+        './app/Resources/assets/icon-font/**/*.svg',
         './src/**/Resources/assets/icon-font/**/*.svg',
         './vendor/sumocoders/**/Resources/assets/icon-font/**/*.svg',
       ]
@@ -173,6 +179,7 @@ gulp.task('sass', ['sass:generate_css']);
 gulp.task('sass:centralise_sass_files', ['sass:cleanup'], function() {
   return gulp.src(
       [
+        './app/Resources/assets/sass/**',
         './src/**/Resources/assets/sass/**',
         './vendor/sumocoders/**/Resources/assets/sass/**'
       ]
@@ -240,6 +247,7 @@ gulp.task('watch', ['watch:cleanup'], function() {
 
   gulp.watch(
       [
+        './app/Resources/assets/coffee/***.coffee',
         './src/**/Resources/assets/coffee/***.coffee',
         './vendor/sumocoders/**/Resources/assets/coffee/***.coffee'
       ],
@@ -248,6 +256,7 @@ gulp.task('watch', ['watch:cleanup'], function() {
 
   gulp.watch(
       [
+        './app/Resources/assets/js/**',
         './src/**/Resources/assets/js/**',
         './vendor/sumocoders/**/Resources/assets/js/**'
       ],
@@ -256,6 +265,7 @@ gulp.task('watch', ['watch:cleanup'], function() {
 
   gulp.watch(
       [
+        './app/Resources/assets/images/**',
         './src/**/Resources/assets/images/**',
         './vendor/sumocoders/**/Resources/assets/images/**'
       ],
@@ -264,6 +274,8 @@ gulp.task('watch', ['watch:cleanup'], function() {
 
   gulp.watch(
       [
+        './app/Resources/assets/fonts/**/*.ttf',
+        './app/Resources/assets/fonts/**/*.otf',
         './src/**/Resources/assets/fonts/**/*.ttf',
         './src/**/Resources/assets/fonts/**/*.otf',
         './vendor/sumocoders/**/Resources/assets/fonts/**/*.ttf',
@@ -274,8 +286,10 @@ gulp.task('watch', ['watch:cleanup'], function() {
 
   gulp.watch(
       [
+        './app/Resources/assets/icon-font/**/*.svg',
         './src/**/Resources/assets/icon-font/**/*.svg',
         './vendor/sumocoders/**/Resources/assets/icon-font/**/*.svg',
+        './app/Resources/assets/sass/**',
         './src/**/Resources/assets/sass/**',
         './vendor/sumocoders/**/Resources/assets/sass/**'
       ],
