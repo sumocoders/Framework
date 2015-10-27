@@ -15,7 +15,6 @@ var gulp = require('gulp'),
     gulpSequence = require('gulp-sequence').use(gulp),
     shell = require('gulp-shell'),
     livereload = require('gulp-livereload'),
-    exec = require('child_process').exec,
     parseTwig = require('./gulp-helpers/parse-twig'),
     stripPath = require('./gulp-helpers/strip-path');
 
@@ -100,7 +99,6 @@ gulp.task('js', function() {
 });
 
 gulp.task('js:concat', ['js', 'coffee'], function() {
-  var file = 'src/SumoCoders/FrameworkCoreBundle/Resources/views/base.html.twig';
   var action = function(grouped) {
     // loop trough all the collected js groups and concat them
     for (var destination in grouped) {
@@ -112,7 +110,12 @@ gulp.task('js:concat', ['js', 'coffee'], function() {
     }
   }
 
-  parseTwig(file, action);
+  return gulp.src([
+    './app/Resources/views/**/*.html.twig',
+    './src/**/Resources/views/**/*.html.twig',
+    '/vendor/sumocoders/**/Resources/views/**/*.html.twig',
+  ])
+    .pipe(parseTwig(action));
 });
 
 gulp.task('images', function() {

@@ -1,48 +1,64 @@
 var exec = require('child_process').exec;
+var through = require('through2');
+var gutil = require('gulp-util');
 
-module.exports = function(file, action) {
-  var cmd = 'cat ' + file + ' | grep script -C1 | grep asset -C1';
+var PluginError = gutil.PluginError;
 
-  var inputFiles = [];
-  var grouped = [];
-  var fullGroup = started = false;
+module.exports = function(action) {
+  function parse(file, cb) {
+    var cmd = 'cat ' + file + ' | grep script -C1 | grep asset -C1';
 
-  exec(cmd, function(error, stdout, stderr) {
-    // group which files should be concatted to which files
-    var lines = stdout.split('\n');
-    lines.forEach(function(line) {
-      // check if an environment check starts here
-      if (line.indexOf('app.environment') > -1) {
-        started = true;
-        return;
-      }
+    var inputFiles = [];
+    var grouped = [];
+    var fullGroup = started = false;
 
-      if (!started) {
-        return;
-      }
-
-      // find the url and add it as destination or source script file
-      if (line.indexOf('asset(\'') > -1) {
-        var url = /asset\('([^']+)'\)/g.exec(line)[1];
-        if (fullGroup) {
-          // we already have collected the dev files. Fetch the production file
-          grouped[url] = inputFiles;
-          inputFiles = [];
-          fullGroup = started = false;
+    exec(cmd, function(error, stdout, stderr) {
+      // group which files should be concatted to which files
+      var lines = stdout.split('\n');
+      lines.forEach(function(line) {
+        // check if an environment check starts here
+        if (line.indexOf('app.environment') > -1) {
+          started = true;
           return;
         }
 
-        // add a file
-        inputFiles.push('./web' + url);
-        return;
-      }
+        if (!started) {
+          return;
+        }
 
-      // if we encounter an else statement, we'll get the prod file next
-      if (line.indexOf('else') > -1) {
-        fullGroup = true;
-      }
+        // find the url and add it as destination or source script file
+        if (line.indexOf('asset(\'') > -1) {
+          var url = /asset\('([^']+)'\)/g.exec(line)[1];
+          if (fullGroup) {
+            // we already have collected the dev files. Fetch the production file
+            grouped[url] = inputFiles;
+            inputFiles = [];
+            fullGroup = started = false;
+            return;
+          }
+
+          // add a file
+          inputFiles.push('./web' + url);
+            return;
+          }
+
+        // if we encounter an else statement, we'll get the prod file next
+        if (line.indexOf('else') > -1) {
+          fullGroup = true;
+        }
+      });
+
+      action(grouped);
+      cb(null, file);
     });
+  }
 
-    action(grouped);
+  return through.obj(function(file, enc, cb) {
+    if (file.isNull()) return cb(null, file);
+    if (file.isStream()) return cb(new PluginError('parse-twig', 'Streaming is not supported'));
+
+    console.log(file.path);
+
+    parse(file.path, cb);
   });
 };
