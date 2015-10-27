@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
+    gulpif = require('gulp-if'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     consolidate = require('gulp-consolidate'),
@@ -56,7 +57,7 @@ gulp.task('coffee', function() {
       ]
   )
       .pipe(plumber())
-      .pipe(sourcemaps.init())
+      .pipe(gulpif(minify == false, sourcemaps.init()))
       .pipe(coffee({}).on('error', gutil.log))
       .on('end', function() { showStatus('coffee', 'Coffee-files compiled', 'success')})
       .pipe(rename(function(path) {
@@ -68,7 +69,7 @@ gulp.task('coffee', function() {
         path.basename = bundle.toLowerCase() + '.' + path.basename;
       }))
       .on('end', function() { showStatus('coffee', 'Coffee-files renamed', 'success')})
-      .pipe(sourcemaps.write())
+      .pipe(gulpif(minify == false, sourcemaps.write()))
       .pipe(gulp.dest(config.assetsDir + '/js'))
       .on('end', function() { showStatus('coffee', 'Coffee-files saved', 'success')})
       .pipe(livereload());
@@ -82,7 +83,7 @@ gulp.task('js', function() {
         './vendor/sumocoders/**/Resources/assets/js/**'
       ]
   )
-      .pipe(sourcemaps.init())
+      .pipe(gulpif(minify == false, sourcemaps.init()))
       .pipe(rename(function(path) {
         if (path.extname === '') {
           path.dirname = '';
@@ -93,7 +94,7 @@ gulp.task('js', function() {
         path.dirname = stripPath('/js/', path.dirname);
       }))
       .on('end', function() { showStatus('js', 'JS-files renamed', 'success')})
-      .pipe(sourcemaps.write())
+      .pipe(gulpif(minify == false, sourcemaps.write()))
       .pipe(gulp.dest(config.assetsDir + '/js'))
       .on('end', function() { showStatus('js', 'JS-files saved', 'success')})
       .pipe(livereload());
@@ -204,11 +205,6 @@ gulp.task('icons', function() {
 
 gulp.task('sass', ['sass:generate_css']);
 gulp.task('sass:generate_css', ['icons'], function() {
-  var outputStyle = 'compressed';
-  if (minify === false) {
-    outputStyle = 'expanded';
-  }
-
   return gulp.src(
       [
         './app/Resources/assets/sass/**',
@@ -216,14 +212,14 @@ gulp.task('sass:generate_css', ['icons'], function() {
         './vendor/sumocoders/**/Resources/assets/sass/**'
       ]
   )
-      .pipe(sourcemaps.init())
+      .pipe(gulpif(minify == false, sourcemaps.init()))
       .pipe(plumber())
       .pipe(sass({
         includePaths: [
           './web/assets/vendor/bootstrap-sass/assets/stylesheets',
           './web/assets/vendor'
         ],
-        outputStyle:  outputStyle,
+        outputStyle: minify ? 'compressed' : 'expanded',
         precision: 10
 
       }).on('error', showError))
@@ -231,7 +227,7 @@ gulp.task('sass:generate_css', ['icons'], function() {
       .on('end', function() { showStatus('sass', 'SCSS-files compiled', 'success')})
       .pipe(autoprefixer({}))
       .on('end', function() { showStatus('sass', 'Added prefixes', 'success')})
-      .pipe(sourcemaps.write())
+      .pipe(gulpif(minify == false, sourcemaps.write()))
       .pipe(gulp.dest(config.assetsDir + '/css'))
       .on('end', function() { showStatus('sass', 'CSS-files generated', 'success')})
       .pipe(livereload());

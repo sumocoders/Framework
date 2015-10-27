@@ -23,6 +23,7 @@
     "gulp-fontgen": "^0.1.5",
     "gulp-iconfont": "^3.0.2",
     "gulp-iconfont-css": "0.0.9",
+    "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.3.0",
     "gulp-livereload": "^3.8.0",
     "gulp-plumber": "^1.0.1",
