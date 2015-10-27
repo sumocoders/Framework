@@ -10,8 +10,8 @@
 /bin/
 /composer.phar
 /coverage
-/node_modules
-/vendor/
+/node_modules/*
+/vendor/*
 /web/*/locale.json
 /web/assets
 /web/bundles

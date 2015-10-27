@@ -1,94 +1,79 @@
 <!doctype html>
 <html lang="{{ app.request.locale }}">
-<head>
+  <head>
     {{ errbit_notifier() }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <meta charset="UTF-8" />
     <title>
-        {% block title %}
-            {{ fallbacks.get('site_title') }}
-        {% endblock %}
+      {% block title %}
+        {{ fallbacks.get('site_title') }}
+      {% endblock %}
     </title>
 
     {% block meta %}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <meta name="author" content="SumoCoders">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+      <meta name="author" content="SumoCoders">
     {% endblock %}
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     {% block stylesheets %}
-            {% stylesheets
-                'assets/vendor/select2/select2.css'
-                'assets/css/style.css'
-                filter='cssrewrite'
-                output='css/style.css'
-            %}
-                <link rel="stylesheet" href="{{ asset(asset_url) }}" />
-            {% endstylesheets %}
+      <link rel="stylesheet" href="{{ asset('assets/vendor/select2/select2.css') }}" />
+      <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     {% endblock %}
 
     {% block head_javascripts %}
-        <script type="text/javascript">
-            var jsData = {{ jsData|raw }};
-        </script>
+      <script type="text/javascript">
+        var jsData = {{ jsData|raw }};
+      </script>
 
-        {% javascripts
-            'assets/vendor/jquery/dist/jquery.min.js'
-            'assets/vendor/jquery-ui/jquery-ui.min.js'
-            'assets/vendor/jquery-ui-touch-punch-improved/jquery.ui.touch-punch-improved.js'
-            'assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js'
-            'assets/vendor/modernizr/modernizr.js'
-            'assets/vendor/respond/dest/respond.min.js'
-            'assets/vendor/jquery-ui/jquery-ui.min.js'
-            'assets/vendor/select2/select2.min.js'
-            'assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js'
-            'assets/vendor/Chart.js/Chart.js'
-            '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
-            output='js/vendors.js'
-        %}
-            <script type="text/javascript" src="{{ asset(asset_url) }}"></script>
-        {% endjavascripts %}
+      {% if app.environment == 'dev' %}
+        <script type="text/javascript" src="{{ asset('/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/vendor/jquery-ui/jquery-ui.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/vendor/jquery-ui-touch-punch-improved/jquery.ui.touch-punch-improved.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/vendor/modernizr/modernizr.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/vendor/respond/dest/respond.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/vendor/jquery-ui/jquery-ui.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/vendor/select2/select2.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/vendor/Chart.js/Chart.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/bundles/mopabootstrap/js/mopabootstrap-collection.js') }}"></script>
+      {% else %}
+        <script type="text/javascript" src="{{ asset('/assets/js/vendor.js') }}"></script>
+      {% endif %}
 
-        {% javascripts
-            'assets/js/sumo_plugins.js'
-            output='js/sumo_plugins.js'
-        %}
-            <script type="text/javascript" src="{{ asset(asset_url) }}"></script>
-        {% endjavascripts %}
-
-        {% javascripts
-            'assets/js/frameworkcorebundle.framework.data.js'
-            'assets/js/frameworkcorebundle.framework.locale.js'
-            'assets/js/frameworkcorebundle.framework.form.js'
-            'assets/js/frameworkcorebundle.framework.js'
-            'assets/js/frameworkcorebundle.framework.form.search.js'
-            'assets/js/frameworkcorebundle.app.js'
-            output='js/app.js'
-        %}
-            <script type="text/javascript" src="{{ asset(asset_url) }}"></script>
-        {% endjavascripts %}
+      {% if app.environment == 'dev' %}
+        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.data.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.locale.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.search.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.app.js') }}"></script>
+      {% else %}
+        <script type="text/javascript" src="{{ asset('/assets/js/framework.js') }}"></script>
+      {% endif %}
     {% endblock %}
 
     {% block icons %}
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-        <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
-        <link rel="image_src" href="{{ asset('image_src.png') }}" />
+      <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+      <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+      <link rel="image_src" href="{{ asset('image_src.png') }}" />
     {% endblock %}
-</head>
+  </head>
 
-<body class="">
-<!--[if lt IE 8 ]>
-    <div id="ie6" class="alert alert-block" role="alert">
-        <a href="#" class="close icon-close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}"><span class="sr-only" aria-hidden="true">x</span></a>
+  <body class="">
+    <!--[if lt IE 8 ]>
+      <div id="ie6" class="alert alert-block" role="alert">
+      <a href="#" class="close icon-close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}"><span class="sr-only" aria-hidden="true">x</span></a>
         {{ 'core.warnings.oldBrowser'|trans|raw }}
-    </div>
-<![endif]-->
+      </div>
+    <![endif]-->
 
     <div id="main-wrapper" class="main-wrapper">
       <div id="main-menu" class="main-menu" role="navigation">
@@ -97,54 +82,54 @@
       <div id="content-wrapper">
         <div class="main-header">
           <div class="sub-nav row">
-              <div class="col-sm-6 col-sm-push-6 col-md-8 col-md-push-4 col-alternative">
-                <div class="user-nav">
-                  {% if bundleExists('SumoCodersFrameworkUserBundle') %}
-                    {% if app.user is not null %}
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                          <i class="icon icon-avatar"></i>
-                          <span class="hidden-xs hidden-sm">{{ app.user.username }}</span>
-                          <span class="icon icon-angle hidden-xs hidden-sm"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="{{ path('sumocoders_frameworkuser_user_edit', {'id': app.user.id }) }}">{{ 'user.header.actions.settings'|trans|capitalize }}</a></li>
-                          <li><a href="{{ path('fos_user_security_logout') }}">{{ 'user.header.actions.logout'|trans|capitalize }}</a></li>
-                        </ul>
-                      </div>
-                    {% endif %}
+            <div class="col-sm-6 col-sm-push-6 col-md-8 col-md-push-4 col-alternative">
+              <div class="user-nav">
+                {% if bundleExists('SumoCodersFrameworkUserBundle') %}
+                  {% if app.user is not null %}
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <i class="icon icon-avatar"></i>
+                        <span class="hidden-xs hidden-sm">{{ app.user.username }}</span>
+                        <span class="icon icon-angle hidden-xs hidden-sm"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ path('sumocoders_frameworkuser_user_edit', {'id': app.user.id }) }}">{{ 'user.header.actions.settings'|trans|capitalize }}</a></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}">{{ 'user.header.actions.logout'|trans|capitalize }}</a></li>
+                      </ul>
+                    </div>
                   {% endif %}
-                  {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
-                    {{ include('SumoCodersFrameworkSearchBundle::searchBox.html.twig' )}}
-                  {% endif %}
-                </div>
+                {% endif %}
+                {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
+                  {{ include('SumoCodersFrameworkSearchBundle::searchBox.html.twig' )}}
+                {% endif %}
               </div>
-              <div class="col-sm-6 col-sm-pull-6 col-md-4 col-md-pull-8 col-alternative">
-                {{ knp_menu_render('breadcrumb', {'template': 'SumoCodersFrameworkCoreBundle:BreadCrumb:breadCrumb.html.twig'}) }}
-              </div>
+            </div>
+            <div class="col-sm-6 col-sm-pull-6 col-md-4 col-md-pull-8 col-alternative">
+              {{ knp_menu_render('breadcrumb', {'template': 'SumoCodersFrameworkCoreBundle:BreadCrumb:breadCrumb.html.twig'}) }}
+            </div>
           </div>
         </div>
         <div class="header-title">
           {{ include('SumoCodersFrameworkCoreBundle::notifications.html.twig') }}
           <div class="header-title-bar">
-              {% block header_title %}
+            {% block header_title %}
 
-              {% endblock %}
+            {% endblock %}
           </div>
         </div>
         {% set actions = block('header_navigation') %}
         {% if actions %}
-        <div class="actions clearfix">
-          <div class="action-buttons">
-            {{ actions|raw }}
+          <div class="actions clearfix">
+            <div class="action-buttons">
+              {{ actions|raw }}
+            </div>
           </div>
-        </div>
         {% endif %}
         <section id="main" class="main-content" role="main">
           <div class="container-fluid">
-              {% block main %}
+            {% block main %}
 
-              {% endblock %}
+            {% endblock %}
           </div>
         </section>
       </div>
@@ -164,7 +149,7 @@
     {% block javascripts %}{% endblock %}
 
     {% if app.environment == 'dev' %}
-        <script src="//localhost:35729/livereload.js"></script>
+      <script src="//localhost:35729/livereload.js"></script>
     {% endif %}
-</body>
+  </body>
 </html>

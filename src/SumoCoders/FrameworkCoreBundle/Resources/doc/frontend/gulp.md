@@ -14,21 +14,14 @@ the lowercased bundlename.
 
 After that the files will be compiled into `web/assets/js`.
 
-As this will generate seperate files for each file we will combine them through
-assetic. See [How to use Assetic for asset management](http://symfony.com/doc/current/cookbook/assetic/asset_management.html)
-for the full documentation but basically:
+You can reference them in your templates
 
-    {% javascripts
-        'assets/js/frameworkcorebundle.framework.data.js'
-        'assets/js/frameworkcorebundle.framework.locale.js'
-        'assets/js/frameworkcorebundle.framework.form.js'
-        'assets/js/frameworkcorebundle.framework.js'
-        'assets/js/frameworkcorebundle.framework.form.search.js'
-        'assets/js/frameworkcorebundle.app.js'
-        output='js/app.js'
-    %}
-        <script src="{{ asset(asset_url) }}"></script>
-    {% endjavascripts %}
+    <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.data.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.locale.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.search.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.app.js') }}"></script>
 
 
 ### Fonts
@@ -98,28 +91,6 @@ any comments.
 
 When the sass/scss-files are compiled we use the
 [gulp-autoprefixer-plugin](https://www.npmjs.com/package/gulp-autoprefixer)
-
-If you want you can combine multiple generated css files into one by using
-Assetic:
-
-    {% stylesheets
-        'assets/css/1.css'
-        'assets/css/2.css'
-        filter='cssrewrite'
-        output='css/combined.css'
-    %}
-        <link rel="stylesheet" href="{{ asset(asset_url) }}" />
-    {% endstylesheets %}
-
-But in most cases you will just use
-
-    {% stylesheets
-        'assets/css/style.css'
-        filter='cssrewrite'
-        output='css/style.css'
-    %}
-        <link rel="stylesheet" href="{{ asset(asset_url) }}" />
-    {% endstylesheets %}
 
 
 ## Usage

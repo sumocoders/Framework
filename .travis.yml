@@ -39,7 +39,6 @@ before_script:
   # generate all required assets
   - gulp --gulpfile gulp-travis.js build
   - php app/console assets:instal --env=test
-  - php app/console assetic:dump --env=test
 
 script:
   - bin/phpunit -c app/ --coverage-clover=coverage.clover
