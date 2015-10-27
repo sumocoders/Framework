@@ -98,7 +98,7 @@ gulp.task('js', function() {
       .pipe(livereload());
 });
 
-gulp.task('js:concat', function() {
+gulp.task('js:concat', ['js', 'coffee'], function() {
   var cmd = 'cat src/SumoCoders/FrameworkCoreBundle/Resources/views/base.html.twig | grep script -C1 | grep asset -C1';
 
   var inputFiles = [];
