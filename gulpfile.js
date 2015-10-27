@@ -281,6 +281,15 @@ gulp.task('watch', [], function() {
 
   gulp.watch(
       [
+        './app/Resources/views/**/*.html.twig',
+        './src/**/Resources/views/**/*.html.twig',
+        '/vendor/sumocoders/**/Resources/views/**/*.html.twig',
+      ],
+      ['js:concat']
+  ).on('change', handleWatchEvent);
+
+  gulp.watch(
+      [
         './app/Resources/assets/images/**',
         './src/**/Resources/assets/images/**',
         './vendor/sumocoders/**/Resources/assets/images/**'
