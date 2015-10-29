@@ -3,7 +3,8 @@
 {% set niceBundleName = bundle|replace({'Bundle': ''})|lower %}
 {% set niceEntityName = entity|lower %}
 {% set niceEntityNamePlural = entity|lower ~ 's' %}
-{% set baseRoute = '%1$s_%2$s'|format(niceBundleName, niceEntityName) %}
+{% set niceNamespace = bundle|replace({'/': '_'})|lower %}
+{% set baseRoute = '%1$s_%2$s'|format(niceNamespace, niceEntityName) %}
 
 {% block phpdoc_method_header %}
      * Displays a form to edit an existing {{ entity }} entity.
