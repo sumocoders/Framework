@@ -53,10 +53,13 @@
         <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.locale.js') }}"></script>
         <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.js') }}"></script>
         <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.search.js') }}"></script>
         <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.app.js') }}"></script>
       {% else %}
         <script type="text/javascript" src="{{ asset('/assets/js/framework.js') }}"></script>
+      {% endif %}
+
+      {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
+        <script type="text/javascript" src="{{ asset('/assets/js/frameworksearchbundle.framework.form.search.js') }}"></script>
       {% endif %}
     {% endblock %}
 
