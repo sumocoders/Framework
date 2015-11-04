@@ -61,7 +61,6 @@ class FrameworkExtension extends \Twig_Extension
     public function convertToTranslation($stringToConvert)
     {
         $stringToConvert = trim($stringToConvert);
-        $stringToConvert = mb_strtolower($stringToConvert);
         $stringToConvert = str_replace(
             array('_', '-', ' ', 'framework'),
             '.',
