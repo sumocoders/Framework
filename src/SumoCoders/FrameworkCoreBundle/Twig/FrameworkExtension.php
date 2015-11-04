@@ -62,7 +62,7 @@ class FrameworkExtension extends \Twig_Extension
     {
         $stringToConvert = trim($stringToConvert);
         $stringToConvert = str_replace(
-            array('_', '-', ' ', 'framework'),
+            array('_', '-', ' ', 'framework', 'Framework'),
             '.',
             $stringToConvert
         );
@@ -70,8 +70,9 @@ class FrameworkExtension extends \Twig_Extension
         // the first item will mostly be the prefix of the namespace
         $stringToConvert = preg_replace('/(.*)\.(.*)bundle/U', '$1$2', $stringToConvert);
         $stringToConvert = str_replace('bundle', '', $stringToConvert);
+        $stringToConvert = str_replace('Bundle', '', $stringToConvert);
 
-        if (substr($stringToConvert, 0, 11) == 'sumocoders.') {
+        if (strtolower(mb_substr($stringToConvert, 0, 11)) == 'sumocoders.') {
             $stringToConvert = substr($stringToConvert, 11);
         }
 

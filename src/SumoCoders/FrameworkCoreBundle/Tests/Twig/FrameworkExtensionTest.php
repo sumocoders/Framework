@@ -89,9 +89,9 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
     public function testConvertToTranslationToLowerCase()
     {
         $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo'));
-        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('FOO'));
-        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('FoO'));
-        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('fOo'));
+        $this->assertEquals('FOO', $this->frameworkExtension->convertToTranslation('FOO'));
+        $this->assertEquals('FoO', $this->frameworkExtension->convertToTranslation('FoO'));
+        $this->assertEquals('fOo', $this->frameworkExtension->convertToTranslation('fOo'));
     }
 
     public function testConvertToTranslationReplaceFakeSpaces()
@@ -114,6 +114,7 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
     public function testTranslationWithSumoCodersInTheString()
     {
         $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('SumoCoders.foo'));
+        $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('sumocoders.foo'));
         $this->assertEquals('foo.sumocoders', $this->frameworkExtension->convertToTranslation('foo.sumocoders'));
         $this->assertEquals('foo.bar', $this->frameworkExtension->convertToTranslation('SumoCoders.foo.bar'));
     }
@@ -122,8 +123,8 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('fooBundle'));
         $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation('foo.frameworkBundle'));
-        $this->assertEquals('foo.bar', $this->frameworkExtension->convertToTranslation('FooBundle.bar'));
-        $this->assertEquals('foobar', $this->frameworkExtension->convertToTranslation('Foo.barBundle'));
+        $this->assertEquals('Foo.bar', $this->frameworkExtension->convertToTranslation('FooBundle.bar'));
+        $this->assertEquals('Foo.bar', $this->frameworkExtension->convertToTranslation('Foo.barBundle'));
     }
 
     public function testTranslationWithDotsInTheString()
@@ -146,11 +147,11 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
     public function testIfBundleIsCleaned()
     {
         $this->assertEquals(
-            'core.foo',
+            'Core.foo',
             $this->frameworkExtension->convertToTranslation('SumoCoders_FrameworkCoreBundle_foo')
         );
         $this->assertEquals(
-            'namespacenameofthe.foo',
+            'Namespace.NameOfThe.foo',
             $this->frameworkExtension->convertToTranslation('Namespace_NameOfTheBundle_foo')
         );
     }
