@@ -9,7 +9,6 @@ matrix:
     - php: nightly
     - php: hhvm
   allow_failures:
-    - php: 7
     - php: nightly
     - php: hhvm
 
