@@ -26,6 +26,8 @@
 
 
   .icon-angle:before {
+    font-size: $font-size-icon-smallest;
+    padding: 0 0 2px 0;
     transform: rotate(0deg);
     transition: transform .4s;
   }
@@ -92,8 +94,8 @@
 
   .icon-avatar {
     display: inline-block;
-    font-size: $font-size-icon-large;
-    padding: 6px 10px;
+    font-size: $font-size-icon-base;
+    padding: 5px 15px 9px;
   }
 }
 
@@ -139,10 +141,18 @@
         left: auto;
         right: 0;
       }
+
+      span {
+        padding: 5px 0;
+      }
     }
 
     .icon-avatar {
-      padding: 2px 14px 6px;
+      padding: 4px 0 11px;
+
+      &:before {
+        padding: 5px 15px 0;
+      }
     }
   }
 
@@ -154,6 +164,6 @@
 @media (min-width: $screen-md-min) {
   .user-nav .btn-group .icon-angle {
     margin: 5px 0;
-    padding: 0 15px;
+    padding: 0 15px 0 10px;
   }
 }

@@ -90,6 +90,10 @@
   }
 }
 
+.input-group .input-group-addon:before {
+  padding: 0 0 5px 0;
+}
+
 .form-inline {
 
   .control-label {
@@ -127,4 +131,16 @@ label abbr[title] {
 
 .date-widget .faked-button {
   color: #555;
+}
+
+.popover {
+  max-width: none;
+  width: 250px;
+}
+
+@media (min-width: $screen-md-min) {
+
+  .popover {
+    width: 300px;
+  }
 }
