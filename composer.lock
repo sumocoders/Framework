@@ -999,7 +999,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/d5b28c367d393f9d9fbc48c4138b2a74d51c0c83",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/45d6f40178216a840885b4ca6d7de9e67068568a",
                 "reference": "d5b28c367d393f9d9fbc48c4138b2a74d51c0c83",
                 "shasum": ""
             },
@@ -2033,17 +2033,17 @@
         },
         {
             "name": "sumocoders/framework-example-bundle",
-            "version": "v3.0.0",
+            "version": "v3.1.0",
             "target-dir": "SumoCoders/FrameworkExampleBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
-                "reference": "9e87a8851581d515eadf690869525d9e3b310cc3"
+                "reference": "2d5481cff9eacfd054b20843d77047a9a841a0c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/9e87a8851581d515eadf690869525d9e3b310cc3",
-                "reference": "9e87a8851581d515eadf690869525d9e3b310cc3",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/2d5481cff9eacfd054b20843d77047a9a841a0c4",
+                "reference": "2d5481cff9eacfd054b20843d77047a9a841a0c4",
                 "shasum": ""
             },
             "require": {
@@ -2077,29 +2077,33 @@
                 "SumoCoders",
                 "example"
             ],
-            "time": "2015-10-27 16:42:34"
+            "time": "2015-11-04 09:21:40"
         },
         {
             "name": "sumocoders/framework-search-bundle",
-            "version": "v2.0.2",
+            "version": "v2.1.0",
             "target-dir": "SumoCoders/FrameworkSearchBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "bb2b6cf2146a4cb8641e261bf316c8a9edbc2b94"
+                "reference": "1f137b11a693ea80c027d4f1e0c3bc3c207954f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/bb2b6cf2146a4cb8641e261bf316c8a9edbc2b94",
-                "reference": "bb2b6cf2146a4cb8641e261bf316c8a9edbc2b94",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/1f137b11a693ea80c027d4f1e0c3bc3c207954f4",
+                "reference": "1f137b11a693ea80c027d4f1e0c3bc3c207954f4",
                 "shasum": ""
             },
             "require": {
+                "doctrine/orm": "^2.5",
                 "php": ">=5.4",
                 "symfony/event-dispatcher": "2.6.*"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.1.*"
+                "mopa/bootstrap-bundle": "3.*@dev",
+                "phpunit/phpunit": "4.1.*",
+                "symfony/form": "^2.6",
+                "symfony/validator": "^2.6"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -2122,7 +2126,7 @@
                 "SumoCoders",
                 "search"
             ],
-            "time": "2015-10-14 11:40:18"
+            "time": "2015-11-05 08:14:47"
         },
         {
             "name": "sumocoders/framework-user-bundle",
