@@ -247,13 +247,13 @@ namespace :framework do
       framework.assets.precompile
       capifony_pretty_print "--> Removing existing assets-folder"
       run %{
-        rm -rf #{latest_release.shellescape}/web/assets &&
-        mkdir -p #{latest_release.shellescape}/web/assets
+        rm -rf #{current_release.shellescape}/web/assets &&
+        mkdir -p #{current_release.shellescape}/web/assets
       }
       capifony_puts_ok
 
       capifony_pretty_print "--> Uploading assets"
-      top.upload "./web/assets", "#{latest_release.shellescape}/web/assets"
+      top.upload "./web/assets", "#{current_release.shellescape}/web/assets"
       capifony_puts_ok
     end
   end
@@ -265,19 +265,18 @@ namespace :symfony do
     desc "Updates assets version"
     task :update_version do
         capifony_pretty_print "--> Update assets version"
-        run "sed -i 's/\\(assets_version: \\)\\(.*\\)$/\\1 #{real_revision}/g' #{latest_release}/app/config/config.yml"
+        run "sed -i 's/\\(assets_version: \\)\\(.*\\)$/\\1 #{real_revision}/g' #{current_release}/app/config/config.yml"
         capifony_puts_ok
     end
   end
 end
 
-before 'symfony:assetic:dump', 'symfony:assets:update_version'
-before 'symfony:assetic:dump', 'symfony:cache:clear'
+before 'symfony:cache:warmup', 'symfony:assets:update_version'
+before 'deploy:update_code', 'symfony:cache:clear'
 
 after "deploy", "deploy:cleanup", "framework:errbit:notify"
 after 'deploy:setup', 'framework:setup:link_document_root'
 after 'deploy:update_code', 'framework:assets:upload'
-after 'deploy:update_code', 'symfony:assetic:dump'
 after 'deploy:web:disable', 'framework:maintenance:enable'
 after 'deploy:web:enable', 'framework:maintenance:disable'
 
