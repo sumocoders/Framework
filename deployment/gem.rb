@@ -272,7 +272,6 @@ namespace :symfony do
 end
 
 before 'symfony:cache:warmup', 'symfony:assets:update_version'
-before 'deploy:update_code', 'symfony:cache:clear'
 
 after "deploy", "deploy:cleanup", "framework:errbit:notify"
 after 'deploy:setup', 'framework:setup:link_document_root'
