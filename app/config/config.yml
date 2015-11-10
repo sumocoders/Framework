@@ -99,3 +99,10 @@ knp_paginator:
   template:
     pagination: MopaBootstrapBundle:Pagination:sliding.html.twig
     sortable: MopaBootstrapBundle:Pagination:sortable_link.html.twig
+
+# Swiftmailer
+swiftmailer:
+  transport: "%mailer_transport%"
+  host: "%mailer_host%"
+  username: "%mailer_user%"
+  password: "%mailer_password%"
