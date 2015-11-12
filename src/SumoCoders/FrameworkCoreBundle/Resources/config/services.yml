@@ -57,3 +57,7 @@ services:
 
   framework.message_factory:
     class: SumoCoders\FrameworkCoreBundle\Mail\MessageFactory
+    calls:
+      - [setDefaultSender, ["%mailer_default_sender_email%", "%mailer_default_sender_name%"]]
+      - [setDefaultReplyTo, ["%mailer_default_reply_to_email%", "%mailer_default_reply_to_name%"]]
+      - [setDefaultTo, ["%mailer_default_to_email%", "%mailer_default_to_name%"]]

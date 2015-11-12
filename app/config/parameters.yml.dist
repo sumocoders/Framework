@@ -14,6 +14,15 @@ parameters:
 
     # Mail configuration
     mailer_transport: mail
+    mailer_host: mail.hostbots.be
+    mailer_user:
+    mailer_password:
+    mailer_default_sender_name:
+    mailer_default_sender_email:
+    mailer_default_to_name:
+    mailer_default_to_email:
+    mailer_default_reply_to_name: "%mailer_default_sender_name%"
+    mailer_default_reply_to_email:
 
     # Locale configuration
     locales:
