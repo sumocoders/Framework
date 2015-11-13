@@ -2,6 +2,8 @@
 
 namespace SumoCoders\FrameworkCoreBundle\Mail;
 
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+
 class MessageFactory
 {
     /**
@@ -18,6 +20,21 @@ class MessageFactory
      * @var array
      */
     protected $to = array();
+
+    /**
+     * @var EngineInterface
+     */
+    protected $template;
+
+    /**
+     * MessageFactory constructor.
+     *
+     * @param EngineInterface $template
+     */
+    public function __construct(EngineInterface $template)
+    {
+        $this->template = $template;
+    }
 
     /**
      * Set the default sender
@@ -65,11 +82,70 @@ class MessageFactory
     }
 
     /**
-     * @return Message
+     * Create a message
+     *
+     * @param string|null $subject
+     * @param string|null $html
+     * @param string|null $alternative
+     * @return \Swift_Message
      */
-    public function createMessage()
+    public function createMessage($subject = null, $html = null, $alternative = null)
     {
-        $message = new Message();
+        $message = $this->createDefaultMessage();
+
+        if ($subject != '') {
+            $message->setSubject($subject);
+        }
+
+        if ($html != '' && $alternative != '') {
+            $message->setBody($html, 'text/html');
+            $message->addPart($alternative, 'text/plain');
+        } elseif ($html != '' && $alternative == '') {
+            // html provided but no plain text, we should generate the plain text version ourself
+            $message->setBody($html, 'text/html');
+            $message->addPart(strip_tags($alternative), 'text/plain');
+        } elseif ($html == '' && $alternative != '') {
+            // no html provided but only plain text
+            $message->setBody($alternative, 'text/plain');
+        }
+
+        return $message;
+    }
+
+    /**
+     * Create a HTML message
+     *
+     * If no alternative is provided it will be generated automatically.
+     * This is just an alias for createMessage
+     *
+     * @param string|null $subject
+     * @param string|null $html
+     * @param string|null $plainText
+     * @return \Swift_Message
+     */
+    public function createHtmlMessage($subject = null, $html = null, $plainText = null)
+    {
+        return $this->createMessage($subject, $html, $plainText);
+    }
+
+    /**
+     * Create a plain text message
+     *
+     * @param string|null $subject
+     * @param string|null $body
+     * @return \Swift_Message
+     */
+    public function createPlainTextMessage($subject = null, $body = null)
+    {
+        return $this->createMessage($subject, null, $body);
+    }
+
+    /**
+     * @return \Swift_Message
+     */
+    public function createDefaultMessage()
+    {
+        $message = \Swift_Message::newInstance();
 
         if (!empty($this->sender)) {
             $message->setFrom($this->sender);
