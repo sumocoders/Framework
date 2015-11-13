@@ -59,7 +59,10 @@ services:
     class: SumoCoders\FrameworkCoreBundle\Mail\MessageFactory
     arguments:
       - @templating
+      - "mails/default_email.html.twig"
+      - "%kernel.root_dir%/../web/assets/css/mail.css"
     calls:
       - [setDefaultSender, ["%mailer_default_sender_email%", "%mailer_default_sender_name%"]]
       - [setDefaultReplyTo, ["%mailer_default_reply_to_email%", "%mailer_default_reply_to_name%"]]
       - [setDefaultTo, ["%mailer_default_to_email%", "%mailer_default_to_name%"]]
+

@@ -3,6 +3,7 @@
 namespace SumoCoders\FrameworkCoreBundle\Mail;
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
 class MessageFactory
 {
@@ -27,13 +28,30 @@ class MessageFactory
     protected $template;
 
     /**
+     * @var CssToInlineStyles
+     */
+    protected $cssToInlineStyles;
+
+    /**
+     * @var string
+     */
+    protected $templatePath;
+
+    /**
+     * @var string
+     */
+    protected $cssPath;
+
+    /**
      * MessageFactory constructor.
      *
      * @param EngineInterface $template
      */
-    public function __construct(EngineInterface $template)
+    public function __construct(EngineInterface $template, $templatePath, $cssPath)
     {
         $this->template = $template;
+        $this->templatePath = $templatePath;
+        $this->cssPath = $cssPath;
     }
 
     /**
@@ -174,12 +192,21 @@ class MessageFactory
      */
     public function wrapInTemplate($content)
     {
-        $content = $this->template->render(
-            'mails/default.email.twig',
+        $css = file_get_contents($this->cssPath);
+        $html = $this->template->render(
+            $this->templatePath,
             array(
                 'content' => $content,
+                'css' => $css,
             )
         );
+
+        $cssToInlineStyles = new CssToInlineStyles(
+            $html,
+            $css
+        );
+
+        $content = $cssToInlineStyles->convert();
 
         return $content;
     }

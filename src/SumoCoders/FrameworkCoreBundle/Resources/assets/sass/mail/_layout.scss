@@ -1,0 +1,37 @@
+td.logo {
+  padding-bottom: $padding-large-vertical * 3;
+  padding-top: $padding-large-vertical * 3;
+}
+
+td.banner {
+  background-color: $brand-primary;
+  border: 1px solid $brand-primary;
+
+  table.columns td {
+    padding-bottom: 0 !important;
+  }
+}
+
+table.main {
+  border: 1px solid $gray-lines;
+  margin-bottom: $padding-large-vertical * 3;
+}
+
+table.content {
+  p {
+    padding-bottom: $padding-base-vertical;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
+h1 {
+  color: $white;
+}

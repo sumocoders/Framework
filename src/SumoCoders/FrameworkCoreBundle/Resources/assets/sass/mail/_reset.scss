@@ -1,0 +1,87 @@
+// Client-specific Styles and Reset
+
+#outlook a {
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 100%;
+  padding: 0;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  width: 100% !important;
+}
+
+// .ExternalClass applies to Outlook.com (the artist formerly known as Hotmail)
+.ExternalClass {
+  width: 100%;
+}
+
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+  line-height: 100%;
+}
+
+#backgroundTable {
+  line-height: 100% !important;
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+}
+
+img {
+  clear: both;
+  display: block;
+  float: left;
+  -ms-interpolation-mode: bicubic;
+  max-width: 100%;
+  outline: none;
+  text-decoration: none;
+  width: auto;
+}
+
+center {
+  min-width: $min-width;
+  width: 100%;
+}
+
+a img {
+  border: 0;
+}
+
+p {
+  margin: 0; // @remark custom for Sumo Coders, we will use padding
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td {
+  border-collapse: collapse !important;
+  -moz-hyphens: none;
+  -webkit-hyphens: none;
+  hyphens: none;
+  word-break: break-word;
+}
+
+table,
+tr,
+td {
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+hr {
+  background-color: $gray-lighter;
+  border: 0;
+  color: $gray-lighter;
+  height: 1px;
+}
