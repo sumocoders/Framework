@@ -89,7 +89,7 @@ class MessageFactory
      * @param string|null $alternative
      * @return \Swift_Message
      */
-    public function createMessage($subject = null, $html = null, $alternative = null)
+    protected function createMessage($subject = null, $html = null, $alternative = null)
     {
         $message = $this->createDefaultMessage();
 
@@ -98,14 +98,18 @@ class MessageFactory
         }
 
         if ($html != '' && $alternative != '') {
-            $message->setBody($html, 'text/html');
+            $message->setBody(
+                $this->wrapInTemplate($html),
+                'text/html'
+            );
             $message->addPart($alternative, 'text/plain');
         } elseif ($html != '' && $alternative == '') {
-            // html provided but no plain text, we should generate the plain text version ourself
-            $message->setBody($html, 'text/html');
+            $message->setBody(
+                $this->wrapInTemplate($html),
+                'text/html'
+            );
             $message->addPart(strip_tags($alternative), 'text/plain');
         } elseif ($html == '' && $alternative != '') {
-            // no html provided but only plain text
             $message->setBody($alternative, 'text/plain');
         }
 
@@ -160,5 +164,23 @@ class MessageFactory
         }
 
         return $message;
+    }
+
+    /**
+     * Wrap the given content in a nice default email template
+     *
+     * @param string $content
+     * @return string
+     */
+    public function wrapInTemplate($content)
+    {
+        $content = $this->template->render(
+            'mails/default.email.twig',
+            array(
+                'content' => $content,
+            )
+        );
+
+        return $content;
     }
 }
