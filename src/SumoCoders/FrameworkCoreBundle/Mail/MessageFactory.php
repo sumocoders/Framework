@@ -222,8 +222,36 @@ class MessageFactory
      */
     public function convertToPlainText($content)
     {
-        // @todo implement the method of Annelyze
+        $content = preg_replace('/\r\n/', PHP_EOL, $content);
+        $content = preg_replace('/\r/', PHP_EOL, $content);
+        $content = preg_replace("/\t/", '', $content);
+
+        // remove the style- and head-tags and all their contents
+        $content = preg_replace('|\<style.*\>(.*\n*)\</style\>|isU', '', $content);
+        $content = preg_replace('|\<head.*\>(.*\n*)\</head\>|isU', '', $content);
+
+        // replace images with their alternative content
+        $content = preg_replace('|\<img[^>]*alt="(.*)".*/\>|isU', '$1', $content);
+
+        // replace links with the inner html of the link with the url between ()
+        $content = preg_replace('|<a.*href="(.*)".*>(.*)</a>|isU', '$2 ($1)', $content);
+
+        // strip HTML tags and preserve paragraphs
+        $content = strip_tags($content, '<p><div>');
+
+        // remove multiple spaced with a single one
+        $content = preg_replace('/\n\s/', PHP_EOL, $content);
+        $content = preg_replace('/\n{2,}/', PHP_EOL, $content);
+
+        // for each div, paragraph end we want an additional linebreak at the end
+        $content = preg_replace('|<div>|', '', $content);
+        $content = preg_replace('|</div>|', PHP_EOL, $content);
+        $content = preg_replace('|<p>|', '', $content);
+        $content = preg_replace('|</p>|', PHP_EOL, $content);
+
+        $content = trim($content);
         $content = strip_tags($content);
+        $content = html_entity_decode($content);
 
         return $content;
     }
