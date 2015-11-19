@@ -126,7 +126,10 @@ class MessageFactory
                 $this->wrapInTemplate($html),
                 'text/html'
             );
-            $message->addPart(strip_tags($alternative), 'text/plain');
+            $message->addPart(
+                $this->convertToPlainText($html),
+                'text/plain'
+            );
         } elseif ($html == '' && $alternative != '') {
             $message->setBody($alternative, 'text/plain');
         }
@@ -207,6 +210,20 @@ class MessageFactory
         );
 
         $content = $cssToInlineStyles->convert();
+
+        return $content;
+    }
+
+    /**
+     * Convert the given content from HTML to Plain text
+     *
+     * @param string $content
+     * @return string
+     */
+    public function convertToPlainText($content)
+    {
+        // @todo implement the method of Annelyze
+        $content = strip_tags($content);
 
         return $content;
     }
