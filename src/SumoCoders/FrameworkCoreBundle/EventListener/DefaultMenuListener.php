@@ -63,28 +63,6 @@ class DefaultMenuListener
             )
         );
 
-        $menuItem->setAttributes(
-            array(
-                'class' => 'dropdown',
-                'icon' => 'icon icon-angle',
-            )
-        );
-
-        $menuItem->setChildrenAttributes(
-            array(
-                'class' => 'dropdown-menu',
-                'role' => 'menu',
-            )
-        );
-
-        $menuItem->setLinkAttributes(
-            array(
-                'class' => 'menu-item dropdown-toggle',
-                'role' => 'button',
-                'aria-expanded' => 'false',
-            )
-        );
-
         $menuItem->setExtra('orderNumber', $order);
 
         // add the childs
@@ -101,12 +79,6 @@ class DefaultMenuListener
             } else {
                 $child = $value;
             }
-
-            $child->setLinkAttributes(
-                array(
-                    'class' => 'sub-menu-item',
-                )
-            );
 
             $menuItem->addChild($child);
         }
