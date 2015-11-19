@@ -5,42 +5,37 @@ namespace SumoCoders\FrameworkCoreBundle\Mail;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
-class MessageFactory
+final class MessageFactory
 {
     /**
-     * @var array
+     * @var array|string
      */
-    protected $sender = array();
+    private $sender = array();
 
     /**
-     * @var array
+     * @var array|string
      */
-    protected $replyTo = array();
+    private $replyTo = array();
 
     /**
-     * @var array
+     * @var array|string
      */
-    protected $to = array();
+    private $to = array();
 
     /**
      * @var EngineInterface
      */
-    protected $template;
-
-    /**
-     * @var CssToInlineStyles
-     */
-    protected $cssToInlineStyles;
+    private $template;
 
     /**
      * @var string
      */
-    protected $templatePath;
+    private $templatePath;
 
     /**
      * @var string
      */
-    protected $cssPath;
+    private $cssPath;
 
     /**
      * MessageFactory constructor.
@@ -107,7 +102,7 @@ class MessageFactory
      * @param string|null $alternative
      * @return \Swift_Message
      */
-    protected function createMessage($subject = null, $html = null, $alternative = null)
+    private function createMessage($subject = null, $html = null, $alternative = null)
     {
         $message = $this->createDefaultMessage();
 
@@ -115,24 +110,22 @@ class MessageFactory
             $message->setSubject($subject);
         }
 
-        if ($html != '' && $alternative != '') {
-            $message->setBody(
-                $this->wrapInTemplate($html),
-                'text/html'
-            );
-            $message->addPart($alternative, 'text/plain');
-        } elseif ($html != '' && $alternative == '') {
-            $message->setBody(
-                $this->wrapInTemplate($html),
-                'text/html'
-            );
-            $message->addPart(
-                $this->convertToPlainText($html),
-                'text/plain'
-            );
-        } elseif ($html == '' && $alternative != '') {
+        // only plain text
+        if ($html == '' && $alternative != '') {
             $message->setBody($alternative, 'text/plain');
+
+            return $message;
         }
+
+        // html mail
+        if ($alternative === null) {
+            $alternative = $this->convertToPlainText($html);
+        }
+        $message->setBody(
+            $this->wrapInTemplate($html),
+            'text/html'
+        );
+        $message->addPart($alternative, 'text/plain');
 
         return $message;
     }
@@ -209,9 +202,7 @@ class MessageFactory
             $css
         );
 
-        $content = $cssToInlineStyles->convert();
-
-        return $content;
+        return $cssToInlineStyles->convert();
     }
 
     /**

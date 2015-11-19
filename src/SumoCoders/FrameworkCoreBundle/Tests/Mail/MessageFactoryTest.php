@@ -2,7 +2,6 @@
 
 namespace SumoCoders\FrameworkCoreBundle\Tests\Mail;
 
-
 use SumoCoders\FrameworkCoreBundle\Mail\MessageFactory;
 
 class MessageFactoryTest extends \PHPUnit_Framework_TestCase
@@ -16,7 +15,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $temp = tempnam(sys_get_temp_dir(), 'message_factory_test');
         $this->messageFactory = new MessageFactory(
-            $this->getTemplating(),
+            $this->getTemplatingMock(),
             'mails/default_email.html.twig',
             $temp
         );
@@ -33,7 +32,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    protected function getTemplating()
+    protected function getTemplatingMock()
     {
         $templating = $this->getMock('\Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
         $templating
@@ -43,9 +42,8 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
         return $templating;
     }
 
-    public function testIfTheDefaultsAreEmptyWhenNotSet()
+    public function testTheDefaultsShouldBeEmptyWhenNotSet()
     {
-        /** @var \Swift_Message $message */
         $message = $this->messageFactory->createDefaultMessage();
 
         $this->assertInstanceOf('\Swift_Message', $message);
@@ -55,13 +53,12 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertEmpty($message->getTo());
     }
 
-    public function testIfTheDefaultsAreCorrectWhenSet()
+    public function testTheDefaultsShouldBeCorrectWhenSet()
     {
         $this->messageFactory->setDefaultSender('from@example.com', 'John From');
         $this->messageFactory->setDefaultReplyTo('reply-to@example.com', 'John Reply To');
         $this->messageFactory->setDefaultTo('to@example.com', 'John To');
 
-        /** @var \Swift_Message $message */
         $message = $this->messageFactory->createDefaultMessage();
 
         $this->assertInstanceOf('\Swift_Message', $message);
@@ -76,7 +73,6 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
         $subject = 'I am le subject';
         $content = 'And I, le content';
 
-        /** @var \Swift_Message $message */
         $message = $this->messageFactory->createPlainTextMessage(
             $subject,
             $content
@@ -98,7 +94,6 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
 
 EOF;
 
-        /** @var \Swift_Message $message */
         $message = $this->messageFactory->createHtmlMessage(
             $subject,
             $content
@@ -117,7 +112,7 @@ EOF;
         );
     }
 
-    public function testIfTagsAreStripped()
+    public function testTagsShouldBeStripped()
     {
         $this->assertEquals(
             'a paragraph',
