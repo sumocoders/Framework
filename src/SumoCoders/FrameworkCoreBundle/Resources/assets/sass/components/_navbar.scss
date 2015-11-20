@@ -74,6 +74,12 @@
       margin-top: 0;
     }
 
+    .current .menu-item {
+      background-color: transparent;
+      border-left: 10px $brand-primary solid;
+      color: $gray;
+    }
+
     .menu-item {
       border-left: 10px transparent solid;
       color: $gray;
