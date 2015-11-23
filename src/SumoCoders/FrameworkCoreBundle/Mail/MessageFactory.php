@@ -41,6 +41,8 @@ final class MessageFactory
      * MessageFactory constructor.
      *
      * @param EngineInterface $template
+     * @param string          $templatePath
+     * @param string          $cssPath
      */
     public function __construct(EngineInterface $template, $templatePath, $cssPath)
     {
