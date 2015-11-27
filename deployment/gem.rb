@@ -230,6 +230,15 @@ namespace :framework do
       capifony_puts_ok
     end
   end
+
+  desc "run the migrations if they are available"
+  task :migrate do
+    status = capture(%{
+      cd #{current_path} &&
+      php app/console --env=prod doctrine:migrations:migrate --dry-run
+    })
+    symfony.doctrine.migrations.migrate if status.include? "Executing dry run of migration"
+  end
 end
 
 # found in https://gist.github.com/jakzal/1400923
@@ -248,7 +257,7 @@ before 'symfony:cache:warmup', 'symfony:assets:update_version'
 
 after "deploy", "deploy:cleanup", "framework:errbit:notify"
 after 'deploy:setup', 'framework:setup:link_document_root'
-after 'deploy:update_code', 'framework:assets:upload'
+after 'deploy:update_code', 'framework:assets:upload','framework:migrate'
 after 'deploy:web:disable', 'framework:maintenance:enable'
 after 'deploy:web:enable', 'framework:maintenance:disable'
 
