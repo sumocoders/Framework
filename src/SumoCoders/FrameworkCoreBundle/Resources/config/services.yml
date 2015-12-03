@@ -54,3 +54,9 @@ services:
     class: SumoCoders\FrameworkCoreBundle\EventListener\ResponseSecurer
     tags:
        - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+  framework.form_fieldset_type:
+    class: SumoCoders\FrameworkCoreBundle\Form\Type\FieldsetType
+    arguments: []
+    tags:
+        - { name: form.type, alias: fieldset }
