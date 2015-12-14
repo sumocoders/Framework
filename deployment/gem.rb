@@ -234,7 +234,7 @@ namespace :framework do
   desc "run the migrations if they are available"
   task :migrate do
     status = capture(%{
-      cd #{current_path} &&
+      cd #{latest_release} &&
       php app/console --env=prod doctrine:migrations:migrate --dry-run
     })
     symfony.doctrine.migrations.migrate if status.include? "Executing dry run of migration"
