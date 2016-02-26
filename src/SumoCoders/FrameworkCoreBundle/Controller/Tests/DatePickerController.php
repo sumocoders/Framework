@@ -5,6 +5,11 @@ namespace SumoCoders\FrameworkCoreBundle\Controller\Tests;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class DatePickerController extends Controller
@@ -18,7 +23,7 @@ class DatePickerController extends Controller
         $form = $this->createFormBuilder()
             ->add(
                 'date_example1',
-                'date',
+                DateType::class,
                 array(
                     'widget' => 'choice',
                     'required' => false,
@@ -27,7 +32,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'date_example2',
-                'date',
+                DateType::class,
                 array(
                     'widget' => 'text',
                     'required' => false,
@@ -36,7 +41,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'date_example3',
-                'date',
+                DateType::class,
                 array(
                     'widget' => 'single_text',
                     'required' => false,
@@ -45,7 +50,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'date_example4',
-                'date',
+                DateType::class,
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
@@ -55,7 +60,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'date_example5',
-                'date',
+                DateType::class,
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
@@ -66,7 +71,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'date_example6',
-                'date',
+                DateType::class,
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
@@ -78,7 +83,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'date_example7',
-                'date',
+                DateType::class,
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
@@ -90,7 +95,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'date_example8',
-                'date',
+                DateType::class,
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
@@ -103,7 +108,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'date_example9',
-                'date',
+                DateType::class,
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
@@ -112,7 +117,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'datetime_example1',
-                'datetime',
+                DateTimeType::class,
                 array(
                     'widget' => 'choice',
                     'required' => false,
@@ -121,7 +126,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'datetime_example2',
-                'datetime',
+                DateTimeType::class,
                 array(
                     'widget' => 'text',
                     'required' => false,
@@ -130,7 +135,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'datetime_example3',
-                'datetime',
+                DateTimeType::class,
                 array(
                     'widget' => 'single_text',
                     'required' => false,
@@ -139,7 +144,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'time_example1',
-                'time',
+                TimeType::class,
                 array(
                     'widget' => 'choice',
                     'required' => false,
@@ -147,7 +152,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'time_example2',
-                'time',
+                TimeType::class,
                 array(
                     'widget' => 'text',
                     'required' => false,
@@ -155,7 +160,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'time_example3',
-                'time',
+                TimeType::class,
                 array(
                     'widget' => 'single_text',
                     'required' => false,
@@ -163,7 +168,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'birthday_example1',
-                'birthday',
+                BirthdayType::class,
                 array(
                     'widget' => 'choice',
                     'required' => false,
@@ -172,7 +177,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'birthday_example2',
-                'birthday',
+                BirthdayType::class,
                 array(
                     'widget' => 'text',
                     'required' => false,
@@ -181,7 +186,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'birthday_example3',
-                'birthday',
+                BirthdayType::class,
                 array(
                     'widget' => 'single_text',
                     'required' => false,
@@ -190,7 +195,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'birthday_example4',
-                'birthday',
+                BirthdayType::class,
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
@@ -200,7 +205,7 @@ class DatePickerController extends Controller
             )
             ->add(
                 'save',
-                'submit',
+                SubmitType::class,
                 array(
                     'label' => 'Ok',
                 )
