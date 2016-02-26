@@ -1,7 +1,9 @@
 /app/bootstrap.php.cache
 /app/cache/*
+!app/cache/.gitkeep
 /app/config/parameters.yml
 /app/logs/*
+!app/logs/.gitkeep
 /app/sessions/*
 /assets/coffee
 /assets/sass
@@ -11,7 +13,7 @@
 /composer.phar
 /coverage
 /node_modules/*
-/vendor/*
+/vendor/
 /web/*/locale.json
 /web/assets
 /web/bundles
