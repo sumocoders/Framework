@@ -1,7 +1,7 @@
 imports:
   - { resource: parameters.yml }
   - { resource: security.yml }
-  - { resource: @SumoCodersFrameworkErrorBundle/Resources/config/config.yml }
+  - { resource: "@SumoCodersFrameworkErrorBundle/Resources/config/config.yml" }
 
 services:
   fos_user.doctrine_registry:

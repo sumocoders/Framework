@@ -18,7 +18,7 @@ services:
     factory_service: framework.menu_builder
     factory_method: createMainMenu
     arguments:
-      - @request
+      - "@request"
     scope: request
     tags:
       - { name: knp_menu.menu, alias: side_menu }
@@ -26,14 +26,14 @@ services:
   framework.breadcrumb_builder:
     class: SumoCoders\FrameworkCoreBundle\BreadCrumb\BreadCrumbBuilder
     arguments:
-      - @knp_menu.factory
-      - @event_dispatcher
+      - "@knp_menu.factory"
+      - "@event_dispatcher"
   framework.breadcrumb.main:
     class: Kpn\Menu\MenuItem
     factory_service: framework.breadcrumb_builder
     factory_method: createBreadCrumb
     arguments:
-      - @request
+      - "@request"
     scope: request
     tags:
       - { name: knp_menu.menu, alias: breadcrumb }
@@ -51,7 +51,7 @@ services:
   twig.framework_extension:
     class: SumoCoders\FrameworkCoreBundle\Twig\FrameworkExtension
     arguments:
-      - @service_container
+      - "@service_container"
     tags:
       - { name: twig.extension }
 
