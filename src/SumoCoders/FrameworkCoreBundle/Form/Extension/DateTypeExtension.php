@@ -7,6 +7,7 @@ use Symfony\Component\Form\Exception\InvalidConfigurationException;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 final class DateTypeExtension extends AbstractTypeExtension
@@ -23,20 +24,6 @@ final class DateTypeExtension extends AbstractTypeExtension
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefined(
-            array(
-                'date_type',
-                'maximum_date',
-                'minimum_date',
-            )
-        );
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(
             array(

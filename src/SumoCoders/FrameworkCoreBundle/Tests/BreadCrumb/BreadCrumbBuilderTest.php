@@ -62,8 +62,15 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
     public function testCreateBreadCrumbWithEmptyRequestAndEmptyMenu()
     {
         $this->createSimpleBreadCrumb();
-        $request = $this->getMock('\Symfony\Component\HttpFoundation\Request');
-        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($request);
+
+        $requestStack = $this->getMockBuilder('\Symfony\Component\HttpFoundation\RequestStack')
+            ->getMock();
+        $requestStack->method('getCurrentRequest')
+            ->willReturn(
+                $this->getMock('\Symfony\Component\HttpFoundation\Request')
+            );
+
+        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($requestStack);
 
         $this->assertTrue($breadCrumb->hasChildren());
         $this->assertEquals(1, count($breadCrumb->getChildren()));
@@ -72,8 +79,14 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
     public function testIfLastItemDoesNotHaveAnUri()
     {
         $this->createSimpleBreadCrumb();
-        $request = $this->getMock('\Symfony\Component\HttpFoundation\Request');
-        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($request);
+        $requestStack = $this->getMockBuilder('\Symfony\Component\HttpFoundation\RequestStack')
+            ->getMock();
+        $requestStack->method('getCurrentRequest')
+            ->willReturn(
+                $this->getMock('\Symfony\Component\HttpFoundation\Request')
+            );
+
+        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($requestStack);
 
         $lastChild = $breadCrumb->getLastChild();
         $this->assertNull($lastChild->getUri());
@@ -84,8 +97,14 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
         $this->createSimpleBreadCrumb();
         $this->breadCrumbBuilder->dontExtractFromTheRequest();
 
-        $request = $this->getMock('\Symfony\Component\HttpFoundation\Request');
-        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($request);
+        $requestStack = $this->getMockBuilder('\Symfony\Component\HttpFoundation\RequestStack')
+            ->getMock();
+        $requestStack->method('getCurrentRequest')
+            ->willReturn(
+                $this->getMock('\Symfony\Component\HttpFoundation\Request')
+            );
+
+        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($requestStack);
 
         $this->assertFalse($breadCrumb->hasChildren());
     }
@@ -93,13 +112,19 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
     public function testIfSimpleItemIsAdded()
     {
         $this->createSimpleBreadCrumb();
-        $request = $this->getMock('\Symfony\Component\HttpFoundation\Request');
+        $requestStack = $this->getMockBuilder('\Symfony\Component\HttpFoundation\RequestStack')
+            ->getMock();
+        $requestStack->method('getCurrentRequest')
+            ->willReturn(
+                $this->getMock('\Symfony\Component\HttpFoundation\Request')
+            );
+
 
         $this->breadCrumbBuilder->dontExtractFromTheRequest();
         $this->breadCrumbBuilder->addSimpleItem('first', 'http://www.example.org');
         $this->breadCrumbBuilder->addSimpleItem('last', 'http://www.example.org');
 
-        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($request);
+        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($requestStack);
 
         $this->assertEquals(2, count($breadCrumb->getChildren()));
 
@@ -116,8 +141,14 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
         $this->breadCrumbBuilder->addSimpleItem('first', 'http://www.example.org');
         $this->breadCrumbBuilder->overwriteItems(array());
 
-        $request = $this->getMock('\Symfony\Component\HttpFoundation\Request');
-        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($request);
+        $requestStack = $this->getMockBuilder('\Symfony\Component\HttpFoundation\RequestStack')
+            ->getMock();
+        $requestStack->method('getCurrentRequest')
+            ->willReturn(
+                $this->getMock('\Symfony\Component\HttpFoundation\Request')
+            );
+
+        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($requestStack);
 
         $this->assertEquals(1, count($breadCrumb->getChildren()));
     }
@@ -125,7 +156,13 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
     public function testIfItemIsAdded()
     {
         $this->createSimpleBreadCrumb();
-        $request = $this->getMock('\Symfony\Component\HttpFoundation\Request');
+        $requestStack = $this->getMockBuilder('\Symfony\Component\HttpFoundation\RequestStack')
+            ->getMock();
+        $requestStack->method('getCurrentRequest')
+            ->willReturn(
+                $this->getMock('\Symfony\Component\HttpFoundation\Request')
+            );
+
 
         $first = new MenuItem('first', $this->getFactory(null));
         $first->setUri('http://www.example.org');
@@ -135,7 +172,7 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
         $this->breadCrumbBuilder->addItem($last);
 
         $this->breadCrumbBuilder->dontExtractFromTheRequest();
-        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($request);
+        $breadCrumb = $this->breadCrumbBuilder->createBreadCrumb($requestStack);
 
         $this->assertEquals(2, count($breadCrumb->getChildren()));
 
