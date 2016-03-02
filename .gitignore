@@ -13,7 +13,7 @@
 /composer.phar
 /coverage
 /node_modules/*
-/vendor/
+/vendor/*
 /web/*/locale.json
 /web/assets
 /web/bundles
