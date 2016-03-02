@@ -4,6 +4,7 @@ namespace SumoCoders\FrameworkCoreBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Exception\InvalidConfigurationException;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -15,7 +16,21 @@ final class DateTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'date';
+        return DateType::class;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefined(
+            array(
+                'date_type',
+                'maximum_date',
+                'minimum_date',
+            )
+        );
     }
 
     /**

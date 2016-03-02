@@ -37,12 +37,12 @@ services:
   framework.date_type_extension:
     class: SumoCoders\FrameworkCoreBundle\Form\Extension\DateTypeExtension
     tags:
-      - { name: form.type_extension, extended-type: Symfony\Component\Form\Extension\Core\Type\DateType }
+      - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\DateType }
 
   framework.button_type_icon_extension:
     class: SumoCoders\FrameworkCoreBundle\Form\Extension\ButtonTypeIconExtension
     tags:
-        - { name: form.type_extension, extended-type: Symfony\Component\Form\Extension\Core\Type\ButtonType }
+        - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\ButtonType }
 
   twig.framework_extension:
     class: SumoCoders\FrameworkCoreBundle\Twig\FrameworkExtension
