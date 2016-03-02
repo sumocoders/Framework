@@ -17,8 +17,7 @@ services:
     class: Kpn\Menu\MenuItem
     factory: ["@framework.menu_builder", "createMainMenu"]
     arguments:
-      - "@request"
-    scope: request
+      - "@request_stack"
     tags:
       - { name: knp_menu.menu, alias: side_menu }
 
@@ -31,8 +30,7 @@ services:
     class: Kpn\Menu\MenuItem
     factory: ["@framework.breadcrumb_builder", "createBreadCrumb"]
     arguments:
-      - "@request"
-    scope: request
+      - "@request_stack"
     tags:
       - { name: knp_menu.menu, alias: breadcrumb }
 
