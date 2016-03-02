@@ -27,6 +27,9 @@ framework:
   trusted_hosts:   ~
   trusted_proxies: ~
   fragments:       ~
+  assets:
+    version: 1
+    version_format: '%%s?v=%%s'
 
 # Twig Configuration
 twig:
