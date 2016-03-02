@@ -17,7 +17,7 @@ $defaultData = array(
 $form = $this->createFormBuilder($defaultData)
     ->add(
         'date_example',
-        'date',
+        DateType::class,
         array(
             'widget' => 'single_text',
             'datepicker' => true,
@@ -52,7 +52,7 @@ The type can be passed, but it is not required.
 $form = $this->createFormBuilder()
     ->add(
         'date_example_normal',
-        'date',
+        DateType::class,
         array(
             'widget' => 'single_text',
             'datepicker' => true,
@@ -71,7 +71,7 @@ selected.
 $form = $this->createFormBuilder()
     ->add(
         'date_example_start',
-        'date',
+        DateType::class,
         array(
             'widget' => 'single_text',
             'datepicker' => true,
@@ -92,7 +92,7 @@ selected.
 $form = $this->createFormBuilder()
     ->add(
         'date_example_start',
-        'date',
+        DateType::class,
         array(
             'widget' => 'single_text',
             'datepicker' => true,
@@ -113,7 +113,7 @@ selected.
 $form = $this->createFormBuilder()
     ->add(
         'date_example_start',
-        'date',
+        DateType::class,
         array(
             'widget' => 'single_text',
             'datepicker' => true,
