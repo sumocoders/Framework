@@ -36,10 +36,10 @@
         "jms/translation-bundle": "^1.1",
         "knplabs/knp-menu-bundle": "^2.1",
 
-        "sumocoders/framework-error-bundle": "dev-symfony-2.8 as 3.0",
-        "sumocoders/framework-user-bundle": "dev-symfony-2.8 as 3.0",
-        "sumocoders/framework-search-bundle": "dev-symfony-2.8 as 3.0",
-        "sumocoders/framework-example-bundle": "dev-symfony-2.8 as 4.0"
+        "sumocoders/framework-error-bundle": "^3.0",
+        "sumocoders/framework-user-bundle": "^3.0",
+        "sumocoders/framework-search-bundle": "^3.0",
+        "sumocoders/framework-example-bundle": "^4.0"
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev",

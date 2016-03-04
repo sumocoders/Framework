@@ -1,3 +1,9 @@
+sudo: false
+
+env:
+  global:
+    - SYMFONY_DEPRECATIONS_HELPER=7
+
 language: php
 
 matrix:
