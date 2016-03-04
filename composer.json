@@ -47,7 +47,7 @@
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "fzaninotto/faker": "^1.5",
         "symfony/phpunit-bridge": "^3.0",
-        "phpunit/phpunit": "^5.2"
+        "phpunit/phpunit": "^5.2 || ^4.8"
     },
     "scripts": {
         "post-install-cmd": [
