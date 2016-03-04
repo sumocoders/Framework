@@ -1,7 +1,9 @@
 /app/bootstrap.php.cache
 /app/cache/*
+!app/cache/.gitkeep
 /app/config/parameters.yml
 /app/logs/*
+!app/logs/.gitkeep
 /app/sessions/*
 /assets/coffee
 /assets/sass

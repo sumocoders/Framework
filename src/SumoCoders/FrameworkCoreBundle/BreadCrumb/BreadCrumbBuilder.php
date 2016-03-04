@@ -5,7 +5,7 @@ namespace SumoCoders\FrameworkCoreBundle\BreadCrumb;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\MenuItem;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use SumoCoders\FrameworkCoreBundle\Event\ConfigureMenuEvent;
 
 final class BreadCrumbBuilder
@@ -41,12 +41,12 @@ final class BreadCrumbBuilder
     }
 
     /**
-     * @param Request $request
+     * @param RequestStack $requestStack
      * @return \Knp\Menu\ItemInterface
      */
-    public function createBreadCrumb(Request $request)
+    public function createBreadCrumb(RequestStack $requestStack)
     {
-        $this->extractItemsBasedOnTheRequest($request);
+        $this->extractItemsBasedOnTheRequest($requestStack);
 
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttribute('class', 'breadcrumb');
@@ -231,17 +231,17 @@ final class BreadCrumbBuilder
     /**
      * Extract the items for the breadcrumb based on request
      *
-     * @param Request $request
+     * @param RequestStack $requestStack
      */
-    private function extractItemsBasedOnTheRequest(Request $request)
+    private function extractItemsBasedOnTheRequest(RequestStack $requestStack)
     {
         if (!$this->extractFromRoute) {
             return;
         }
 
         $this->extractItemsBasedOnUri(
-            $request->getPathInfo(),
-            $request->getLocale()
+            $requestStack->getCurrentRequest()->getPathInfo(),
+            $requestStack->getCurrentRequest()->getLocale()
         );
     }
 }

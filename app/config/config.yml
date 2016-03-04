@@ -1,7 +1,11 @@
 imports:
   - { resource: parameters.yml }
   - { resource: security.yml }
-  - { resource: @SumoCodersFrameworkErrorBundle/Resources/config/config.yml }
+  - { resource: "@SumoCodersFrameworkErrorBundle/Resources/config/config.yml" }
+
+services:
+  fos_user.doctrine_registry:
+    alias: doctrine
 
 # Framework configuration
 framework:
@@ -19,12 +23,13 @@ framework:
   validation: { enable_annotations: true }
   templating:
     engines: ['twig']
-    assets_version_format: '%%s?v=%%s'
-    assets_version: 1
   default_locale:  "%locale%"
   trusted_hosts:   ~
   trusted_proxies: ~
   fragments:       ~
+  assets:
+    version: 1
+    version_format: '%%s?v=%%s'
 
 # Twig Configuration
 twig:
