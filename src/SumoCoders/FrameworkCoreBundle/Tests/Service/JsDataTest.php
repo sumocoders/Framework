@@ -56,7 +56,7 @@ class JsDataTest extends \PHPUnit_Framework_TestCase
     {
         // request is only parsed when fetching the data from the javascript
         (string) $this->jsData;
-        $this->assertEquals('nl', $this->jsData->get('request[locale]', null, true));
+        $this->assertEquals('nl', $this->jsData->get('request')['locale']);
     }
 
     /**

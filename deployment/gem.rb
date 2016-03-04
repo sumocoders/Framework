@@ -1,49 +1,23 @@
 # This stuff should be moved into a gem
 def get_value_from_parameters(key)
-  set :path, "./app/config/parameters.yml"
-
-  if File.exists?(path)
-    parameters = YAML.load_file(path).fetch("parameters", nil)
-
-    unless parameters.nil?
-      return parameters.fetch(key, nil)
-    end
-  end
-
-  return nil
+  YAML.load_file('./app/config/parameters.yml').fetch('parameters', {}).fetch(key, nil) rescue nil
 end
 
 def get_value_from_remote_parameters(key)
-  set :path, "app/config/parameters.yml"
-
-  begin
-    remoteParameters = capture("cat #{shared_path}/#{path}")
-  rescue
-    return nil
-  end
-
-  parameters = YAML.load(remoteParameters).fetch("parameters", nil)
-
-  unless parameters.nil?
-    return parameters.fetch(key, nil)
-  end
-
-  return nil
+  # We use echo in the end to reset exit code when file is missing (without it deployment will fail on this command)
+  remote_parameters = capture("cat #{shared_path}/app/config/parameters.yml 2>/dev/null; echo").to_s.strip
+  YAML.load(remote_parameters).fetch('parameters', {}).fetch(key, nil) rescue nil
 end
 
 def ask(question, default)
+  # \033[46m - cyanBg
+  # \033[33m - yellow
   message = "\033[46m#{question}\033[0m"
-  unless default.empty?
-      message += " (\033[33m#{default}\033[0m)"
-  end
+  message += " (\033[33m#{default}\033[0m)" unless default.empty?
   message += ":"
 
   answer = Capistrano::CLI.ui.ask message
-  if answer.empty?
-    answer = default
-  end
-
-  answer
+  answer.empty? ? default : answer
 end
 
 namespace :sumo do
@@ -86,8 +60,7 @@ namespace :sumo do
             Your current branch (#{working_branch}) is not the same as the
             branch (#{branch_to_deploy}) that will be deployed.
         EOF
-        error = CommandError.new(message)
-        raise error
+        raise CommandError.new(message)
       end
 
       # check if the branch is up to date
@@ -257,6 +230,15 @@ namespace :framework do
       capifony_puts_ok
     end
   end
+
+  desc "run the migrations if they are available"
+  task :migrate do
+    status = capture(%{
+      cd #{latest_release} &&
+      php app/console --env=prod doctrine:migrations:migrate --dry-run --no-interaction
+    })
+    symfony.doctrine.migrations.migrate if status.include? "Executing dry run of migration"
+  end
 end
 
 # found in https://gist.github.com/jakzal/1400923
@@ -265,7 +247,7 @@ namespace :symfony do
     desc "Updates assets version"
     task :update_version do
         capifony_pretty_print "--> Update assets version"
-        run "sed -i 's/\\(assets_version: \\)\\(.*\\)$/\\1 #{real_revision}/g' #{current_release}/app/config/config.yml"
+        run "sed -i 's/\\(version: \\)\\(.*\\)$/\\1 #{real_revision}/g' #{current_release}/app/config/config.yml"
         capifony_puts_ok
     end
   end
@@ -275,7 +257,7 @@ before 'symfony:cache:warmup', 'symfony:assets:update_version'
 
 after "deploy", "deploy:cleanup", "framework:errbit:notify"
 after 'deploy:setup', 'framework:setup:link_document_root'
-after 'deploy:update_code', 'framework:assets:upload'
+after 'deploy:update_code', 'framework:assets:upload','framework:migrate'
 after 'deploy:web:disable', 'framework:maintenance:enable'
 after 'deploy:web:enable', 'framework:maintenance:disable'
 
