@@ -90,7 +90,12 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
         $content = '<p>And I, le content</p>';
         $expectedResult = <<<EOF
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><head></head><body><p>And I, le content</p></body></html>
+<html>
+  <head></head>
+  <body>
+    <p>And I, le content</p>
+  </body>
+</html>
 
 EOF;
 
