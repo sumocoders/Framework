@@ -1,0 +1,15 @@
+// Panels
+
+.panel {
+  background: $well-bg;
+  border: 1px solid $well-border;
+  padding: $padding-base-horizontal !important;
+}
+
+.sub-grid table {
+  width: 100%;
+}
+
+.sub-grid td.sub-columns {
+  padding-bottom: 0;
+}

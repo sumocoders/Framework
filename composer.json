@@ -35,6 +35,7 @@
         "jms/i18n-routing-bundle": "^2.0",
         "jms/translation-bundle": "^1.1",
         "knplabs/knp-menu-bundle": "^2.1",
+        "tijsverkoyen/css-to-inline-styles": "^2.0",
 
         "sumocoders/framework-error-bundle": "^3.0",
         "sumocoders/framework-user-bundle": "^3.0",

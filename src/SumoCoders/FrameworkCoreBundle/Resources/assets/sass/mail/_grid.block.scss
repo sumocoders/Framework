@@ -1,0 +1,39 @@
+// Block Grid
+
+.block-grid {
+  max-width: $min-width;
+  width: 100%;
+
+  td {
+    display: inline-block;
+    padding: $padding-base-vertical $padding-base-horizontal;
+  }
+}
+
+.two-up td {
+  width: floor($min-width / 2 - ($padding-base-horizontal * 2));
+}
+
+.three-up td {
+  width: floor($min-width / 3 - ($padding-base-horizontal * 2));
+}
+
+.four-up td {
+  width: floor($min-width / 4 - ($padding-base-horizontal * 2));
+}
+
+.five-up td {
+  width: floor($min-width / 5 - ($padding-base-horizontal * 2));
+}
+
+.six-up td {
+  width: floor($min-width / 6 - ($padding-base-horizontal * 2));
+}
+
+.seven-up td {
+  width: floor($min-width / 7 - ($padding-base-horizontal * 2));
+}
+
+.eight-up td {
+  width: floor($min-width / 8 - ($padding-base-horizontal * 2));
+}
