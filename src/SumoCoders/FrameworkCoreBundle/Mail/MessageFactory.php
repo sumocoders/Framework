@@ -199,12 +199,12 @@ final class MessageFactory
             )
         );
 
-        $cssToInlineStyles = new CssToInlineStyles(
+        $cssToInlineStyles = new CssToInlineStyles();
+
+        return $cssToInlineStyles->convert(
             $html,
             $css
         );
-
-        return $cssToInlineStyles->convert();
     }
 
     /**
