@@ -59,7 +59,7 @@ services:
   framework.message_factory:
     class: SumoCoders\FrameworkCoreBundle\Mail\MessageFactory
     arguments:
-      - @templating
+      - "@templating"
       - "mails/default_email.html.twig"
       - "%kernel.root_dir%/../web/assets/css/mail.css"
     calls:
