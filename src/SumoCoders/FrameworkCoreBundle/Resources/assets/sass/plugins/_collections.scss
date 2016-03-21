@@ -3,10 +3,8 @@
 }
 
 .collection-item {
-  @extend .row;
+  @include clearfix;
   @extend .well;
   @extend .well-sm;
   margin-bottom: $font-size-base * .7;
-  margin-left: 0;
-  margin-right: 0;
 }
