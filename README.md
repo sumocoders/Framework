@@ -50,9 +50,9 @@ See [https://github.com/phiamo/MopaBootstrapBundle](https://github.com/phiamo/Mo
 * [Fixtures](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/fixtures.md)
 * [Database Changes/Migrations](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/migrations.md)
 * [Adding items into the menu/navigation](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/menu.md)
-* [Adding a language switch](./src/SumCoders/FrameworkCoreBundle/Resources/doc/development/language-switch.md)
-* [Using Datepickers](./src/SumCoders/FrameworkCoreBundle/Resources/doc/development/using-date-pickers.md)
-* [Using the breadcrumb](./src/SumCoders/FrameworkCoreBundle/Resources/doc/development/breadcrumb.md)
+* [Adding a language switch](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/language-switch.md)
+* [Using Datepickers](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/using-date-pickers.md)
+* [Using the breadcrumb](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/breadcrumb.md)
 
 ### Putting your project online
 
@@ -60,6 +60,6 @@ See [https://github.com/phiamo/MopaBootstrapBundle](https://github.com/phiamo/Mo
 
 ### Issues
 
-* [Known issues](./src/SumCoders/FrameworkCoreBundle/Resources/doc/issues/issues.md)
+* [Known issues](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/issues/issues.md)
 
 
