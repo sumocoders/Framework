@@ -310,6 +310,6 @@ class Framework extends DefaultObject
     )
 
   clickableTablerow: ->
-    window.document.location = $('.action a').attr("href")
+    window.document.location = $(this).closest('tr').find('.action a').attr("href")
 
 window.Framework = Framework
