@@ -22,6 +22,10 @@ security:
                 path: fos_user_security_logout
                 target: fos_user_security_login
             anonymous: true
+            remember_me:
+                secret: %secret%
+                lifetime: 604800
+                path: /
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
