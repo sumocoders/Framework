@@ -2,6 +2,10 @@
   "name": "framework",
   "version": "0.0.1",
   "description": "This is the SumoCoders Symfony Framework.",
+  "scripts": {
+    "dev": "gulp serve",
+    "build": "gulp build"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/sumocoders/Framework.git"
