@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/sumocoders/Framework",
   "devDependencies": {
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
     "bower": "^1.7.2",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -39,9 +43,17 @@
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.7",
     "lodash": "^3.10.1",
-    "through2": "^2.0.0"
+    "through2": "^2.0.0",
+    "webpack": "^1.12.15",
+    "webpack-stream": "^3.1.0"
   },
   "engines": {
     "node": ">=0.12.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
   }
 }

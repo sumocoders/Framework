@@ -18,7 +18,9 @@ var gulp = require('gulp'),
     shell = require('gulp-shell'),
     livereload = require('gulp-livereload'),
     parseTwig = require('./gulp-helpers/parse-twig'),
-    stripPath = require('./gulp-helpers/strip-path');
+    stripPath = require('./gulp-helpers/strip-path'),
+    gulpWebpack = require('webpack-stream'),
+    webpack = require('webpack');
 
 var config = {
   assetsDir:    'web/assets'
@@ -73,6 +75,24 @@ gulp.task('coffee', function() {
       .pipe(gulp.dest(config.assetsDir + '/js'))
       .on('end', function() { showStatus('coffee', 'Coffee-files saved', 'success')})
       .pipe(livereload());
+});
+
+gulp.task('webpack', function() {
+  return gulp.src('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/js/index.js')
+    .pipe(plumber())
+    .pipe(gulpWebpack({
+      output: {
+        filename: 'bundle.js'
+      },
+      module: {
+        loaders: [{
+          test: /.js?$/,
+          loader: 'babel',
+          exclude: /node_modules/
+        }]
+      }
+    }))
+    .pipe(gulp.dest(config.assetsDir + '/js'));
 });
 
 gulp.task('js', function() {
