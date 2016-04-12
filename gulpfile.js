@@ -77,21 +77,43 @@ gulp.task('coffee', function() {
       .pipe(livereload());
 });
 
+var commonWebpackConfig = {
+  output: {
+    filename: 'bundle.js'
+  },
+  module: {
+    loaders: [{
+      test: /.js?$/,
+      loader: 'babel',
+      exclude: /node_modules/
+    }]
+  }
+};
+
 gulp.task('webpack', function() {
   return gulp.src('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/js/index.js')
     .pipe(plumber())
-    .pipe(gulpWebpack({
-      output: {
-        filename: 'bundle.js'
-      },
-      module: {
-        loaders: [{
-          test: /.js?$/,
-          loader: 'babel',
-          exclude: /node_modules/
-        }]
-      }
-    }))
+    .pipe(gulpWebpack(Object.assign({}, commonWebpackConfig, {
+      watch: true,
+    })))
+    .pipe(gulp.dest(config.assetsDir + '/js'))
+    .pipe(livereload());
+});
+
+gulp.task('webpack:build', function() {
+  return gulp.src('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/js/index.js')
+    .pipe(gulpWebpack(Object.assign({}, commonWebpackConfig, {
+      plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        }),
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': '"production"'
+        })
+      ]
+    })))
     .pipe(gulp.dest(config.assetsDir + '/js'));
 });
 
@@ -292,7 +314,7 @@ gulp.task('watch', [], function() {
         './src/**/Resources/assets/js/**',
         './vendor/sumocoders/**/Resources/assets/js/**'
       ],
-      ['js']
+      ['webpack']
   ).on('change', handleWatchEvent);
 
   gulp.watch(
@@ -353,7 +375,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('build', function() {
-  gulp.start('coffee', 'js', 'js:concat', 'images', 'fonts', 'sass', 'sass:cleanup');
+  gulp.start('coffee', 'js', 'js:concat', 'webpack:build', 'images', 'fonts', 'sass', 'sass:cleanup');
 });
 
 gulp.task('serve', function() {
