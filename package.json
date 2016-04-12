@@ -55,5 +55,8 @@
       "es2015",
       "react"
     ]
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6"
   }
 }
