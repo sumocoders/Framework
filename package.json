@@ -57,6 +57,7 @@
     ]
   },
   "dependencies": {
-    "bootstrap-sass": "^3.3.6"
+    "bootstrap-sass": "^3.3.6",
+    "select2": "^4.0.2"
   }
 }

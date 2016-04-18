@@ -72,7 +72,6 @@ class Framework extends DefaultObject
     '_initDisableSelection'
     '_initDatepicker'
     '_initSlider'
-    '_initSelect2'
     'setContentHeight'
   ]
 
@@ -181,14 +180,6 @@ class Framework extends DefaultObject
       values: [ 10, 40 ]
       range: true
     })
-
-  _initSelect2: ->
-    $select2 = $ '.select2'
-
-    return if ($select2.length == 0)
-    return if (!$.isFunction($.fn.select2))
-
-    $select2.select2()
 
   _initTooltip: ->
     $('[data-toggle="tooltip"]').tooltip()
