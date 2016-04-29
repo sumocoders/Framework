@@ -20,13 +20,11 @@ class AppKernel extends Kernel
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Eo\AirbrakeBundle\EoAirbrakeBundle(),
 
             new SumoCoders\FrameworkCoreBundle\SumoCodersFrameworkCoreBundle(),
-            new SumoCoders\FrameworkUserBundle\SumoCodersFrameworkUserBundle(),
             new SumoCoders\FrameworkSearchBundle\SumoCodersFrameworkSearchBundle(),
             new SumoCoders\FrameworkErrorBundle\SumoCodersFrameworkErrorBundle(),
         );

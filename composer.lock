@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f717365a1e4f379b6598348bfd5e3ade",
-    "content-hash": "c2ded9744d9d5fc107506437e6c820eb",
+    "hash": "42d1d65bfeb8ed56e5d272d094c52420",
+    "content-hash": "0ce2c9608e9197520e9d3d39f5fc4e35",
     "packages": [
         {
             "name": "dbtlr/php-airbrake",
@@ -997,75 +997,6 @@
                 "exception"
             ],
             "time": "2016-02-02 11:43:50"
-        },
-        {
-            "name": "friendsofsymfony/user-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "88f84f631ee7859c069cf98b475c679e90b16b22"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/def27463609e24af410b2606f0062de46fab5662",
-                "reference": "88f84f631ee7859c069cf98b475c679e90b16b22",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "symfony/form": "~2.3|~3.0",
-                "symfony/framework-bundle": "~2.3|~3.0",
-                "symfony/security-bundle": "~2.3|~3.0",
-                "symfony/twig-bundle": "~2.3|~3.0"
-            },
-            "require-dev": {
-                "doctrine/doctrine-bundle": "~1.3",
-                "swiftmailer/swiftmailer": "~4.3|~5",
-                "symfony/console": "~2.3|~3.0",
-                "symfony/phpunit-bridge": "~2.7|~3.0",
-                "symfony/validator": "~2.3|~3.0",
-                "symfony/yaml": "~2.3|~3.0",
-                "willdurand/propel-typehintable-behavior": "~1.0"
-            },
-            "suggest": {
-                "willdurand/propel-typehintable-behavior": "Needed when using the propel implementation"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FOS\\UserBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christophe Coevoet",
-                    "email": "stof@notk.org"
-                },
-                {
-                    "name": "FriendsOfSymfony Community",
-                    "homepage": "https://github.com/friendsofsymfony/FOSUserBundle/contributors"
-                },
-                {
-                    "name": "Thibault Duplessis",
-                    "email": "thibault.duplessis@gmail.com"
-                }
-            ],
-            "description": "Symfony FOSUserBundle",
-            "homepage": "http://friendsofsymfony.github.com",
-            "keywords": [
-                "User management"
-            ],
-            "time": "2016-03-04 13:20:42"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2285,53 +2216,6 @@
                 "search"
             ],
             "time": "2016-03-04 08:39:22"
-        },
-        {
-            "name": "sumocoders/framework-user-bundle",
-            "version": "v3.0.0",
-            "target-dir": "SumoCoders/FrameworkUserBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sumocoders/FrameworkUserBundle.git",
-                "reference": "e7c62711ec7b27cb4c4cd4e60efa84c5d4d485af"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkUserBundle/zipball/e7c62711ec7b27cb4c4cd4e60efa84c5d4d485af",
-                "reference": "e7c62711ec7b27cb4c4cd4e60efa84c5d4d485af",
-                "shasum": ""
-            },
-            "require": {
-                "friendsofsymfony/user-bundle": "^2.0@dev",
-                "knplabs/knp-paginator-bundle": "^2.5",
-                "php": "^5.5 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.2 || ^4.8",
-                "symfony/phpunit-bridge": "^3.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "SumoCoders\\FrameworkUserBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tijs Verkoyen",
-                    "email": "tijs@sumocoders.be"
-                }
-            ],
-            "description": "The user bundle for our mini-framework",
-            "keywords": [
-                "SumoCoders",
-                "framework"
-            ],
-            "time": "2016-03-04 08:39:32"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5084,7 +4968,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20,
         "composer/composer": 20
     },
     "prefer-stable": true,

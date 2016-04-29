@@ -3,10 +3,6 @@ imports:
   - { resource: security.yml }
   - { resource: "@SumoCodersFrameworkErrorBundle/Resources/config/config.yml" }
 
-services:
-  fos_user.doctrine_registry:
-    alias: doctrine
-
 # Framework configuration
 framework:
   translator: { fallback: "%locale%" }
