@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "42d1d65bfeb8ed56e5d272d094c52420",
-    "content-hash": "0ce2c9608e9197520e9d3d39f5fc4e35",
+    "hash": "dc930fd78e3689d1a564686c1734f1a3",
+    "content-hash": "4fbfefebf791015bc31900ef1ff2c98c",
     "packages": [
         {
             "name": "dbtlr/php-airbrake",
@@ -2166,6 +2166,67 @@
                 "example"
             ],
             "time": "2016-03-11 14:22:15"
+        },
+        {
+            "name": "sumocoders/framework-multi-user-bundle",
+            "version": "dev-master",
+            "target-dir": "SumoCoders/FrameworkMultiUserBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sumocoders/FrameworkMultiUserBundle.git",
+                "reference": "d39d72e426e2ac29305c9f3ba4ed3c98f6b6886a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkMultiUserBundle/zipball/d39d72e426e2ac29305c9f3ba4ed3c98f6b6886a",
+                "reference": "d39d72e426e2ac29305c9f3ba4ed3c98f6b6886a",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.2 || ^4.8"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "SumoCoders\\FrameworkMultiUserBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tijs Verkoyen",
+                    "email": "tijs@sumocoders.be"
+                },
+                {
+                    "name": "Wouter Sioen",
+                    "email": "wouter@sumocoders.be"
+                },
+                {
+                    "name": "Jelmer Prins",
+                    "email": "jelmer@sumocoders.be"
+                },
+                {
+                    "name": "Stijn Vrolijk",
+                    "email": "stijn@sumocoders.be"
+                },
+                {
+                    "name": "Jonas De Keukelaere",
+                    "email": "jonas@sumocoders.be"
+                },
+                {
+                    "name": "Dylan Moerman",
+                    "email": "dylan@sumocoders.be"
+                }
+            ],
+            "description": "The new multi user bundle for our mini-framework",
+            "keywords": [
+                "SumoCoders",
+                "framework"
+            ],
+            "time": "2016-04-29 08:42:05"
         },
         {
             "name": "sumocoders/framework-search-bundle",
@@ -4968,6 +5029,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "sumocoders/framework-multi-user-bundle": 20,
         "composer/composer": 20
     },
     "prefer-stable": true,
