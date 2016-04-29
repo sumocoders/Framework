@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Eo\AirbrakeBundle\EoAirbrakeBundle(),
 
             new SumoCoders\FrameworkCoreBundle\SumoCodersFrameworkCoreBundle(),
+            new SumoCoders\FrameworkMultiUserBundle\SumoCodersFrameworkMultiUserBundle(),
             new SumoCoders\FrameworkSearchBundle\SumoCodersFrameworkSearchBundle(),
             new SumoCoders\FrameworkErrorBundle\SumoCodersFrameworkErrorBundle(),
         );
