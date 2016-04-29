@@ -13,16 +13,16 @@
   },
   "homepage": "https://github.com/sumocoders/Framework",
   "devDependencies": {
-    "bower": "^1.7.2",
-    "gulp": "^3.9.0",
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
-    "gulp-coffee": "^2.3.1",
+    "gulp-coffee": "^2.3.2",
     "gulp-concat": "^2.6.0",
-    "gulp-consolidate": "^0.1.2",
+    "gulp-consolidate": "^0.2.0",
     "gulp-file": "^0.2.0",
     "gulp-fontgen": "^0.1.6",
-    "gulp-iconfont": "^5.0.1",
-    "gulp-iconfont-css": "2.0.0",
+    "gulp-iconfont": "^6.0.0",
+    "gulp-iconfont-css": "2.1.0",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-livereload": "^3.8.1",
@@ -34,8 +34,8 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.7",
-    "lodash": "^3.10.1",
-    "through2": "^2.0.0"
+    "lodash": "^4.11.1",
+    "through2": "^2.0.1"
   },
   "engines": {
     "node": ">=0.12.0"
