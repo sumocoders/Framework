@@ -80,3 +80,13 @@ services:
     arguments: []
     tags:
         - { name: form.type, alias: fieldset }
+
+  sumocoders_form_type_image:
+    class: SumoCoders\FrameworkCoreBundle\Form\Type\ImageType
+    tags:
+      - { name: form.type, alias: image }
+
+  sumocoders_form_type_file:
+    class: SumoCoders\FrameworkCoreBundle\Form\Type\FileType
+    tags:
+      - { name: form.type, alias: file }
