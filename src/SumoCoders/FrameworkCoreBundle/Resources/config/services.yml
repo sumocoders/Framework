@@ -67,3 +67,8 @@ services:
       - [setDefaultReplyTo, ["%mailer_default_reply_to_email%", "%mailer_default_reply_to_name%"]]
       - [setDefaultTo, ["%mailer_default_to_email%", "%mailer_default_to_name%"]]
 
+  sumocoders_form_type_fieldset:
+    class: SumoCoders\FrameworkCoreBundle\Form\Type\FieldsetType
+    arguments: []
+    tags:
+        - { name: form.type, alias: fieldset }
