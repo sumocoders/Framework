@@ -7,3 +7,7 @@ sumo_coders_framework_core:
     resource: "@SumoCodersFrameworkCoreBundle/Controller/DefaultController.php"
     type:     annotation
     prefix:   /
+
+sumo_coders_framework_multi_user:
+    resource: "@SumoCodersFrameworkMultiUserBundle/Resources/config/routing.yml"
+    prefix:   /

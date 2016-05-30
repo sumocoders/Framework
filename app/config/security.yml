@@ -1,6 +1,6 @@
 security:
     encoders:
-        FOS\UserBundle\Model\UserInterface: sha512
+        SumoCoders\FrameworkMultiUserBundle\User\User: plaintext
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -8,14 +8,16 @@ security:
 
     providers:
         in_memory:
-            memory: ~
+            id: sumocoders.in_memory_user_provider
 
     firewalls:
         main:
             provider: in_memory
             pattern: ^/
-            http_basic: ~
-            anonymous: true
+            anonymous: ~
+            guard:
+              authenticators:
+                - sumocoders.form_authenticator
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
@@ -23,3 +25,5 @@ security:
     access_control:
         - { path: ^/(_(profiler|wdt|tests)|css|js)/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/\w\w/locale.json, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/\w\w/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: ROLE_USER }
