@@ -18,6 +18,10 @@ security:
             guard:
               authenticators:
                 - sumocoders.form_authenticator
+            logout:
+              path:   /%locale%/logout
+              target: /
+
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
