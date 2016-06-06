@@ -3,10 +3,6 @@ imports:
   - { resource: security.yml }
   - { resource: "@SumoCodersFrameworkErrorBundle/Resources/config/config.yml" }
 
-services:
-  fos_user.doctrine_registry:
-    alias: doctrine
-
 # Framework configuration
 framework:
   translator: { fallback: "%locale%" }
@@ -111,3 +107,16 @@ swiftmailer:
   host: "%mailer_host%"
   username: "%mailer_user%"
   password: "%mailer_password%"
+
+sumo_coders_framework_multi_user:
+  redirect_routes:
+    SumoCoders\FrameworkMultiUserBundle\User\User: sumocoders_frameworkexample_bootstrap_carousel
+
+services:
+  sumocoders.in_memory_user_repository:
+    class: SumoCoders\FrameworkMultiUserBundle\User\InMemoryUserRepository
+
+  sumocoders.in_memory_user_provider:
+    class: SumoCoders\FrameworkMultiUserBundle\Security\ObjectUserProvider
+    arguments:
+      - "@sumocoders.in_memory_user_repository"

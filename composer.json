@@ -29,8 +29,6 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0",
         "incenteev/composer-parameter-handler": "^2.1",
-
-        "friendsofsymfony/user-bundle": "2.0.x-dev",
         "mopa/bootstrap-bundle": "^3.0",
         "jms/i18n-routing-bundle": "^2.0",
         "jms/translation-bundle": "^1.1",
@@ -38,9 +36,10 @@
         "tijsverkoyen/css-to-inline-styles": "^2.0",
 
         "sumocoders/framework-error-bundle": "^3.0",
-        "sumocoders/framework-user-bundle": "^3.0",
         "sumocoders/framework-search-bundle": "^3.0",
-        "sumocoders/framework-example-bundle": "^4.0"
+        "sumocoders/framework-example-bundle": "^4.0",
+        "knplabs/knp-paginator-bundle": "^2.5",
+        "sumocoders/framework-multi-user-bundle": "dev-master"
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev",
