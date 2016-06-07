@@ -7,6 +7,11 @@ services:
   fos_user.doctrine_registry:
     alias: doctrine
 
+  twig.extension.text:
+    class: Twig_Extensions_Extension_Text
+    tags:
+      - { name: twig.extension }
+
 # Framework configuration
 framework:
   translator: { fallback: "%locale%" }
@@ -122,9 +127,3 @@ jms_translation:
       excluded_names: ["*TestCase.php", "*Test.php", "DefaultMenuListener.php"]
       excluded_dirs: [cache, data, logs]
       extractors: [jms_i18n_routing]
-
-services:
-  twig.text_extension:
-    class: Twig_Extensions_Extension_Text
-    tags:
-      - name: twig.extension
