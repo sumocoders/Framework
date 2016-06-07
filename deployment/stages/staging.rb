@@ -1,11 +1,11 @@
 set :branch, "staging"
 
 ### DO NOT EDIT BELOW ###
-set :host,          "dev.sumocoders.eu"
+set :host,          "dev02.sumocoders.eu"
 set :user,          "sites"
-set :domain,        "#{project}.#{client}.sumocoders.eu"
+set :domain,        "#{project}.#{client}.php56.sumocoders.eu"
 set :deploy_to,     "/home/#{user}/apps/#{client}/#{project}"
-set :document_root, "/home/#{user}/#{client}/#{project}"
+set :document_root, "/home/#{user}/php56/#{client}/#{project}"
 
 server "#{host}", :app, :web, :db, :primary => true
 
