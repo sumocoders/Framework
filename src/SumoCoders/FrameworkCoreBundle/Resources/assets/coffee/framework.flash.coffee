@@ -1,7 +1,7 @@
 class Flash
 
   add: (message, type) ->
-    alertId = Math.floor(Date.now() / 1000);
+    alertId = Date.now();
 
     $('body').prepend(
       '<div class="alert alert-' + type + ' alert-dismissible notification" role="alert" data-alert-id="' + alertId + '">' +
