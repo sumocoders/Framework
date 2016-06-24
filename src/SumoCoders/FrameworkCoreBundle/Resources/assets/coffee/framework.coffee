@@ -312,4 +312,16 @@ class Framework extends DefaultObject
   clickableTablerow: ->
     window.document.location = $(this).closest('tr').find('.action a').attr("href")
 
+  addFlash: (message, type) =>
+    $('body').prepend(
+      '<div class="alert alert-' + type + ' alert-dismissible notification" role="alert">' +
+        '  <div class="container">' +
+        '    <button type="button" class="close" data-dismiss="alert"' +
+        '       title="' + Locale.lbl('Close') + '">' + Locale.lbl('Close') +
+        '    </button>' +
+        '    ' + message +
+        '  </div>' +
+        '</div>'
+    );
+
 window.Framework = Framework
