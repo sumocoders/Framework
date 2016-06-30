@@ -1,0 +1,13 @@
+image: php56
+
+before_script:
+  - php /composer.phar install --no-progress --no-scripts
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+
+run_tests:
+  script:
+    - SYMFONY_DEPRECATIONS_HELPER=weak bin/phpunit -c app/
+
+code_styles:
+  script:
+    - bin/phpcs --standard=psr2 --extensions=php --warning-severity=0 src/
