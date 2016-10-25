@@ -9,6 +9,7 @@
   font-style: normal;
 }
 
+.icon,
 <%= glyphs.map(function(glyph){ return '.' + className + '-' + glyph.name + ':before' }).join(',\n') %>,
 <%= glyphs.map(function(glyph){ return '.' + className + '-right-' + glyph.name + ':after' }).join(',\n') %> {
   font-family: "<%= fontName %>";
