@@ -110,6 +110,7 @@ header:
             overview: overview
 
 navigation:
+    translations: translations
     titles:
         possible_actions: possible actions
         showHideMenu: show/hide menu
