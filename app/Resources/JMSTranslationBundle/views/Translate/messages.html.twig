@@ -1,0 +1,60 @@
+    <div class="row">
+        <div class="col-sm-4">
+            <h5>ID</h5>
+        </div>
+        <div class="col-sm-4">
+            <h5>Translation</h5>
+        </div>
+        <div class="col-sm-4">
+            <h5>Additional Information</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            {% for id, message in messages %}
+                <hr>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <a class="jms-translation-anchor" id="{{ id }}" />
+                        <abbr title="{{ id }}">{{ id|truncate(20) }}</abbr>
+                    </div>
+                    <div class="col-sm-5">
+                        <textarea data-id="{{ id }}" class="form-control"{% if isWriteable is sameas(false) %} readonly="readonly"{% endif %}>{{ message.localeString }}</textarea>
+                    </div>
+                    <div class="col-sm-5">
+                        {% if message.meaning is not empty %}
+                            <h6>Meaning</h6>
+                            <p>{{ message.meaning }}</p>
+                        {% endif %}
+
+                        {% if alternativeMessages[id] is defined %}
+                            <h6>Alternative Translations</h6>
+                            {% for locale, altMessage in alternativeMessages[id] %}
+                            <p>
+                                <strong>{{ locale }}:</strong> <pre>{{ altMessage.localeString }}</pre>
+                            </p>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if message.sources|length > 0 %}
+                            <h6>Sources</h6>
+                            <ul>
+                            {% for source in message.sources %}
+                                <li>{{ source }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                        {% if message.desc is not empty
+                                and message.localeString != message.desc
+                                and id != message.desc
+                                and (alternativeMessages[id][sourceLanguage] is not defined
+                                     or alternativeMessages[id][sourceLanguage].localeString != message.desc) %}
+                            <h6>Description</h6>
+                            <p>{{ message.desc }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>

@@ -7,6 +7,11 @@ services:
   fos_user.doctrine_registry:
     alias: doctrine
 
+  twig.extension.text:
+    class: Twig_Extensions_Extension_Text
+    tags:
+      - { name: twig.extension }
+
 # Framework configuration
 framework:
   translator: { fallback: "%locale%" }
@@ -111,3 +116,14 @@ swiftmailer:
   host: "%mailer_host%"
   username: "%mailer_user%"
   password: "%mailer_password%"
+
+# Translation configuration
+jms_translation:
+  configs:
+    app:
+      dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
+      output_dir: %kernel.root_dir%/Resources/translations
+      ignored_domains: [routes]
+      excluded_names: ["*TestCase.php", "*Test.php", "DefaultMenuListener.php"]
+      excluded_dirs: [cache, data, logs]
+      extractors: [jms_i18n_routing]

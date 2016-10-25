@@ -67,3 +67,10 @@ services:
       - [setDefaultReplyTo, ["%mailer_default_reply_to_email%", "%mailer_default_reply_to_name%"]]
       - [setDefaultTo, ["%mailer_default_to_email%", "%mailer_default_to_name%"]]
 
+  framework.menu_listener:
+    class: SumoCoders\FrameworkCoreBundle\EventListener\MenuListener
+    arguments:
+      - @security.authorization_checker
+      - @security.token_storage
+    tags:
+      - { name: kernel.event_listener, event: framework_core.configure_menu, method: onConfigureMenu }
