@@ -314,3 +314,19 @@
   {% endif %}
   <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ iconHtml|raw }}{{ label|trans({}, translation_domain) }}</button>
 {%- endblock button_widget %}
+
+{% block fieldset_row %}
+  {% if open_row is defined and open_row %}
+    <div class="row">
+  {% endif %}
+  <fieldset{% if fieldset_class is defined and fieldset_class is not empty %} class="{{ fieldset_class }}"{% endif %}>
+    {% if legend is defined and legend is not empty %}
+      <legend{% if legend_class is defined and legend_class is not empty %} class="{{ legend_class }}"{% endif %}>{{ legend|trans({}, translation_domain)|capitalize }}</legend>
+    {% endif %}
+    {{ block('form_widget') }}
+
+  </fieldset>
+  {% if close_row  is defined and close_row %}
+    </div>
+  {% endif %}
+{% endblock %}

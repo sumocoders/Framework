@@ -74,3 +74,9 @@ services:
       - @security.token_storage
     tags:
       - { name: kernel.event_listener, event: framework_core.configure_menu, method: onConfigureMenu }
+
+  sumocoders_form_type_fieldset:
+    class: SumoCoders\FrameworkCoreBundle\Form\Type\FieldsetType
+    arguments: []
+    tags:
+        - { name: form.type, alias: fieldset }
