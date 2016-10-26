@@ -113,10 +113,11 @@ sumo_coders_framework_multi_user:
     SumoCoders\FrameworkMultiUserBundle\User\User: sumocoders_frameworkexample_bootstrap_carousel
 
 services:
-  sumocoders.in_memory_user_repository:
-    class: SumoCoders\FrameworkMultiUserBundle\User\InMemoryUserRepository
-
-  sumocoders.in_memory_user_provider:
-    class: SumoCoders\FrameworkMultiUserBundle\Security\ObjectUserProvider
-    arguments:
-      - "@sumocoders.in_memory_user_repository"
+    multi_user.user_repository.collection:
+       class: SumoCoders\FrameworkMultiUserBundle\User\UserRepositoryCollection
+       arguments:
+         - []
+    sumocoders.user_provider:
+       class: SumoCoders\FrameworkMultiUserBundle\Security\ObjectUserProvider
+       arguments:
+         - "@multi_user.user_repository.collection"

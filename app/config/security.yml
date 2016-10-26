@@ -1,18 +1,18 @@
 security:
     encoders:
-        SumoCoders\FrameworkMultiUserBundle\User\User: plaintext
+        SumoCoders\FrameworkMultiUserBundle\User\User: sha512
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
-        in_memory:
-            id: sumocoders.in_memory_user_provider
+        multi_user_bundle:
+            id: sumocoders.user_provider
 
     firewalls:
         main:
-            provider: in_memory
+            provider: multi_user_bundle
             pattern: ^/
             anonymous: ~
             guard:
