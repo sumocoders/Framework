@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dc930fd78e3689d1a564686c1734f1a3",
-    "content-hash": "4fbfefebf791015bc31900ef1ff2c98c",
+    "hash": "ead408dcfb04d904a73fc7b807889e47",
+    "content-hash": "3a638aecd6b922dff5192571c77be170",
     "packages": [
         {
             "name": "dbtlr/php-airbrake",
@@ -2169,18 +2169,24 @@
         },
         {
             "name": "sumocoders/framework-multi-user-bundle",
-            "version": "dev-master",
+            "version": "1.0.1",
             "target-dir": "SumoCoders/FrameworkMultiUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkMultiUserBundle.git",
-                "reference": "8f86ae5459891a8490e0e194031b454447615ecb"
+                "reference": "c7ec682965857e9af3e4159119c31a728b07604a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkMultiUserBundle/zipball/8f86ae5459891a8490e0e194031b454447615ecb",
-                "reference": "8f86ae5459891a8490e0e194031b454447615ecb",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkMultiUserBundle/zipball/c7ec682965857e9af3e4159119c31a728b07604a",
+                "reference": "c7ec682965857e9af3e4159119c31a728b07604a",
                 "shasum": ""
+            },
+            "require": {
+                "swiftmailer/swiftmailer": "^5.4",
+                "symfony/framework-bundle": "^2.6",
+                "symfony/security": "^2.8",
+                "symfony/security-guard": "^2.6"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.2 || ^4.8"
@@ -2226,7 +2232,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2016-04-29 09:22:39"
+            "time": "2016-07-19 09:50:30"
         },
         {
             "name": "sumocoders/framework-search-bundle",
@@ -3103,7 +3109,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/f0eb80ba341b62536531880423f10fed134dbcf9",
+                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/bb535b05ba1e23a0400ecc73adaa00d37289baf1",
                 "reference": "bb535b05ba1e23a0400ecc73adaa00d37289baf1",
                 "shasum": ""
             },
@@ -5029,7 +5035,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "sumocoders/framework-multi-user-bundle": 20,
         "composer/composer": 20
     },
     "prefer-stable": true,

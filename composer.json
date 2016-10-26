@@ -39,7 +39,7 @@
         "sumocoders/framework-search-bundle": "^3.0",
         "sumocoders/framework-example-bundle": "^4.0",
         "knplabs/knp-paginator-bundle": "^2.5",
-        "sumocoders/framework-multi-user-bundle": "dev-master"
+        "sumocoders/framework-multi-user-bundle": "^1.0"
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev",
