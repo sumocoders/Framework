@@ -1,6 +1,6 @@
 <?php
 
-namespace Common\Doctrine\Type;
+namespace SumoCoders\FrameworkCoreBundle\DBALType;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
