@@ -17,3 +17,8 @@
   opacity: 1;
   position: static;
 }
+
+.alert.alert-danger a {
+  color: $white;
+  text-decoration: underline;
+}

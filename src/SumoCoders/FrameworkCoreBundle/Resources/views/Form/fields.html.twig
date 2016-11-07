@@ -349,7 +349,6 @@
               {% for error in child.vars.errors %}
                 <li>
                   <a href="#{{ child.vars.id }}">
-                    <span class="fa fa-exclamation-triangle"></span>
                     {% if label is not same as(false) %}{{ label|trans|capitalize }}: {% endif %}{{ error.message }}
                   </a>
                 </li>
