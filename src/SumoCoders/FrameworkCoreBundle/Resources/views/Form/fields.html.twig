@@ -330,3 +330,45 @@
     </div>
   {% endif %}
 {% endblock %}
+
+{%- block form_errors -%}
+  {% if form.parent is null %}
+    {% if not form.vars.valid %}
+      <div class="alert alert-danger">
+        <ul class="list-unstyled">
+          {% for child in form.children %}
+            {% set label = child.vars.label %}
+            {% if label is not same as(false) %}
+              {% if label is empty %}
+                {% set label = toTranslation(child.vars.id)|trans({}, child.vars.translation_domain)|capitalize %}
+              {% else %}
+                {% set label = label|trans({}, child.vars.translation_domain)|capitalize %}
+              {% endif %}
+            {% endif %}
+            {% if not child.vars.valid %}
+              {% for error in child.vars.errors %}
+                <li>
+                  <a href="#{{ child.vars.id }}">
+                    <span class="fa fa-exclamation-triangle"></span>
+                    {% if label is not same as(false) %}{{ label|trans|capitalize }}: {% endif %}{{ error.message }}
+                  </a>
+                </li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+  {% else %}
+    {% if errors|length > 0 -%}
+      {% if form.parent %}<span class="help-block">{% else %}<div class="alert alert-danger">{% endif %}
+      <ul class="list-unstyled">
+        {%- for error in errors -%}
+          <li><span class="fa fa-exclamation-triangle"></span> {{ error.message }}</li>
+        {%- endfor -%}
+      </ul>
+      {% if form.parent %}</span>{% else %}</div>{% endif %}
+    {%- endif %}
+  {% endif %}
+{%- endblock form_errors -%}
