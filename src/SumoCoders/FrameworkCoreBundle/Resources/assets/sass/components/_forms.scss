@@ -144,3 +144,14 @@ label abbr[title] {
     width: 300px;
   }
 }
+
+// Feedback states
+.has-success .help-block{
+  color: $brand-success;
+}
+.has-warning .help-block{
+  color: $brand-warning;
+}
+.has-error .help-block{
+  color: $brand-danger;
+}
