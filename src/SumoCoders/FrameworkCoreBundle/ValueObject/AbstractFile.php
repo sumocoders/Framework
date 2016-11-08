@@ -158,12 +158,6 @@ abstract class AbstractFile
      */
     public function upload()
     {
-        if ($this->getFile() === null) {
-            return;
-        }
-
-        $this->writeFileToDisk();
-
         // check if we have an old image
         if ($this->oldFileName !== null) {
             // delete the old image
@@ -174,6 +168,13 @@ abstract class AbstractFile
             // clear the $this->oldFileName image path
             $this->oldFileName = null;
         }
+
+        if ($this->getFile() === null) {
+            return;
+        }
+
+        $this->writeFileToDisk();
+
         $this->file = null;
     }
 
@@ -226,5 +227,11 @@ abstract class AbstractFile
     public function jsonSerialize()
     {
         return (string) $this->getWebPath();
+    }
+
+    public function markForDeletion()
+    {
+        $this->oldFileName = $this->fileName;
+        $this->fileName = null;
     }
 }
