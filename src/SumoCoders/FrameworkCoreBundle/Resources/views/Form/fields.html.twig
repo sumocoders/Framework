@@ -375,9 +375,17 @@
   {% spaceless %}
     <div class="row">
       {{ block('form_label') }}
-      {{ block('form_widget') }}
+      <div class="col-sm-9">
+      <div class="col-sm-12">{# needed to cancel the negative margin of the widget #}
+        {{ block('form_widget') }}
+      </div>
+      </div>
       {% if data is not null and data.fileName is not empty %}
-        <img class="img-responsive {% if preview_class is defined and preview_class is not empty %}{{ preview_class }}{% endif %}" src="{{ data.webPath }}">
+        <div class="col-sm-offset-3 col-sm-9">
+          <p>
+            <img class="img-responsive {% if preview_class is defined and preview_class is not empty %}{{ preview_class }}{% endif %}" src="{{ data.webPath }}">
+          </p>
+        </div>
       {% endif %}
     </div>
     {{ block('form_error') }}
@@ -388,9 +396,15 @@
   {% spaceless %}
     <div class="row">
       {{ block('form_label') }}
-      {{ block('form_widget') }}
+      <div class="col-sm-9">
+        <div class="col-sm-12">{# needed to cancel the negative margin of the widget #}
+        {{ block('form_widget') }}
+      </div>
+      </div>
       {% if data is not null and data.fileName is not empty %}
-        <a href="{{ data.webPath }}" target="_blank">{{ 'forms.labels.currentUpload'|trans({}, translation_domain) }}</a>
+        <p class="col-sm-offset-3 col-sm-9">
+          <a href="{{ data.webPath }}" target="_blank">{{ 'forms.labels.currentUpload'|trans({}, translation_domain) }}</a>
+        </p>
       {% endif %}
     </div>
     {{ block('form_error') }}
