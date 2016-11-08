@@ -27,7 +27,7 @@ class FileType extends AbstractType
         $builder
             ->addEventListener(
                 FormEvents::PRE_SET_DATA,
-                function (FormEvent $event) {
+                function (FormEvent $event) use ($options) {
                     $event->getForm()->add(
                         'file',
                         SymfonyFileType::class,
@@ -35,7 +35,7 @@ class FileType extends AbstractType
                             'label_render' => false,
                             'horizontal_label_offset_class' => '',
                             'horizontal_input_wrapper_class' => '',
-                            'required' => $event->getData() === null,
+                            'required' => $event->getData() === null && $options['required'],
                         ]
                     );
                     $this->fileField = $event->getForm()->get('file');
@@ -101,6 +101,8 @@ class FileType extends AbstractType
         if (!empty($options['preview_class'])) {
             $view->vars['preview_class'] = $options['preview_class'];
         }
+
+        $view->vars['required'] = $form->getData() === null && $options['required'];
     }
 
     /**
