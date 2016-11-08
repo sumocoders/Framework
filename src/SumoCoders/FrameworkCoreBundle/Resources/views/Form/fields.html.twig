@@ -380,7 +380,7 @@
         {{ block('form_widget') }}
       </div>
       </div>
-      {% if data is not null and data.fileName is not empty %}
+      {% if show_current_upload and data is not null and data.fileName is not empty %}
         <div class="col-sm-offset-3 col-sm-9">
           <p>
             <img class="img-responsive {% if preview_class is defined and preview_class is not empty %}{{ preview_class }}{% endif %}" src="{{ data.webPath }}">
@@ -401,7 +401,7 @@
         {{ block('form_widget') }}
       </div>
       </div>
-      {% if data is not null and data.fileName is not empty %}
+      {% if show_current_upload and data is not null and data.fileName is not empty %}
         <p class="col-sm-offset-3 col-sm-9">
           <a href="{{ data.webPath }}" target="_blank">{{ current_upload_label|trans({}, translation_domain) }}</a>
         </p>

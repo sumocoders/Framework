@@ -66,13 +66,18 @@ class FileType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setRequired(
-            ['file_class', 'current_upload_label']
+            [
+                'file_class',
+                'current_upload_label',
+                'show_current_upload',
+            ]
         );
         $resolver->setDefaults(
             [
                 'data_class' => AbstractFile::class,
                 'current_upload_label' => 'forms.labels.currentUpload',
                 'compound' => true,
+                'show_current_upload' => true,
             ]
         );
     }
@@ -97,6 +102,7 @@ class FileType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
+        $view->vars['show_current_upload'] = $options['show_current_upload'];
         $view->vars['current_upload_label'] = $options['current_upload_label'];
         if (!empty($options['preview_class'])) {
             $view->vars['preview_class'] = $options['preview_class'];

@@ -66,7 +66,10 @@ class ImageType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setRequired(
-            ['image_class']
+            [
+                'image_class',
+                'show_current_upload',
+            ]
         );
 
         $resolver->setDefaults(
@@ -74,6 +77,7 @@ class ImageType extends AbstractType
                 'data_class' => AbstractImage::class,
                 'compound' => true,
                 'preview_class' => '',
+                'show_current_upload' => true,
             ]
         );
     }
@@ -102,6 +106,7 @@ class ImageType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
+        $view->vars['show_current_upload'] = $options['show_current_upload'];
         if (!empty($options['preview_class'])) {
             $view->vars['preview_class'] = $options['preview_class'];
         }
