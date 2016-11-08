@@ -63,7 +63,7 @@ abstract class AbstractFile
     {
         $file = $this->getAbsolutePath();
         if (is_file($file) && file_exists($file)) {
-            return '/' . $this->getUploadDir() . '/' . $this->path;
+            return '/' . $this->getUploadDir() . '/' . $this->fileName;
         }
 
         return '';
