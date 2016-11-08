@@ -403,7 +403,7 @@
       </div>
       {% if data is not null and data.fileName is not empty %}
         <p class="col-sm-offset-3 col-sm-9">
-          <a href="{{ data.webPath }}" target="_blank">{{ 'forms.labels.currentUpload'|trans({}, translation_domain) }}</a>
+          <a href="{{ data.webPath }}" target="_blank">{{ current_upload_label|trans({}, translation_domain) }}</a>
         </p>
       {% endif %}
     </div>
