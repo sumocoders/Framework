@@ -4,6 +4,7 @@ namespace SumoCoders\FrameworkCoreBundle\Form\Type;
 
 use SumoCoders\FrameworkCoreBundle\ValueObject\AbstractFile;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -26,6 +27,17 @@ class FileType extends AbstractType
                     'horizontal_label_offset_class' => '',
                     'horizontal_input_wrapper_class' => '',
                 ]
+            )
+            ->addModelTransformer(
+                new CallbackTransformer(
+                    function (AbstractFile $file) {
+                        return $file;
+                    },
+                    function (AbstractFile $file) {
+                        // return a clone to make sure that doctrine will do the lifecycle callbacks
+                        return clone $file;
+                    }
+                )
             );
     }
 

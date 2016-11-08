@@ -4,6 +4,7 @@ namespace SumoCoders\FrameworkCoreBundle\Form\Type;
 
 use SumoCoders\FrameworkCoreBundle\ValueObject\AbstractImage;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -26,6 +27,17 @@ class ImageType extends AbstractType
                     'horizontal_label_offset_class' => '',
                     'horizontal_input_wrapper_class' => '',
                 ]
+            )
+            ->addModelTransformer(
+                new CallbackTransformer(
+                    function (AbstractImage $image) {
+                        return $image;
+                    },
+                    function (AbstractImage $image) {
+                        // return a clone to make sure that doctrine will do the lifecycle callbacks
+                        return clone $image;
+                    }
+                )
             );
     }
 
