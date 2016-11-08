@@ -373,25 +373,25 @@
 
 {% block image_row %}
   {% spaceless %}
-    {% if form.vars.data is not empty %}
-      <img class="img-responsive {% if preview_class is defined and preview_class is not empty %}{{ preview_class }}{% endif %}" src="{{ form.vars.data.webPath }}">
-    {% endif %}
     <div class="row">
       {{ block('form_label') }}
       {{ block('form_widget') }}
+      {% if data is not null and data.fileName is not empty %}
+        <img class="img-responsive {% if preview_class is defined and preview_class is not empty %}{{ preview_class }}{% endif %}" src="{{ data.webPath }}">
+      {% endif %}
     </div>
     {{ block('form_error') }}
   {% endspaceless %}
 {% endblock %}
 
-{% block file_row %}
+{% block sumoFile_row %}
   {% spaceless %}
-    {% if form.vars.data is not empty %}
-      <a href="{{ form.vars.data.webPath }}" target="_blank">
-    {% endif %}
     <div class="row">
       {{ block('form_label') }}
       {{ block('form_widget') }}
+      {% if data is not null and data.fileName is not empty %}
+        <a href="{{ data.webPath }}" target="_blank">{{ 'forms.labels.currentUpload'|trans({}, translation_domain) }}</a>
+      {% endif %}
     </div>
     {{ block('form_error') }}
   {% endspaceless %}

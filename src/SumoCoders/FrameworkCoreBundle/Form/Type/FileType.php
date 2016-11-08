@@ -5,13 +5,19 @@ namespace SumoCoders\FrameworkCoreBundle\Form\Type;
 use SumoCoders\FrameworkCoreBundle\ValueObject\AbstractFile;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\Extension\Core\Type\FileType as SymfonyFileType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class FileType extends AbstractType
 {
+    /** @var SymfonyFileType */
+    private $fileField;
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -19,21 +25,34 @@ class FileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(
-                'file',
-                'file',
-                [
-                    'label_render' => false,
-                    'horizontal_label_offset_class' => '',
-                    'horizontal_input_wrapper_class' => '',
-                ]
+            ->addEventListener(
+                FormEvents::PRE_SET_DATA,
+                function (FormEvent $event) {
+                    $event->getForm()->add(
+                        'file',
+                        SymfonyFileType::class,
+                        [
+                            'label_render' => false,
+                            'horizontal_label_offset_class' => '',
+                            'horizontal_input_wrapper_class' => '',
+                            'required' => $event->getData() === null,
+                        ]
+                    );
+                    $this->fileField = $event->getForm()->get('file');
+                }
             )
             ->addModelTransformer(
                 new CallbackTransformer(
-                    function (AbstractFile $file) {
+                    function (AbstractFile $file = null) {
                         return $file;
                     },
-                    function (AbstractFile $file) {
+                    function (AbstractFile $file = null) use ($options) {
+                        if ($file === null) {
+                            $fileClass = $options['file_class'];
+
+                            return $fileClass::fromUploadedFile($this->fileField->getData());
+                        }
+
                         // return a clone to make sure that doctrine will do the lifecycle callbacks
                         return clone $file;
                     }
@@ -46,6 +65,9 @@ class FileType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        $resolver->setRequired(
+            ['file_class']
+        );
         $resolver->setDefaults(
             [
                 'data_class' => AbstractFile::class,
