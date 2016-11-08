@@ -71,4 +71,12 @@ class ImageType extends AbstractType
             $view->vars['preview_class'] = $options['preview_class'];
         }
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
 }

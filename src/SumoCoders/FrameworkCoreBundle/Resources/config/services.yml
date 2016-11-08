@@ -89,4 +89,4 @@ services:
   sumocoders_form_type_file:
     class: SumoCoders\FrameworkCoreBundle\Form\Type\FileType
     tags:
-      - { name: form.type, alias: file }
+      - { name: form.type, alias: sumoFile }

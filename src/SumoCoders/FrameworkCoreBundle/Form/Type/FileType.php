@@ -37,6 +37,7 @@ class FileType extends AbstractType
         $resolver->setDefaults(
             [
                 'data_class' => AbstractFile::class,
+                'compound' => true,
             ]
         );
     }
@@ -46,7 +47,7 @@ class FileType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'file';
+        return 'sumoFile';
     }
 
     public function getParent()
@@ -64,5 +65,13 @@ class FileType extends AbstractType
         if (!empty($options['preview_class'])) {
             $view->vars['preview_class'] = $options['preview_class'];
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getBlockPrefix();
     }
 }
