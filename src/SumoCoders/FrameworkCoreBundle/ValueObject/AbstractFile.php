@@ -103,6 +103,10 @@ abstract class AbstractFile
      */
     public function setFile(UploadedFile $file = null)
     {
+        if ($file === null) {
+            return $this;
+        }
+
         $this->file = $file;
         // check if we have an old image path
         if ($this->fileName === null) {
