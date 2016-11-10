@@ -1008,13 +1008,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< dc756901b629758298c138eb25fb8790640201d9
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/d1fccc6335b74beca94525551cacc06b256ed261",
-                "reference": "d1fccc6335b74beca94525551cacc06b256ed261",
-=======
                 "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/88f84f631ee7859c069cf98b475c679e90b16b22",
                 "reference": "88f84f631ee7859c069cf98b475c679e90b16b22",
->>>>>>> Require squizlabs/php_codesniffer
                 "shasum": ""
             },
             "require": {
