@@ -94,6 +94,9 @@ forms:
     labels:
         required: this field is required
         optional: (optional)
+        removeImage: remove image
+        removeFile: remove file
+        viewCurrentFile: view current file
 
     buttons:
         new: add
