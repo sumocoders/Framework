@@ -66,7 +66,7 @@ class ImageType extends AbstractType
                     },
                     function (AbstractImage $image = null) use ($options) {
                         if ($image === null) {
-                            $imageClass = $options['file_class'];
+                            $imageClass = $options['image_class'];
                             if ($this->removeField !== null && $this->removeField->getData()) {
                                 return $imageClass::fromUploadedFile();
                             }
