@@ -44,13 +44,13 @@ class ImageType extends AbstractType
                     );
                     $this->fileField = $event->getForm()->get('file');
 
-                    if ($options['show_remove_current_upload']) {
+                    if ($options['show_remove_image']) {
                         $this->removeField = $event->getForm()->add(
                             'remove',
                             CheckboxType::class,
                             [
                                 'required' => false,
-                                'label' => $options['remove_current_upload_label'],
+                                'label' => $options['remove_image_label'],
                                 'mapped' => false,
                             ]
                         );
@@ -97,9 +97,9 @@ class ImageType extends AbstractType
         $resolver->setRequired(
             [
                 'image_class',
-                'show_current_upload',
-                'show_remove_current_upload',
-                'remove_current_upload_label',
+                'show_preview',
+                'show_remove_image',
+                'remove_image_label',
             ]
         );
 
@@ -108,9 +108,9 @@ class ImageType extends AbstractType
                 'data_class' => AbstractImage::class,
                 'compound' => true,
                 'preview_class' => '',
-                'show_current_upload' => true,
-                'show_remove_current_upload' => true,
-                'remove_current_upload_label' => 'forms.labels.removeCurrentUpload',
+                'show_preview' => true,
+                'show_remove_image' => true,
+                'remove_image_label' => 'forms.labels.removeImage',
             ]
         );
     }
@@ -142,12 +142,12 @@ class ImageType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars['show_current_upload'] = $options['show_current_upload'];
-        $view->vars['show_remove_current_upload'] = $options['show_remove_current_upload'] && $form->getData() !== null
+        $view->vars['show_preview'] = $options['show_preview'];
+        $view->vars['show_remove_image'] = $options['show_remove_image'] && $form->getData() !== null
                                                     && !empty($form->getData()->getFileName());
         // if you need to have an image you shouldn't be allowed to remove it
         if ($options['required']) {
-            $view->vars['show_remove_current_upload'] = false;
+            $view->vars['show_remove_image'] = false;
         }
         if (!empty($options['preview_class'])) {
             $view->vars['preview_class'] = $options['preview_class'];

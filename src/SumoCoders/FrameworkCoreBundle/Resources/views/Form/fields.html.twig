@@ -378,13 +378,13 @@
       <div class="col-sm-9">
         {{ form_widget(form.file) }}
       </div>
-      {% set show_current_upload = show_current_upload and data is not null and data.fileName is not empty %}
-      {% if show_current_upload or show_remove_current_upload%}
+      {% set show_preview = show_preview and data is not null and data.fileName is not empty %}
+      {% if show_preview or show_remove_image %}
         <div class="col-sm-offset-3 col-sm-9">
-          {% if show_current_upload %}
+          {% if show_preview %}
             <img class="img-responsive {% if preview_class is defined and preview_class is not empty %}{{ preview_class }}{% endif %}" src="{{ data.webPath }}">
           {% endif %}
-          {% if show_remove_current_upload %}
+          {% if show_remove_image %}
             {{ form_widget(form.remove) }}
           {% endif %}
         </div>
@@ -401,13 +401,13 @@
       <div class="col-sm-9">
         {{ form_widget(form.file) }}
       </div>
-      {% set show_current_upload = show_current_upload and data is not null and data.fileName is not empty %}
-      {% if show_current_upload or show_remove_current_upload%}
+      {% set show_preview = show_preview and data is not null and data.fileName is not empty %}
+      {% if show_preview or show_remove_file%}
         <div class="col-sm-offset-3 col-sm-9">
-          {% if show_current_upload %}
-              <a href="{{ data.webPath }}" target="_blank">{{ current_upload_label|trans({}, translation_domain) }}</a>
+          {% if show_preview %}
+              <a href="{{ data.webPath }}" target="_blank">{{ preview_label|trans({}, translation_domain) }}</a>
           {% endif %}
-          {% if show_remove_current_upload %}
+          {% if show_remove_file %}
             {{ form_widget(form.remove) }}
           {% endif %}
         </div>

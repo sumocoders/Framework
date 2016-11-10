@@ -44,13 +44,13 @@ class FileType extends AbstractType
                     );
                     $this->fileField = $event->getForm()->get('file');
 
-                    if ($options['show_remove_current_upload']) {
+                    if ($options['show_remove_file']) {
                         $this->removeField = $event->getForm()->add(
                             'remove',
                             CheckboxType::class,
                             [
                                 'required' => false,
-                                'label' => $options['remove_current_upload_label'],
+                                'label' => $options['remove_file_label'],
                                 'mapped' => false,
                             ]
                         );
@@ -97,20 +97,20 @@ class FileType extends AbstractType
         $resolver->setRequired(
             [
                 'file_class',
-                'current_upload_label',
-                'show_current_upload',
-                'show_remove_current_upload',
-                'remove_current_upload_label',
+                'preview_label',
+                'show_preview',
+                'show_remove_file',
+                'remove_file_label',
             ]
         );
         $resolver->setDefaults(
             [
                 'data_class' => AbstractFile::class,
-                'current_upload_label' => 'forms.labels.currentUpload',
-                'remove_current_upload_label' => 'forms.labels.removeCurrentUpload',
+                'preview_label' => 'forms.labels.viewCurrentFile',
+                'remove_file_label' => 'forms.labels.removeFile',
                 'compound' => true,
-                'show_current_upload' => true,
-                'show_remove_current_upload' => true,
+                'show_preview' => true,
+                'show_remove_file' => true,
             ]
         );
     }
@@ -138,14 +138,14 @@ class FileType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars['show_remove_current_upload'] = $options['show_remove_current_upload'] && $form->getData() !== null
+        $view->vars['show_remove_file'] = $options['show_remove_file'] && $form->getData() !== null
                                    && !empty($form->getData()->getFileName());
         // if you need to have a file you shouldn't be allowed to remove it
         if ($options['required']) {
-            $view->vars['show_remove_current_upload'] = false;
+            $view->vars['show_remove_file'] = false;
         }
-        $view->vars['show_current_upload'] = $options['show_current_upload'];
-        $view->vars['current_upload_label'] = $options['current_upload_label'];
+        $view->vars['show_preview'] = $options['show_preview'];
+        $view->vars['preview_label'] = $options['preview_label'];
         if (!empty($options['preview_class'])) {
             $view->vars['preview_class'] = $options['preview_class'];
         }
