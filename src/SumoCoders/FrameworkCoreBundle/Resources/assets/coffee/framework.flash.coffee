@@ -1,6 +1,6 @@
 class Flash
 
-  add: (message, type) ->
+  add: (message, type, time) ->
     alertId = Date.now();
 
     $('.main-header').append(
@@ -14,6 +14,10 @@ class Flash
             '  </div>' +
         '</div>'
     );
+
+    if time?
+      callback = => @remove(alertId)
+      setTimeout callback, time
 
     return alertId
 
