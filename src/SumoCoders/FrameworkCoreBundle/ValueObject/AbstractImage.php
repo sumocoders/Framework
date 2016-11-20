@@ -15,8 +15,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * The following things are optional
  * A fallback image can be set by setting the full path of the image to the FALLBACK_IMAGE constant
- * By default we will use the fork way for image sizes (source, 100X100 etc)
- * if you don't want it set GENERATE_THUMBNAILS to false
  */
 abstract class AbstractImage extends AbstractFile
 {
