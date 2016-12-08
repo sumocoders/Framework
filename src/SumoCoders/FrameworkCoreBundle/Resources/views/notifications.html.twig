@@ -1,47 +1,39 @@
 {% for flashMessage in app.session.flashbag.get('success') %}
-  <div class="alert alert-success alert-dismissible notification" role="status">
-    <div class="container">
-      <a class="close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}">
-        <i class="fa fa-close"></i>
-        <span class="hide">{{ 'dialogs.close'|trans|capitalize }}</span>
-      </a>
-      {{ flashMessage }}
+    <div class="alert alert-success alert-dismissible notification" role="status">
+        <a class="close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}">
+            <i class="fa fa-close"></i>
+            <span class="hide">{{ 'dialogs.close'|trans|capitalize }}</span>
+        </a>
+        {{ flashMessage }}
     </div>
-  </div>
 {% endfor %}
 
 {% for flashMessage in app.session.flashbag.get('report') %}
-  <div class="alert alert-success alert-dismissible notification" role="status">
-    <div class="container">
-      <a class="close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}">
-        <i class="fa fa-close"></i>
-        <span class="hide">{{ 'dialogs.close'|trans|capitalize }}</span>
-      </a>
-      {{ flashMessage }}
+    <div class="alert alert-success alert-dismissible notification" role="status">
+        <a class="close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}">
+            <i class="fa fa-close"></i>
+            <span class="hide">{{ 'dialogs.close'|trans|capitalize }}</span>
+        </a>
+        {{ flashMessage }}
     </div>
-  </div>
 {% endfor %}
 
 {% for flashMessage in app.session.flashbag.get('warning') %}
-  <div class="alert alert-warning alert-dismissible notification" role="alert">
-    <div class="container">
-      <a class="close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}">
-        <i class="fa fa-close"></i>
-        <span class="hide">{{ 'dialogs.close'|trans|capitalize }}</span>
-      </a>
-      {{ flashMessage }}
+    <div class="alert alert-warning alert-dismissible notification" role="alert">
+        <a class="close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}">
+            <i class="fa fa-close"></i>
+            <span class="hide">{{ 'dialogs.close'|trans|capitalize }}</span>
+        </a>
+        {{ flashMessage }}
     </div>
-  </div>
 {% endfor %}
 
 {% for flashMessage in app.session.flashbag.get('error') %}
-  <div class="alert alert-danger alert-dismissible notification" role="alert">
-    <div class="container">
-      <a class="close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}">
-        <i class="fa fa-close"></i>
-        <span class="hide">{{ 'dialogs.close'|trans|capitalize }}</span>
-      </a>
-      {{ flashMessage }}
+    <div class="alert alert-danger alert-dismissible notification" role="alert">
+        <a class="close" data-dismiss="alert" title="{{ 'dialogs.close'|trans|capitalize }}">
+            <i class="fa fa-close"></i>
+            <span class="hide">{{ 'dialogs.close'|trans|capitalize }}</span>
+        </a>
+        {{ flashMessage }}
     </div>
-  </div>
 {% endfor %}
