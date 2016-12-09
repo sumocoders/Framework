@@ -1,0 +1,12 @@
+version: '2'
+services:
+  web:
+    environment:
+      - SYMFONY_ENV=dev
+      - SYMFONY_DEBUG=1
+    volumes:
+      - sumocoders-framework-sync:/var/www/html
+
+volumes:
+  sumocoders-framework-sync:
+    external: true

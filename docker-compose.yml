@@ -1,5 +1,4 @@
 version: '2'
-
 services:
   mysql:
     environment:
@@ -17,6 +16,9 @@ services:
     #image: docker_framework-php70
     depends_on:
       - mysql
+    environment:
+      - SYMFONY_ENV=prod
+      - SYMFONY_DEBUG=0
     links:
       - mysql
     ports:
