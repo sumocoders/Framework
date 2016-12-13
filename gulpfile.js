@@ -216,8 +216,8 @@ gulp.task('sass:generate_css', ['icons'], function() {
       .pipe(plumber())
       .pipe(sass({
         includePaths: [
-          './web/assets/vendor/bootstrap-sass/assets/stylesheets',
-          './web/assets/vendor'
+          './node_modules/bootstrap-sass/assets/stylesheets',
+          './node_modules/'
         ],
         outputStyle: minify ? 'compressed' : 'expanded',
         precision: 10
