@@ -1,8 +1,21 @@
 {
   "name": "framework",
+  "keywords": [],
   "version": "1.0.0",
-  "repository": "git@github.com:sumocoders/Framework.git",
-  "author": "Tijs Verkoyen <tijs@sumocoders.be>",
+  "description": "This is the SumoCoders Symfony Framework.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sumocoders/Framework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sumocoders/Framework/issues"
+  },
+  "homepage": "https://github.com/sumocoders/Framework",
+  "author": "Tijs Verkoyen",
+  "contributors": [
+    "Mathias Helin",
+    "Katrien Vanhaute"
+  ],
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
@@ -17,14 +30,17 @@
     "gulp-iconfont": "^6.0.0",
     "gulp-iconfont-css": "^2.1.0",
     "gulp-if": "^2.0.2",
-    "gulp-imagemin": "2.4",
+    "gulp-imagemin": "^2.4",
     "gulp-livereload": "^3.8.1",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sequence": "^0.4.6",
     "gulp-shell": "^0.5.2",
-    "gulp-uglify": "1.5",
+    "gulp-uglify": "^1.5",
     "select2-bootstrap-css": "^1.4.6"
+  },
+  "engines": {
+    "node": ">=0.12.0"
   }
 }
