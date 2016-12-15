@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
-    gulpif = require('gulp-if'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     consolidate = require('gulp-consolidate'),
@@ -35,7 +34,7 @@ gulp.task('coffee', function() {
       ]
   )
       .pipe(plumber())
-      .pipe(gulpif(minify == false, sourcemaps.init()))
+      .pipe(sourcemaps.init())
       .pipe(coffee({}).on('error', gutil.log))
       .pipe(rename(function(path) {
         var end = path.dirname.indexOf('Bundle') + 6;
@@ -45,7 +44,7 @@ gulp.task('coffee', function() {
         path.dirname = '';
         path.basename = bundle.toLowerCase() + '.' + path.basename;
       }))
-      .pipe(gulpif(minify == false, sourcemaps.write()))
+      .pipe(sourcemaps.write())
       .pipe(gulp.dest(config.assetsDir + '/js'))
       .pipe(livereload());
 });
@@ -58,7 +57,7 @@ gulp.task('js', function() {
         './vendor/sumocoders/**/Resources/assets/js/**'
       ]
   )
-      .pipe(gulpif(minify == false, sourcemaps.init()))
+      .pipe(sourcemaps.init())
       .pipe(rename(function(path) {
         if (path.extname === '') {
           path.dirname = '';
@@ -68,7 +67,7 @@ gulp.task('js', function() {
 
         path.dirname = stripPath('/js/', path.dirname);
       }))
-      .pipe(gulpif(minify == false, sourcemaps.write()))
+      .pipe(sourcemaps.write())
       .pipe(gulp.dest(config.assetsDir + '/js'))
       .pipe(livereload());
 });
@@ -187,7 +186,7 @@ gulp.task('sass:generate_css', ['icons'], function() {
         './vendor/sumocoders/**/Resources/assets/sass/**'
       ]
   )
-      .pipe(gulpif(minify == false, sourcemaps.init()))
+      .pipe(sourcemaps.init())
       .pipe(plumber())
       .pipe(sass({
         includePaths: [
@@ -200,7 +199,7 @@ gulp.task('sass:generate_css', ['icons'], function() {
       }).on('error', gutil.log))
       .pipe(rename(function(path) { path.dirname = ''; }))
       .pipe(autoprefixer({}))
-      .pipe(gulpif(minify == false, sourcemaps.write()))
+      .pipe(sourcemaps.write())
       .pipe(gulp.dest(config.assetsDir + '/css'))
       .pipe(livereload());
 });

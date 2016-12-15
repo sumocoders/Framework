@@ -29,7 +29,6 @@
     "gulp-fontgen": "^0.2.5",
     "gulp-iconfont": "^6.0.0",
     "gulp-iconfont-css": "^2.1.0",
-    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^2.4",
     "gulp-livereload": "^3.8.1",
     "gulp-plumber": "^1.1.0",
