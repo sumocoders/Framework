@@ -234,10 +234,6 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-bluebird@^2.9.26:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
-
 bluebird@^3.1.1:
   version "3.4.6"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.4.6.tgz#01da8d821d87813d158967e743d5fe6c62cf8c0f"
@@ -505,12 +501,6 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
 console-stream@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/console-stream/-/console-stream-0.1.1.tgz#a095fe07b20465955f2fafd28b5d72bccd949d44"
-
-consolidate@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/consolidate/-/consolidate-0.13.1.tgz#9e9503568eb4850889da6ed87a852c8dd2d13f64"
-  dependencies:
-    bluebird "^2.9.26"
 
 consolidate@~0.14.0:
   version "0.14.5"
@@ -1365,14 +1355,6 @@ gulp-fontgen@^0.2.5:
     fontfacegen "^0.2.1"
     gulp-util "^3.0.7"
     through2 "^2.0.1"
-
-gulp-iconfont-css@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/gulp-iconfont-css/-/gulp-iconfont-css-2.1.0.tgz#40c0f5ebfc88f64097cce2cdacd73f8b40ce9673"
-  dependencies:
-    consolidate "^0.13.1"
-    gulp-util "^3.0.6"
-    lodash "^3.10.0"
 
 gulp-iconfont@^6.0.0:
   version "6.0.0"
@@ -2344,7 +2326,7 @@ lodash@^2.4.1:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
 
-lodash@^3.10.0, lodash@^3.6.0:
+lodash@^3.6.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 

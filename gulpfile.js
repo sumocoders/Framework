@@ -9,7 +9,6 @@ var gulp = require("gulp"),
     imagemin = require("gulp-imagemin"),
     fontgen = require("gulp-fontgen"),
     iconfont = require("gulp-iconfont"),
-    iconfontcss = require("gulp-iconfont-css"),
     sass = require("gulp-sass"),
     autoprefixer = require("gulp-autoprefixer"),
     sourcemaps = require("gulp-sourcemaps"),
@@ -22,7 +21,6 @@ var gulp = require("gulp"),
 var config = {
   assetsDir: "web/assets"
 };
-
 var minify = true;
 
 gulp.task("coffee", function() {
