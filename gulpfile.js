@@ -144,10 +144,19 @@ gulp.task('images', function() {
       .pipe(livereload());
 });
 
-gulp.task('fonts', gulpSequence(
+gulp.task('fonts', ['fonts:copy_fonts_from_node_modules'], gulpSequence(
     'del:cleanup_useless_font_css',
     'fonts:generate'
 ));
+
+gulp.task('fonts:copy_fonts_from_node_modules', function() {
+  return gulp.src(
+      [
+        './node_modules/font-awesome/fonts/*'
+      ]
+  )
+      .pipe(gulp.dest(config.assetsDir + '/fonts'));
+});
 
 gulp.task('fonts:generate', function() {
   return gulp.src(
