@@ -36,7 +36,9 @@
     "gulp-sass": "^2.3.2",
     "gulp-sequence": "^0.4.6",
     "gulp-shell": "^0.5.2",
+    "gulp-sourcemaps": "^1.9.1",
     "gulp-uglify": "^1.5",
+    "gulp-util": "^3.0.7",
     "select2-bootstrap-css": "^1.4.6"
   },
   "engines": {
