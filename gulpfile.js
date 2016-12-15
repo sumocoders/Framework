@@ -21,7 +21,7 @@ var gulp = require('gulp'),
     stripPath = require('./gulp-helpers/strip-path');
 
 var config = {
-  assetsDir:    'web/assets'
+  assetsDir: 'web/assets'
 };
 
 var minify = true;
@@ -105,9 +105,9 @@ gulp.task('js:concat', ['js', 'coffee'], function() {
     // loop trough all the collected js groups and concat them
     for (var destination in grouped) {
       gulp.src(grouped[destination])
-        .pipe(concat(stripPath('/assets/js/', destination)))
-        .pipe(uglify())
-        .pipe(gulp.dest(config.assetsDir + '/js'));
+          .pipe(concat(stripPath('/assets/js/', destination)))
+          .pipe(uglify())
+          .pipe(gulp.dest(config.assetsDir + '/js'));
     }
   }
 
@@ -116,7 +116,7 @@ gulp.task('js:concat', ['js', 'coffee'], function() {
     './src/**/Resources/views/**/*.html.twig',
     '/vendor/sumocoders/**/Resources/views/**/*.html.twig',
   ])
-    .pipe(parseTwig(action));
+      .pipe(parseTwig(action));
 });
 
 gulp.task('images', function() {
@@ -193,20 +193,20 @@ gulp.task('icons', function() {
       ]
   )
       .pipe(iconfont({
-        fontName:   'icons',
+        fontName: 'icons',
       }))
       .on('glyphs', function(glyphs) {
         var options = {
-          glyphs: glyphs,
-          fontName: 'icons',
-          fontPath: '../fonts/',
+          glyphs:    glyphs,
+          fontName:  'icons',
+          fontPath:  '../fonts/',
           className: 'icon'
         };
 
         gulp.src('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/base/_iconfont-template.scss')
-          .pipe(consolidate('lodash', options))
-          .pipe(rename({ basename: '_icons' }))
-          .pipe(gulp.dest('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/'));
+            .pipe(consolidate('lodash', options))
+            .pipe(rename({basename: '_icons'}))
+            .pipe(gulp.dest('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/'));
       })
       .pipe(gulp.dest(config.assetsDir + '/fonts'))
       .on('end', function() { showStatus('icons', 'icon-font generated', 'success')});
@@ -228,11 +228,11 @@ gulp.task('sass:generate_css', ['icons'], function() {
           './node_modules/bootstrap-sass/assets/stylesheets',
           './node_modules/'
         ],
-        outputStyle: minify ? 'compressed' : 'expanded',
-        precision: 10
+        outputStyle:  minify ? 'compressed' : 'expanded',
+        precision:    10
 
       }).on('error', showError))
-      .pipe(rename(function(path){ path.dirname = ''; }))
+      .pipe(rename(function(path) { path.dirname = ''; }))
       .on('end', function() { showStatus('sass', 'SCSS-files compiled', 'success')})
       .pipe(autoprefixer({}))
       .on('end', function() { showStatus('sass', 'Added prefixes', 'success')})
@@ -242,8 +242,8 @@ gulp.task('sass:generate_css', ['icons'], function() {
       .pipe(livereload());
 });
 gulp.task('sass:cleanup', ['sass'], shell.task([
-    'rm src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/_icons.scss'
-  ])
+      'rm src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/_icons.scss'
+    ])
 );
 
 gulp.task('translations', ['translations:cleanup'], function() {
@@ -257,8 +257,8 @@ gulp.task('translations', ['translations:cleanup'], function() {
       .pipe(livereload());
 });
 gulp.task('translations:cleanup', shell.task([
-    'rm -rf ./app/cache/dev/translations'
-  ])
+      'rm -rf ./app/cache/dev/translations'
+    ])
 );
 
 gulp.task('watch', [], function() {
@@ -323,7 +323,7 @@ gulp.task('watch', [], function() {
         './src/**/Resources/assets/sass/**',
         './vendor/sumocoders/**/Resources/assets/sass/**'
       ],
-      ['sass','sass:cleanup']
+      ['sass', 'sass:cleanup']
   ).on('change', handleWatchEvent);
   gulp.watch(
       [
