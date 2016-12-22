@@ -78,17 +78,7 @@ class ScriptHandler
      */
     public static function installNPM(Event $event)
     {
-        static::runCommandOnlyInDevMode('npm install', $event->getIO(), $event->isDevMode());
-    }
-
-    /**
-     * Install Bower dependencies
-     *
-     * @param Event $event
-     */
-    public static function installBower(Event $event)
-    {
-        static::runCommandOnlyInDevMode('bower install', $event->getIO(), $event->isDevMode());
+        static::runCommandOnlyInDevMode('yarn', $event->getIO(), $event->isDevMode());
     }
 
     /**

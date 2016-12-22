@@ -59,7 +59,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
-            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gulpBuild"
         ],
         "post-update-cmd": [
@@ -67,7 +66,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installNPM",
-            "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::installBower",
             "SumoCoders\\FrameworkCoreBundle\\Composer\\ScriptHandler::gulpBuild"
         ],
         "post-travis": [
