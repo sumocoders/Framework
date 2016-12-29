@@ -4,7 +4,7 @@ class Flash
     alertId = Date.now();
 
     $('.main-header').append(
-        '<div class="alert alert-fixed alert-' + type + ' alert-dismissible notification" role="status" data-alert-id="' + alertId + '">' +
+        '<div class="alert alert-' + type + ' alert-dismissible notification" role="status" data-alert-id="' + alertId + '">' +
             '  <div class="container">' +
             '    <a class="close" data-dismiss="alert" title="' + Locale.lbl('Close') + '">' +
             '       <i class="fa fa-close"></i>' +
