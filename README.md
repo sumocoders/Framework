@@ -21,9 +21,9 @@ Before you can do anything your database should be initialized.
 
 Add a user with
 
-    app/console fos:user:create --super-admin <username> <email> <password>
+    app/console sumocoders:multiuser:create <username> <password> <displayName> <email>
 
-You can now go to <your domain>/en/users/login and login with the given user.
+You can now go to <your domain>/en/login and login with the given user.
 
 ### Configure migrations
 
