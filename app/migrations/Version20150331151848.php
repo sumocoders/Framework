@@ -23,30 +23,19 @@ class Version20150331151848 extends AbstractMigration
 
         $this->addSql(
             'CREATE TABLE User (
-                id INT AUTO_INCREMENT NOT NULL,
-                username VARCHAR(255) NOT NULL,
-                username_canonical VARCHAR(255) NOT NULL,
-                email VARCHAR(255) NOT NULL,
-                email_canonical VARCHAR(255) NOT NULL,
-                enabled TINYINT(1) NOT NULL,
-                salt VARCHAR(255) NOT NULL,
-                password VARCHAR(255) NOT NULL,
-                last_login DATETIME DEFAULT NULL,
-                locked TINYINT(1) NOT NULL,
-                expired TINYINT(1) NOT NULL,
-                expires_at DATETIME DEFAULT NULL,
-                confirmation_token VARCHAR(255) DEFAULT NULL,
-                password_requested_at DATETIME DEFAULT NULL,
-                roles LONGTEXT NOT NULL COMMENT \'(DC2Type:array)\',
-                credentials_expired TINYINT(1) NOT NULL,
-                credentials_expire_at DATETIME DEFAULT NULL,
-
-                UNIQUE INDEX UNIQ_2DA1797792FC23A8 (username_canonical),
-                UNIQUE INDEX UNIQ_2DA17977A0D96FBF (email_canonical),
-
-                PRIMARY KEY(id)
-            )
-            DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB'
+              id INT AUTO_INCREMENT NOT NULL, 
+              username VARCHAR(255) NOT NULL, 
+              password VARCHAR(255) NOT NULL, 
+              salt VARCHAR(255) NOT NULL, 
+              displayName VARCHAR(255) NOT NULL, 
+              passwordResetToken VARCHAR(255) DEFAULT NULL, 
+              email VARCHAR(255) NOT NULL, 
+              status VARCHAR(50) NOT NULL COMMENT \'(DC2Type:user_status)\', 
+              discr VARCHAR(255) NOT NULL, 
+              PRIMARY KEY(id)
+             ) 
+             DEFAULT CHARACTER SET utf8 
+             COLLATE utf8_unicode_ci ENGINE = InnoDB;'
         );
         $this->addSql(
             'CREATE TABLE IndexItem (
