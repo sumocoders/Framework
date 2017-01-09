@@ -1,41 +1,33 @@
 security:
     encoders:
-        FOS\UserBundle\Model\UserInterface: sha512
+        SumoCoders\FrameworkMultiUserBundle\Entity\User: sha512
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
-        fos_userbundle:
-            id: fos_user.user_provider.username_email
+        sumocoders.multi_user_provider:
+            id: sumocoders.user_provider
 
     firewalls:
         main:
-            pattern: ^/
-            form_login:
-                provider:       fos_userbundle
-                csrf_token_generator:  security.csrf.token_manager
-                login_path:     fos_user_security_login
-                check_path:     fos_user_security_check
+            provider: sumocoders.multi_user_provider
             logout:
-                path: fos_user_security_logout
-                target: fos_user_security_login
-            anonymous: true
-            remember_me:
-                secret: %secret%
-                lifetime: 604800
-                path: /
+                path: /%locale%/logout
+                target: /
+            anonymous: ~
+            guard:
+                authenticators:
+                    - sumocoders.form_authenticator
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
     access_control:
-        - { path: ^/\w\w/user/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/\w\w/user/request, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/\w\w/user/send-email, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/\w\w/user/check-email, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/\w\w/user/reset, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/\w\w/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/\w\w/request-password-reset, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/\w\w/reset-password, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/(_(profiler|wdt|tests)|css|js)/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/\w\w/locale.json, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: ROLE_USER }

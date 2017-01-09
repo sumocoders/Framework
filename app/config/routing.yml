@@ -8,5 +8,6 @@ sumo_coders_framework_core:
     type:     annotation
     prefix:   /
 
-sumo_coders_users_bundle:
-  resource: "@SumoCodersFrameworkUserBundle/Resources/config/routing.yml"
+sumo_coders_framework_multi_user:
+    resource: "@SumoCodersFrameworkMultiUserBundle/Resources/config/routing.yml"
+    prefix:   /

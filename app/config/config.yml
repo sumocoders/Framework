@@ -4,8 +4,15 @@ imports:
   - { resource: "@SumoCodersFrameworkErrorBundle/Resources/config/config.yml" }
 
 services:
-  fos_user.doctrine_registry:
-    alias: doctrine
+  multi_user.user_repository.collection:
+    class: SumoCoders\FrameworkMultiUserBundle\User\UserRepositoryCollection
+    arguments:
+      - ["@multi_user.user.repository"]
+
+  sumocoders.user_provider:
+    class: SumoCoders\FrameworkMultiUserBundle\Security\ObjectUserProvider
+    arguments:
+      - "@multi_user.user_repository.collection"
 
   twig.extension.text:
     class: Twig_Extensions_Extension_Text
@@ -58,6 +65,8 @@ doctrine:
     password: "%database_password%"
     charset:  UTF8
     server_version: "%database_version%"
+    types:
+      user_status: SumoCoders\FrameworkMultiUserBundle\DBALType\StatusType
 
   orm:
     auto_generate_proxy_classes: "%kernel.debug%"
