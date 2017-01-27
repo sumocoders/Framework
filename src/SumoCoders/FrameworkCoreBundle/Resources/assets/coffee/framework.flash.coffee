@@ -1,18 +1,23 @@
 class Flash
 
-  add: (message, type) ->
+  add: (message, type, time) ->
     alertId = Date.now();
 
-    $('body').prepend(
-      '<div class="alert alert-' + type + ' alert-dismissible notification" role="alert" data-alert-id="' + alertId + '">' +
-        '  <div class="container">' +
-        '    <button type="button" class="close" data-dismiss="alert"' +
-        '       title="' + Locale.lbl('Close') + '">' + Locale.lbl('Close') +
-        '    </button>' +
-        '    ' + message +
-        '  </div>' +
+    $('.main-header').append(
+        '<div class="alert alert-' + type + ' alert-dismissible notification" role="status" data-alert-id="' + alertId + '">' +
+            '  <div class="container">' +
+            '    <a class="close" data-dismiss="alert" title="' + Locale.lbl('Close') + '">' +
+            '       <i class="fa fa-close"></i>' +
+            '       <span class="hide">' + Locale.lbl('Close') + '</span>' +
+            '    </a>' +
+            '    ' + message +
+            '  </div>' +
         '</div>'
     );
+
+    if time?
+      callback = => @remove(alertId)
+      setTimeout callback, time
 
     return alertId
 
