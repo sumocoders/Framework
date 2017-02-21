@@ -117,11 +117,10 @@
             {% endblock %}
           </div>
         </div>
-        {% set actions = block('header_navigation') %}
-        {% if actions %}
+        {% if block('header_navigation') is defined %}
           <div class="actions clearfix">
             <div class="action-buttons">
-              {{ actions|raw }}
+              {{ block('header_navigation') }}
             </div>
           </div>
         {% endif %}
