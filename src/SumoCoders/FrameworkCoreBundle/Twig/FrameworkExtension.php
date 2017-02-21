@@ -84,12 +84,4 @@ class FrameworkExtension extends \Twig_Extension
 
         return trim($stringToConvert, '.');
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'framework_extension';
-    }
 }
