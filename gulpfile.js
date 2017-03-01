@@ -13,10 +13,10 @@ var gulp = require("gulp"),
     autoprefixer = require("gulp-autoprefixer"),
     sourcemaps = require("gulp-sourcemaps"),
     gulpSequence = require("gulp-sequence").use(gulp),
-    shell = require("gulp-shell"),
     livereload = require("gulp-livereload"),
     parseTwig = require("./gulp-helpers/parse-twig"),
-    stripPath = require("./gulp-helpers/strip-path");
+    stripPath = require("./gulp-helpers/strip-path"),
+    del = require("del");
 
 var config = {
   assetsDir: "web/assets"
@@ -146,7 +146,11 @@ gulp.task("fonts:generate", function() {
       .pipe(livereload());
 });
 
-gulp.task("del:cleanup_useless_font_css", shell.task("rm -rf " + config.assetsDir + "/fonts/*.css"));
+gulp.task("del:cleanup_useless_font_css", function() {
+  return del([
+    config.assetsDir + "/fonts/*.css"
+  ]);
+});
 
 gulp.task("icons", function() {
   return gulp.src(
@@ -201,10 +205,11 @@ gulp.task("sass:generate_css", ["icons"], function() {
       .pipe(gulp.dest(config.assetsDir + "/css"))
       .pipe(livereload());
 });
-gulp.task("sass:cleanup", ["sass"], shell.task([
-      "rm src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/_icons.scss"
-    ])
-);
+gulp.task("sass:cleanup", ["sass"], function() {
+  return del([
+    "src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/_icons.scss"
+  ]);
+});
 
 gulp.task("translations", ["translations:cleanup"], function() {
   return gulp.src(
@@ -216,10 +221,11 @@ gulp.task("translations", ["translations:cleanup"], function() {
   )
       .pipe(livereload());
 });
-gulp.task("translations:cleanup", shell.task([
-      "rm -rf ./app/cache/dev/translations"
-    ])
-);
+gulp.task("translations:cleanup", function() {
+  return del([
+    "./app/cache/dev/translations"
+  ]);
+});
 
 gulp.task("watch", [], function() {
   minify = false;
