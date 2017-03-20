@@ -19,12 +19,35 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     parseTwig = require('./gulp-helpers/parse-twig'),
     stripPath = require('./gulp-helpers/strip-path');
+const webpackStream = require("webpack-stream");
+const webpack = require("webpack");
 
 var config = {
   assetsDir: 'web/assets'
 };
 
 var minify = true;
+
+gulp.plumbedSrc = function() {
+  return gulp.src.apply(gulp, arguments)
+      .pipe(plumber());
+};
+
+var commonWebpackConfig = {
+  output:  {
+    filename: "bundle.js"
+  },
+  devtool: "source-maps",
+  module:  {
+    loaders: [
+      {
+        test:    /.js?$/,
+        loader:  "babel",
+        exclude: /node_modules/
+      }
+    ]
+  }
+};
 
 gulp.task('coffee', function() {
   return gulp.src(
@@ -48,6 +71,23 @@ gulp.task('coffee', function() {
       .pipe(gulpif(minify == false, sourcemaps.write()))
       .pipe(gulp.dest(config.assetsDir + '/js'))
       .pipe(livereload());
+});
+
+gulp.task('webpack:generate-production-js', function() {
+  return gulp.src('src/**/Resources/assets/js/index.js')
+      .pipe(webpackStream(Object.assign({}, commonWebpackConfig, {
+        plugins: [
+            new webpack.optimize.UglifyJsPlugin({
+              compress: {
+                warnings: false
+              }
+            }),
+            new webpack.DefinePlugin({
+              'process.env.NODE_ENV': '"production"'
+            })
+        ]
+      }, webpack)))
+      .pipe(gulp.dest(config.assetsDir + '/js'))
 });
 
 gulp.task('js', function() {
@@ -305,7 +345,15 @@ gulp.task('default', function() {
 });
 
 gulp.task('build', function() {
-  gulp.start('coffee', 'js', 'js:concat', 'images', 'fonts', 'sass', 'sass:cleanup');
+  gulp.start(
+      'coffee',
+      'js',
+      'js:concat',
+      'images',
+      'fonts',
+      'sass',
+      'sass:cleanup'
+  );
 });
 
 gulp.task('serve', function() {
