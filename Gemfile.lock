@@ -1,28 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.0)
+    activesupport (4.2.8)
       i18n (~> 0.7)
-      json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    capifony (2.8.3)
-      capistrano (>= 2.13.5, <= 2.16.0)
-      capistrano-maintenance (= 0.0.3)
-      colored (>= 1.2.0)
-      inifile (>= 2.0.2, < 3.0.0)
-      ruby-progressbar (= 1.4.1)
-    capistrano (2.15.5)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
-    capistrano-maintenance (0.0.3)
-      capistrano (>= 2.0.0)
-    chunky_png (1.3.3)
-    colored (1.2)
+    chunky_png (1.3.8)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
@@ -35,29 +19,18 @@ GEM
       sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
-    compass_sumo (0.5.1)
+    compass_sumo (0.6.2)
       compass
-    ffi (1.9.6)
-    highline (1.6.21)
-    i18n (0.7.0)
-    inifile (2.0.2)
-    json (1.8.2)
-    minitest (5.5.1)
-    multi_json (1.10.1)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-sftp (2.1.2)
-      net-ssh (>= 2.6.5)
-    net-ssh (3.1.1)
-    net-ssh-gateway (1.2.0)
-      net-ssh (>= 2.6.5)
-    rb-fsevent (0.9.4)
-    rb-inotify (0.9.5)
+    ffi (1.9.18)
+    i18n (0.8.1)
+    minitest (5.10.1)
+    multi_json (1.12.1)
+    rb-fsevent (0.9.8)
+    rb-inotify (0.9.8)
       ffi (>= 0.5.0)
-    ruby-progressbar (1.4.1)
-    sass (3.4.11)
-    thread_safe (0.3.4)
-    tzinfo (1.2.2)
+    sass (3.4.23)
+    thread_safe (0.3.6)
+    tzinfo (1.2.3)
       thread_safe (~> 0.1)
 
 PLATFORMS
@@ -65,6 +38,8 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (~> 4.2.0)
-  capifony (~> 2.8)
   compass
   compass_sumo
+
+BUNDLED WITH
+   1.13.7
