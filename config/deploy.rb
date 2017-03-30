@@ -12,3 +12,9 @@ set :repo_url, "git@github.com:sumocoders/Framework.git"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+set :symfony_console_path, "app/console"
+
+namespace :deploy do
+  after :starting, 'composer:install_executable'
+end

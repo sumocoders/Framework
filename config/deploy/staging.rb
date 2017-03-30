@@ -2,6 +2,8 @@ server "dev02.sumocoders.eu", user: "sites", roles: %w{app db web}
 
 set :deploy_to, "/home/sites/apps/client/framework"
 
+SSHKit.config.command_map[:composer] = "php #{shared_path.join("composer.phar")}"
+
 
 # Custom SSH Options
 # ==================
