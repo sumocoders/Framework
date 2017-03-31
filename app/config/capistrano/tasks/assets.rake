@@ -5,6 +5,7 @@ namespace :assets do
       execute "gulp build"
     end
   end
+
   desc "Upload the assets"
   task :upload do
     invoke "assets:compile"
@@ -14,6 +15,15 @@ namespace :assets do
         execute :mkdir, "-p", "assets"
       end
       upload! "./web/assets", "#{release_path.to_s}/web", recursive: true
+    end
+  end
+
+  desc "Set the assets version"
+  task :update_assets_version do
+    on roles(:web) do
+      within symfony_app_path do
+        execute :sed, "-i", "'s/\\(version: \\)\\(.*\\)$/\\1 #{asset_timestamp}/g' config/config.yml"
+      end
     end
   end
 end

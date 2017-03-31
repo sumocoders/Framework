@@ -16,3 +16,7 @@ namespace :deploy do
 
   before :publishing, "assets:upload"
 end
+
+namespace :assets do
+  after :upload, "assets:update_assets_version"
+end
