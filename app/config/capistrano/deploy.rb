@@ -13,6 +13,7 @@ set :symfony_console_path, "app/console"
 
 namespace :deploy do
   after :starting, "composer:install_executable"
+  after :check, "framework:symlink:document_root"
 
   before :publishing, "assets:upload"
 end

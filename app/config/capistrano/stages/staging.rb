@@ -2,12 +2,13 @@ set :branch, "master"
 
 ### DO NOT EDIT BELOW ###
 
+set :document_root, "/home/sites/php71/#{fetch :client}/#{fetch :project}"
 set :deploy_to, "/home/sites/apps/#{fetch :client}/#{fetch :project}"
-server "dev02.sumocoders.eu", user: "sites", roles: %w{app db web}
-
 set :keep_releases,  2
 
-SSHKit.config.command_map[:composer] = "php #{shared_path.join("composer.phar")}"
+server "dev02.sumocoders.eu", user: "sites", roles: %w{app db web}
+
+SSHKit.config.command_map[:composer] = "php7.1 #{shared_path.join("composer.phar")}"
 
 ### OLD ###
 #set :domain,        "#{project}.#{client}.php71.sumocoders.eu"
