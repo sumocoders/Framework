@@ -121,6 +121,10 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
+    .alert {
+      margin-bottom: 0;
+    }
   }
 
   .sub-nav {
@@ -148,7 +152,7 @@
     }
 
     .icon-avatar {
-      padding: 4px 0 11px;
+      padding: 7px 0 11px;
 
       &:before {
         padding: 5px 15px 0;

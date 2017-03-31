@@ -71,14 +71,6 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->frameworkExtension->bundleExists('non-existing'), 'non-existing bundle found');
     }
 
-    /**
-     * Test FrameworkExtension->getName()
-     */
-    public function testGetName()
-    {
-        $this->assertEquals('framework_extension', $this->frameworkExtension->getName());
-    }
-
     public function testConvertToTranslationTrim()
     {
         $this->assertEquals('foo', $this->frameworkExtension->convertToTranslation(' foo'));

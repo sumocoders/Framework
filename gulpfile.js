@@ -21,32 +21,10 @@ var gulp = require('gulp'),
     stripPath = require('./gulp-helpers/strip-path');
 
 var config = {
-  assetsDir:    'web/assets'
+  assetsDir: 'web/assets'
 };
 
 var minify = true;
-
-function showStatus(task, message, type) {
-  message = '--> [' + task + '] ' + message;
-
-  if (type === 'success') {
-    message = gutil.colors.green(message);
-  }
-  else if (type === 'warning') {
-    message = gutil.colors.yellow(message);
-  }
-  else if (type === 'error') {
-    message = gutil.colors.red(message);
-  }
-
-  gutil.log(message);
-}
-function showError(error) {
-  showStatus('ERROR', error.message, 'error');
-}
-function handleWatchEvent(event) {
-  showStatus('watch', 'File ' + event.path.replace(__dirname, '.') + ' was ' + event.type + '.');
-}
 
 gulp.task('coffee', function() {
   return gulp.src(
@@ -59,7 +37,6 @@ gulp.task('coffee', function() {
       .pipe(plumber())
       .pipe(gulpif(minify == false, sourcemaps.init()))
       .pipe(coffee({}).on('error', gutil.log))
-      .on('end', function() { showStatus('coffee', 'Coffee-files compiled', 'success')})
       .pipe(rename(function(path) {
         var end = path.dirname.indexOf('Bundle') + 6;
         var start = path.dirname.substr(0, end).lastIndexOf('/') + 1;
@@ -68,10 +45,8 @@ gulp.task('coffee', function() {
         path.dirname = '';
         path.basename = bundle.toLowerCase() + '.' + path.basename;
       }))
-      .on('end', function() { showStatus('coffee', 'Coffee-files renamed', 'success')})
       .pipe(gulpif(minify == false, sourcemaps.write()))
       .pipe(gulp.dest(config.assetsDir + '/js'))
-      .on('end', function() { showStatus('coffee', 'Coffee-files saved', 'success')})
       .pipe(livereload());
 });
 
@@ -93,10 +68,8 @@ gulp.task('js', function() {
 
         path.dirname = stripPath('/js/', path.dirname);
       }))
-      .on('end', function() { showStatus('js', 'JS-files renamed', 'success')})
       .pipe(gulpif(minify == false, sourcemaps.write()))
       .pipe(gulp.dest(config.assetsDir + '/js'))
-      .on('end', function() { showStatus('js', 'JS-files saved', 'success')})
       .pipe(livereload());
 });
 
@@ -105,9 +78,9 @@ gulp.task('js:concat', ['js', 'coffee'], function() {
     // loop trough all the collected js groups and concat them
     for (var destination in grouped) {
       gulp.src(grouped[destination])
-        .pipe(concat(stripPath('/assets/js/', destination)))
-        .pipe(uglify())
-        .pipe(gulp.dest(config.assetsDir + '/js'));
+          .pipe(concat(stripPath('/assets/js/', destination)))
+          .pipe(uglify())
+          .pipe(gulp.dest(config.assetsDir + '/js'));
     }
   }
 
@@ -116,7 +89,7 @@ gulp.task('js:concat', ['js', 'coffee'], function() {
     './src/**/Resources/views/**/*.html.twig',
     '/vendor/sumocoders/**/Resources/views/**/*.html.twig',
   ])
-    .pipe(parseTwig(action));
+      .pipe(parseTwig(action));
 });
 
 gulp.task('images', function() {
@@ -136,18 +109,24 @@ gulp.task('images', function() {
 
         path.dirname = stripPath('/images/', path.dirname);
       }))
-      .on('end', function() { showStatus('images', 'image-files renamed', 'success')})
       .pipe(imagemin())
-      .on('end', function() { showStatus('images', 'image-files minified', 'success')})
       .pipe(gulp.dest(config.assetsDir + '/images'))
-      .on('end', function() { showStatus('images', 'image-files saved', 'success')})
       .pipe(livereload());
 });
 
-gulp.task('fonts', gulpSequence(
+gulp.task('fonts', ['fonts:copy_fonts_from_node_modules'], gulpSequence(
     'del:cleanup_useless_font_css',
     'fonts:generate'
 ));
+
+gulp.task('fonts:copy_fonts_from_node_modules', function() {
+  return gulp.src(
+      [
+        './node_modules/font-awesome/fonts/*'
+      ]
+  )
+      .pipe(gulp.dest(config.assetsDir + '/fonts'));
+});
 
 gulp.task('fonts:generate', function() {
   return gulp.src(
@@ -163,13 +142,10 @@ gulp.task('fonts:generate', function() {
       .pipe(rename(function(path) {
         path.dirname = '';
       }))
-      .on('end', function() { showStatus('fonts', 'font-files renamed', 'success')})
       .pipe(gulp.dest(config.assetsDir + '/fonts'))
-      .on('end', function() { showStatus('fonts', 'font-files saved', 'success')})
       .pipe(fontgen({
         dest: config.assetsDir + '/fonts'
       }))
-      .on('end', function() { showStatus('fonts', 'other formats generated', 'success')})
       .pipe(livereload());
 });
 
@@ -184,23 +160,22 @@ gulp.task('icons', function() {
       ]
   )
       .pipe(iconfont({
-        fontName:   'icons',
+        fontName: 'icons',
       }))
       .on('glyphs', function(glyphs) {
         var options = {
-          glyphs: glyphs,
-          fontName: 'icons',
-          fontPath: '../fonts/',
+          glyphs:    glyphs,
+          fontName:  'icons',
+          fontPath:  '../fonts/',
           className: 'icon'
         };
 
         gulp.src('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/base/_iconfont-template.scss')
-          .pipe(consolidate('lodash', options))
-          .pipe(rename({ basename: '_icons' }))
-          .pipe(gulp.dest('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/'));
+            .pipe(consolidate('lodash', options))
+            .pipe(rename({basename: '_icons'}))
+            .pipe(gulp.dest('./src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/'));
       })
-      .pipe(gulp.dest(config.assetsDir + '/fonts'))
-      .on('end', function() { showStatus('icons', 'icon-font generated', 'success')});
+      .pipe(gulp.dest(config.assetsDir + '/fonts'));
 });
 
 gulp.task('sass', ['sass:generate_css']);
@@ -216,25 +191,22 @@ gulp.task('sass:generate_css', ['icons'], function() {
       .pipe(plumber())
       .pipe(sass({
         includePaths: [
-          './web/assets/vendor/bootstrap-sass/assets/stylesheets',
-          './web/assets/vendor'
+          './node_modules/bootstrap-sass/assets/stylesheets',
+          './node_modules/'
         ],
-        outputStyle: minify ? 'compressed' : 'expanded',
-        precision: 10
+        outputStyle:  minify ? 'compressed' : 'expanded',
+        precision:    10
 
-      }).on('error', showError))
-      .pipe(rename(function(path){ path.dirname = ''; }))
-      .on('end', function() { showStatus('sass', 'SCSS-files compiled', 'success')})
+      }).on('error', gutil.log))
+      .pipe(rename(function(path) { path.dirname = ''; }))
       .pipe(autoprefixer({}))
-      .on('end', function() { showStatus('sass', 'Added prefixes', 'success')})
       .pipe(gulpif(minify == false, sourcemaps.write()))
       .pipe(gulp.dest(config.assetsDir + '/css'))
-      .on('end', function() { showStatus('sass', 'CSS-files generated', 'success')})
       .pipe(livereload());
 });
 gulp.task('sass:cleanup', ['sass'], shell.task([
-    'rm src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/_icons.scss'
-  ])
+      'rm src/SumoCoders/FrameworkCoreBundle/Resources/assets/sass/_icons.scss'
+    ])
 );
 
 gulp.task('translations', ['translations:cleanup'], function() {
@@ -248,8 +220,8 @@ gulp.task('translations', ['translations:cleanup'], function() {
       .pipe(livereload());
 });
 gulp.task('translations:cleanup', shell.task([
-    'rm -rf ./app/cache/dev/translations'
-  ])
+      'rm -rf ./app/cache/dev/translations'
+    ])
 );
 
 gulp.task('watch', [], function() {
@@ -264,7 +236,7 @@ gulp.task('watch', [], function() {
         './vendor/sumocoders/**/Resources/assets/coffee/***.coffee'
       ],
       ['coffee']
-  ).on('change', handleWatchEvent);
+  );
 
   gulp.watch(
       [
@@ -273,7 +245,7 @@ gulp.task('watch', [], function() {
         './vendor/sumocoders/**/Resources/assets/js/**'
       ],
       ['js']
-  ).on('change', handleWatchEvent);
+  );
 
   gulp.watch(
       [
@@ -282,7 +254,7 @@ gulp.task('watch', [], function() {
         '/vendor/sumocoders/**/Resources/views/**/*.html.twig',
       ],
       ['js:concat']
-  ).on('change', handleWatchEvent);
+  );
 
   gulp.watch(
       [
@@ -291,7 +263,7 @@ gulp.task('watch', [], function() {
         './vendor/sumocoders/**/Resources/assets/images/**'
       ],
       ['images']
-  ).on('change', handleWatchEvent);
+  );
 
   gulp.watch(
       [
@@ -303,7 +275,7 @@ gulp.task('watch', [], function() {
         './vendor/sumocoders/**/Resources/assets/fonts/**/*.otf'
       ],
       ['fonts']
-  ).on('change', handleWatchEvent);
+  );
 
   gulp.watch(
       [
@@ -314,8 +286,8 @@ gulp.task('watch', [], function() {
         './src/**/Resources/assets/sass/**',
         './vendor/sumocoders/**/Resources/assets/sass/**'
       ],
-      ['sass','sass:cleanup']
-  ).on('change', handleWatchEvent);
+      ['sass', 'sass:cleanup']
+  );
   gulp.watch(
       [
         './app/Resources/translations/**',
@@ -323,7 +295,7 @@ gulp.task('watch', [], function() {
         './vendor/sumocoders/**/Resources/assets/translations/**'
       ],
       ['translations']
-  ).on('change', handleWatchEvent);
+  );
 
 });
 

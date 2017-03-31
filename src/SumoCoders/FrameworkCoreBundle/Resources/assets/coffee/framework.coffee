@@ -309,7 +309,10 @@ class Framework extends DefaultObject
       , 200)
     )
 
-  clickableTablerow: ->
+  clickableTablerow: (event) ->
+    if event.target.nodeName != 'TD'
+      return
+
     actionUrl = $(this).closest('tr').find('.action a').attr 'href'
     window.document.location = actionUrl if actionUrl
 

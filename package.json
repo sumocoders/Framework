@@ -1,43 +1,46 @@
 {
   "name": "framework",
-  "version": "0.0.1",
+  "keywords": [],
+  "version": "1.0.0",
   "description": "This is the SumoCoders Symfony Framework.",
   "repository": {
     "type": "git",
     "url": "git://github.com/sumocoders/Framework.git"
   },
-  "author": "Tijs Verkoyen",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sumocoders/Framework/issues"
   },
   "homepage": "https://github.com/sumocoders/Framework",
+  "author": "Tijs Verkoyen",
+  "contributors": [
+    "Mathias Helin",
+    "Katrien Vanhaute"
+  ],
+  "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
-    "bower": "^1.7.9",
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-coffee": "^2.3.2",
-    "gulp-concat": "^2.6.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-coffee": "^2.3.3",
+    "gulp-concat": "^2.6.1",
     "gulp-consolidate": "^0.2.0",
-    "gulp-file": "^0.2.0",
-    "gulp-fontgen": "^0.1.6",
+    "gulp-fontgen": "^0.2.5",
     "gulp-iconfont": "^6.0.0",
-    "gulp-iconfont-css": "2.1.0",
-    "gulp-if": "^2.0.0",
-    "gulp-imagemin": "^2.4.0",
+    "gulp-iconfont-css": "^2.1.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^2.4",
     "gulp-livereload": "^3.8.1",
-    "gulp-plumber": "^1.0.1",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.1.1",
-    "gulp-sequence": "^0.4.4",
-    "gulp-shell": "^0.5.1",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.4.2",
-    "gulp-util": "^3.0.7",
-    "lodash": "^4.11.1",
-    "through2": "^2.0.1"
+    "gulp-sass": "^2.3.2",
+    "gulp-sequence": "^0.4.6",
+    "gulp-shell": "^0.5.2",
+    "gulp-uglify": "^1.5",
+    "select2-bootstrap-css": "^1.4.6"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": "^7.*"
   }
 }
