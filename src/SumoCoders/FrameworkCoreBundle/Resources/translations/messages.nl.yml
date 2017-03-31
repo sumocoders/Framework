@@ -94,6 +94,9 @@ forms:
     labels:
         required: dit veld is verplicht
         optional: (optioneel)
+        removeImage: verwijder afbeelding
+        removeFile: verwijder bestand
+        viewCurrentFile: bekijk huidig bestand
 
     buttons:
         new: toevoegen
