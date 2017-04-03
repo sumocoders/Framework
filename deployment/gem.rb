@@ -119,7 +119,7 @@ namespace :framework do
         capifony_pretty_print "--> Creating user #{username}"
         run %{
             cd #{current_path} &&
-            php app/console -q --env=prod fos:user:create #{username} #{email} #{password}
+            #{php_bin} app/console -q --env=prod fos:user:create #{username} #{email} #{password}
         }
         capifony_puts_ok
       end
@@ -235,7 +235,7 @@ namespace :framework do
   task :migrate do
     status = capture(%{
       cd #{latest_release} &&
-      php app/console --env=prod doctrine:migrations:migrate --dry-run --no-interaction
+      #{php_bin} app/console --env=prod doctrine:migrations:migrate --dry-run --no-interaction
     })
     symfony.doctrine.migrations.migrate if status.include? "Executing dry run of migration"
   end

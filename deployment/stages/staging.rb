@@ -14,3 +14,17 @@ set :keep_releases,  2
 
 before 'deploy:setup', 'sumo:setup:client_folder'
 before 'deploy:setup', 'sumo:db:create'
+
+set :php_bin, 'php7.1'
+
+namespace :composer do
+    desc 'Install the vendors'
+    task :install_vendors do
+        composer.install_composer
+        run %{
+            alias php="~/#{php_bin}" &&
+            cd #{latest_release} &&
+            #{php_bin} -d 'suhosin.executor.include.whitelist = phar' -d 'date.timezone = UTC' #{shared_path}/composer.phar install -o --no-dev
+        }
+    end
+end
