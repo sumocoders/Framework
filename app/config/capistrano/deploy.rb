@@ -1,6 +1,7 @@
 set :client,  "client"
 set :project, "framework"
 set :repo_url, "git@github.com:sumocoders/Framework.git"
+set :production_url, "http://framework.sumocoders.eu"
 
 ### DO NOT EDIT BELOW ###
 lock "3.8.0"
