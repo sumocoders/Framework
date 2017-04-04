@@ -11,12 +11,17 @@ append :linked_dirs, "app/logs"
 
 set :application, "#{fetch :project}"
 set :symfony_console_path, "app/console"
+set :php_bin, "php7.1"
 
 namespace :deploy do
-  after :starting, "composer:install_executable"
   after :check, "framework:symlink:document_root"
 
+  after :starting, "composer:install_executable"
+  after :starting, "opcache:phpfpm:install_executable"
+
   before :publishing, "assets:upload"
+
+  after :published, "opcache:phpfpm:reset"
 end
 
 namespace :assets do
