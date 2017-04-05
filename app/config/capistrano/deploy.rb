@@ -22,8 +22,11 @@ namespace :deploy do
   before :publishing, "assets:upload"
 
   after :published, "opcache:phpfpm:reset"
+  after :published, "migrations:migrate"
 
   after :finished, "sumo:notifications:deploy"
+
+
 end
 
 namespace :assets do
