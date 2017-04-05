@@ -1,7 +1,7 @@
 set :client,  "client"
 set :project, "framework"
 set :repo_url, "git@github.com:sumocoders/Framework.git"
-set :production_url, "http://framework.sumocoders.eu"
+set :production_url, "http://framework.verkoyen.eu"
 
 ### DO NOT EDIT BELOW ###
 lock "3.8.0"
@@ -11,7 +11,6 @@ append :linked_dirs, "app/logs"
 
 set :application, "#{fetch :project}"
 set :symfony_console_path, "app/console"
-set :php_bin, "php7.1"
 
 set :deploytag_utc, false
 set :deploytag_time_format, "%Y%m%d-%H%M%S"
