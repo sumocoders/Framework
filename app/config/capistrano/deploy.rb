@@ -13,6 +13,9 @@ set :application, "#{fetch :project}"
 set :symfony_console_path, "app/console"
 set :php_bin, "php7.1"
 
+set :deploytag_utc, false
+set :deploytag_time_format, "%Y%m%d-%H%M%S"
+
 namespace :deploy do
   after :check, "framework:symlink:document_root"
 

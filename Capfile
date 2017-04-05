@@ -6,6 +6,7 @@ require "capistrano/deploy"
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 require "capistrano/symfony"
+require 'capistrano/deploytags'
 
 set :format_options, log_file: "app/logs/capistrano.log"
 
