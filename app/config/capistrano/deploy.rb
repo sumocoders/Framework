@@ -26,9 +26,14 @@ namespace :deploy do
 
   after :finished, "sumo:notifications:deploy"
 
-
+  after :failed, "maintenance:disable"
 end
 
 namespace :assets do
   after :upload, "assets:update_assets_version"
+end
+
+namespace :migrations do
+  before :migrate, "maintenance:enable"
+  after :migrate, "maintenance:disable"
 end
