@@ -1,9 +1,13 @@
+stages:
+  - test
+
 before_script:
-  - php /composer.phar install --no-progress --no-scripts
+  - curl -sS https://getcomposer.org/installer | php
+  - php composer.phar install --no-scripts --quiet --ignore-platform-reqs
   - cp app/config/parameters.yml.dist app/config/parameters.yml
 
 run_tests:
-  image: php:7.1
+  image: sumocoders/framework-php71:latest
   script:
     - SYMFONY_DEPRECATIONS_HELPER=weak bin/phpunit -c app/
   stage: test
@@ -12,7 +16,7 @@ run_tests:
     - docker
 
 code_styles:
-  image: php:7.1
+  image: sumocoders/framework-php71:latest
   script:
     - bin/phpcs --standard=psr2 --extensions=php --warning-severity=0 src/
   stage: test
