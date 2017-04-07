@@ -1,5 +1,10 @@
 # Known issues
 
+## composer asking for input when deploying
+
+Something changed in composer's output making capifony think it wants input (capinfony literally checks for `: ` at the end of lines).
+Therefor you need to force `interactive_mode` to be false
+
 ## npm install failing
 
 Downgrade node to version 0.10.36. Node did backwards incompatible changes making
