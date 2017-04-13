@@ -67,4 +67,12 @@ class JsDataTest extends \PHPUnit_Framework_TestCase
         $var = (string) $this->jsData;
         $this->assertEquals('{"request":{"locale":"nl"}}', $var);
     }
+
+    /**
+     * This will check that the parent constructor is called
+     */
+    public function testCorrectConstruction()
+    {
+        self::assertEquals([], $this->jsData->all());
+    }
 }
