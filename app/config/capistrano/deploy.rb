@@ -1,7 +1,7 @@
-set :client,  "client"
-set :project, "framework"
-set :repo_url, "git@github.com:sumocoders/Framework.git"
-set :production_url, "http://framework.verkoyen.eu"
+set :client,  ""
+set :project, ""
+set :repo_url, ""
+set :production_url, ""
 
 ### DO NOT EDIT BELOW ###
 lock "3.8.0"
