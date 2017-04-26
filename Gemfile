@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'compass'
-gem 'compass_sumo'
-gem 'activesupport', '~> 4.2.0'
-gem 'capifony', '~> 2.8'
+group :development do
+  gem "capistrano", "~> 3.8"
+  gem 'capistrano-symfony', '~> 1.0.0.rc1'
+  gem 'capistrano-deploytags', '~> 1.0'
+end

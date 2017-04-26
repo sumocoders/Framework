@@ -1,17 +1,13 @@
-load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+set :deploy_config_path, "app/config/capistrano/deploy.rb"
+set :stage_config_path, "app/config/capistrano/stages"
 
-set :client,  'xxx'
-set :project, 'xxx'
-set :repository,  'xxx'
+require "capistrano/setup"
+require "capistrano/deploy"
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
+require "capistrano/symfony"
+require 'capistrano/deploytags'
 
-### DO NOT EDIT BELOW ###
+set :format_options, log_file: "app/logs/capistrano.log"
 
-require 'capifony_symfony2'
-set :stages,        %w(production staging)
-set :default_stage, 'staging'
-set :stage_dir,     'deployment/stages'
-
-require 'capistrano/ext/multistage'
-
-load 'deployment/gem'
-load 'deployment/deploy'
+Dir.glob("app/config/capistrano/tasks/*.rake").each { |r| import r }
