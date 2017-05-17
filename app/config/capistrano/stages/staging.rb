@@ -12,3 +12,4 @@ set :php_bin, "php7.1"
 server "dev02.sumocoders.eu", user: "sites", roles: %w{app db web}
 
 SSHKit.config.command_map[:composer] = "#{fetch :php_bin} #{shared_path.join("composer.phar")}"
+SSHKit.config.command_map[:php] = fetch(:php_bin)

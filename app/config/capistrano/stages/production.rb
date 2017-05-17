@@ -9,3 +9,4 @@ set :keep_releases,  3
 set :php_bin, "php"
 
 SSHKit.config.command_map[:composer] = "#{fetch :php_bin} #{shared_path.join("composer.phar")}"
+SSHKit.config.command_map[:php] = fetch(:php_bin)
