@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Eo\AirbrakeBundle\EoAirbrakeBundle(),
+            new SimpleBus\SymfonyBridge\DoctrineOrmBridgeBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
 
             new SumoCoders\FrameworkCoreBundle\SumoCodersFrameworkCoreBundle(),
