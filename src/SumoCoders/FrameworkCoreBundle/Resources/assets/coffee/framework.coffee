@@ -316,4 +316,16 @@ class Framework extends DefaultObject
     actionUrl = $(this).closest('tr').find('.action a').attr 'href'
     window.document.location = actionUrl if actionUrl
 
+  addFlash: (message, type) =>
+    $('body').prepend(
+      '<div class="alert alert-' + type + ' alert-dismissible notification" role="alert">' +
+        '  <div class="container">' +
+        '    <button type="button" class="close" data-dismiss="alert"' +
+        '       title="' + Locale.lbl('Close') + '">' + Locale.lbl('Close') +
+        '    </button>' +
+        '    ' + message +
+        '  </div>' +
+        '</div>'
+    );
+
 window.Framework = Framework
