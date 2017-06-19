@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new SimpleBus\SymfonyBridge\DoctrineOrmBridgeBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
             new SumoCoders\FrameworkCoreBundle\SumoCodersFrameworkCoreBundle(),
             new SumoCoders\FrameworkSearchBundle\SumoCodersFrameworkSearchBundle(),
