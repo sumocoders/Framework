@@ -44,16 +44,7 @@
       <script type="text/javascript" src="{{ asset('/bundles/mopabootstrap/js/mopabootstrap-collection.js') }}"></script>
       <script type="text/javascript" src="{{ asset('/assets/js/sumo_plugins.js') }}"></script>
 
-      {% if app.environment == 'dev' %}
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.data.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.locale.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.flash.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.app.js') }}"></script>
-      {% else %}
-        <script type="text/javascript" src="{{ asset('/assets/js/framework.js') }}"></script>
-      {% endif %}
+      <script type="text/javascript" src="{{ asset('/assets/js/bundle.js') }}"></script>
 
       {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
         <script type="text/javascript" src="{{ asset('/assets/js/frameworksearchbundle.framework.form.search.js') }}"></script>

@@ -4,8 +4,6 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     consolidate = require('gulp-consolidate'),
-    concat = require('gulp-concat'),
-    coffee = require('gulp-coffee'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     fontgen = require('gulp-fontgen'),
@@ -18,7 +16,11 @@ var gulp = require('gulp'),
     shell = require('gulp-shell'),
     livereload = require('gulp-livereload'),
     parseTwig = require('./gulp-helpers/parse-twig'),
-    stripPath = require('./gulp-helpers/strip-path');
+    stripPath = require('./gulp-helpers/strip-path'),
+    path = require('path');
+
+const webpackStream = require("webpack-stream");
+const webpack = require("webpack");
 
 var config = {
   assetsDir: 'web/assets'
@@ -26,28 +28,48 @@ var config = {
 
 var minify = true;
 
-gulp.task('coffee', function() {
-  return gulp.src(
-      [
-        './app/Resources/assets/coffee/***.coffee',
-        './src/**/Resources/assets/coffee/***.coffee',
-        './vendor/sumocoders/**/Resources/assets/coffee/***.coffee'
-      ]
-  )
-      .pipe(plumber())
-      .pipe(gulpif(minify == false, sourcemaps.init()))
-      .pipe(coffee({}).on('error', gutil.log))
-      .pipe(rename(function(path) {
-        var end = path.dirname.indexOf('Bundle') + 6;
-        var start = path.dirname.substr(0, end).lastIndexOf('/') + 1;
-        var bundle = path.dirname.substr(start, end - start);
+gulp.plumbedSrc = function() {
+  return gulp.src.apply(gulp, arguments)
+      .pipe(plumber());
+};
 
-        path.dirname = '';
-        path.basename = bundle.toLowerCase() + '.' + path.basename;
-      }))
-      .pipe(gulpif(minify == false, sourcemaps.write()))
+var commonWebpackConfig = {
+  output: {
+    filename: "bundle.js"
+  },
+  devtool: "source-maps",
+  module: {
+    loaders: [
+      {
+        test: /.js?$/,
+        loader: "babel",
+        exclude: /node_modules/
+      }
+    ]
+  },
+  resolve: {
+    alias: {
+      Framework: path.resolve(__dirname, './src/SumoCoders/FrameworkCoreBundle/Resources/assets/js/Framework/'),
+      Exception: path.resolve(__dirname, './src/SumoCoders/FrameworkCoreBundle/Resources/assets/js/Exception/')
+    }
+  }
+};
+
+gulp.task('webpack:generate-production-js', function() {
+  return gulp.src('src/**/Resources/assets/js/index.js')
+      .pipe(webpackStream(Object.assign({}, commonWebpackConfig, {
+        plugins: [
+          new webpack.optimize.UglifyJsPlugin({
+            compress: {
+              warnings: false
+            }
+          }),
+          new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"production"'
+          })
+        ]
+      }, webpack)))
       .pipe(gulp.dest(config.assetsDir + '/js'))
-      .pipe(livereload());
 });
 
 gulp.task('js', function() {
@@ -71,25 +93,6 @@ gulp.task('js', function() {
       .pipe(gulpif(minify == false, sourcemaps.write()))
       .pipe(gulp.dest(config.assetsDir + '/js'))
       .pipe(livereload());
-});
-
-gulp.task('js:concat', ['js', 'coffee'], function() {
-  var action = function(grouped) {
-    // loop trough all the collected js groups and concat them
-    for (var destination in grouped) {
-      gulp.src(grouped[destination])
-          .pipe(concat(stripPath('/assets/js/', destination)))
-          .pipe(uglify())
-          .pipe(gulp.dest(config.assetsDir + '/js'));
-    }
-  }
-
-  return gulp.src([
-    './app/Resources/views/**/*.html.twig',
-    './src/**/Resources/views/**/*.html.twig',
-    '/vendor/sumocoders/**/Resources/views/**/*.html.twig',
-  ])
-      .pipe(parseTwig(action));
 });
 
 gulp.task('images', function() {
@@ -231,15 +234,6 @@ gulp.task('watch', [], function() {
 
   gulp.watch(
       [
-        './app/Resources/assets/coffee/***.coffee',
-        './src/**/Resources/assets/coffee/***.coffee',
-        './vendor/sumocoders/**/Resources/assets/coffee/***.coffee'
-      ],
-      ['coffee']
-  );
-
-  gulp.watch(
-      [
         './app/Resources/assets/js/**',
         './src/**/Resources/assets/js/**',
         './vendor/sumocoders/**/Resources/assets/js/**'
@@ -249,11 +243,10 @@ gulp.task('watch', [], function() {
 
   gulp.watch(
       [
-        './app/Resources/views/**/*.html.twig',
-        './src/**/Resources/views/**/*.html.twig',
-        '/vendor/sumocoders/**/Resources/views/**/*.html.twig',
+        './app/Resources/assets/js/**',
+        './src/**/Resources/assets/js/**',
       ],
-      ['js:concat']
+      ['webpack:generate-production-js']
   );
 
   gulp.watch(
@@ -305,7 +298,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('build', function() {
-  gulp.start('coffee', 'js', 'js:concat', 'images', 'fonts', 'sass', 'sass:cleanup');
+  gulp.start('js', 'images', 'fonts', 'sass', 'sass:cleanup', 'webpack:generate-production-js');
 });
 
 gulp.task('serve', function() {
