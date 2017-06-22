@@ -44,8 +44,6 @@
       <script type="text/javascript" src="{{ asset('/bundles/mopabootstrap/js/mopabootstrap-collection.js') }}"></script>
       <script type="text/javascript" src="{{ asset('/assets/js/sumo_plugins.js') }}"></script>
 
-      <script type="text/javascript" src="{{ asset('/assets/js/bundle.js') }}"></script>
-
       {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
         <script type="text/javascript" src="{{ asset('/assets/js/frameworksearchbundle.framework.form.search.js') }}"></script>
       {% endif %}
@@ -136,7 +134,9 @@
 
     {{ include('SumoCodersFrameworkCoreBundle::dialogs.html.twig') }}
 
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+      <script type="text/javascript" src="{{ asset('/assets/js/bundle.js') }}"></script>
+    {% endblock %}
 
     {% if app.environment == 'dev' %}
       <script src="//localhost:35729/livereload.js"></script>
