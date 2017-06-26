@@ -27,21 +27,23 @@ framework:
   csrf_protection: ~
   form:            ~
   session:
-    handler_id:  ~
-    save_path: "%kernel.root_dir%/sessions/"
+    # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+    handler_id: session.handler.native_file
+    save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
   router:
-    resource: "%kernel.root_dir%/config/routing.yml"
+    resource: "%kernel.project_dir%/app/config/routing.yml"
     strict_requirements: ~
   validation: { enable_annotations: true }
   templating:
     engines: ['twig']
   default_locale:  "%locale%"
   trusted_hosts:   ~
-  trusted_proxies: ~
   fragments:       ~
   assets:
     version: 1
     version_format: '%%s?v=%%s'
+  php_errors:
+    log: true
 
 # Twig Configuration
 twig:
