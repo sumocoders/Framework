@@ -51,7 +51,7 @@ twig:
   strict_variables: %kernel.debug%
   globals:
     fallbacks: "@framework.fallbacks"
-    jsData: "@framework.jsData"
+    jsData: "@framework.jsdata"
     locales: %locales%
   form_themes:
     - 'SumoCodersFrameworkCoreBundle:Form:fields.html.twig'
