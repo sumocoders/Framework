@@ -32,13 +32,13 @@ class JsDataTest extends \PHPUnit_Framework_TestCase
      */
     protected function getRequestStack()
     {
-        $currentRequest = $this->getMock('\Symfony\Component\HttpFoundation\Request');
+        $currentRequest = $this->getMockBuilder('\Symfony\Component\HttpFoundation\Request')->getMock();
         $currentRequest->method('getLocale')
             ->will(
                 $this->returnValue('nl')
             );
 
-        $requestStack = $this->getMock('\Symfony\Component\HttpFoundation\RequestStack');
+        $requestStack = $this->getMockBuilder('\Symfony\Component\HttpFoundation\RequestStack')->getMock();
         $requestStack->method('getCurrentRequest')
             ->will(
                 $this->returnValue(

@@ -32,14 +32,16 @@ class MenuBuilderTest extends \PHPUnit_Framework_TestCase
      */
     protected function getEventDispatcher()
     {
-        $eventDispatcher = $this->getMock('\Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $eventDispatcher = $this->getMockBuilder(
+            '\Symfony\Component\EventDispatcher\EventDispatcherInterface'
+        )->getMock();
 
         return $eventDispatcher;
     }
 
     protected function getItem()
     {
-        $item = $this->getMock('\Knp\Menu\ItemInterface');
+        $item = $this->getMockBuilder('\Knp\Menu\ItemInterface')->getMock();
 
         return $item;
     }
@@ -52,17 +54,11 @@ class MenuBuilderTest extends \PHPUnit_Framework_TestCase
         $item = $this->getItem();
 
         /** @var \PHPUnit_Framework_MockObject_MockBuilder $factory */
-        $factory = $this->getMock('\Knp\Menu\FactoryInterface');
+        $factory = $this->getMockBuilder('\Knp\Menu\FactoryInterface')->getMock();
         $factory->method('createItem')
             ->will(
                 $this->returnValue(
                     $item
-                )
-            );
-        $factory->method('getChildren')
-            ->will(
-                $this->returnValue(
-                    array()
                 )
             );
 

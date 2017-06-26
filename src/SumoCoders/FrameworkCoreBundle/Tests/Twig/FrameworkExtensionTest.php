@@ -26,7 +26,7 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
      */
     protected function getContainer()
     {
-        $container = $this->getMock('\Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMockBuilder('\Symfony\Component\DependencyInjection\ContainerInterface')->getMock();
         $container->method('getParameter')
             ->will(
                 $this->returnValue(

@@ -34,7 +34,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
      */
     protected function getTemplatingMock()
     {
-        $templating = $this->getMock('\Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
+        $templating = $this->getMockBuilder('\Symfony\Bundle\FrameworkBundle\Templating\EngineInterface')->getMock();
         $templating
             ->method('render')
             ->willReturn('<html><head></head><body><p>And I, le content</p></body></html>');

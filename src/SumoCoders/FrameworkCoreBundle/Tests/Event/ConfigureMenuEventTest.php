@@ -27,7 +27,7 @@ class ConfigureMenuEventTest extends \PHPUnit_Framework_TestCase
      */
     protected function getFactory()
     {
-        $factory = $this->getMock('Knp\Menu\FactoryInterface');
+        $factory = $this->getMockBuilder('Knp\Menu\FactoryInterface')->getMock();
 
         return $factory;
     }
@@ -37,7 +37,7 @@ class ConfigureMenuEventTest extends \PHPUnit_Framework_TestCase
      */
     protected function getItem()
     {
-        $item = $this->getMock('Knp\Menu\ItemInterface');
+        $item = $this->getMockBuilder('Knp\Menu\ItemInterface')->getMock();
 
         return $item;
     }
