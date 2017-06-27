@@ -15,7 +15,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^5.5 || ^7.0",
+        "php": "^7.1",
 
         "symfony/symfony": "^3.3",
         "symfony/framework-bundle": "^3.3",
