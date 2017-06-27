@@ -3,6 +3,7 @@
 namespace SumoCoders\FrameworkCoreBundle\Tests\Twig;
 
 use SumoCoders\FrameworkCoreBundle\Twig\FrameworkExtension;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,7 +27,7 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
      */
     protected function getContainer()
     {
-        $container = $this->getMockBuilder('\Symfony\Component\DependencyInjection\ContainerInterface')->getMock();
+        $container = $this->getMockBuilder(ContainerInterface::class)->getMock();
         $container->method('getParameter')
             ->will(
                 $this->returnValue(

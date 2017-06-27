@@ -2,7 +2,10 @@
 
 namespace SumoCoders\FrameworkCoreBundle\Tests\Menu;
 
+use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
 use SumoCoders\FrameworkCoreBundle\Menu\MenuBuilder;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class MenuBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,16 +35,14 @@ class MenuBuilderTest extends \PHPUnit_Framework_TestCase
      */
     protected function getEventDispatcher()
     {
-        $eventDispatcher = $this->getMockBuilder(
-            '\Symfony\Component\EventDispatcher\EventDispatcherInterface'
-        )->getMock();
+        $eventDispatcher = $this->getMockBuilder(EventDispatcherInterface::class)->getMock();
 
         return $eventDispatcher;
     }
 
     protected function getItem()
     {
-        $item = $this->getMockBuilder('\Knp\Menu\ItemInterface')->getMock();
+        $item = $this->getMockBuilder(ItemInterface::class)->getMock();
 
         return $item;
     }
@@ -54,7 +55,7 @@ class MenuBuilderTest extends \PHPUnit_Framework_TestCase
         $item = $this->getItem();
 
         /** @var \PHPUnit_Framework_MockObject_MockBuilder $factory */
-        $factory = $this->getMockBuilder('\Knp\Menu\FactoryInterface')->getMock();
+        $factory = $this->getMockBuilder(FactoryInterface::class)->getMock();
         $factory->method('createItem')
             ->will(
                 $this->returnValue(

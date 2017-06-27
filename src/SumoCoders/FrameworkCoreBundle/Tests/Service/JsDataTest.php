@@ -3,6 +3,8 @@
 namespace SumoCoders\FrameworkCoreBundle\Tests\Service;
 
 use SumoCoders\FrameworkCoreBundle\Service\JsData;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class JsDataTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,13 +34,13 @@ class JsDataTest extends \PHPUnit_Framework_TestCase
      */
     protected function getRequestStack()
     {
-        $currentRequest = $this->getMockBuilder('\Symfony\Component\HttpFoundation\Request')->getMock();
+        $currentRequest = $this->getMockBuilder(Request::class)->getMock();
         $currentRequest->method('getLocale')
             ->will(
                 $this->returnValue('nl')
             );
 
-        $requestStack = $this->getMockBuilder('\Symfony\Component\HttpFoundation\RequestStack')->getMock();
+        $requestStack = $this->getMockBuilder(RequestStack::class)->getMock();
         $requestStack->method('getCurrentRequest')
             ->will(
                 $this->returnValue(

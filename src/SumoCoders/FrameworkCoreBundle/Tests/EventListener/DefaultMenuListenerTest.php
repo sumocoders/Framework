@@ -3,6 +3,8 @@
 namespace SumoCoders\FrameworkCoreBundle\Tests\EventListener;
 
 use SumoCoders\FrameworkCoreBundle\EventListener\DefaultMenuListener;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class DefaultMenuListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -27,9 +29,7 @@ class DefaultMenuListenerTest extends \PHPUnit_Framework_TestCase
      */
     protected function getSecurityAuthorizationChecker()
     {
-        $container = $this->getMockBuilder(
-            '\Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface'
-        )->getMock();
+        $container = $this->getMockBuilder(AuthorizationCheckerInterface::class)->getMock();
 
         return $container;
     }
@@ -39,9 +39,7 @@ class DefaultMenuListenerTest extends \PHPUnit_Framework_TestCase
      */
     protected function getSecurityTokenStorage()
     {
-        $securityContext = $this->getMockBuilder(
-            'Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface'
-        )->getMock();
+        $securityContext = $this->getMockBuilder(TokenStorageInterface::class)->getMock();
 
         return $securityContext;
     }
