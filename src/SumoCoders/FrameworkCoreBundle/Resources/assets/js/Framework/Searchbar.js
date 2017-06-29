@@ -6,6 +6,6 @@ export class Searchbar {
 
   toggleSearchbar() {
     $('.search-box').toggleClass('open');
-    $('input[name=term]'.focus());
+    $('input[name=term]').focus();
   }
 }
