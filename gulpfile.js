@@ -56,14 +56,17 @@ var commonWebpackConfig = {
 };
 
 gulp.task('webpack:generate-production-js', function() {
-  return gulp.src('src/**/Resources/assets/js/index.js')
+  return gulp.src([
+    'src/**/Resources/assets/js/index.js',
+    'vendor/sumocoders/**/Resources/assets/js/**'
+  ])
       .pipe(webpackStream(Object.assign({}, commonWebpackConfig, {
         plugins: [
-          new webpack.optimize.UglifyJsPlugin({
+          /*new webpack.optimize.UglifyJsPlugin({
             compress: {
               warnings: false
             }
-          }),
+          }),*/
           new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
           })
@@ -73,13 +76,7 @@ gulp.task('webpack:generate-production-js', function() {
 });
 
 gulp.task('js', function() {
-  return gulp.src(
-      [
-        './app/Resources/assets/js/**',
-        './src/**/Resources/assets/js/**',
-        './vendor/sumocoders/**/Resources/assets/js/**'
-      ]
-  )
+  return gulp.src('src/**/Resources/assets/js/sumo_plugins.js')
       .pipe(gulpif(minify == false, sourcemaps.init()))
       .pipe(rename(function(path) {
         if (path.extname === '') {
