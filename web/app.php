@@ -1,5 +1,6 @@
 <?php
 
+use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
 $env = getenv('SYMFONY_ENV') ?: 'prod';
@@ -10,16 +11,10 @@ if (isset($_SERVER['HTTP_HOST']) && substr_count($_SERVER['HTTP_HOST'], '.dev'))
     $debug = true;
 }
 
-/**
- * @var Composer\Autoload\ClassLoader
- */
-$loader = require __DIR__ . '/../app/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-if ($env != 'dev') {
-    include_once __DIR__ . '/../app/bootstrap.php.cache';
-}
 if ($debug) {
-    Symfony\Component\Debug\Debug::enable();
+    Debug::enable();
 }
 
 // Enable APC for autoloading to improve performance.
@@ -33,7 +28,6 @@ $apcLoader->register(true);
 */
 
 $kernel = new AppKernel($env, $debug);
-$kernel->loadClassCache();
 //$kernel = new AppCache($kernel);
 
 // When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter

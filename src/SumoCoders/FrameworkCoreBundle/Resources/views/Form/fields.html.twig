@@ -84,7 +84,7 @@
                data-minimum-date="{{ minimum_date|date('Y-m-d') }}"
              {% endif %}
              >
-             <input {% if widget_form_control_class is not same as(false) %}class="{{ widget_form_control_class }}" {% endif %}type="text" {% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %} style="z-index: 9998;">
+             <input {% if widget_form_control_class is not same as(false) %}class="{{ widget_form_control_class }}" {% endif %}type="text" {% if read_only is defined and read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %} style="z-index: 9998;">
              <input type="hidden" value="{{ value }}" {{ block('widget_attributes') }}>
              <span class="input-group-addon">
                <a href="#" class="faked-button">

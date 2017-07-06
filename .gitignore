@@ -1,10 +1,4 @@
 /app/bootstrap.php.cache
-/app/cache/*
-!app/cache/.gitkeep
-/app/config/parameters.yml
-/app/logs/*
-!app/logs/.gitkeep
-/app/sessions/*
 /assets/coffee
 /assets/sass
 /assets/fonts
@@ -13,6 +7,14 @@
 /composer.phar
 /coverage
 /node_modules/*
+/var/bootstrap.php.cache
+/var/cache/*
+!var/cache/.gitkeep
+/app/config/parameters.yml
+/var/logs/*
+!var/logs/.gitkeep
+/var/sessions/*
+!var/sessions/.gitkeep
 /vendor/*
 /web/*/locale.json
 /web/assets
