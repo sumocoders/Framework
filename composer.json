@@ -42,7 +42,8 @@
         "sumocoders/framework-multi-user-bundle": "dev-5.0.0-dev",
         "knplabs/knp-paginator-bundle": "^2.5",
         "simple-bus/symfony-bridge": "^4.1",
-        "simple-bus/doctrine-orm-bridge": "^4.0"
+        "simple-bus/doctrine-orm-bridge": "^4.0",
+        "friendsofsymfony/jsrouting-bundle": "^1.6"
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev",
