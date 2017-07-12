@@ -238,7 +238,7 @@ gulp.task('watch', [], function() {
 
   gulp.watch(
       [
-        './src/**/Resources/assets/js/index.js',
+        './src/**/Resources/assets/js/**',
         './vendor/sumocoders/**/Resources/assets/js/**'
       ],
       ['webpack:generate-production-js']
