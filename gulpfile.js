@@ -231,17 +231,15 @@ gulp.task('watch', [], function() {
 
   gulp.watch(
       [
-        './app/Resources/assets/js/**',
-        './src/**/Resources/assets/js/**',
-        './vendor/sumocoders/**/Resources/assets/js/**'
+        './src/**/Resources/assets/js/sumo_plugins.js'
       ],
       ['js']
   );
 
   gulp.watch(
       [
-        './app/Resources/assets/js/**',
-        './src/**/Resources/assets/js/**',
+        './src/**/Resources/assets/js/index.js',
+        './vendor/sumocoders/**/Resources/assets/js/**'
       ],
       ['webpack:generate-production-js']
   );
