@@ -1,17 +1,20 @@
-export class LoadingBar {
-
-  constructor() {
+export class LoadingBar
+{
+  constructor()
+  {
     $(document).on('form_submitting', $.proxy(this.showLoadingBar, this));
     $(document).on('ajax_start', $.proxy(this.showLoadingBar, this));
     $(document).on('ajax_stop', $.proxy(this.hideLoadingBar, this));
   }
 
-  showLoadingBar() {
+  showLoadingBar()
+  {
     $('.header-title').addClass('progress');
     $('.header-title .header-title-bar').addClass('progress-bar progress-bar-striped active');
   }
 
-  hideLoadingBar() {
+  hideLoadingBar()
+  {
     $('.header-title .header-title-bar').removeClass('progress-bar progress-bar-striped active');
   }
 }

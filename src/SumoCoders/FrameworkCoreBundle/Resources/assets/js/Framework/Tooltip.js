@@ -1,11 +1,13 @@
-export class Tooltip {
-
-  constructor(element) {
+export class Tooltip
+{
+  constructor(element)
+  {
     this.element = element;
     this.initTooltip();
   }
 
-  initTooltip() {
+  initTooltip()
+  {
     this.element.tooltip();
   }
 }

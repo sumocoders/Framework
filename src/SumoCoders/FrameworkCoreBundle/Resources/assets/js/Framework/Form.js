@@ -2,15 +2,15 @@ import {Locale} from 'Framework/Locale';
 
 const locale = new Locale();
 const dateFieldOptions = {
-  currentText:      locale.get('datepicker.buttons.today'),
-  closeText:        locale.get('datepicker.buttons.close'),
-  nextText:         locale.get('datepicker.buttons.next'),
-  prevText:         locale.get('datepicker.buttons.previous'),
-  firstDay:         1,
+  currentText: locale.get('datepicker.buttons.today'),
+  closeText: locale.get('datepicker.buttons.close'),
+  nextText: locale.get('datepicker.buttons.next'),
+  prevText: locale.get('datepicker.buttons.previous'),
+  firstDay: 1,
   hideIfNoPrevNext: true,
-  showAnim:         'slideDown',
-  zIndex:           9999,
-  dateFormat:       'dd/mm/yy',
+  showAnim: 'slideDown',
+  zIndex: 9999,
+  dateFormat: 'dd/mm/yy',
   dayNames: [
     locale.get('datepicker.full.days.sunday'),
     locale.get('datepicker.full.days.monday'),
@@ -68,30 +68,35 @@ const dateFieldOptions = {
   ]
 };
 
-export class Form {
-
-  constructor(form) {
+export class Form
+{
+  constructor(form)
+  {
     this.form = form;
     this.dateFields();
     this.fixPlaceholders();
     $('form').on('submit', $.proxy(this.hijackSubmit, this));
   }
 
-  parseDate(element,key) {
-    if(element.data(key) != undefined || element.data(key) != null) {
+  parseDate(element,key)
+  {
+    if (element.data(key) !== undefined || element.data(key) !== null) {
       return '';
     }
 
     let data = element.data(key).split('-');
-    new Date(
+    return new Date(
         parseInt(data[0], 10),
         parseInt(data[1], 10) -1,
         parseInt(data[2], 10)
     )
   }
 
-  dateFields() {
-    if(!$.isFunction($.fn.datepicker)) return;
+  dateFields()
+  {
+    if (!$.isFunction($.fn.datepicker)) {
+      return;
+    }
 
     $.datepicker.setDefaults(dateFieldOptions);
 
@@ -99,11 +104,13 @@ export class Form {
       let $dateWrapper = $(el).parents('[data-provider="datepicker"]');
       let initialDate = this.parseDate($dateWrapper, 'date');
 
-      $(el).datepicker({
-        altField: '#' + $dateWrapper.data('linkField'),
-        altFormat: $dateWrapper.data('linkFormat').replace('yyyy', 'yy'),
-        defaultDate: initialDate
-      });
+      $(el).datepicker(
+          {
+          altField: '#' + $dateWrapper.data('linkField'),
+          altFormat: $dateWrapper.data('linkFormat').replace('yyyy', 'yy'),
+          defaultDate: initialDate,
+        }
+      );
 
       switch ($dateWrapper.data('dateType')) {
         case 'start':
@@ -142,27 +149,32 @@ export class Form {
       }
 
       // show initial date if provided
-      if (initialDate !== '') { return $(el).val($.datepicker.formatDate(this._dateFieldOptions.dateFormat, initialDate)); }
+      if (initialDate !== '') {
+        return $(el).val($.datepicker.formatDate(this._dateFieldOptions.dateFormat, initialDate));
+      }
     });
 
     $('[data-date-type] a', this.form).on('click', () => {
       let el = $(this).parents('[data-provider="datepicker"]').find('input:first');
-      if(!$(el).datepicker('widget').is(':visible')) { return $(el).datepicker('show') }
+      if (!$(el).datepicker('widget').is(':visible')) {
+        return $(el).datepicker('show')
+      }
     });
   }
 
   /* fixes */
-  fixPlaceholders() {
+  fixPlaceholders()
+  {
     /*detect if placeholder-attributes is supported*/
     jQuery.support.placeholder = (Array.from(document.createElement('input')).includes('placeholder'));
 
-    if(!jQuery.support.placeholder) {
+    if (!jQuery.support.placeholder) {
       let $input = $(this.form).find('input[placeholder]');
 
       $input.on('focus', () => {
         let $this = $(this);
 
-        if ($this.val() == $this.attr('placeholder')) {
+        if ($this.val() === $this.attr('placeholder')) {
           $this.val('').removeClass('placeholder');
         }
       });
@@ -170,7 +182,7 @@ export class Form {
       $input.on('blur', () => {
         let $this = $(this);
 
-        if($this.val() == '' || $this.val() == $this.attr('placeholder')) {
+        if ($this.val() === '' || $this.val() === $this.attr('placeholder')) {
           $this.val($this.attr('placeholder')).addClass('placeholder');
         }
       });
@@ -179,15 +191,16 @@ export class Form {
 
       $input.parents('form').submit(() => {
         $(this).find('input[placeholder]').each(() => {
-          if($(this).val() == $(this).attr('placeholder')) {
+          if ($(this).val() === $(this).attr('placeholder')) {
             $(this).val('');
           }
-        })
+        });
       })
     }
   }
 
-  hijackSubmit() {
+  hijackSubmit()
+  {
     $(this).trigger('form_submitting');
   }
 }

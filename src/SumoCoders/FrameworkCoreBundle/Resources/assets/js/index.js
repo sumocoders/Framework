@@ -25,9 +25,10 @@ new Searchbar();
 new Table();
 new Tabs();
 
-export class Index {
-
-  constructor() {
+export class Index
+{
+  constructor()
+  {
     this.initializeSliders();
     this.initializeSortables();
     this.initializePopovers();
@@ -35,34 +36,39 @@ export class Index {
     this.initializeSelects();
   }
 
-  initializeSliders() {
+  initializeSliders()
+  {
     $('.slider').each((index, element) => {
       element.slider = new Slider($(element));
-  });
+    });
   }
 
-  initializeSortables() {
+  initializeSortables()
+  {
     $('.sortable').each((index, element) => {
       element.sortable = new Sortable($(element));
-  });
+    });
   }
 
-  initializePopovers() {
+  initializePopovers()
+  {
     $('[data-toggle="popover"]').each((index, element) => {
       element.popover = new Popover($(element));
-  });
+    });
   }
 
-  initializeTooltips() {
+  initializeTooltips()
+  {
     $('[data-toggle="tooltip"]').each((index, element) => {
       element.tooltip = new Tooltip($(element));
-  });
+    });
   }
 
-  initializeSelects() {
+  initializeSelects()
+  {
     $('.select2').each((index, element) => {
       element.select2 = new Select($(element));
-  });
+    });
   }
 }
 

@@ -1,33 +1,43 @@
-export class Data {
-
-  constructor() {
+export class Data
+{
+  constructor()
+  {
     this.isInitialized = false;
     this.data = null;
     this.initialize();
   }
 
-  initialize() {
-    if (jsData == undefined || jsData == null) {
+  initialize()
+  {
+    if (jsData === undefined || jsData === null) {
       throw Error('jsData is not available');
     }
+
     this.data = jsData;
     this.isInitialized = true;
   }
 
-  exists(key) {
-    this.get(key)
+  exists(key)
+  {
+    return (this.get(key) !== null);
   }
 
-  get(key) {
-    if(!this.isInitialized) this.initialize();
+  get(key)
+  {
+    if (!this.isInitialized) {
+      this.initialize();
+    }
+
     let chunks = key.split('.');
 
-    if(chunks.length == 1) {return this.data(key)}
+    if (chunks.length === 1) {
+      return this.data(key)
+    }
 
     let value = this.data[chunks[0]];
     chunks.shift();
 
-    while (chunks.length != 0) {
+    while (chunks.length !== 0) {
       value = this.getDeeperValue(chunks[0], value);
       chunks.shift();
     }
@@ -35,7 +45,8 @@ export class Data {
     return value;
   }
 
-  getDeeperValue(key, value) {
+  getDeeperValue(key, value)
+  {
     return value[key];
   }
 }
