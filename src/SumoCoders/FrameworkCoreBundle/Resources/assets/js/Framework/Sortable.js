@@ -1,9 +1,10 @@
 import {PluginNotFound} from 'Exception/PluginNotFound';
 
-export class Sortable {
-
-  constructor(element) {
-    if(!$.isFunction($.fn.sortable)) {
+export class Sortable
+{
+  constructor(element)
+  {
+    if (!$.isFunction($.fn.sortable)) {
       throw new PluginNotFound('Sortable');
     }
 
@@ -12,15 +13,18 @@ export class Sortable {
     this.initDisableSelection();
   }
 
-  initSortable() {
-
-    this.element.sortable({
-      handle: '',
-      cancel: ''
-    })
+  initSortable()
+  {
+    this.element.sortable(
+      {
+        handle: '',
+        cancel: '',
+      }
+    );
   }
 
-  initDisableSelection() {
+  initDisableSelection()
+  {
     this.element.disableSelection();
   }
 }

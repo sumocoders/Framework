@@ -1,15 +1,17 @@
-export class Popover {
-
-  constructor(element) {
+export class Popover
+{
+  constructor(element)
+  {
     this.element = element;
     this.initPopover();
   }
 
-  initPopover() {
+  initPopover()
+  {
     this.element.popover(
-        {
-          html: true
-        }
-    )
+      {
+        html: true
+      }
+    );
   }
 }
