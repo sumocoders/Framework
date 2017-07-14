@@ -19,6 +19,46 @@ services:
     tags:
       - { name: twig.extension }
 
+  extension.listener:
+    class: SumoCoders\FrameworkCoreBundle\EventListener\DoctrineExtensionListener
+    arguments:
+      - "@security.token_storage"
+      - "@security.authorization_checker"
+      - "@gedmo.listener.loggable"
+      - "@gedmo.listener.blameable"
+    tags:
+        # loggable hooks user username if one is in security context
+        - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+  gedmo.listener.sluggable:
+    class: Gedmo\Sluggable\SluggableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+  gedmo.listener.sortable:
+    class: Gedmo\Sortable\SortableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+  gedmo.listener.loggable:
+    class: Gedmo\Loggable\LoggableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+  gedmo.listener.blameable:
+    class: Gedmo\Blameable\BlameableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+
 # Framework configuration
 framework:
   translator: { fallback: "%locale%" }
@@ -65,7 +105,7 @@ doctrine:
     dbname:   "%database_name%"
     user:     "%database_user%"
     password: "%database_password%"
-    charset:  UTF8
+    charset:  UTF8MB4
     server_version: "%database_version%"
     types:
       user_status: SumoCoders\FrameworkMultiUserBundle\DBALType\StatusType
@@ -73,6 +113,15 @@ doctrine:
   orm:
     auto_generate_proxy_classes: "%kernel.debug%"
     auto_mapping: true
+    mappings:
+      loggable:
+        type: annotation
+        alias: Gedmo
+        prefix: Gedmo\Loggable\Entity
+        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+    dql:
+      string_functions:
+        MATCH_AGAINST: SumoCodersFrameworkCoreBundle\Extensions\Doctrine\MatchAgainst
 
 doctrine_migrations:
     dir_name: %kernel.root_dir%/migrations

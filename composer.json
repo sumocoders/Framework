@@ -43,6 +43,7 @@
         "knplabs/knp-paginator-bundle": "^2.5",
         "simple-bus/symfony-bridge": "^4.1",
         "simple-bus/doctrine-orm-bridge": "^4.0",
+        "gedmo/doctrine-extensions": "^2.4",
         "friendsofsymfony/jsrouting-bundle": "^1.6"
     },
     "require-dev": {
