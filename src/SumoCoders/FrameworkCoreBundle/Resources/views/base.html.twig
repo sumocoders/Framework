@@ -23,7 +23,7 @@
     <![endif]-->
 
     {% block stylesheets %}
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
       <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     {% endblock %}
 
@@ -38,7 +38,7 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.min.js"></script>
       <script type="text/javascript" src="{{ asset('/bundles/mopabootstrap/js/mopabootstrap-collection.js') }}"></script>
@@ -145,7 +145,10 @@
 
     {{ include('SumoCodersFrameworkCoreBundle::dialogs.html.twig') }}
 
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+      <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+      <script type="text/javascript" src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}" ></script>
+    {% endblock %}
 
     {% if app.environment == 'dev' %}
       <script src="//localhost:35729/livereload.js"></script>

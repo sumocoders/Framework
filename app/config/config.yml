@@ -103,7 +103,7 @@ doctrine:
     dbname:   "%database_name%"
     user:     "%database_user%"
     password: "%database_password%"
-    charset:  UTF8
+    charset:  UTF8MB4
     server_version: "%database_version%"
     types:
       user_status: SumoCoders\FrameworkMultiUserBundle\DBALType\StatusType
@@ -117,6 +117,9 @@ doctrine:
         alias: Gedmo
         prefix: Gedmo\Loggable\Entity
         dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+    dql:
+      string_functions:
+        MATCH_AGAINST: SumoCodersFrameworkCoreBundle\Extensions\Doctrine\MatchAgainst
 
 doctrine_migrations:
     dir_name: %kernel.root_dir%/migrations
