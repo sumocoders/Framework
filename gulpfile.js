@@ -62,11 +62,11 @@ gulp.task('webpack:generate-production-js', function() {
   ])
       .pipe(webpackStream(Object.assign({}, commonWebpackConfig, {
         plugins: [
-          /*new webpack.optimize.UglifyJsPlugin({
+          new webpack.optimize.UglifyJsPlugin({
             compress: {
               warnings: false
             }
-          }),*/
+          }),
           new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
           })
