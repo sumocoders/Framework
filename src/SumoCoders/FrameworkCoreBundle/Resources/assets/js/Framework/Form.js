@@ -1,6 +1,6 @@
-import {Locale} from 'Framework/Locale';
+import {Locale} from 'Framework/Locale'
 
-const locale = new Locale();
+const locale = new Locale()
 const dateFieldOptions = {
   currentText: locale.get('datepicker.buttons.today'),
   closeText: locale.get('datepicker.buttons.close'),
@@ -66,141 +66,136 @@ const dateFieldOptions = {
     locale.get('datepicker.short.months.november'),
     locale.get('datepicker.short.months.december')
   ]
-};
+}
 
-export class Form
-{
-  constructor(form)
-  {
-    this.form = form;
-    this.dateFields();
-    this.fixPlaceholders();
-    $('form').on('submit', $.proxy(this.hijackSubmit, this));
+export class Form {
+  constructor (form) {
+    this.form = form
   }
 
-  parseDate(element,key)
-  {
+  initForm () {
+    this.dateFields()
+    this.fixPlaceholders()
+    $('form').on('submit', $.proxy(this.hijackSubmit, this))
+  }
+
+  parseDate (element, key) {
     if (element.data(key) !== undefined || element.data(key) !== null) {
-      return '';
+      return ''
     }
 
-    let data = element.data(key).split('-');
+    let data = element.data(key).split('-')
     return new Date(
         parseInt(data[0], 10),
-        parseInt(data[1], 10) -1,
+        parseInt(data[1], 10) - 1,
         parseInt(data[2], 10)
     )
   }
 
-  dateFields()
-  {
+  dateFields () {
     if (!$.isFunction($.fn.datepicker)) {
-      return;
+      return
     }
 
-    $.datepicker.setDefaults(dateFieldOptions);
+    $.datepicker.setDefaults(dateFieldOptions)
 
     $('[data-date-type] input[type="text"]', this.form).each((i, el) => {
-      let $dateWrapper = $(el).parents('[data-provider="datepicker"]');
-      let initialDate = this.parseDate($dateWrapper, 'date');
+      let $dateWrapper = $(el).parents('[data-provider="datepicker"]')
+      let initialDate = this.parseDate($dateWrapper, 'date')
 
-      $(el).datepicker(
-          {
-          altField: '#' + $dateWrapper.data('linkField'),
-          altFormat: $dateWrapper.data('linkFormat').replace('yyyy', 'yy'),
-          defaultDate: initialDate,
-        }
-      );
+      $(el).datepicker({
+        altField: '#' + $dateWrapper.data('linkField'),
+        altFormat: $dateWrapper.data('linkFormat').replace('yyyy', 'yy'),
+        defaultDate: initialDate
+      })
 
       switch ($dateWrapper.data('dateType')) {
         case 'start':
-          let startDate = this.parseDate($dateWrapper, 'minimumDate');
-          $(el).datepicker('option', 'minDate', startDate);
+          let startDate = this.parseDate($dateWrapper, 'minimumDate')
+          $(el).datepicker('option', 'minDate', startDate)
 
           if ((initialDate !== '') && (initialDate < startDate)) {
-            initialDate = startDate;
+            initialDate = startDate
           }
-          break;
+          break
 
         case 'until':
-          let endDate = this.parseDate($dateWrapper, 'maximumDate');
-          $(el).datepicker('option', 'maxDate', endDate);
+          let endDate = this.parseDate($dateWrapper, 'maximumDate')
+          $(el).datepicker('option', 'maxDate', endDate)
 
           if ((initialDate !== '') && (startDate > initialDate)) {
-            initialDate = startDate;
+            initialDate = startDate
           }
-          break;
+          break
 
         case 'range':
-          startDate = this.parseDate($dateWrapper, 'minimumDate');
-          $(el).datepicker('option', 'minDate', startDate);
+          startDate = this.parseDate($dateWrapper, 'minimumDate')
+          $(el).datepicker('option', 'minDate', startDate)
 
           if ((initialDate !== '') && (initialDate < startDate)) {
-            initialDate = startDate;
+            initialDate = startDate
           }
 
-          endDate = this.parseDate($dateWrapper, 'maximumDate');
-          $(el).datepicker('option', 'maxDate', endDate);
+          endDate = this.parseDate($dateWrapper, 'maximumDate')
+          $(el).datepicker('option', 'maxDate', endDate)
 
           if ((initialDate !== '') && (startDate > initialDate)) {
-            initialDate = startDate;
+            initialDate = startDate
           }
-          break;
+          break
       }
 
       // show initial date if provided
       if (initialDate !== '') {
-        return $(el).val($.datepicker.formatDate(this._dateFieldOptions.dateFormat, initialDate));
+        return $(el).val($.datepicker.formatDate(this._dateFieldOptions.dateFormat, initialDate))
       }
-    });
+    })
 
     $('[data-date-type] a', this.form).on('click', () => {
-      let el = $(this).parents('[data-provider="datepicker"]').find('input:first');
+      let el = $(this).parents('[data-provider="datepicker"]').find('input:first')
       if (!$(el).datepicker('widget').is(':visible')) {
         return $(el).datepicker('show')
       }
-    });
+    })
   }
 
   /* fixes */
-  fixPlaceholders()
-  {
-    /*detect if placeholder-attributes is supported*/
-    jQuery.support.placeholder = (Array.from(document.createElement('input')).includes('placeholder'));
+  fixPlaceholders () {
+    /* detect if placeholder-attributes is supported */
+    jQuery.support.placeholder = (Array.from(document.createElement('input')).includes('placeholder'))
 
     if (!jQuery.support.placeholder) {
-      let $input = $(this.form).find('input[placeholder]');
+      let $input = $(this.form).find('input[placeholder]')
 
       $input.on('focus', () => {
-        let $this = $(this);
+        let $this = $(this)
 
         if ($this.val() === $this.attr('placeholder')) {
-          $this.val('').removeClass('placeholder');
+          $this.val('').removeClass('placeholder')
         }
-      });
+      })
 
       $input.on('blur', () => {
-        let $this = $(this);
+        let $this = $(this)
 
         if ($this.val() === '' || $this.val() === $this.attr('placeholder')) {
-          $this.val($this.attr('placeholder')).addClass('placeholder');
+          $this.val($this.attr('placeholder')).addClass('placeholder')
         }
-      });
+      })
 
-      $input.blur();
+      $input.blur()
 
       $input.parents('form').submit(() => {
         $(this).find('input[placeholder]').each(() => {
           if ($(this).val() === $(this).attr('placeholder')) {
-            $(this).val('');
+            $(this).val('')
           }
-        });
+        })
       })
     }
   }
 
-  hijackSubmit()
-  {
-    $(this).trigger('form_submitting');
+  hijackSubmit () {
+    $(this).trigger('form_submitting')
   }
 }
