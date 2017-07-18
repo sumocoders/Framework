@@ -35,9 +35,7 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-      <script type="text/javascript" src="{{ asset('/assets/js/sumo_plugins.js') }}"></script>
-
-      <script type="text/javascript" src="{{ asset('/assets/js/bundle.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('/assets/js/SumoPlugins.js') }}"></script>
     {% endblock %}
 
     {% block icons %}
@@ -58,7 +56,9 @@
     {% block main %}
     {% endblock %}
 
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+      <script type="text/javascript" src="{{ asset('/assets/js/Bundle.js') }}"></script>
+    {% endblock %}
 
     {% if app.environment == 'dev' %}
       <script src="//localhost:35729/livereload.js"></script>

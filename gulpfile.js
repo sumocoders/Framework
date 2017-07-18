@@ -35,7 +35,7 @@ gulp.plumbedSrc = function() {
 
 var commonWebpackConfig = {
   output: {
-    filename: "bundle.js"
+    filename: "Bundle.js"
   },
   devtool: "source-maps",
   module: {
@@ -57,7 +57,7 @@ var commonWebpackConfig = {
 
 gulp.task('webpack:generate-production-js', function() {
   return gulp.src([
-    'src/**/Resources/assets/js/index.js',
+    'src/**/Resources/assets/js/Index.js',
     'vendor/sumocoders/**/Resources/assets/js/**'
   ])
       .pipe(webpackStream(Object.assign({}, commonWebpackConfig, {
@@ -76,7 +76,7 @@ gulp.task('webpack:generate-production-js', function() {
 });
 
 gulp.task('js', function() {
-  return gulp.src('src/**/Resources/assets/js/sumo_plugins.js')
+  return gulp.src('src/**/Resources/assets/js/SumoPlugins.js')
       .pipe(gulpif(minify == false, sourcemaps.init()))
       .pipe(rename(function(path) {
         if (path.extname === '') {
