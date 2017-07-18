@@ -7,7 +7,7 @@ export class Locale
   constructor()
   {
     this.isInitialized = false;
-    this.data = null;
+    this.data = {};
   }
 
   initialize()
