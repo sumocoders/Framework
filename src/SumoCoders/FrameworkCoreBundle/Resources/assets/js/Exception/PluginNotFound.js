@@ -1,6 +1,5 @@
 export class PluginNotFound {
-
-  constructor(plugin) {
-    this.plugin = plugin;
+  constructor (plugin) {
+    this.plugin = plugin
   }
 }

@@ -1,26 +1,19 @@
-export class SetHeight
-{
-  constructor()
-  {
-    this.setContentHeight();
-  }
-
-  setContentHeight()
-  {
-    $('#content').css('minHeight', $(window).height());
-    let timeout = null;
+export class SetHeight {
+  setContentHeight () {
+    $('#content').css('minHeight', $(window).height())
+    let timeout = null
 
     $(window).on(
       'resize',
-      function(e) {
-        clearTimeout(timeout);
+      function (e) {
+        clearTimeout(timeout)
         timeout = setTimeout(
           function () {
-              $('#content').css('minHeight', $(window).height());
+            $('#content').css('minHeight', $(window).height())
           },
           200
-        );
+        )
       }
-    );
+    )
   }
 }

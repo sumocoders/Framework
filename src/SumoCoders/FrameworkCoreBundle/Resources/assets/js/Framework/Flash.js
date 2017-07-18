@@ -1,11 +1,9 @@
-import {Locale} from 'Framework/Locale';
-const locale = new Locale();
+import {Locale} from 'Framework/Locale'
+const locale = new Locale()
 
-export class Flash
-{
-  add(message, type, time)
-  {
-    let alertId = Date.now();
+export class Flash {
+  add (message, type, time) {
+    let alertId = Date.now()
 
     $('.main-header').append(
         `<div class="alert alert-${type} alert-dismissible notification" role="status" data-alert-id="${alertId}">
@@ -16,18 +14,17 @@ export class Flash
           </a> ${message}
         </div>
       </div>`
-    );
+    )
 
     if (time !== undefined && time !== null) {
-      let callback = () => this.remove(alertId);
-      setTimeout(callback, time);
+      let callback = () => this.remove(alertId)
+      setTimeout(callback, time)
     }
 
-    return alertId;
+    return alertId
   }
 
-  remove(alertId)
-  {
+  remove (alertId) {
     $('[data-alert-id=' + alertId + ']').remove()
   }
 }

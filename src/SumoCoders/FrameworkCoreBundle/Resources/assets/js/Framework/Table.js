@@ -1,19 +1,16 @@
-export class Table
-{
-  constructor()
-  {
-    $('.table tr').on('click', $.proxy(this.clickableTablerow, this));
+export class Table {
+  initEventListeners () {
+    $('.table tr').on('click', $.proxy(this.clickableTablerow, this))
   }
 
-  clickableTablerow(event)
-  {
+  clickableTablerow (event) {
     if (event.target.nodeName !== 'TD') {
-      return;
+      return
     }
 
-    let actionUrl = $(this).closest('tr').find('.action a').attr('href');
+    let actionUrl = $(this).closest('tr').find('.action a').attr('href')
     if (actionUrl) {
-      window.document.location = actionUrl;
+      window.document.location = actionUrl
     }
   }
 }
