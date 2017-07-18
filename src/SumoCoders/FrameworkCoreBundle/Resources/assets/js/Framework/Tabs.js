@@ -19,7 +19,6 @@ export class Tabs
       window.location.hash = '#' + $current.href.split('#')[1];
       $(window).scrollTop(scrolled);
     }
-
-    $(this).tab('show');
+    $current.tab('show');
   }
 }
