@@ -2,21 +2,7 @@ export class Scrolling
 {
   constructor()
   {
-    $('a.backToTop').on('click', $.proxy(this.scrollToTop, this));
     $('a[href*=#]').on('click', $.proxy(this.scrollTo, this));
-  }
-
-  scrollToTop(event)
-  {
-    event.preventDefault();
-    let $htmlBody = $('html, body');
-    $htmlBody.stop();
-    $htmlBody.animate(
-      {
-        scrollTop: $('#main-wrapper').offset().top
-      },
-      500
-    );
   }
 
   scrollTo(event)
