@@ -111,8 +111,6 @@ export class Form {
       let startDate = ''
       let endDate = ''
 
-      console.log($dateWrapper.data('dateType'))
-
       switch ($dateWrapper.data('dateType')) {
         case 'start':
           startDate = this.parseDate($dateWrapper, 'minimumDate')
@@ -123,7 +121,6 @@ export class Form {
           break
 
         case 'range':
-          console.log('Ik ben een range')
           startDate = this.parseDate($dateWrapper, 'minimumDate')
           endDate = this.parseDate($dateWrapper, 'maximumDate')
           break
