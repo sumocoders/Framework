@@ -38,8 +38,7 @@ export class Ajax {
 
       return false
     })
-
-    /* show spinners */
+    
     $(document).ajaxStart(() => {
       $.event.trigger('ajax_start')
     })
