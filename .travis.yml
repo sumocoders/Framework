@@ -14,14 +14,6 @@ matrix:
 
 cache: yarn
 
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb https://dl.yarnpkg.com/debian/ stable main'
-        key_url: 'https://dl.yarnpkg.com/debian/pubkey.gpg'
-    packages:
-      - yarn
-
 before_script:
   - composer self-update
   - mysql -e 'create database app_test'
@@ -30,6 +22,13 @@ before_script:
   - composer run-script post-travis
   - php app/console doctrine:migration:migrate --env=test --no-interaction
 #  - php app/console doctrine:fixtures:load --env=test --no-interaction
+
+  # install v6.x of nodejs
+  - nvm install 6
+  #install yarn globally
+  - npm install -g yarn
+  # yarn install is like npm install
+  - yarn install
 
   # install required gulp-packages
   - yarn add gulp@"^3.9.0" gulp-rename@"^1.2.2" gulp-coffee@"^2.3.1" gulp-util@"^3.0.6"
