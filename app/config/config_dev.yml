@@ -24,11 +24,11 @@ monolog:
 #            type:  chromephp
 #            level: info
         console:
+          # To follow logs in real time, execute the following command:
+          # `bin/console server:log -vv`
           type: console
           process_psr_3_messages: false
           channels: ['!event', '!doctrine', '!console']
-        # To follow logs in real time, execute the following command:
-        # `bin/console server:log -vv`
         server_log:
           type: server_log
           process_psr_3_messages: false
