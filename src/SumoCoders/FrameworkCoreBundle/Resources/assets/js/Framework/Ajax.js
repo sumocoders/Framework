@@ -20,13 +20,13 @@ export class Ajax {
         window.location.reload()
       }
 
-      if (ajaxOptions != null) {
+      if (ajaxOptions !== null) {
         let textStatus = locale.err('GeneralError')
 
-        if (XMLHttpRequest.responseText != null) {
+        if (XMLHttpRequest.responseText !== null) {
           let json = $.parseJSON(XMLHttpRequest.responseText)
 
-          if (json.message != null) {
+          if (json.message !== null) {
             textStatus = json.message
           } else {
             textStatus = XMLHttpRequest.responseText

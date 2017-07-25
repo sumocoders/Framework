@@ -99,7 +99,7 @@
         $('#addValue-' + id).val($('#addValue-' + id + ' option:enabled:first').attr('value'))
 
         // call callback if specified
-        if (options.afterBuild != null) { options.afterBuild(id) }
+        if (options.afterBuild !== null) { options.afterBuild(id) }
       }
 
       function get () {
