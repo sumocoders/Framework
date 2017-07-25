@@ -38,7 +38,7 @@ export class Ajax {
 
       return false
     })
-    
+
     $(document).ajaxStart(() => {
       $.event.trigger('ajax_start')
     })
