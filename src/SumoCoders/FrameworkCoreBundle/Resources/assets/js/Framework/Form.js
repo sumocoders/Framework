@@ -75,7 +75,6 @@ export class Form {
 
   initForm () {
     this.dateFields()
-    this.fixPlaceholders()
     $('form').on('submit', $.proxy(this.hijackSubmit, this))
   }
 
@@ -157,42 +156,6 @@ export class Form {
         return $(el).datepicker('show')
       }
     })
-  }
-
-  /* fixes */
-  fixPlaceholders () {
-    /* detect if placeholder-attributes is supported */
-    jQuery.support.placeholder = (Array.from(document.createElement('input')).includes('placeholder'))
-
-    if (!jQuery.support.placeholder) {
-      let $input = $(this.form).find('input[placeholder]')
-
-      $input.on('focus', () => {
-        let $this = $(this)
-
-        if ($this.val() === $this.attr('placeholder')) {
-          $this.val('').removeClass('placeholder')
-        }
-      })
-
-      $input.on('blur', () => {
-        let $this = $(this)
-
-        if ($this.val() === '' || $this.val() === $this.attr('placeholder')) {
-          $this.val($this.attr('placeholder')).addClass('placeholder')
-        }
-      })
-
-      $input.blur()
-
-      $input.parents('form').submit(() => {
-        $(this).find('input[placeholder]').each(() => {
-          if ($(this).val() === $(this).attr('placeholder')) {
-            $(this).val('')
-          }
-        })
-      })
-    }
   }
 
   hijackSubmit () {
