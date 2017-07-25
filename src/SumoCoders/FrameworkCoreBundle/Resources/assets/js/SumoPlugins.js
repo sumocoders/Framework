@@ -1,8 +1,3 @@
-/**
- * Multiple select box
- *
- * @author Tijs Verkoyen <tijs@sumocoders.be>
- */
 (function ($) {
   $.fn.multipleSelectbox = function (options) {
     var defaults = {
