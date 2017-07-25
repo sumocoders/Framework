@@ -12,6 +12,16 @@ matrix:
   include:
     - php: 7.1
 
+cache: yarn
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://dl.yarnpkg.com/debian/ stable main'
+        key_url: 'https://dl.yarnpkg.com/debian/pubkey.gpg'
+    packages:
+      - yarn
+
 before_script:
   - composer self-update
   - mysql -e 'create database app_test'
