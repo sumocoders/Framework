@@ -43,6 +43,7 @@ See [https://github.com/phiamo/MopaBootstrapBundle](https://github.com/phiamo/Mo
 
 * [Frontend Development](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/frontend/frontend-development.md)
 * [Using Gulp](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/frontend/gulp.md)
+* [Configuring Webstorm/PHPStorm to use Standard JS code styling](https://blog.jetbrains.com/webstorm/2017/01/webstorm-2017-1-eap-171-2272/)
 
 ### Development
 
