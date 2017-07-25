@@ -1,3 +1,5 @@
+dist: precise
+
 sudo: false
 
 env:
@@ -20,7 +22,7 @@ before_script:
 #  - php app/console doctrine:fixtures:load --env=test --no-interaction
 
   # install required gulp-packages
-  - npm install gulp@"^3.9.0" gulp-rename@"^1.2.2" gulp-coffee@"^2.3.1" gulp-util@"^3.0.6" -g
+  - npm install gulp@"^3.9.0" gulp-rename@"^1.2.2" gulp-coffee@"^2.3.1" gulp-util@"^3.0.6"
 
   # create some bogus files
   - mkdir -p web/assets/css && touch web/assets/css/style.css
