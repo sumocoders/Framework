@@ -79,7 +79,7 @@ export class Form {
   }
 
   parseDate (element, key) {
-    if (element.data(key) !== undefined || element.data(key) !== null) {
+    if (typeof element.data(key) === 'undefined' || element.data(key) === null) {
       return ''
     }
 
@@ -108,45 +108,42 @@ export class Form {
         defaultDate: initialDate
       })
 
+      let startDate = ''
+      let endDate = ''
+
+      console.log($dateWrapper.data('dateType'))
+
       switch ($dateWrapper.data('dateType')) {
         case 'start':
-          let startDate = this.parseDate($dateWrapper, 'minimumDate')
-          $(el).datepicker('option', 'minDate', startDate)
-
-          if ((initialDate !== '') && (initialDate < startDate)) {
-            initialDate = startDate
-          }
+          startDate = this.parseDate($dateWrapper, 'minimumDate')
           break
 
         case 'until':
-          let endDate = this.parseDate($dateWrapper, 'maximumDate')
-          $(el).datepicker('option', 'maxDate', endDate)
-
-          if ((initialDate !== '') && (startDate > initialDate)) {
-            initialDate = startDate
-          }
+          endDate = this.parseDate($dateWrapper, 'maximumDate')
           break
 
         case 'range':
+          console.log('Ik ben een range')
           startDate = this.parseDate($dateWrapper, 'minimumDate')
-          $(el).datepicker('option', 'minDate', startDate)
-
-          if ((initialDate !== '') && (initialDate < startDate)) {
-            initialDate = startDate
-          }
-
           endDate = this.parseDate($dateWrapper, 'maximumDate')
-          $(el).datepicker('option', 'maxDate', endDate)
-
-          if ((initialDate !== '') && (startDate > initialDate)) {
-            initialDate = startDate
-          }
           break
+      }
+
+      if (startDate !== '') {
+        $(el).datepicker('option', 'minDate', startDate)
+      }
+
+      if (endDate !== '') {
+        $(el).datepicker('option', 'maxDate', endDate)
+      }
+
+      if ((initialDate !== '') && (startDate !== '') && (initialDate < startDate)) {
+        initialDate = startDate
       }
 
       // show initial date if provided
       if (initialDate !== '') {
-        return $(el).val($.datepicker.formatDate(this._dateFieldOptions.dateFormat, initialDate))
+        return $(el).val($.datepicker.formatDate(dateFieldOptions.dateFormat, initialDate))
       }
     })
 
