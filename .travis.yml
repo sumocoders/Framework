@@ -16,9 +16,6 @@ cache: yarn
 services:
   - mysql
 
-services:
-  - mysql
-
 before_script:
   - composer self-update
   - mysql -e 'create database app_test'
