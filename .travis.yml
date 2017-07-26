@@ -39,7 +39,7 @@ before_script:
   - mkdir -p web/assets/css && touch web/assets/css/style.css
 
   # generate all required assets
-  - gulp --gulpfile gulp-travis.js build
+  - node_modules/.bin/gulp --gulpfile gulp-travis.js build
   - php app/console assets:instal --env=test
 
 script:
