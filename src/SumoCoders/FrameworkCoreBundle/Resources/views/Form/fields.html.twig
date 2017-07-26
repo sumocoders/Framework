@@ -84,7 +84,7 @@
                data-minimum-date="{{ minimum_date|date('Y-m-d') }}"
              {% endif %}
              >
-             <input {% if widget_form_control_class is not same as(false) %}class="{{ widget_form_control_class }}" {% endif %}type="text" {% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %} style="z-index: 9998;">
+             <input {% if widget_form_control_class is not same as(false) %}class="{{ widget_form_control_class }}" {% endif %}type="text" {% if read_only is defined and read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %} style="z-index: 9998;">
              <input type="hidden" value="{{ value }}" {{ block('widget_attributes') }}>
              <span class="input-group-addon">
                <a href="#" class="faked-button">
@@ -257,33 +257,26 @@
     {% if 'tab' in form.vars.block_prefixes %}
       {{ block('form_tab') }}
     {% elseif embed_form is same as(true) %}
-      {{ widget_prefix|trans({}, translation_domain)|raw }} {{ form_widget(form, _context) }} {{ widget_suffix|trans({}, translation_domain)|raw }}
+      {% if widget_prefix is not empty %}{{ widget_prefix|trans({}, translation_domain)|raw }}{% endif %} {{ form_widget(form, _context) }} {% if widget_suffix is not empty %}{{ widget_suffix|trans({}, translation_domain)|raw }}{% endif %}
     {% else %}
       {{ block('widget_form_group_start') }}
-
-      {% set show_horizontal_wrapper = horizontal and not (form.parent is not null and 'collection' in form.parent.vars.block_prefixes and form.parent.vars.horizontal_wrap_children is same as(false)) %}
-
-      {% if form.parent is not null and 'collection' in form.parent.vars.block_prefixes %}
-        {% set horizontal_input_wrapper_class = 'col-sm-11' %}
-        {% set show_horizontal_wrapper = true %}
-      {% endif %}
 
       {% if horizontal and not label_render %}
         {% set horizontal_input_wrapper_class = horizontal_input_wrapper_class ~ ' ' ~ horizontal_label_offset_class %}
       {% endif %}
 
-      {% if show_horizontal_wrapper %}
+      {% if horizontal %}
         <div class="{{ horizontal_input_wrapper_class }}">
       {% endif %}
 
-      {{ widget_prefix|trans({}, translation_domain)|raw }} {{ form_widget(form, _context) }} {{ widget_suffix|trans({}, translation_domain)|raw }}
+      {% if widget_prefix is not empty %}{{ widget_prefix|trans({}, translation_domain)|raw }}{% endif %} {{ form_widget(form, _context) }} {% if widget_suffix is not empty %}{{ widget_suffix|trans({}, translation_domain)|raw }}{% endif %}
 
       {% set type = type|default('text') %}
       {% if type != 'hidden' %}
         {{ block('form_message') }}
       {% endif %}
 
-      {% if show_horizontal_wrapper %}
+      {% if horizontal %}
         </div>
       {% endif %}
 

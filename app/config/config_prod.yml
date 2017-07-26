@@ -1,6 +1,6 @@
 imports:
     - { resource: config.yml }
-    - { resource: @SumoCodersFrameworkErrorBundle/Resources/config/config.yml }
+    - { resource: "@SumoCodersFrameworkErrorBundle/Resources/config/config.yml" }
 
 # Set our own exception controller so we can show nice pages
 twig:
@@ -18,3 +18,4 @@ monolog:
             level: debug
         console:
             type: console
+            process_psr_3_messages: false

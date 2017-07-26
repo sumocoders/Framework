@@ -2,6 +2,7 @@
 
 namespace SumoCoders\FrameworkCoreBundle\Tests\Composer;
 
+use Composer\IO\ConsoleIO;
 use SumoCoders\FrameworkCoreBundle\Composer\ScriptHandler;
 
 class ScriptHandlerTest extends \PHPUnit_Framework_TestCase
@@ -11,7 +12,7 @@ class ScriptHandlerTest extends \PHPUnit_Framework_TestCase
      */
     public function testRunCommandOnlyInDevMode()
     {
-        $io = $this->getMockBuilder('\Composer\IO\ConsoleIO')
+        $io = $this->getMockBuilder(ConsoleIO::class)
             ->disableOriginalConstructor()
             ->getMock();
         $io->method('isDecorated')

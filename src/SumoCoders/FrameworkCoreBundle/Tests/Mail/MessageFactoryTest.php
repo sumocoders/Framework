@@ -3,6 +3,7 @@
 namespace SumoCoders\FrameworkCoreBundle\Tests\Mail;
 
 use SumoCoders\FrameworkCoreBundle\Mail\MessageFactory;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class MessageFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -34,7 +35,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
      */
     protected function getTemplatingMock()
     {
-        $templating = $this->getMock('\Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
+        $templating = $this->getMockBuilder(EngineInterface::class)->getMock();
         $templating
             ->method('render')
             ->willReturn('<html><head></head><body><p>And I, le content</p></body></html>');
