@@ -1,5 +1,3 @@
-dist: precise
-
 sudo: false
 
 env:
@@ -20,10 +18,13 @@ matrix:
     - php: nightly
     - php: hhvm
 
+services:
+  - mysql
+
 before_script:
   - composer self-update
   - mysql -e 'create database app_test'
-  - "sed 's/database_name:*/database_name: app_test/' app/config/parameters.yml.dist | sed 's/database_user:*/database_user: travis/' | sed 's/database_password:*/database_password:/' > app/config/parameters.yml"
+  - "sed 's/database_name:*/database_name: app_test/' app/config/parameters.yml.dist | sed 's/database_user:*/database_user: root/' | sed 's/database_password:*/database_password:/' > app/config/parameters.yml"
   - composer install --prefer-source --no-interaction --no-scripts
   - composer run-script post-travis
   - php app/console doctrine:migration:migrate --env=test --no-interaction
@@ -36,7 +37,7 @@ before_script:
   - mkdir -p web/assets/css && touch web/assets/css/style.css
 
   # generate all required assets
-  - gulp --gulpfile gulp-travis.js build
+  - node_modules/.bin/gulp --gulpfile gulp-travis.js build
   - php app/console assets:instal --env=test
 
 script:
