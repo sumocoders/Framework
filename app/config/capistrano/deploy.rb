@@ -16,16 +16,22 @@ append :linked_dirs, 'app/logs'
 
 set :symfony_console_path, 'app/console'
 
+# Run required tasks after the stage
+Capistrano::DSL.stages.each do |stage|
+  after stage, 'framework:configure:cachetool'
+end
+
 namespace :deploy do
   after :check, 'framework:symlink:document_root'
 
   after :starting, 'composer:install_executable'
-  after :starting, 'opcache:phpfpm:install_executable'
+  after :starting, 'cachetool:install_executable'
+
+
+  after :published, 'migrations:migrate'
 
   before :publishing, 'assets:upload'
-
-  after :published, 'opcache:phpfpm:reset'
-  after :published, 'migrations:migrate'
+  after :publishing, 'framework:opcache:reset'
 
   after :finished, 'sumo:notifications:deploy'
 

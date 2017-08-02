@@ -7,6 +7,7 @@ require 'capistrano/scm/git'
 install_plugin Capistrano::SCM::Git
 require 'capistrano/symfony'
 require 'capistrano/sumo'
+require 'capistrano/cachetool'
 require 'capistrano/deploytags'
 
 set :format_options, log_file: 'var/logs/capistrano.log'
