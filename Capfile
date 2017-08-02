@@ -8,6 +8,6 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/symfony'
 require 'capistrano/deploytags'
 
-set :format_options, log_file: 'app/logs/capistrano.log'
+set :format_options, log_file: 'var/logs/capistrano.log'
 
 Dir.glob('app/config/capistrano/tasks/*.rake').each { |r| import r }
