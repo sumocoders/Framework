@@ -1,0 +1,6 @@
+version: '2'
+services:
+  web:
+    environment:
+      - SYMFONY_ENV=dev
+      - SYMFONY_DEBUG=1
