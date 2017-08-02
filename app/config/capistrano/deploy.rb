@@ -1,7 +1,7 @@
-set :client,  ''
-set :project, ''
-set :repo_url, ''
-set :production_url, ''
+set :client,  '$client'
+set :project, '$project'
+set :repo_url, '$repo-url'
+set :production_url, '$production-url'
 
 ### DO NOT EDIT BELOW ###
 set :application, "#{fetch :project}"
