@@ -33,6 +33,8 @@ parameters:
     # Form configuration
     secret: ThisTokenIsNotSoSecretChangeIt
 
+    #Sentry configuration
+    sentry.dsn: ''
 
     # Fallback
     fallbacks: { site_title: 'Our little framework' }
