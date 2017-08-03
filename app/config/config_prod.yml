@@ -18,3 +18,7 @@ monolog:
         console:
             type: console
             process_psr_3_messages: false
+
+# Sentry configuration
+sentry:
+  dsn: '%sentry.dsn'

@@ -28,12 +28,15 @@ class AppKernel extends Kernel
             new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new Sentry\SentryBundle\SentryBundle(),
 
             new SumoCoders\FrameworkCoreBundle\SumoCodersFrameworkCoreBundle(),
             new SumoCoders\FrameworkSearchBundle\SumoCodersFrameworkSearchBundle(),
             new SumoCoders\FrameworkMultiUserBundle\SumoCodersFrameworkMultiUserBundle(),
         ];
+
+        if ($this->getEnvironment() === 'prod') {
+            $bundles[] = new \Sentry\SentryBundle\SentryBundle();
+        }
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
