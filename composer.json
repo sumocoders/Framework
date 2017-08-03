@@ -35,8 +35,6 @@
         "knplabs/knp-menu-bundle": "^2.1",
         "tijsverkoyen/css-to-inline-styles": "^2.0",
         "jms/di-extra-bundle": "^1.7",
-
-        "sumocoders/framework-error-bundle": "^4.0.0",
         "sumocoders/framework-search-bundle": "^4.0.0",
         "sumocoders/framework-example-bundle": "^5.0.0",
         "sumocoders/framework-multi-user-bundle": "^5.0.0",

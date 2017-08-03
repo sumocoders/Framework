@@ -24,7 +24,6 @@ class AppKernel extends Kernel
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Eo\AirbrakeBundle\EoAirbrakeBundle(),
             new SimpleBus\SymfonyBridge\DoctrineOrmBridgeBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
@@ -32,7 +31,6 @@ class AppKernel extends Kernel
 
             new SumoCoders\FrameworkCoreBundle\SumoCodersFrameworkCoreBundle(),
             new SumoCoders\FrameworkSearchBundle\SumoCodersFrameworkSearchBundle(),
-            new SumoCoders\FrameworkErrorBundle\SumoCodersFrameworkErrorBundle(),
             new SumoCoders\FrameworkMultiUserBundle\SumoCodersFrameworkMultiUserBundle(),
         ];
 
