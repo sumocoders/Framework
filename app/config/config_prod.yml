@@ -3,7 +3,7 @@ imports:
 
 # Set our own exception controller so we can show nice pages
 twig:
-    exception_controller: SumoCodersFrameworkErrorBundle:Exception:showException
+    exception_controller: SumoCodersFrameworkCoreBundle:Exception:onException
 
 monolog:
     handlers:
