@@ -1,7 +1,6 @@
 imports:
   - { resource: parameters.yml }
   - { resource: security.yml }
-  - { resource: "@SumoCodersFrameworkErrorBundle/Resources/config/config.yml" }
 
 services:
   multi_user.user_repository.collection:

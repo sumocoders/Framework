@@ -33,8 +33,6 @@ parameters:
     # Form configuration
     secret: ThisTokenIsNotSoSecretChangeIt
 
-    # Errbit configuration
-    errbit_api_key:
 
     # Fallback
     fallbacks: { site_title: 'Our little framework' }
