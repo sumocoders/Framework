@@ -98,7 +98,7 @@ Depending on the environment you should give other answers:
 * locales: enter an array with the languages that should be available
 * locale: enter the default locale
 * secret: this should be a random string
-* errbit_api_key: null
+* sentry.dsn: null
 
 ### Production
 
@@ -113,7 +113,7 @@ Depending on the environment you should give other answers:
 * locales: enter an array with the languages that should be available
 * locale: enter the default locale
 * secret: this should be a random string
-* errbit_api_key: the api key you have created for this project
+* sentry.dsn: the sentry api key you have created for this project
 
 When this is done you have two options: creating an empty database, or putting
 your local database online.
