@@ -21,4 +21,4 @@ monolog:
 
 # Sentry configuration
 sentry:
-  dsn: '%sentry.dsn'
+  dsn: '%sentry.dsn%'
