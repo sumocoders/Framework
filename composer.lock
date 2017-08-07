@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8216d7f284043d57b2756933c0866fc",
+    "content-hash": "ffefbb2519cf6360fd920e595cfaad0b",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -163,53 +163,6 @@
                 "tls"
             ],
             "time": "2017-03-06T11:59:08+00:00"
-        },
-        {
-            "name": "dbtlr/php-airbrake",
-            "version": "1.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dbtlr/php-airbrake.git",
-                "reference": "69fd4782219ba22fcfe4c278de1eebbbe38f0950"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dbtlr/php-airbrake/zipball/69fd4782219ba22fcfe4c278de1eebbbe38f0950",
-                "reference": "69fd4782219ba22fcfe4c278de1eebbbe38f0950",
-                "shasum": ""
-            },
-            "require-dev": {
-                "ext-curl": "*",
-                "php": ">=5.3.3",
-                "phpunit/phpunit": "*",
-                "squizlabs/php_codesniffer": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Airbrake\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Drew Butler",
-                    "email": "hi@dbtlr.com",
-                    "homepage": "http://dbtlr.com"
-                }
-            ],
-            "description": "A PHP 5.3 library for sending errors to the Airbrake.io service.",
-            "homepage": "https://github.com/dbtlr/php-airbrake",
-            "keywords": [
-                "airbrake",
-                "errors",
-                "exceptions",
-                "logging"
-            ],
-            "time": "2015-08-25T15:01:23+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -1114,53 +1067,6 @@
                 "orm"
             ],
             "time": "2016-12-18T15:42:34+00:00"
-        },
-        {
-            "name": "eo/airbrake-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/eymengunay/EoAirbrakeBundle.git",
-                "reference": "efbd8ddceaa5e949e51d9bde25fd42d997663fbe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/eymengunay/EoAirbrakeBundle/zipball/efbd8ddceaa5e949e51d9bde25fd42d997663fbe",
-                "reference": "efbd8ddceaa5e949e51d9bde25fd42d997663fbe",
-                "shasum": ""
-            },
-            "require": {
-                "dbtlr/php-airbrake": "~1.1",
-                "symfony/symfony": "^2.7 || ^3.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Eo\\AirbrakeBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Eymen Gunay",
-                    "email": "eymen@egunay.com"
-                }
-            ],
-            "description": "Airbrake.io integration for Symfony",
-            "keywords": [
-                "airbrake",
-                "errbit",
-                "exception"
-            ],
-            "time": "2017-01-18 13:16:01"
         },
         {
             "name": "fig/link-util",
@@ -2877,6 +2783,130 @@
             "time": "2017-03-31T14:50:32+00:00"
         },
         {
+            "name": "sentry/sentry",
+            "version": "1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getsentry/sentry-php.git",
+                "reference": "ed62ac351124a136f61b7ece7e0d172f4c56897b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/ed62ac351124a136f61b7ece7e0d172f4c56897b",
+                "reference": "ed62ac351124a136f61b7ece7e0d172f4c56897b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": "^5.3|^7.0"
+            },
+            "conflict": {
+                "raven/raven": "*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.8.0",
+                "monolog/monolog": "*",
+                "phpunit/phpunit": "^4.8 || ^5.0"
+            },
+            "suggest": {
+                "ext-hash": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "immobiliare/sentry-php": "Fork that fixes support for PHP 5.2",
+                "monolog/monolog": "Automatically capture Monolog events as breadcrumbs"
+            },
+            "bin": [
+                "bin/sentry"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Raven_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "David Cramer",
+                    "email": "dcramer@gmail.com"
+                }
+            ],
+            "description": "A PHP client for Sentry (http://getsentry.com)",
+            "homepage": "http://getsentry.com",
+            "keywords": [
+                "log",
+                "logging"
+            ],
+            "time": "2017-08-02T16:38:25+00:00"
+        },
+        {
+            "name": "sentry/sentry-symfony",
+            "version": "0.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getsentry/sentry-symfony.git",
+                "reference": "c603aa354c8c3ffe4c39b1e80a82a0407bb3144b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getsentry/sentry-symfony/zipball/c603aa354c8c3ffe4c39b1e80a82a0407bb3144b",
+                "reference": "c603aa354c8c3ffe4c39b1e80a82a0407bb3144b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "sentry/sentry": ">=1.5.0",
+                "symfony/config": "^2.7|^3.0",
+                "symfony/console": "^2.7|^3.0",
+                "symfony/dependency-injection": "^2.7|^3.0",
+                "symfony/event-dispatcher": "^2.7|^3.0",
+                "symfony/http-kernel": "^2.7|^3.0",
+                "symfony/security-core": "^2.7|^3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.8.0",
+                "phpunit/phpunit": "^4.6.6"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sentry\\SentryBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Cramer",
+                    "email": "dcramer@gmail.com"
+                }
+            ],
+            "description": "Symfony integration for Sentry (http://getsentry.com)",
+            "homepage": "http://getsentry.com",
+            "keywords": [
+                "errors",
+                "logging",
+                "sentry",
+                "symfony"
+            ],
+            "time": "2017-07-28T18:56:56+00:00"
+        },
+        {
             "name": "simple-bus/doctrine-orm-bridge",
             "version": "v4.0.0",
             "source": {
@@ -3043,56 +3073,6 @@
                 "symfony"
             ],
             "time": "2016-07-17T12:50:07+00:00"
-        },
-        {
-            "name": "sumocoders/framework-error-bundle",
-            "version": "v4.0.0",
-            "target-dir": "SumoCoders/FrameworkErrorBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sumocoders/FrameworkErrorBundle.git",
-                "reference": "aba45c78d022aa5a1325dbac7621df0912b4bc53"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkErrorBundle/zipball/aba45c78d022aa5a1325dbac7621df0912b4bc53",
-                "reference": "aba45c78d022aa5a1325dbac7621df0912b4bc53",
-                "shasum": ""
-            },
-            "require": {
-                "eo/airbrake-bundle": "dev-master as 1.1",
-                "php": "^5.5 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.2 || ^4.8",
-                "sensio/framework-extra-bundle": "^3.0",
-                "symfony/framework-bundle": "^3.3",
-                "symfony/monolog-bundle": "^3.3",
-                "symfony/phpunit-bridge": "^3.3",
-                "symfony/symfony": "^3.3"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "SumoCoders\\FrameworkErrorBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tijs Verkoyen",
-                    "email": "tijs@sumocoders.be"
-                }
-            ],
-            "description": "Error bundle for our mini-framework",
-            "keywords": [
-                "SumoCoders",
-                "errbit"
-            ],
-            "time": "2017-07-06T14:11:15+00:00"
         },
         {
             "name": "sumocoders/framework-example-bundle",
@@ -4384,6 +4364,53 @@
                 "validator"
             ],
             "time": "2017-04-03T19:08:52+00:00"
+        },
+        {
+            "name": "dbtlr/php-airbrake",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dbtlr/php-airbrake.git",
+                "reference": "69fd4782219ba22fcfe4c278de1eebbbe38f0950"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dbtlr/php-airbrake/zipball/69fd4782219ba22fcfe4c278de1eebbbe38f0950",
+                "reference": "69fd4782219ba22fcfe4c278de1eebbbe38f0950",
+                "shasum": ""
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "php": ">=5.3.3",
+                "phpunit/phpunit": "*",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Airbrake\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Drew Butler",
+                    "email": "hi@dbtlr.com",
+                    "homepage": "http://dbtlr.com"
+                }
+            ],
+            "description": "A PHP 5.3 library for sending errors to the Airbrake.io service.",
+            "homepage": "https://github.com/dbtlr/php-airbrake",
+            "keywords": [
+                "airbrake",
+                "errors",
+                "exceptions",
+                "logging"
+            ],
+            "time": "2015-08-25T15:01:23+00:00"
         },
         {
             "name": "doctrine/data-fixtures",

@@ -35,8 +35,6 @@
         "knplabs/knp-menu-bundle": "^2.1",
         "tijsverkoyen/css-to-inline-styles": "^2.0",
         "jms/di-extra-bundle": "^1.7",
-
-        "sumocoders/framework-error-bundle": "^4.0.0",
         "sumocoders/framework-search-bundle": "^4.0.0",
         "sumocoders/framework-example-bundle": "^5.0.0",
         "sumocoders/framework-multi-user-bundle": "^5.0.0",
@@ -44,7 +42,8 @@
         "simple-bus/symfony-bridge": "^4.1",
         "simple-bus/doctrine-orm-bridge": "^4.0",
         "gedmo/doctrine-extensions": "^2.4",
-        "friendsofsymfony/jsrouting-bundle": "^1.6"
+        "friendsofsymfony/jsrouting-bundle": "^1.6",
+        "sentry/sentry-symfony": "^0.8.2"
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev",

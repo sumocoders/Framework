@@ -90,6 +90,11 @@ dialogs:
     messages:
         confirmDelete: Ben je zeker dat je %entity% wil verwijderen?
 
+error:
+    messages:
+      generic: Er ging iets mis.
+      noRouteFound: De pagina werd niet gevonden.
+
 forms:
     labels:
         required: dit veld is verplicht
