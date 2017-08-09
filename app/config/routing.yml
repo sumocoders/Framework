@@ -11,3 +11,6 @@ sumo_coders_framework_core:
 sumo_coders_framework_multi_user:
     resource: "@SumoCodersFrameworkMultiUserBundle/Resources/config/routing.yml"
     prefix:   /
+
+fos_js_routing:
+  resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

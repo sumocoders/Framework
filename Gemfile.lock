@@ -8,12 +8,14 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
+    capistrano-cachetool (1.0.3)
     capistrano-composer (0.0.6)
       capistrano (>= 3.0.0.pre)
     capistrano-deploytags (1.0.7)
       capistrano (>= 3.7.0)
     capistrano-file-permissions (1.0.0)
       capistrano (~> 3.0)
+    capistrano-sumo (1.1.2)
     capistrano-symfony (1.0.0.rc2)
       capistrano (~> 3.1)
       capistrano-composer (~> 0.0.3)
@@ -32,8 +34,10 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano (~> 3.8)
+  capistrano-cachetool (~> 1.0.0)
   capistrano-deploytags (~> 1.0)
+  capistrano-sumo (~> 1.1)
   capistrano-symfony (~> 1.0.0.rc1)
 
 BUNDLED WITH
-   1.14.6
+   1.15.3

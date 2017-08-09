@@ -1,7 +1,6 @@
 imports:
   - { resource: parameters.yml }
   - { resource: security.yml }
-  - { resource: "@SumoCodersFrameworkErrorBundle/Resources/config/config.yml" }
 
 services:
   multi_user.user_repository.collection:
@@ -19,6 +18,46 @@ services:
     tags:
       - { name: twig.extension }
 
+  extension.listener:
+    class: SumoCoders\FrameworkCoreBundle\EventListener\DoctrineExtensionListener
+    arguments:
+      - "@security.token_storage"
+      - "@security.authorization_checker"
+      - "@gedmo.listener.loggable"
+      - "@gedmo.listener.blameable"
+    tags:
+        # loggable hooks user username if one is in security context
+        - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+  gedmo.listener.sluggable:
+    class: Gedmo\Sluggable\SluggableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+  gedmo.listener.sortable:
+    class: Gedmo\Sortable\SortableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+  gedmo.listener.loggable:
+    class: Gedmo\Loggable\LoggableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+  gedmo.listener.blameable:
+    class: Gedmo\Blameable\BlameableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+
 # Framework configuration
 framework:
   translator: { fallback: "%locale%" }
@@ -27,21 +66,23 @@ framework:
   csrf_protection: ~
   form:            ~
   session:
-    handler_id:  ~
-    save_path: "%kernel.root_dir%/sessions/"
+    # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+    handler_id: session.handler.native_file
+    save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
   router:
-    resource: "%kernel.root_dir%/config/routing.yml"
+    resource: "%kernel.project_dir%/app/config/routing.yml"
     strict_requirements: ~
   validation: { enable_annotations: true }
   templating:
     engines: ['twig']
   default_locale:  "%locale%"
   trusted_hosts:   ~
-  trusted_proxies: ~
   fragments:       ~
   assets:
     version: 1
     version_format: '%%s?v=%%s'
+  php_errors:
+    log: true
 
 # Twig Configuration
 twig:
@@ -49,7 +90,7 @@ twig:
   strict_variables: %kernel.debug%
   globals:
     fallbacks: "@framework.fallbacks"
-    jsData: "@framework.jsData"
+    jsData: "@framework.jsdata"
     locales: %locales%
   form_themes:
     - 'SumoCodersFrameworkCoreBundle:Form:fields.html.twig'
@@ -63,7 +104,7 @@ doctrine:
     dbname:   "%database_name%"
     user:     "%database_user%"
     password: "%database_password%"
-    charset:  UTF8
+    charset:  UTF8MB4
     server_version: "%database_version%"
     types:
       user_status: SumoCoders\FrameworkMultiUserBundle\DBALType\StatusType
@@ -71,6 +112,15 @@ doctrine:
   orm:
     auto_generate_proxy_classes: "%kernel.debug%"
     auto_mapping: true
+    mappings:
+      loggable:
+        type: annotation
+        alias: Gedmo
+        prefix: Gedmo\Loggable\Entity
+        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+    dql:
+      string_functions:
+        MATCH_AGAINST: SumoCodersFrameworkCoreBundle\Extensions\Doctrine\MatchAgainst
 
 doctrine_migrations:
     dir_name: %kernel.root_dir%/migrations
