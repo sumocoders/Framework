@@ -34,18 +34,7 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-      <script type="text/javascript" src="{{ asset('/assets/js/sumo_plugins.js') }}"></script>
-
-      {% if app.environment == 'dev' %}
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.data.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.locale.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.search.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.app.js') }}"></script>
-      {% else %}
-        <script type="text/javascript" src="{{ asset('/assets/js/framework.js') }}"></script>
-      {% endif %}
+      <script type="text/javascript" src="{{ asset('/assets/js/SumoPlugins.js') }}"></script>
     {% endblock %}
 
     {% block icons %}
@@ -66,7 +55,9 @@
     {% block main %}
     {% endblock %}
 
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+      <script type="text/javascript" src="{{ asset('/assets/js/Bundle.js') }}"></script>
+    {% endblock %}
 
     {% if app.environment == 'dev' %}
       <script src="//localhost:35729/livereload.js"></script>

@@ -41,22 +41,8 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.min.js"></script>
       <script type="text/javascript" src="{{ asset('/bundles/mopabootstrap/js/mopabootstrap-collection.js') }}"></script>
-      <script type="text/javascript" src="{{ asset('/assets/js/sumo_plugins.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('/assets/js/SumoPlugins.js') }}"></script>
 
-      {% if app.environment == 'dev' %}
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.data.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.locale.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.flash.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.app.js') }}"></script>
-      {% else %}
-        <script type="text/javascript" src="{{ asset('/assets/js/framework.js') }}"></script>
-      {% endif %}
-
-      {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworksearchbundle.framework.form.search.js') }}"></script>
-      {% endif %}
     {% endblock %}
 
     {% block icons %}
@@ -135,7 +121,7 @@
         {% block footer %}
           <div class="container-fluid">
             <div class="row hidden-md hidden-lg">
-              <a href="#" class="pull-right backToTop"><i class="fa fa-chevron-circle-up"></i> {{ 'core.interface.backToTop'|trans|capitalize }}</a>
+              <a href="#main-wrapper" class="pull-right back-to-top"><i class="fa fa-chevron-circle-up"></i> {{ 'core.interface.backToTop'|trans|capitalize }}</a>
             </div>
           </div>
         {% endblock %}
@@ -145,8 +131,7 @@
     {{ include('SumoCodersFrameworkCoreBundle::dialogs.html.twig') }}
 
     {% block javascripts %}
-      <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-      <script type="text/javascript" src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}" ></script>
+      <script type="text/javascript" src="{{ asset('/assets/js/Bundle.js') }}"></script>
     {% endblock %}
 
     {% if app.environment == 'dev' %}
