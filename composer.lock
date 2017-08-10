@@ -3123,17 +3123,17 @@
         },
         {
             "name": "sumocoders/framework-multi-user-bundle",
-            "version": "v5.0.0",
+            "version": "5.0.1",
             "target-dir": "SumoCoders/FrameworkMultiUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkMultiUserBundle.git",
-                "reference": "82d7f8e551b56f8a8820ff550c4df80cbc7d087d"
+                "reference": "4f48d49e2bfe0db22152ca1d83bd226680eb4d4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkMultiUserBundle/zipball/82d7f8e551b56f8a8820ff550c4df80cbc7d087d",
-                "reference": "82d7f8e551b56f8a8820ff550c4df80cbc7d087d",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkMultiUserBundle/zipball/4f48d49e2bfe0db22152ca1d83bd226680eb4d4e",
+                "reference": "4f48d49e2bfe0db22152ca1d83bd226680eb4d4e",
                 "shasum": ""
             },
             "require": {
@@ -3188,7 +3188,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2017-07-14T12:52:56+00:00"
+            "time": "2017-08-10T12:25:28+00:00"
         },
         {
             "name": "sumocoders/framework-search-bundle",
