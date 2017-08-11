@@ -88,13 +88,13 @@ Depending on the environment you should give other answers:
 ### Staging
 
 * debug_email:  null
-* database_driver: pdo_mysql
-* database_host: 127.0.0.1
-* database_port: null
-* database_name: the name of the database you created
-* database_user: the user for the database you created
-* database_password: the password for the database you created
-* mailer_transport: mail
+* database.driver: pdo_mysql
+* database.host: 127.0.0.1
+* database.port: null
+* database.name: the name of the database you created
+* database.user: the user for the database you created
+* database.password: the password for the database you created
+* mailer.transport: mail
 * locales: enter an array with the languages that should be available
 * locale: enter the default locale
 * secret: this should be a random string
@@ -103,13 +103,13 @@ Depending on the environment you should give other answers:
 ### Production
 
 * debug_email:  bugs@sumocoders.be
-* database_driver: pdo_mysql
-* database_host: the host for the database
-* database_port: null, unless the database is running on a non-default port
-* database_name: the name of the database you created
-* database_user: the user for the database you created
-* database_password: the password for the database you created
-* mailer_transport: mail
+* database.driver: pdo_mysql
+* database.host: the host for the database
+* database.port: null, unless the database is running on a non-default port
+* database.name: the name of the database you created
+* database.user: the user for the database you created
+* database.password: the password for the database you created
+* mailer.transport: mail
 * locales: enter an array with the languages that should be available
 * locale: enter the default locale
 * secret: this should be a random string

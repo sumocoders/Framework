@@ -35,7 +35,7 @@ $message = $messageFactory->createHtmlMessage(
 
 // set some extra properties, just like you would do with a normal \Swift_Message
 $message->setTo(
-    $this->getParameter('mailer_default_to_email')
+    $this->getParameter('mailer.default_to_email')
 );
 
 // send it
