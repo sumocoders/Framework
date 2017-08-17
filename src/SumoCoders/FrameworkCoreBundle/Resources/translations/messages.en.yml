@@ -90,6 +90,11 @@ dialogs:
     messages:
         confirmDelete: Are you sure you want to delete %entity%?
 
+error:
+    messages:
+        generic: Something went wrong.
+        noRouteFound: Page not found.
+
 forms:
     labels:
         required: this field is required

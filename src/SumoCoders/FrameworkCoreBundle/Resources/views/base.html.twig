@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="{{ app.request.locale }}">
   <head>
-    {{ errbit_notifier() }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -44,16 +43,7 @@
       <script type="text/javascript" src="{{ asset('/bundles/mopabootstrap/js/mopabootstrap-collection.js') }}"></script>
       <script type="text/javascript" src="{{ asset('/assets/js/sumo_plugins.js') }}"></script>
 
-      {% if app.environment == 'dev' %}
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.data.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.locale.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.form.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.flash.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.framework.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/assets/js/frameworkcorebundle.app.js') }}"></script>
-      {% else %}
-        <script type="text/javascript" src="{{ asset('/assets/js/framework.js') }}"></script>
-      {% endif %}
+      <script type="text/javascript" src="{{ asset('/assets/js/bundle.js') }}"></script>
 
       {% if bundleExists('SumoCodersFrameworkSearchBundle') %}
         <script type="text/javascript" src="{{ asset('/assets/js/frameworksearchbundle.framework.form.search.js') }}"></script>
@@ -136,7 +126,7 @@
         {% block footer %}
           <div class="container-fluid">
             <div class="row hidden-md hidden-lg">
-              <a href="#" class="pull-right backToTop"><i class="fa fa-chevron-circle-up"></i> {{ 'core.interface.backToTop'|trans|capitalize }}</a>
+              <a href="#main-wrapper" class="pull-right back-to-top"><i class="fa fa-chevron-circle-up"></i> {{ 'core.interface.backToTop'|trans|capitalize }}</a>
             </div>
           </div>
         {% endblock %}

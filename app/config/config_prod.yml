@@ -1,10 +1,9 @@
 imports:
     - { resource: config.yml }
-    - { resource: "@SumoCodersFrameworkErrorBundle/Resources/config/config.yml" }
 
 # Set our own exception controller so we can show nice pages
 twig:
-    exception_controller: SumoCodersFrameworkErrorBundle:Exception:showException
+    exception_controller: SumoCodersFrameworkCoreBundle:Exception:onException
 
 monolog:
     handlers:
@@ -19,3 +18,7 @@ monolog:
         console:
             type: console
             process_psr_3_messages: false
+
+# Sentry configuration
+sentry:
+  dsn: '%sentry.dsn%'

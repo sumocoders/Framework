@@ -1,7 +1,6 @@
 imports:
   - { resource: parameters.yml }
   - { resource: security.yml }
-  - { resource: "@SumoCodersFrameworkErrorBundle/Resources/config/config.yml" }
 
 services:
   multi_user.user_repository.collection:
@@ -99,14 +98,14 @@ twig:
 # Doctrine Configuration
 doctrine:
   dbal:
-    driver:   "%database_driver%"
-    host:     "%database_host%"
-    port:     "%database_port%"
-    dbname:   "%database_name%"
-    user:     "%database_user%"
-    password: "%database_password%"
+    driver:   "%database.driver%"
+    host:     "%database.host%"
+    port:     "%database.port%"
+    dbname:   "%database.name%"
+    user:     "%database.user%"
+    password: "%database.password%"
     charset:  UTF8MB4
-    server_version: "%database_version%"
+    server_version: "%database.version%"
     types:
       user_status: SumoCoders\FrameworkMultiUserBundle\DBALType\StatusType
 
@@ -164,18 +163,12 @@ mopa_bootstrap:
   icons:
     icon_set: fontawesome4
 
-# KPN Pagination Configuration
-knp_paginator:
-  template:
-    pagination: MopaBootstrapBundle:Pagination:sliding.html.twig
-    sortable: MopaBootstrapBundle:Pagination:sortable_link.html.twig
-
 # Swiftmailer
 swiftmailer:
-  transport: "%mailer_transport%"
-  host: "%mailer_host%"
-  username: "%mailer_user%"
-  password: "%mailer_password%"
+  transport: "%mailer.transport%"
+  host: "%mailer.host%"
+  username: "%mailer.user%"
+  password: "%mailer.password%"
 
 # Translation configuration
 jms_translation:

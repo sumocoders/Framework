@@ -4,25 +4,25 @@ parameters:
     debug_email:
 
     # Database configuration
-    database_driver: pdo_mysql
-    database_host: 127.0.0.1
-    database_port: null
-    database_name:
-    database_user:
-    database_password:
-    database_version: 5.5
+    database.driver: pdo_mysql
+    database.host: 127.0.0.1
+    database.port: null
+    database.name:
+    database.user:
+    database.password:
+    database.version: 5.5
 
     # Mail configuration
-    mailer_transport: mail
-    mailer_host: mail.hostbots.be
-    mailer_user:
-    mailer_password:
-    mailer_default_sender_name:
-    mailer_default_sender_email:
-    mailer_default_to_name:
-    mailer_default_to_email:
-    mailer_default_reply_to_name: "%mailer_default_sender_name%"
-    mailer_default_reply_to_email:
+    mailer.transport: mail
+    mailer.host: mail.hostbots.be
+    mailer.user:
+    mailer.password:
+    mailer.default_sender_name:
+    mailer.default_sender_email:
+    mailer.default_to_name:
+    mailer.default_to_email:
+    mailer.default_reply_to_name: "%mailer.default_sender_name%"
+    mailer.default_reply_to_email:
 
     # Locale configuration
     locales:
@@ -33,8 +33,8 @@ parameters:
     # Form configuration
     secret: ThisTokenIsNotSoSecretChangeIt
 
-    # Errbit configuration
-    errbit_api_key:
+    #Sentry configuration
+    sentry.dsn: ''
 
     # Fallback
     fallbacks: { site_title: 'Our little framework' }
