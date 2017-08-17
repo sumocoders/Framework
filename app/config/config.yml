@@ -163,12 +163,6 @@ mopa_bootstrap:
   icons:
     icon_set: fontawesome4
 
-# KPN Pagination Configuration
-knp_paginator:
-  template:
-    pagination: MopaBootstrapBundle:Pagination:sliding.html.twig
-    sortable: MopaBootstrapBundle:Pagination:sortable_link.html.twig
-
 # Swiftmailer
 swiftmailer:
   transport: "%mailer.transport%"
