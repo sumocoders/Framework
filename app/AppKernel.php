@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new SimpleBus\SymfonyBridge\DoctrineOrmBridgeBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
