@@ -9,7 +9,8 @@ In the controller the following code should be used. If necessary a custom adapt
 ```
 $adapter = new DoctrineORMAdapter($queryBuilder);
 $pagerfanta = new Pagerfanta($adapter);
-    return $this->render('@YourApp/Main/example.html.twig', [
+
+return $this->render('@YourApp/Main/example.html.twig', [
     'my_pager' => $pagerfanta,
 ]);
 ```
@@ -19,6 +20,12 @@ $pagerfanta = new Pagerfanta($adapter);
 In the view the following code can be used
 
 ```
+{% for item in my_pager.currentPageResults %}
+    <ul>
+        <li>{{ item.id }}</li>
+    </ul>
+{% endfor %}
+
 <div class="pagerfanta">
     {{ pagerfanta(my_pager, 'twitter_bootstrap3') }}
 </div>
