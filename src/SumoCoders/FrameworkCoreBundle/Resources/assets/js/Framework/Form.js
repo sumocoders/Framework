@@ -1,5 +1,7 @@
 import {Locale} from 'Framework/Locale'
 
+require ('bootstrap-datepicker');
+
 const locale = new Locale()
 const dateFieldOptions = {
   currentText: locale.get('datepicker.buttons.today'),
