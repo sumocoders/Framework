@@ -69,7 +69,7 @@
 {% block date_widget %}
   {% spaceless %}
     {% if widget == 'single_text' %}
-      {% if datepicker is defined %}
+      {% if datepicker %}
         {% set widget_addon_icon = widget_addon_append.icon is defined ? widget_addon_append.icon : 'calendar'  %}
         <div class="input-group">
           <input type="text"
