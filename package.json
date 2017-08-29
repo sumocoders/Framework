@@ -17,7 +17,9 @@
     "Katrien Vanhaute"
   ],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap-datepicker": "^1.7.1"
+  },
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
