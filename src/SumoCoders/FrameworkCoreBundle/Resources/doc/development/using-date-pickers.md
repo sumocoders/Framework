@@ -10,120 +10,28 @@ in the form.
 <?php
 // ...
 
-$defaultData = array(
-    'date_example' => new \DateTime(),
-);
-
-$form = $this->createFormBuilder($defaultData)
-    ->add(
-        'date_example',
-        DateType::class,
-        array(
-            'widget' => 'single_text',
-            'datepicker' => true,
-        )
-    )
+$form = $this->createFormBuilder()
+            ->add(
+                'date',
+                DateType::class,
+                [
+                    'data' => new DateTime(),
+                    'widget' => 'single_text',
+                    'datepicker' => true,
+                    'minimum_date' => DateTime::createFromFormat('Y/m/d', '2017/08/14'),
+                    'maximum_date' => DateTime::createFromFormat('Y/m/d', '2017/08/30'),
+                ]
+            )
 // ...
 ```
 
 As you will see this will only work when the `widget`-option has the value 
 `single_text`.
 
-## Different types
+## Date range
 
-In most case you will have some constraints to the date, and this should be 
-reflected in the UI, therefore we have 4 different types:
-
-* normal
-* start
-* until
-* range
-
-The type can be passed through the `date_type`-option. For some types extra
-options have to be set.
-
-### Normal
-
-This is just the normal behaviour, and through the UI any date can be selected.
-The type can be passed, but it is not required.
-
-<?php
-// ...
-$form = $this->createFormBuilder()
-    ->add(
-        'date_example_normal',
-        DateType::class,
-        array(
-            'widget' => 'single_text',
-            'datepicker' => true,
-        )
-    )
-// ...
-```
-
-### Start
-
-With this type only dates that are later then the given minimum date can be 
-selected.
-
-<?php
-// ...
-$form = $this->createFormBuilder()
-    ->add(
-        'date_example_start',
-        DateType::class,
-        array(
-            'widget' => 'single_text',
-            'datepicker' => true,
-            'date_type' => 'start',
-            'minimum_date' => new \DateTime('last monday'),
-        )
-    )
-// ...
-```
-
-### Until
-
-With this type only dates that are before then the given maximum date can be 
-selected.
-
-<?php
-// ...
-$form = $this->createFormBuilder()
-    ->add(
-        'date_example_start',
-        DateType::class,
-        array(
-            'widget' => 'single_text',
-            'datepicker' => true,
-            'date_type' => 'until',
-            'maximum_date' => new \DateTime('next friday'),
-        )
-    )
-// ...
-```
-
-### Range
-
-With this type only dates between the given minimum and maximum date can be  
-selected.
-
-<?php
-// ...
-$form = $this->createFormBuilder()
-    ->add(
-        'date_example_start',
-        DateType::class,
-        array(
-            'widget' => 'single_text',
-            'datepicker' => true,
-            'date_type' => 'range',
-            'minimum_date' => new \DateTime('last monday'),
-            'maximum_date' => new \DateTime('next friday'),
-        )
-    )
-// ...
-```
+In most case you will have some constraints to the date, and this should be reflected in the UI. 
+Passing the `minimum_date` and / or `maximum_date` limits the selectable dates.
 
 ## More examples
 
