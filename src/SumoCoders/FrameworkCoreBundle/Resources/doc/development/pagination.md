@@ -54,13 +54,17 @@ class ExampleController extends Controller
 In the view the following code can be used
 
 ```
-{% for item in my_pager.currentPageResults %}
-    <ul>
-        <li>{{ item.id }}</li>
-    </ul>
-{% endfor %}
+{% if pager.currentPageResults is not empty %}
+    {% for item in my_pager.currentPageResults %}
+        <ul>
+            <li>{{ item.id }}</li>
+        </ul>
+    {% endfor %}
+{% endif %}
 
-<div class="pagerfanta">
-    {{ pagerfanta(my_pager, 'twitter_bootstrap3') }}
-</div>
-``
+{% if pager.haveToPaginate %}
+    <div class="pagerfanta">
+        {{ pagerfanta(my_pager, 'twitter_bootstrap3') }}
+    </div>
+{% endif %}
+```
