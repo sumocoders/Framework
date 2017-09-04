@@ -409,3 +409,14 @@
     {{ block('form_error') }}
   {% endspaceless %}
 {% endblock %}
+
+{% block collection_button %}
+  <a {% for attrname,attrvalue in button_values.attr %} {{attrname}}="{{attrvalue}}"{% endfor %} data-collection-{{ button_type }}-btn=".{{ form.vars['id'] }}_form_group">
+    {% if button_values.icon is not null %}
+      {{ mopa_bootstrap_icon(button_values.icon, button_values.icon_inverted|default(false)) }}
+    {% endif %}
+    {% if button_values.label is defined %}
+      {{ button_values.label|trans({}, button_values.translation_domain|default(translation_domain))|capitalize }}
+    {% endif %}
+  </a>
+{% endblock collection_button %}
