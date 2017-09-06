@@ -63,7 +63,6 @@ class DatePickerController extends Controller
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
-                    'date_type' => 'normal',
                     'required' => false,
                     'data' => new \DateTime(),
                 )
@@ -74,7 +73,6 @@ class DatePickerController extends Controller
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
-                    'date_type' => 'start',
                     'minimum_date' => new \DateTime('last monday'),
                     'required' => false,
                     'data' => new \DateTime(),
@@ -86,7 +84,6 @@ class DatePickerController extends Controller
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
-                    'date_type' => 'until',
                     'maximum_date' => new \DateTime('next friday'),
                     'required' => false,
                     'data' => new \DateTime(),
@@ -98,7 +95,6 @@ class DatePickerController extends Controller
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
-                    'date_type' => 'range',
                     'minimum_date' => new \DateTime('last monday'),
                     'maximum_date' => new \DateTime('next friday'),
                     'required' => false,
