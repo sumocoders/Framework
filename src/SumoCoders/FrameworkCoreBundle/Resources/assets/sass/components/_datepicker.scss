@@ -9,7 +9,9 @@
   }
 }
 
-
+.date-separator {
+  line-height: $input-height-base;
+}
 
 .ui-widget-header {
   background: $gray-light;

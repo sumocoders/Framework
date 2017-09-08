@@ -108,6 +108,8 @@
       {% set day_widget = form_widget(form.day, {'attr': {'class': attr.widget_class|default('') ~ 'day'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
 
       {{ date_pattern|replace({
+      '/' : "<span class='pull-left date-separator'>/</span>",
+      '-' : "<span class='pull-left date-separator'>-</span>",
       '{{ year }}': "<div class=\"col-md-2\">#{year_widget}</div>",
       '{{ month }}': "<div class=\"col-md-3\">#{month_widget}</div>",
       '{{ day }}': "<div class=\"col-md-2\">#{day_widget}</div>",
