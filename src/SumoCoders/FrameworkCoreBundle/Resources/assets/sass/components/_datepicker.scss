@@ -1,3 +1,16 @@
+.datepicker {
+  z-index: 1000000 !important;
+  td {
+    border-radius: 0 !important;
+  }
+  td.disabled {
+    color: $white !important;
+    background-color: rgba($gray-lighter, 0.2) !important;
+  }
+}
+
+
+
 .ui-widget-header {
   background: $gray-light;
   border-color: $gray-light;
