@@ -54,7 +54,7 @@ class DatePickerControllerTest extends WebTestCase
 
         $this->assertEquals(1, $element->count());
         $this->assertEquals(1, $wrapper->count());
-        $this->assertEquals('1985/06/20', $element->attr('value'));
+        $this->assertEquals('20/06/1985', $element->attr('value'));
     }
 
     public function testIfSingleTextWithDatePickerRenderedCorrectly()
@@ -68,7 +68,7 @@ class DatePickerControllerTest extends WebTestCase
         $this->assertEquals(1, $element->count());
         $this->assertEquals(1, $wrapper->count());
 
-        $this->assertEquals($date->format('Y/m/j'), $element->attr('value'));
+        $this->assertEquals($date->format('d/m/Y'), $element->attr('value'));
     }
 
     public function testIfSingleTextWithDatePickerAndOnlyDatesInTheFutureRenderedCorrectly()
@@ -85,7 +85,7 @@ class DatePickerControllerTest extends WebTestCase
         $this->assertEquals($startDate->format('Y-m-d'), $element->attr('data-date-start-date'));
 
         // check if the actual element is hidden
-        $this->assertEquals($date->format('Y/m/j'), $element->attr('value'));
+        $this->assertEquals($date->format('d/m/Y'), $element->attr('value'));
     }
 
     public function testIfSingleTextWithDatePickerAndOnlyDatesInThePastRenderedCorrectly()
@@ -102,7 +102,7 @@ class DatePickerControllerTest extends WebTestCase
         $this->assertEquals($endDate->format('Y-m-d'), $element->attr('data-date-end-date'));
 
         // check if the actual element is hidden
-        $this->assertEquals($date->format('Y/m/j'), $element->attr('value'));
+        $this->assertEquals($date->format('d/m/Y'), $element->attr('value'));
     }
 
     public function testIfSingleTextWithDatePickerAndOnlyDatesBetweenCorrectly()
@@ -122,7 +122,7 @@ class DatePickerControllerTest extends WebTestCase
         $this->assertEquals($endDate->format('Y-m-d'), $element->attr('data-date-end-date'));
 
         // check if the actual element is hidden
-        $this->assertEquals($date->format('Y/m/j'), $element->attr('value'));
+        $this->assertEquals($date->format('d/m/Y'), $element->attr('value'));
     }
 
     public function testIfSingleTextWithoutDefaultDateRenderedCorrectly()
