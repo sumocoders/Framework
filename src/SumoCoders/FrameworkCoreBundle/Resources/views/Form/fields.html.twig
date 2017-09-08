@@ -90,10 +90,10 @@
                  {% if disabled %} disabled="disabled"{% endif %}
                  {% if required %} required="required"{% endif %}
           >
-          <span class="input-group-addon">
+          <a class="input-group-addon btn btn-primary js-input-focus" data-toggle="#{{ id }}">
              {{ mopa_bootstrap_icon(widget_addon_icon) }}
              <span class="hidden">{{ 'datepicker.pickDate'|trans }}</span>
-          </span>
+          </a>
         </div>
       {% else %}
         {{ block('form_widget_simple') }}

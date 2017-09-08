@@ -94,64 +94,9 @@ export class Form {
   }
 
   dateFields () {
-    if (!$.isFunction($.fn.datepicker)) {
-      return
-    }
-
-    $.datepicker.setDefaults(dateFieldOptions)
-
-    $('[data-date-type] input[type="text"]', this.form).each((i, el) => {
-      let $dateWrapper = $(el).parents('[data-provider="datepicker"]')
-      let initialDate = this.parseDate($dateWrapper, 'date')
-
-      $(el).datepicker({
-        altField: '#' + $dateWrapper.data('linkField'),
-        altFormat: $dateWrapper.data('linkFormat').replace('yyyy', 'yy'),
-        defaultDate: initialDate
-      })
-
-      let startDate = ''
-      let endDate = ''
-
-      switch ($dateWrapper.data('dateType')) {
-        case 'start':
-          startDate = this.parseDate($dateWrapper, 'minimumDate')
-          break
-
-        case 'until':
-          endDate = this.parseDate($dateWrapper, 'maximumDate')
-          break
-
-        case 'range':
-          startDate = this.parseDate($dateWrapper, 'minimumDate')
-          endDate = this.parseDate($dateWrapper, 'maximumDate')
-          break
-      }
-
-      if (startDate !== '') {
-        $(el).datepicker('option', 'minDate', startDate)
-      }
-
-      if (endDate !== '') {
-        $(el).datepicker('option', 'maxDate', endDate)
-      }
-
-      if ((initialDate !== '') && (startDate !== '') && (initialDate < startDate)) {
-        initialDate = startDate
-      }
-
-      // show initial date if provided
-      if (initialDate !== '') {
-        return $(el).val($.datepicker.formatDate(dateFieldOptions.dateFormat, initialDate))
-      }
-    })
-
-    $('[data-date-type] a', this.form).on('click', () => {
-      let el = $(this).parents('[data-provider="datepicker"]').find('input:first')
-      if (!$(el).datepicker('widget').is(':visible')) {
-        return $(el).datepicker('show')
-      }
-    })
+    $('.js-input-focus').on('click', function() {
+      console.log($($(this).data('toggle')).focus());
+    });
   }
 
   hijackSubmit () {
