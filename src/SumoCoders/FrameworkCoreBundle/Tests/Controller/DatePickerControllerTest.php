@@ -82,7 +82,7 @@ class DatePickerControllerTest extends WebTestCase
         $this->assertEquals(1, $element->count());
 
         // check if it has all the required data-attributes
-        $this->assertEquals($startDate->format('Y-m-d'), $element->attr('data-date-start-date'));
+        $this->assertEquals($startDate->format('d/m/Y'), $element->attr('data-date-start-date'));
 
         // check if the actual element is hidden
         $this->assertEquals($date->format('d/m/Y'), $element->attr('value'));
@@ -99,7 +99,7 @@ class DatePickerControllerTest extends WebTestCase
         $this->assertEquals(1, $element->count());
 
         // check if it has all the required data-attributes
-        $this->assertEquals($endDate->format('Y-m-d'), $element->attr('data-date-end-date'));
+        $this->assertEquals($endDate->format('d/m/Y'), $element->attr('data-date-end-date'));
 
         // check if the actual element is hidden
         $this->assertEquals($date->format('d/m/Y'), $element->attr('value'));
@@ -118,8 +118,8 @@ class DatePickerControllerTest extends WebTestCase
         $this->assertEquals(1, $element->count());
 
         // check if it has all the required data-attributes
-        $this->assertEquals($startDate->format('Y-m-d'), $element->attr('data-date-start-date'));
-        $this->assertEquals($endDate->format('Y-m-d'), $element->attr('data-date-end-date'));
+        $this->assertEquals($startDate->format('d/m/Y'), $element->attr('data-date-start-date'));
+        $this->assertEquals($endDate->format('d/m/Y'), $element->attr('data-date-end-date'));
 
         // check if the actual element is hidden
         $this->assertEquals($date->format('d/m/Y'), $element->attr('value'));
