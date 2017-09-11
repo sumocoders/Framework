@@ -76,15 +76,15 @@
                  {% if widget_form_control_class is not same as(false) %}
                    class="{{ widget_form_control_class }}"
                  {% endif %}
-                 data-provide="datepicker"
+                 data-provider="datepicker"
+                 data-format="{{ format }}"
                  value="{{ value }}"
                  {{ block('widget_attributes') }}
-                 data-date-format="yyyy/mm/dd"
                  {% if maximum_date is not null %}
-                   data-date-end-date="{{ maximum_date|date('Y-m-d') }}"
+                   data-date-end-date="{{ maximum_date }}"
                  {% endif %}
                  {% if minimum_date is not null %}
-                   data-date-start-date="{{ minimum_date|date('Y-m-d') }}"
+                   data-date-start-date="{{ minimum_date }}"
                  {% endif %}
                  {% if read_only is defined and read_only %} readonly="readonly"{% endif %}
                  {% if disabled %} disabled="disabled"{% endif %}
@@ -143,10 +143,12 @@
         <div class="col-md-2">
           {{ form_widget(form.hour, { 'attr': {  'size': '1'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2')}) }}
         </div>
+        <span class='pull-left date-separator'>:</span>
         <div class="col-md-2">
           {{ form_widget(form.minute, { 'attr': { 'size': '1' }, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2')}) }}
         </div>
         {% if with_seconds %}
+          <span class='pull-left date-separator'>:</span>
           <div class="col-md-2">
             {{ form_widget(form.second, { 'attr': { 'size': '1' }, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2') }) }}
           </div>

@@ -2,6 +2,7 @@
 
 namespace SumoCoders\FrameworkCoreBundle\Form\Extension;
 
+use IntlDateFormatter;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormInterface;
@@ -38,7 +39,13 @@ final class DateTypeExtension extends AbstractTypeExtension
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars['maximum_date'] = $options['maximum_date'];
-        $view->vars['minimum_date'] = $options['minimum_date'];
+        $view->vars['maximum_date'] = $options['maximum_date'] ? IntlDateFormatter::formatObject($options['maximum_date'], $options['format']) : null;
+        $view->vars['minimum_date'] = $options['minimum_date'] ? IntlDateFormatter::formatObject($options['minimum_date'], $options['format']) : null;
+        $view->vars['format'] = $this->convertToJsFormat($options['format']);
+    }
+
+    private function convertToJsFormat($intlFormat)
+    {
+        return str_replace(['y', 'MM', 'd'], ['yyyy','mm', 'dd'], $intlFormat);
     }
 }

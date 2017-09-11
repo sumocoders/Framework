@@ -1,74 +1,76 @@
 import {Locale} from 'Framework/Locale'
 
-require ('bootstrap-datepicker');
-
 const locale = new Locale()
-const dateFieldOptions = {
-  currentText: locale.get('datepicker.buttons.today'),
-  closeText: locale.get('datepicker.buttons.close'),
-  nextText: locale.get('datepicker.buttons.next'),
-  prevText: locale.get('datepicker.buttons.previous'),
-  firstDay: 1,
-  hideIfNoPrevNext: true,
-  showAnim: 'slideDown',
-  zIndex: 9999,
-  dateFormat: 'dd/mm/yy',
-  dayNames: [
-    locale.get('datepicker.full.days.sunday'),
-    locale.get('datepicker.full.days.monday'),
-    locale.get('datepicker.full.days.tuesday'),
-    locale.get('datepicker.full.days.Wednesday'),
-    locale.get('datepicker.full.days.thursday'),
-    locale.get('datepicker.full.days.friday'),
-    locale.get('datepicker.full.days.saturday')
-  ],
-  dayNamesMin: [
-    locale.get('datepicker.minimal.days.sunday'),
-    locale.get('datepicker.minimal.days.monday'),
-    locale.get('datepicker.minimal.days.tuesday'),
-    locale.get('datepicker.minimal.days.wednesday'),
-    locale.get('datepicker.minimal.days.thursday'),
-    locale.get('datepicker.minimal.days.friday'),
-    locale.get('datepicker.minimal.days.saturday')
-  ],
-  dayNamesShort: [
-    locale.get('datepicker.short.days.sunday'),
-    locale.get('datepicker.short.days.monday'),
-    locale.get('datepicker.short.days.tuesday'),
-    locale.get('datepicker.short.days.wednesday'),
-    locale.get('datepicker.short.days.thursday'),
-    locale.get('datepicker.short.days.friday'),
-    locale.get('datepicker.short.days.saturday')
-  ],
-  monthNames: [
-    locale.get('datepicker.full.months.january'),
-    locale.get('datepicker.full.months.february'),
-    locale.get('datepicker.full.months.march'),
-    locale.get('datepicker.full.months.april'),
-    locale.get('datepicker.full.months.may'),
-    locale.get('datepicker.full.months.june'),
-    locale.get('datepicker.full.months.july'),
-    locale.get('datepicker.full.months.august'),
-    locale.get('datepicker.full.months.september'),
-    locale.get('datepicker.full.months.october'),
-    locale.get('datepicker.full.months.november'),
-    locale.get('datepicker.full.months.december')
-  ],
-  monthNamesShort: [
-    locale.get('datepicker.short.months.january'),
-    locale.get('datepicker.short.months.february'),
-    locale.get('datepicker.short.months.march'),
-    locale.get('datepicker.short.months.april'),
-    locale.get('datepicker.short.months.may'),
-    locale.get('datepicker.short.months.june'),
-    locale.get('datepicker.short.months.july'),
-    locale.get('datepicker.short.months.august'),
-    locale.get('datepicker.short.months.september'),
-    locale.get('datepicker.short.months.october'),
-    locale.get('datepicker.short.months.november'),
-    locale.get('datepicker.short.months.december')
-  ]
+
+let capitalizeWord = function (str) {
+  if (typeof str === 'undefined' || !str) {
+    return '';
+  }
+
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+$.fn.datepicker.dates[jsData.request.locale] = {
+  days: [
+    capitalizeWord(locale.get('datepicker.full.days.sunday')),
+    capitalizeWord(locale.get('datepicker.full.days.monday')),
+    capitalizeWord(locale.get('datepicker.full.days.tuesday')),
+    capitalizeWord(locale.get('datepicker.full.days.wednesday')),
+    capitalizeWord(locale.get('datepicker.full.days.thursday')),
+    capitalizeWord(locale.get('datepicker.full.days.friday')),
+    capitalizeWord(locale.get('datepicker.full.days.saturday'))
+  ],
+  daysMin: [
+    capitalizeWord(locale.get('datepicker.minimal.days.sunday')),
+    capitalizeWord(locale.get('datepicker.minimal.days.monday')),
+    capitalizeWord(locale.get('datepicker.minimal.days.tuesday')),
+    capitalizeWord(locale.get('datepicker.minimal.days.wednesday')),
+    capitalizeWord(locale.get('datepicker.minimal.days.thursday')),
+    capitalizeWord(locale.get('datepicker.minimal.days.friday')),
+    capitalizeWord(locale.get('datepicker.minimal.days.saturday'))
+  ],
+  daysShort: [
+    capitalizeWord(locale.get('datepicker.short.days.sunday')),
+    capitalizeWord(locale.get('datepicker.short.days.monday')),
+    capitalizeWord(locale.get('datepicker.short.days.tuesday')),
+    capitalizeWord(locale.get('datepicker.short.days.wednesday')),
+    capitalizeWord(locale.get('datepicker.short.days.thursday')),
+    capitalizeWord(locale.get('datepicker.short.days.friday')),
+    capitalizeWord(locale.get('datepicker.short.days.saturday'))
+  ],
+  months: [
+    capitalizeWord(locale.get('datepicker.full.months.january')),
+    capitalizeWord(locale.get('datepicker.full.months.february')),
+    capitalizeWord(locale.get('datepicker.full.months.march')),
+    capitalizeWord(locale.get('datepicker.full.months.april')),
+    capitalizeWord(locale.get('datepicker.full.months.may')),
+    capitalizeWord(locale.get('datepicker.full.months.june')),
+    capitalizeWord(locale.get('datepicker.full.months.july')),
+    capitalizeWord(locale.get('datepicker.full.months.august')),
+    capitalizeWord(locale.get('datepicker.full.months.september')),
+    capitalizeWord(locale.get('datepicker.full.months.october')),
+    capitalizeWord(locale.get('datepicker.full.months.november')),
+    capitalizeWord(locale.get('datepicker.full.months.december'))
+  ],
+  monthsShort: [
+    capitalizeWord(locale.get('datepicker.short.months.january')),
+    capitalizeWord(locale.get('datepicker.short.months.february')),
+    capitalizeWord(locale.get('datepicker.short.months.march')),
+    capitalizeWord(locale.get('datepicker.short.months.april')),
+    capitalizeWord(locale.get('datepicker.short.months.may')),
+    capitalizeWord(locale.get('datepicker.short.months.june')),
+    capitalizeWord(locale.get('datepicker.short.months.july')),
+    capitalizeWord(locale.get('datepicker.short.months.august')),
+    capitalizeWord(locale.get('datepicker.short.months.september')),
+    capitalizeWord(locale.get('datepicker.short.months.october')),
+    capitalizeWord(locale.get('datepicker.short.months.november')),
+    capitalizeWord(locale.get('datepicker.short.months.december'))
+  ],
+  today: capitalizeWord(locale.get('datepicker.buttons.today')),
+  clear: capitalizeWord(locale.get('datepicker.buttons.clear')),
+  titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+  weekStart: 1
+};
 
 export class Form {
   constructor (form) {
@@ -94,8 +96,24 @@ export class Form {
   }
 
   dateFields () {
+    $('[data-provider=datepicker]').each((i, el) => {
+      $(el).datepicker({
+        titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+        currentText: locale.get('datepicker.buttons.today'),
+        closeText: locale.get('datepicker.buttons.close'),
+        nextText: locale.get('datepicker.buttons.next'),
+        prevText: locale.get('datepicker.buttons.previous'),
+        firstDay: 1,
+        hideIfNoPrevNext: true,
+        showAnim: 'slideDown',
+        zIndex: 9999,
+        language: jsData.request.locale,
+        format: $(el).data('format')
+      });
+    });
+
     $('.js-input-focus').on('click', function() {
-      console.log($($(this).data('toggle')).focus());
+      $($(this).data('toggle')).focus();
     });
   }
 
