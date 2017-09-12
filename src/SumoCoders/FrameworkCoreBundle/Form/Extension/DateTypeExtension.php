@@ -32,6 +32,11 @@ final class DateTypeExtension extends AbstractTypeExtension
                 'minimum_date' => null,
             )
         );
+
+        $resolver->setAllowedValues('widget', array(
+            'single_text',
+            'choice',
+        ));
     }
 
     /**
