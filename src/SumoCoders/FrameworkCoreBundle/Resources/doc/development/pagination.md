@@ -64,7 +64,7 @@ In the view the following code can be used
 
 {% if pager.haveToPaginate %}
     <div class="pagerfanta">
-        {{ pagerfanta(my_pager, 'twitter_bootstrap3_translated') }}
+        {{ pagerfanta(my_pager, 'sumocoders') }}
     </div>
 {% endif %}
 ```
