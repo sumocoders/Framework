@@ -25,8 +25,8 @@ before_script:
   - php app/console doctrine:migration:migrate --env=test --no-interaction
 #  - php app/console doctrine:fixtures:load --env=test --no-interaction
 
-  # install v6.x of nodejs
-  - nvm install 6
+  # install v7.x of nodejs
+  - nvm install 7
   #install yarn globally
   - npm install -g yarn
   # yarn install is like npm install
