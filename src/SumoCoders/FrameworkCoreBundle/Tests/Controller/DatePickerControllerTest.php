@@ -29,15 +29,6 @@ class DatePickerControllerTest extends WebTestCase
         $this->assertEquals(1, $crawler->filter('select#form_date_example1_year')->count());
     }
 
-    public function testIfTextRenderedCorrectly()
-    {
-        $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
-
-        $this->assertEquals(1, $crawler->filter('input#form_date_example2_month')->count());
-        $this->assertEquals(1, $crawler->filter('input#form_date_example2_day')->count());
-        $this->assertEquals(1, $crawler->filter('input#form_date_example2_year')->count());
-    }
-
     public function testIfSingleTextRenderedCorrectly()
     {
         $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
@@ -50,10 +41,8 @@ class DatePickerControllerTest extends WebTestCase
         $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
 
         $element = $crawler->filter('input#form_date_example4');
-        $wrapper = $element->parents()->filter('.date-widget')->first();
 
         $this->assertEquals(1, $element->count());
-        $this->assertEquals(1, $wrapper->count());
         $this->assertEquals('20/06/1985', $element->attr('value'));
     }
 
@@ -63,10 +52,8 @@ class DatePickerControllerTest extends WebTestCase
         $date = new \DateTime();
 
         $element = $crawler->filter('input#form_date_example5');
-        $wrapper = $element->parents()->filter('.date-widget')->first();
 
         $this->assertEquals(1, $element->count());
-        $this->assertEquals(1, $wrapper->count());
 
         $this->assertEquals($date->format('d/m/Y'), $element->attr('value'));
     }
@@ -113,7 +100,6 @@ class DatePickerControllerTest extends WebTestCase
         $endDate = new \DateTime('next friday');
 
         $element = $crawler->filter('input#form_date_example8');
-        $wrapper = $element->parents()->filter('.date-widget')->first();
 
         $this->assertEquals(1, $element->count());
 
@@ -130,10 +116,8 @@ class DatePickerControllerTest extends WebTestCase
         $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
 
         $element = $crawler->filter('input#form_date_example9');
-        $wrapper = $element->parents()->filter('.date-widget')->first();
 
         $this->assertEquals(1, $element->count());
-        $this->assertEquals(1, $wrapper->count());
 
         // check if the actual element is hidden
         $this->assertEquals('', $element->attr('value'));

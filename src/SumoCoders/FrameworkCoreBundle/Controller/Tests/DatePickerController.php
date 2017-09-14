@@ -30,15 +30,6 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
-                'date_example2',
-                DateType::class,
-                array(
-                    'widget' => 'text',
-                    'required' => false,
-                    'data' => new \DateTime(),
-                )
-            )
-            ->add(
                 'date_example3',
                 DateType::class,
                 array(
@@ -120,15 +111,6 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
-                'datetime_example2',
-                DateTimeType::class,
-                array(
-                    'widget' => 'text',
-                    'required' => false,
-                    'data' => new \DateTime(),
-                )
-            )
-            ->add(
                 'datetime_example3',
                 DateTimeType::class,
                 array(
@@ -146,14 +128,6 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
-                'time_example2',
-                TimeType::class,
-                array(
-                    'widget' => 'text',
-                    'required' => false,
-                )
-            )
-            ->add(
                 'time_example3',
                 TimeType::class,
                 array(
@@ -166,15 +140,6 @@ class DatePickerController extends Controller
                 BirthdayType::class,
                 array(
                     'widget' => 'choice',
-                    'required' => false,
-                    'data' => new \DateTime('20 june 1985 13:37:00'),
-                )
-            )
-            ->add(
-                'birthday_example2',
-                BirthdayType::class,
-                array(
-                    'widget' => 'text',
                     'required' => false,
                     'data' => new \DateTime('20 june 1985 13:37:00'),
                 )
