@@ -110,7 +110,8 @@ export class Form {
         showAnim: 'slideDown',
         zIndex: 9999,
         language: jsData.request.locale,
-        format: datepicker.data('format')
+        format: datepicker.data('format'),
+        zIndexOffset: 100000,
       });
     });
 
