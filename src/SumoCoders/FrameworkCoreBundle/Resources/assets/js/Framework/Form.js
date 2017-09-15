@@ -97,7 +97,9 @@ export class Form {
 
   dateFields () {
     $('[data-provider=datepicker]').each((i, el) => {
-      $(el).datepicker({
+      let datepicker = $(el);
+
+      datepicker.datepicker({
         titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
         currentText: locale.get('datepicker.buttons.today'),
         closeText: locale.get('datepicker.buttons.close'),
@@ -108,7 +110,7 @@ export class Form {
         showAnim: 'slideDown',
         zIndex: 9999,
         language: jsData.request.locale,
-        format: $(el).data('format')
+        format: datepicker.data('format')
       });
     });
 
