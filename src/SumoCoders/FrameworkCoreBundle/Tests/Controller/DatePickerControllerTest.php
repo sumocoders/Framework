@@ -33,14 +33,14 @@ class DatePickerControllerTest extends WebTestCase
     {
         $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
 
-        $this->assertEquals(1, $crawler->filter('input#form_date_example3')->count());
+        $this->assertEquals(1, $crawler->filter('input#form_date_example2')->count());
     }
 
     public function testIfSingleTextWithDatePickerAndDefaultDateRenderedCorrectly()
     {
         $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
 
-        $element = $crawler->filter('input#form_date_example4');
+        $element = $crawler->filter('input#form_date_example3');
 
         $this->assertEquals(1, $element->count());
         $this->assertEquals('20/06/1985', $element->attr('value'));
@@ -51,7 +51,7 @@ class DatePickerControllerTest extends WebTestCase
         $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
         $date = new \DateTime();
 
-        $element = $crawler->filter('input#form_date_example5');
+        $element = $crawler->filter('input#form_date_example4');
 
         $this->assertEquals(1, $element->count());
 
@@ -64,7 +64,7 @@ class DatePickerControllerTest extends WebTestCase
         $date = new \DateTime();
         $startDate = new \DateTime('last monday');
 
-        $element = $crawler->filter('input#form_date_example6');
+        $element = $crawler->filter('input#form_date_example5');
 
         $this->assertEquals(1, $element->count());
 
@@ -81,7 +81,7 @@ class DatePickerControllerTest extends WebTestCase
         $date = new \DateTime();
         $endDate = new \DateTime('next friday');
 
-        $element = $crawler->filter('input#form_date_example7');
+        $element = $crawler->filter('input#form_date_example6');
 
         $this->assertEquals(1, $element->count());
 
@@ -99,7 +99,7 @@ class DatePickerControllerTest extends WebTestCase
         $startDate = new \DateTime('last monday');
         $endDate = new \DateTime('next friday');
 
-        $element = $crawler->filter('input#form_date_example8');
+        $element = $crawler->filter('input#form_date_example7');
 
         $this->assertEquals(1, $element->count());
 
@@ -115,7 +115,7 @@ class DatePickerControllerTest extends WebTestCase
     {
         $crawler = $this->getCrawlerForRequest('GET', '/_tests/datepicker');
 
-        $element = $crawler->filter('input#form_date_example9');
+        $element = $crawler->filter('input#form_date_example8');
 
         $this->assertEquals(1, $element->count());
 

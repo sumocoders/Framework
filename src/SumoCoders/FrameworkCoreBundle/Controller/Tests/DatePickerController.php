@@ -30,10 +30,20 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
+                'date_example2',
+                DateType::class,
+                array(
+                    'widget' => 'single_text',
+                    'required' => false,
+                    'data' => new \DateTime('20 june 1985 13:37:00'),
+                )
+            )
+            ->add(
                 'date_example3',
                 DateType::class,
                 array(
                     'widget' => 'single_text',
+                    'datepicker' => true,
                     'required' => false,
                     'data' => new \DateTime('20 june 1985 13:37:00'),
                 )
@@ -45,7 +55,7 @@ class DatePickerController extends Controller
                     'widget' => 'single_text',
                     'datepicker' => true,
                     'required' => false,
-                    'data' => new \DateTime('20 june 1985 13:37:00'),
+                    'data' => new \DateTime(),
                 )
             )
             ->add(
@@ -54,6 +64,7 @@ class DatePickerController extends Controller
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
+                    'minimum_date' => new \DateTime('last monday'),
                     'required' => false,
                     'data' => new \DateTime(),
                 )
@@ -64,7 +75,7 @@ class DatePickerController extends Controller
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
-                    'minimum_date' => new \DateTime('last monday'),
+                    'maximum_date' => new \DateTime('next friday'),
                     'required' => false,
                     'data' => new \DateTime(),
                 )
@@ -75,17 +86,6 @@ class DatePickerController extends Controller
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
-                    'maximum_date' => new \DateTime('next friday'),
-                    'required' => false,
-                    'data' => new \DateTime(),
-                )
-            )
-            ->add(
-                'date_example8',
-                DateType::class,
-                array(
-                    'widget' => 'single_text',
-                    'datepicker' => true,
                     'minimum_date' => new \DateTime('last monday'),
                     'maximum_date' => new \DateTime('next friday'),
                     'required' => false,
@@ -93,7 +93,7 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
-                'date_example9',
+                'date_example8',
                 DateType::class,
                 array(
                     'widget' => 'single_text',
@@ -111,7 +111,7 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
-                'datetime_example3',
+                'datetime_example2',
                 DateTimeType::class,
                 array(
                     'widget' => 'single_text',
@@ -128,7 +128,7 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
-                'time_example3',
+                'time_example2',
                 TimeType::class,
                 array(
                     'widget' => 'single_text',
@@ -145,7 +145,7 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
-                'birthday_example3',
+                'birthday_example2',
                 BirthdayType::class,
                 array(
                     'widget' => 'single_text',
@@ -154,7 +154,7 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
-                'birthday_example4',
+                'birthday_example3',
                 BirthdayType::class,
                 array(
                     'widget' => 'single_text',
