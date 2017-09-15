@@ -96,7 +96,7 @@ export class Form {
   }
 
   dateFields () {
-    $('[data-provider=datepicker]').each((i, el) => {
+    $('[data-role=datepicker]').each((i, el) => {
       let datepicker = $(el);
 
       datepicker.datepicker({
