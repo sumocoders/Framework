@@ -49,7 +49,7 @@ final class DateTypeExtension extends AbstractTypeExtension
         $view->vars['format'] = $this->convertToJsFormat($options['format']);
     }
 
-    private function convertToJsFormat($intlFormat)
+    private function convertToJsFormat(string $intlFormat): string
     {
         return str_replace(['y', 'MM', 'd'], ['yyyy','mm', 'dd'], $intlFormat);
     }
