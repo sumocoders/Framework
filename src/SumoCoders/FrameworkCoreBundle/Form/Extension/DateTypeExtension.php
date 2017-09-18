@@ -47,6 +47,7 @@ final class DateTypeExtension extends AbstractTypeExtension
         $view->vars['maximum_date'] = $options['maximum_date'] ? IntlDateFormatter::formatObject($options['maximum_date'], $options['format']) : null;
         $view->vars['minimum_date'] = $options['minimum_date'] ? IntlDateFormatter::formatObject($options['minimum_date'], $options['format']) : null;
         $view->vars['format'] = $this->convertToJsFormat($options['format']);
+        $view->vars['devider'] = (strpos($options['format'], '-') !== false) ? '-' : '/';
     }
 
     private function convertToJsFormat(string $intlFormat): string

@@ -106,14 +106,11 @@
       {% set year_widget = form_widget(form.year, {'attr': {'class': attr.widget_class|default('') ~ 'year',}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
       {% set month_widget = form_widget(form.month, {'attr': {'class': attr.widget_class|default('') ~ 'month'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
       {% set day_widget = form_widget(form.day, {'attr': {'class': attr.widget_class|default('') ~ 'day'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
-
-      {{ date_pattern|replace({
-      '/' : '<span class="pull-left date-separator">/</span>',
-      '-' : '<span class="pull-left date-separator">-</span>',
-      '{{ year }}': "<div class=\"col-md-2\">#{year_widget}</div>",
-      '{{ month }}': "<div class=\"col-md-3\">#{month_widget}</div>",
-      '{{ day }}': "<div class=\"col-md-2\">#{day_widget}</div>",
-      })|raw }}
+      <div class="col-md-2">{{day_widget|raw}}</div>
+      <span class="pull-left date-separator">{{ devider }}</span>
+      <div class="col-md-2">{{month_widget|raw}}</div>
+      <span class="pull-left date-separator">{{ devider }}</span>
+      <div class="col-md-2">{{year_widget|raw}}</div>
       {% if dont_render_row is not defined or not dont_render_row %}
         </div>
       {% endif %}
