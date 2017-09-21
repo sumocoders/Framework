@@ -1,72 +1,6 @@
 import {Locale} from 'Framework/Locale'
 
 const locale = new Locale()
-const dateFieldOptions = {
-  currentText: locale.get('datepicker.buttons.today'),
-  closeText: locale.get('datepicker.buttons.close'),
-  nextText: locale.get('datepicker.buttons.next'),
-  prevText: locale.get('datepicker.buttons.previous'),
-  firstDay: 1,
-  hideIfNoPrevNext: true,
-  showAnim: 'slideDown',
-  zIndex: 9999,
-  dateFormat: 'dd/mm/yy',
-  dayNames: [
-    locale.get('datepicker.full.days.sunday'),
-    locale.get('datepicker.full.days.monday'),
-    locale.get('datepicker.full.days.tuesday'),
-    locale.get('datepicker.full.days.Wednesday'),
-    locale.get('datepicker.full.days.thursday'),
-    locale.get('datepicker.full.days.friday'),
-    locale.get('datepicker.full.days.saturday')
-  ],
-  dayNamesMin: [
-    locale.get('datepicker.minimal.days.sunday'),
-    locale.get('datepicker.minimal.days.monday'),
-    locale.get('datepicker.minimal.days.tuesday'),
-    locale.get('datepicker.minimal.days.wednesday'),
-    locale.get('datepicker.minimal.days.thursday'),
-    locale.get('datepicker.minimal.days.friday'),
-    locale.get('datepicker.minimal.days.saturday')
-  ],
-  dayNamesShort: [
-    locale.get('datepicker.short.days.sunday'),
-    locale.get('datepicker.short.days.monday'),
-    locale.get('datepicker.short.days.tuesday'),
-    locale.get('datepicker.short.days.wednesday'),
-    locale.get('datepicker.short.days.thursday'),
-    locale.get('datepicker.short.days.friday'),
-    locale.get('datepicker.short.days.saturday')
-  ],
-  monthNames: [
-    locale.get('datepicker.full.months.january'),
-    locale.get('datepicker.full.months.february'),
-    locale.get('datepicker.full.months.march'),
-    locale.get('datepicker.full.months.april'),
-    locale.get('datepicker.full.months.may'),
-    locale.get('datepicker.full.months.june'),
-    locale.get('datepicker.full.months.july'),
-    locale.get('datepicker.full.months.august'),
-    locale.get('datepicker.full.months.september'),
-    locale.get('datepicker.full.months.october'),
-    locale.get('datepicker.full.months.november'),
-    locale.get('datepicker.full.months.december')
-  ],
-  monthNamesShort: [
-    locale.get('datepicker.short.months.january'),
-    locale.get('datepicker.short.months.february'),
-    locale.get('datepicker.short.months.march'),
-    locale.get('datepicker.short.months.april'),
-    locale.get('datepicker.short.months.may'),
-    locale.get('datepicker.short.months.june'),
-    locale.get('datepicker.short.months.july'),
-    locale.get('datepicker.short.months.august'),
-    locale.get('datepicker.short.months.september'),
-    locale.get('datepicker.short.months.october'),
-    locale.get('datepicker.short.months.november'),
-    locale.get('datepicker.short.months.december')
-  ]
-}
 
 export class Form {
   constructor (form) {
@@ -92,64 +26,41 @@ export class Form {
   }
 
   dateFields () {
-    if (!$.isFunction($.fn.datepicker)) {
-      return
-    }
+    $('[data-role=datepicker]').each((i, el) => {
+      let datepicker = $(el);
+      let format = datepicker.data('format');
 
-    $.datepicker.setDefaults(dateFieldOptions)
-
-    $('[data-date-type] input[type="text"]', this.form).each((i, el) => {
-      let $dateWrapper = $(el).parents('[data-provider="datepicker"]')
-      let initialDate = this.parseDate($dateWrapper, 'date')
-
-      $(el).datepicker({
-        altField: '#' + $dateWrapper.data('linkField'),
-        altFormat: $dateWrapper.data('linkFormat').replace('yyyy', 'yy'),
-        defaultDate: initialDate
-      })
-
-      let startDate = ''
-      let endDate = ''
-
-      switch ($dateWrapper.data('dateType')) {
-        case 'start':
-          startDate = this.parseDate($dateWrapper, 'minimumDate')
-          break
-
-        case 'until':
-          endDate = this.parseDate($dateWrapper, 'maximumDate')
-          break
-
-        case 'range':
-          startDate = this.parseDate($dateWrapper, 'minimumDate')
-          endDate = this.parseDate($dateWrapper, 'maximumDate')
-          break
+      let startDate = false;
+      if (typeof datepicker.data('date-start-date') !== 'undefined' && datepicker.data('date-start-date')) {
+        startDate = moment(datepicker.data('date-start-date'), format);
       }
 
-      if (startDate !== '') {
-        $(el).datepicker('option', 'minDate', startDate)
+      let endDate = false;
+      if (typeof datepicker.data('date-end-date') !== 'undefined' && datepicker.data('date-end-date')) {
+        endDate = moment(datepicker.data('date-end-date'), format);
       }
 
-      if (endDate !== '') {
-        $(el).datepicker('option', 'maxDate', endDate)
-      }
+      datepicker.datetimepicker({
+        dayViewHeaderFormat: "MMMM YYYY", /* Leverages same syntax as 'format' */
+        locale: jsData.request.locale,
+        format: format,
+        minDate: startDate,
+        maxDate: endDate,
+        keepOpen: true,
+        icons: {
+          time: "fa fa-clock-o",
+          date: "fa fa-calendar",
+          up: "fa fa-arrow-up",
+          down: "fa fa-arrow-down",
+          previous: "fa fa-arrow-left",
+          next: "fa fa-arrow-right"
+        },
+      });
+    });
 
-      if ((initialDate !== '') && (startDate !== '') && (initialDate < startDate)) {
-        initialDate = startDate
-      }
-
-      // show initial date if provided
-      if (initialDate !== '') {
-        return $(el).val($.datepicker.formatDate(dateFieldOptions.dateFormat, initialDate))
-      }
-    })
-
-    $('[data-date-type] a', this.form).on('click', () => {
-      let el = $(this).parents('[data-provider="datepicker"]').find('input:first')
-      if (!$(el).datepicker('widget').is(':visible')) {
-        return $(el).datepicker('show')
-      }
-    })
+    $('.js-input-focus').on('click', function() {
+      $($(this).data('toggle')).focus();
+    });
   }
 
   hijackSubmit () {

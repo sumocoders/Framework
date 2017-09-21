@@ -4,19 +4,19 @@ namespace SumoCoders\FrameworkCoreBundle\Form\Extension;
 
 use IntlDateFormatter;
 use Symfony\Component\Form\AbstractTypeExtension;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class DateTypeExtension extends AbstractTypeExtension
+final class DateTimeTypeExtension extends AbstractTypeExtension
 {
     /**
      * {@inheritdoc}
      */
     public function getExtendedType()
     {
-        return DateType::class;
+        return DateTimeType::class;
     }
 
     /**
@@ -26,8 +26,7 @@ final class DateTypeExtension extends AbstractTypeExtension
     {
         $resolver->setDefaults(
             array(
-                'format' => 'd/MM/y',
-                'datepicker' => false,
+                'format' => 'd/MM/y H:i',
                 'maximum_date' => null,
                 'minimum_date' => null,
             )
@@ -52,6 +51,6 @@ final class DateTypeExtension extends AbstractTypeExtension
 
     private function convertToJsFormat(string $intlFormat): string
     {
-        return str_replace(['y', 'MM', 'd'], ['YYYY','MM', 'DD'], $intlFormat);
+        return str_replace(['y', 'MM', 'd', 'H', 'i'], ['YYYY','MM', 'DD', 'HH', 'mm'], $intlFormat);
     }
 }

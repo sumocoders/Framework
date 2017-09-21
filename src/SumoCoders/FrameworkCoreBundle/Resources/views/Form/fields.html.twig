@@ -69,29 +69,31 @@
 {% block date_widget %}
   {% spaceless %}
     {% if widget == 'single_text' %}
-      {% if datepicker is defined %}
+      {% if datepicker %}
         {% set widget_addon_icon = widget_addon_append.icon is defined ? widget_addon_append.icon : 'calendar'  %}
-        <div class="input-group date date-widget"
-             data-provider="datepicker"
-             data-date="{{ value }}"
-             data-link-field="{{ id }}"
-             data-link-format="yyyy-mm-dd"
-             data-date-type="{{ date_type }}"
-             {% if maximum_date is defined %}
-               data-maximum-date="{{ maximum_date|date('Y-m-d') }}"
-             {% endif %}
-             {% if minimum_date is defined %}
-               data-minimum-date="{{ minimum_date|date('Y-m-d') }}"
-             {% endif %}
-             >
-             <input {% if widget_form_control_class is not same as(false) %}class="{{ widget_form_control_class }}" {% endif %}type="text" {% if read_only is defined and read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %} style="z-index: 9998;">
-             <input type="hidden" value="{{ value }}" {{ block('widget_attributes') }}>
-             <span class="input-group-addon">
-               <a href="#" class="faked-button">
-                 {{ mopa_bootstrap_icon(widget_addon_icon) }}
-                 <span class="hidden">{{ 'datepicker.pickDate'|trans }}</span>
-               </a>
-             </span>
+        <div class="input-group">
+          <input type="text"
+                 {% if widget_form_control_class is not same as(false) %}
+                   class="{{ widget_form_control_class }}"
+                 {% endif %}
+                 data-role="datepicker"
+                 data-format="{{ format }}"
+                 value="{{ value }}"
+                 {{ block('widget_attributes') }}
+                 {% if maximum_date is not null %}
+                   data-date-end-date="{{ maximum_date }}"
+                 {% endif %}
+                 {% if minimum_date is not null %}
+                   data-date-start-date="{{ minimum_date }}"
+                 {% endif %}
+                 {% if read_only is defined and read_only %} readonly="readonly"{% endif %}
+                 {% if disabled %} disabled="disabled"{% endif %}
+                 {% if required %} required="required"{% endif %}
+          >
+          <a class="input-group-addon btn btn-primary js-input-focus" data-toggle="#{{ id }}">
+             {{ mopa_bootstrap_icon(widget_addon_icon) }}
+             <span class="hidden">{{ 'datepicker.pickDate'|trans }}</span>
+          </a>
         </div>
       {% else %}
         {{ block('form_widget_simple') }}
@@ -104,12 +106,11 @@
       {% set year_widget = form_widget(form.year, {'attr': {'class': attr.widget_class|default('') ~ 'year',}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
       {% set month_widget = form_widget(form.month, {'attr': {'class': attr.widget_class|default('') ~ 'month'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
       {% set day_widget = form_widget(form.day, {'attr': {'class': attr.widget_class|default('') ~ 'day'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-3')}) %}
-
-      {{ date_pattern|replace({
-      '{{ year }}': "<div class=\"col-md-2\">#{year_widget}</div>",
-      '{{ month }}': "<div class=\"col-md-3\">#{month_widget}</div>",
-      '{{ day }}': "<div class=\"col-md-2\">#{day_widget}</div>",
-      })|raw }}
+      <div class="col-md-2">{{day_widget|raw}}</div>
+      <span class="pull-left date-separator">{{ devider }}</span>
+      <div class="col-md-2">{{month_widget|raw}}</div>
+      <span class="pull-left date-separator">{{ devider }}</span>
+      <div class="col-md-2">{{year_widget|raw}}</div>
       {% if dont_render_row is not defined or not dont_render_row %}
         </div>
       {% endif %}
@@ -122,7 +123,7 @@
     {% if widget == 'single_text' %}
       {% if timepicker is defined %}
         {% set widget_addon_icon = widget_addon_append.icon is defined ? widget_addon_append.icon : 'time'  %}
-        <div data-provider="timepicker" class="input-group date" data-date="{{ value }}" data-link-field="{{ id }}" data-link-format="hh:ii">
+        <div data-provider="date" class="input-group date" data-date="{{ value }}" data-link-field="{{ id }}" data-link-format="hh:ii">
           <input class="form-control" type="text" {% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %}>
           <input type="hidden" value="{{ value }}" {{ block('widget_attributes') }}>
           <span class="input-group-addon">{{ mopa_bootstrap_icon(widget_addon_icon) }}</span>
@@ -139,10 +140,12 @@
         <div class="col-md-2">
           {{ form_widget(form.hour, { 'attr': {  'size': '1'}, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2')}) }}
         </div>
+        <span class='pull-left date-separator'>:</span>
         <div class="col-md-2">
           {{ form_widget(form.minute, { 'attr': { 'size': '1' }, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2')}) }}
         </div>
         {% if with_seconds %}
+          <span class='pull-left date-separator'>:</span>
           <div class="col-md-2">
             {{ form_widget(form.second, { 'attr': { 'size': '1' }, 'horizontal_input_wrapper_class': horizontal_input_wrapper_class|default('col-sm-2') }) }}
           </div>
@@ -160,10 +163,29 @@
     {% if widget == 'single_text' %}
       {% if datetimepicker is defined %}
         {% set widget_addon_icon = widget_addon_append.icon is defined ? widget_addon_append.icon : 'th'  %}
-        <div data-provider="datetimepicker" class="input-group date" data-date="{% if value %}{{ value|date('Y-m-d H:i') }}{% endif %}" data-link-field="{{ id }}" data-link-format="yyyy-mm-dd hh:ii">
-          <input class="form-control" type="text" {% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if 'placeholder' in attr|keys %} placeholder="{{ attr['placeholder'] }}"{% endif %}>
-          <input type="hidden" value="{% if value %}{{ value|date('Y-m-d H:i') }}{% endif %}" {{ block('widget_attributes') }}>
-          <span class="input-group-addon">{{ mopa_bootstrap_icon(widget_addon_icon) }}</span>
+        <div class="input-group">
+          <input type="text"
+            {% if widget_form_control_class is not same as(false) %}
+              class="{{ widget_form_control_class }}"
+            {% endif %}
+                 data-role="datepicker"
+                 data-format="{{ format }}"
+                 value="{{ value }}"
+            {{ block('widget_attributes') }}
+            {% if maximum_date is not null %}
+              data-date-end-date="{{ maximum_date }}"
+            {% endif %}
+            {% if minimum_date is not null %}
+              data-date-start-date="{{ minimum_date }}"
+            {% endif %}
+            {% if read_only is defined and read_only %} readonly="readonly"{% endif %}
+            {% if disabled %} disabled="disabled"{% endif %}
+            {% if required %} required="required"{% endif %}
+          >
+          <a class="input-group-addon btn btn-primary js-input-focus" data-toggle="#{{ id }}">
+            {{ mopa_bootstrap_icon(widget_addon_icon) }}
+            <span class="hidden">{{ 'datepicker.pickDate'|trans }}</span>
+          </a>
         </div>
       {% else %}
         {{ block('form_widget_simple') }}

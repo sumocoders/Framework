@@ -1,3 +1,28 @@
+.bootstrap-datetimepicker-widget {
+
+  .datepicker {
+
+    td {
+      border-radius: 0;
+    }
+
+    td.disabled {
+      color: $gray-lighter;
+      background: none;
+
+      &:hover {
+        color: $white;
+        background-color: rgba($gray-lighter, 0.8);
+      }
+    }
+  }
+}
+
+.date-separator {
+  line-height: $input-height-base;
+  margin: 0 -3px;
+}
+
 .ui-widget-header {
   background: $gray-light;
   border-color: $gray-light;

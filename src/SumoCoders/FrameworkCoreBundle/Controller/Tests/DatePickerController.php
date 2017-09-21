@@ -33,9 +33,9 @@ class DatePickerController extends Controller
                 'date_example2',
                 DateType::class,
                 array(
-                    'widget' => 'text',
+                    'widget' => 'single_text',
                     'required' => false,
-                    'data' => new \DateTime(),
+                    'data' => new \DateTime('20 june 1985 13:37:00'),
                 )
             )
             ->add(
@@ -43,6 +43,7 @@ class DatePickerController extends Controller
                 DateType::class,
                 array(
                     'widget' => 'single_text',
+                    'datepicker' => true,
                     'required' => false,
                     'data' => new \DateTime('20 june 1985 13:37:00'),
                 )
@@ -54,7 +55,7 @@ class DatePickerController extends Controller
                     'widget' => 'single_text',
                     'datepicker' => true,
                     'required' => false,
-                    'data' => new \DateTime('20 june 1985 13:37:00'),
+                    'data' => new \DateTime(),
                 )
             )
             ->add(
@@ -63,7 +64,7 @@ class DatePickerController extends Controller
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
-                    'date_type' => 'normal',
+                    'minimum_date' => new \DateTime('last monday'),
                     'required' => false,
                     'data' => new \DateTime(),
                 )
@@ -74,8 +75,7 @@ class DatePickerController extends Controller
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
-                    'date_type' => 'start',
-                    'minimum_date' => new \DateTime('last monday'),
+                    'maximum_date' => new \DateTime('next friday'),
                     'required' => false,
                     'data' => new \DateTime(),
                 )
@@ -86,19 +86,6 @@ class DatePickerController extends Controller
                 array(
                     'widget' => 'single_text',
                     'datepicker' => true,
-                    'date_type' => 'until',
-                    'maximum_date' => new \DateTime('next friday'),
-                    'required' => false,
-                    'data' => new \DateTime(),
-                )
-            )
-            ->add(
-                'date_example8',
-                DateType::class,
-                array(
-                    'widget' => 'single_text',
-                    'datepicker' => true,
-                    'date_type' => 'range',
                     'minimum_date' => new \DateTime('last monday'),
                     'maximum_date' => new \DateTime('next friday'),
                     'required' => false,
@@ -106,7 +93,7 @@ class DatePickerController extends Controller
                 )
             )
             ->add(
-                'date_example9',
+                'date_example8',
                 DateType::class,
                 array(
                     'widget' => 'single_text',
@@ -127,15 +114,6 @@ class DatePickerController extends Controller
                 'datetime_example2',
                 DateTimeType::class,
                 array(
-                    'widget' => 'text',
-                    'required' => false,
-                    'data' => new \DateTime(),
-                )
-            )
-            ->add(
-                'datetime_example3',
-                DateTimeType::class,
-                array(
                     'widget' => 'single_text',
                     'required' => false,
                     'data' => new \DateTime(),
@@ -151,14 +129,6 @@ class DatePickerController extends Controller
             )
             ->add(
                 'time_example2',
-                TimeType::class,
-                array(
-                    'widget' => 'text',
-                    'required' => false,
-                )
-            )
-            ->add(
-                'time_example3',
                 TimeType::class,
                 array(
                     'widget' => 'single_text',
@@ -178,22 +148,13 @@ class DatePickerController extends Controller
                 'birthday_example2',
                 BirthdayType::class,
                 array(
-                    'widget' => 'text',
-                    'required' => false,
-                    'data' => new \DateTime('20 june 1985 13:37:00'),
-                )
-            )
-            ->add(
-                'birthday_example3',
-                BirthdayType::class,
-                array(
                     'widget' => 'single_text',
                     'required' => false,
                     'data' => new \DateTime('20 june 1985 13:37:00'),
                 )
             )
             ->add(
-                'birthday_example4',
+                'birthday_example3',
                 BirthdayType::class,
                 array(
                     'widget' => 'single_text',
