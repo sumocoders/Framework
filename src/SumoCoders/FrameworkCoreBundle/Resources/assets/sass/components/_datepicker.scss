@@ -1,11 +1,15 @@
 .bootstrap-datetimepicker-widget {
+
   .datepicker {
+
     td {
       border-radius: 0;
     }
+
     td.disabled {
-      color: $white;
-      background-color: rgba($gray-lighter, 0.8);
+      color: $gray-light;
+      background: none;
+
       &:hover {
         color: $white;
         background-color: rgba($gray-lighter, 0.8);
