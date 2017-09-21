@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd74177e932ba64fa5e09c2c164fb31a",
+    "content-hash": "4b04f0971d87c6729a61141af06d5c02",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1810,7 +1810,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -3012,17 +3012,17 @@
         },
         {
             "name": "sumocoders/framework-example-bundle",
-            "version": "v7.0.0",
+            "version": "v8.0.0",
             "target-dir": "SumoCoders/FrameworkExampleBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkExampleBundle.git",
-                "reference": "1eda62891d917f8201573c14dbc5f77a4d0dca29"
+                "reference": "6e448619678c0b88e2e074e91a2ff2483b136fdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/1eda62891d917f8201573c14dbc5f77a4d0dca29",
-                "reference": "1eda62891d917f8201573c14dbc5f77a4d0dca29",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkExampleBundle/zipball/6e448619678c0b88e2e074e91a2ff2483b136fdd",
+                "reference": "6e448619678c0b88e2e074e91a2ff2483b136fdd",
                 "shasum": ""
             },
             "require-dev": {
@@ -3055,7 +3055,7 @@
                 "SumoCoders",
                 "example"
             ],
-            "time": "2017-08-11T07:00:52+00:00"
+            "time": "2017-09-21T11:39:01+00:00"
         },
         {
             "name": "sumocoders/framework-multi-user-bundle",
