@@ -8,32 +8,32 @@ In the controller the following code should be used. If necessary a custom adapt
 
 ```
 <?php
-use Symfony\Bundle\FrameworkBundle\Controller\Controller,
-    Symfony\Component\HttpFoundation\Request,
-    Sensio\Bundle\FrameworkExtraBundle\Configuration\Method,
-    Sensio\Bundle\FrameworkExtraBundle\Configuration\Route,
-    Sensio\Bundle\FrameworkExtraBundle\Configuration\Template,
-    Pagerfanta\Pagerfanta,
-    Pagerfanta\Adapter\DoctrineORMAdapter,
-    Pagerfanta\Exception\NotValidCurrentPageException;
+
+namespace SumoCoders\FrameworkCoreBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Exception\NotValidCurrentPageException;
+
 class ExampleController extends Controller
 {
 	/**
-	 * @Route("/example/{page}",
-         *         name="example",
-         *         requirements={"page" = "\d+"},
-         *         defaults={"page" = "1"}
-         * )
+	 * @Route("/example/{page}", requirements={"page" = "\d+"}, defaults={"page" = "1"})
 	 * @Template()
 	 * 
 	 * @param int $page
 	 */
-	public function exampleAction($page)
+	public function exampleAction(int $page)
 	{
-		$repo = $this->getDoctrine()->getRepository('AcmeExampleBundle:Example');
+		$repository = $this->getDoctrine()->getRepository('AcmeExampleBundle:Example');
 		
 		// returns \Doctrine\ORM\Query object
-		$query = $repo->getExampleQuery();
+		$query = $repository->getExampleQuery();
 		
 		$pagerfanta = new Pagerfanta(new DoctrineORMAdapter($query));
 		$pagerfanta->setMaxPerPage(45);

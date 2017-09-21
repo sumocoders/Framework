@@ -1,27 +1,10 @@
 <?php
 
-/*
- * This file is part of the Pagerfanta package.
- *
- * (c) Pablo Díez <pablodip@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace SumoCoders\FrameworkCoreBundle\Twig;
 
 use SumoCoders\FrameworkCoreBundle\Twig\TwitterBootstrap3Template;
 use Pagerfanta\View\TwitterBootstrapView;
 
-/**
- * TwitterBootstrap3View.
- *
- * View that can be used with the pagination module
- * from the Twitter Bootstrap3 CSS Toolkit
- * http://getbootstrap.com/
- *
- */
 class TwitterBootstrap3View extends TwitterBootstrapView
 {
     protected function createDefaultTemplate()
