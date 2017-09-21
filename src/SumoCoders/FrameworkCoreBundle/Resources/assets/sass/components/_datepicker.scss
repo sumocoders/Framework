@@ -1,10 +1,16 @@
-.datepicker {
-  td {
-    border-radius: 0 !important;
-  }
-  td.disabled {
-    color: $white !important;
-    background-color: rgba($gray-lighter, 0.2) !important;
+.bootstrap-datetimepicker-widget {
+  .datepicker {
+    td {
+      border-radius: 0;
+    }
+    td.disabled {
+      color: $white;
+      background-color: rgba($gray-lighter, 0.8);
+      &:hover {
+        color: $white;
+        background-color: rgba($gray-lighter, 0.8);
+      }
+    }
   }
 }
 
