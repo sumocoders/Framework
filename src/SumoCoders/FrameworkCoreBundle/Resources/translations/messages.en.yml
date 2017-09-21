@@ -122,3 +122,6 @@ navigation:
     titles:
         possible_actions: possible actions
         showHideMenu: show/hide menu
+
+previous: previous
+next: next

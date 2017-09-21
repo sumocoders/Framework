@@ -54,6 +54,7 @@ See [https://github.com/phiamo/MopaBootstrapBundle](https://github.com/phiamo/Mo
 * [Adding a language switch](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/language-switch.md)
 * [Using Datepickers](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/using-date-pickers.md)
 * [Using the breadcrumb](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/breadcrumb.md)
+* [Using pagination](./src/SumoCoders/FrameworkCoreBundle/Resources/doc/development/pagination.md)
 
 ### Putting your project online
 

@@ -82,3 +82,9 @@ services:
     class: SumoCoders\FrameworkCoreBundle\Form\Type\FileType
     tags:
       - { name: form.type, alias: sumoFile }
+
+  pagerfanta.view.sumocoders:
+    class: SumoCoders\FrameworkCoreBundle\Twig\TwitterBootstrap3View
+    public: false
+    tags: [{ name: pagerfanta.view, alias: sumocoders }]
+
