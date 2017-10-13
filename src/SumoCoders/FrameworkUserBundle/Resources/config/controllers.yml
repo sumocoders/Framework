@@ -29,8 +29,10 @@ services:
       - "sumocoders_frameworkuser_index_index"
 
   sumo_coders.user.controller.edit_user:
-    class: SumoCoders\FrameworkMultiUserBundle\Controller\UserController
+    class: SumoCoders\FrameworkUserBundle\Controller\EditController
     arguments:
+      - "@security.authorization_checker"
+      - "@security.token_storage"
       - "@form.factory"
       - "@router"
       - "@session.flash_bag"

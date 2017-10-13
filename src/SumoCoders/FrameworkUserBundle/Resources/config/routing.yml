@@ -7,7 +7,7 @@ sumo_coders.user.route.add_admin:
   path: /user/add-admin
 
 sumo_coders.user.route.edit_user:
-  defaults: { _controller: sumo_coders.user.controller.edit_user:baseAction }
+  defaults: { _controller: sumo_coders.user.controller.edit_user:editAction }
   path: /user/{id}/edit-user
 
 sumo_coders.user.route.edit_admin:
