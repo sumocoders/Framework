@@ -1,0 +1,6 @@
+services:
+  twig.user_extension:
+    class: SumoCoders\FrameworkUserBundle\Twig\UserExtension
+    public: false
+    tags:
+      - { name: twig.extension }

@@ -1,0 +1,8 @@
+services:
+  sumo_coders.user.listener.menu:
+    class: SumoCoders\FrameworkUserBundle\EventListener\MenuListener
+    arguments:
+      - "@security.authorization_checker"
+      - "@security.token_storage"
+    tags:
+      - { name: kernel.event_listener, event: framework_core.configure_menu, method: onConfigureMenu }

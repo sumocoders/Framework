@@ -1,0 +1,62 @@
+services:
+  sumo_coders.user.controller.index:
+    class: SumoCoders\FrameworkUserBundle\Controller\IndexController
+    arguments:
+      - "@multi_user.user.repository"
+
+  sumo_coders.user.controller.add_user:
+    class: SumoCoders\FrameworkMultiUserBundle\Controller\UserController
+    arguments:
+      - "@form.factory"
+      - "@router"
+      - "@session.flash_bag"
+      - "@translator"
+      - "SumoCoders\\FrameworkUserBundle\\Form\\AddUserType"
+      - "@multi_user.handler.create_user"
+      - "@sumo_coders.user.repository.sumo_user"
+      - "sumocoders_frameworkuser_index_index"
+
+  sumo_coders.user.controller.add_admin:
+    class: SumoCoders\FrameworkMultiUserBundle\Controller\UserController
+    arguments:
+      - "@form.factory"
+      - "@router"
+      - "@session.flash_bag"
+      - "@translator"
+      - "SumoCoders\\FrameworkUserBundle\\Form\\AddAdminType"
+      - "@multi_user.handler.create_user"
+      - "@sumo_coders.user.repository.admin"
+      - "sumocoders_frameworkuser_index_index"
+
+  sumo_coders.user.controller.edit_user:
+    class: SumoCoders\FrameworkMultiUserBundle\Controller\UserController
+    arguments:
+      - "@form.factory"
+      - "@router"
+      - "@session.flash_bag"
+      - "@translator"
+      - "SumoCoders\\FrameworkUserBundle\\Form\\EditUserType"
+      - "@multi_user.handler.update_user"
+      - "@sumo_coders.user.repository.sumo_user"
+      - "sumocoders_frameworkuser_index_index"
+
+  sumo_coders.user.controller.edit_admin:
+    class: SumoCoders\FrameworkMultiUserBundle\Controller\UserController
+    arguments:
+      - "@form.factory"
+      - "@router"
+      - "@session.flash_bag"
+      - "@translator"
+      - "SumoCoders\\FrameworkUserBundle\\Form\\EditAdminType"
+      - "@multi_user.handler.update_user"
+      - "@sumo_coders.user.repository.admin"
+      - "sumocoders_frameworkuser_index_index"
+
+  sumo_coders.user.controller.block:
+    class: SumoCoders\FrameworkMultiUserBundle\Controller\BlockController
+    arguments:
+      - "@multi_user.user.repository"
+      - "@session.flash_bag"
+      - "@translator"
+      - "@router"
+      - "sumocoders_frameworkuser_index_index"

@@ -6,7 +6,10 @@ services:
   multi_user.user_repository.collection:
     class: SumoCoders\FrameworkMultiUserBundle\User\UserRepositoryCollection
     arguments:
-      - ["@multi_user.user.repository"]
+      -
+        - "@multi_user.user.repository"
+        - "@sumo_coders.user.repository.sumo_user"
+        - "@sumo_coders.user.repository.admin"
 
   sumocoders.user_provider:
     class: SumoCoders\FrameworkMultiUserBundle\Security\ObjectUserProvider

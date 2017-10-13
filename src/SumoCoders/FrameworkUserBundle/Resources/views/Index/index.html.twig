@@ -1,0 +1,83 @@
+{% extends '::base.html.twig' %}
+
+{% block header_title %}
+  <h2>
+    {{ 'user.header.index'|trans|capitalize }}
+  </h2>
+{% endblock %}
+
+{% block header_navigation %}
+  <a class="btn btn-success" href="{{ path('sumo_coders.user.route.add_user') }}">
+    {{ icon('plus') }}
+    {{ 'user.actions.add.user'|trans|capitalize }}
+  </a>
+  <a class="btn btn-success" href="{{ path('sumo_coders.user.route.add_admin') }}">
+    {{ icon('plus') }}
+    {{ 'user.actions.add.admin'|trans|capitalize }}
+  </a>
+{% endblock %}
+
+{% block main %}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>{{ 'user.datagrid.email'|trans|capitalize }}</th>
+        <th>{{ 'user.datagrid.type'|trans|capitalize }}</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr{% if user.isBlocked() %} class="text-muted"{% endif %}>
+          <td>{{ user.email }}</td>
+          <td>
+            {% if user is admin %}
+              {{ 'user.types.admin'|trans }}
+            {% else %}
+              {{ 'user.types.user'|trans }}
+            {% endif %}
+          </td>
+          <td class="action">
+            <a
+              {% if user is admin %}
+                href="{{ path('sumo_coders.user.route.edit_admin', {'id': user.id}) }}"
+              {% else %}
+                href="{{ path('sumo_coders.user.route.edit_user', {'id': user.id}) }}"
+              {% endif %}
+              class="fa fa-pencil"
+              data-toggle="tooltip"
+              title="{{ 'datagrids.actions.edit'|trans }}"
+            >
+              <span class="hide">
+                {{ 'datagrids.actions.edit'|trans }}
+              </span>
+            </a>
+          </td>
+          <td class="action">
+            <a
+              href="{{ path('sumocoders.user.route.block', {'id': user.id}) }}"
+              {% if user.isBlocked() %}
+                class="fa fa-check confirm" data-toggle="tooltip"
+                title="{{ 'user.datagrid.actions.unblock'|trans }}"
+                data-message="{{ 'user.dialogs.messages.confirmUnblock'|trans({'%user%': user.username}) }}"
+              {% else %}
+                class="fa fa-ban confirm" data-toggle="tooltip"
+                title="{{ 'user.datagrid.actions.block'|trans }}"
+                data-message="{{ 'user.dialogs.messages.confirmBlock'|trans({'%user%': user.username}) }}"
+              {% endif %}
+            >
+              <span class="hide">
+                {% if user.isBlocked() %}
+                  {{ 'user.datagrid.actions.unblock'|trans }}
+                {% else %}
+                  {{ 'user.datagrid.actions.block'|trans }}
+                {% endif %}
+              </span>
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

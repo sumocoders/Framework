@@ -81,8 +81,18 @@
                         <span class="icon icon-angle hidden-xs hidden-sm"></span>
                       </button>
                       <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('sumocoders_frameworkuser_user_edit', {'id': app.user.id }) }}">{{ 'user.header.actions.settings'|trans|capitalize }}</a></li>
-                        <li><a href="{{ path('fos_user_security_logout') }}">{{ 'user.header.actions.logout'|trans|capitalize }}</a></li>
+                        <li>
+                          <a
+                            {% if app.user is admin %}
+                              href="{{ path('sumo_coders.user.route.edit_admin', {'id': app.user.id}) }}"
+                            {% else %}
+                              href="{{ path('sumo_coders.user.route.edit_user', {'id': app.user.id}) }}"
+                            {% endif %}
+                          >
+                            {{ 'user.actions.settings'|trans|capitalize }}
+                          </a>
+                        </li>
+                        <li><a href="{{ path('multi_user_logout') }}">{{ 'user.actions.logout'|trans|capitalize }}</a></li>
                       </ul>
                     </div>
                   {% endif %}
