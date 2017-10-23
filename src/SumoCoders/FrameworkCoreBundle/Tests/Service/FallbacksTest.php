@@ -14,31 +14,31 @@ class FallbacksTest extends \PHPUnit_Framework_TestCase
     /**
      * @var array
      */
-    private $defaultData = array(
+    private $defaultData = [
         'foo' => 'bar',
-        'name' => array(
+        'name' => [
             'first' => 'John',
             'last' => 'Doe',
-        ),
-        'servers' => array(
+        ],
+        'servers' => [
             'web01',
             'web02',
-        ),
-        'a' => array(
-            'very' => array(
-                'deep' => array(
-                    'array' => array(
+        ],
+        'a' => [
+            'very' => [
+                'deep' => [
+                    'array' => [
                         'x' => 0,
                         'y' => 0,
-                    )
-                )
-            ),
-        ),
-        'errorcodes' => array(
+                    ],
+                ],
+            ],
+        ],
+        'errorcodes' => [
             404 => 'Not Found',
             500 => 'Internal server error',
-        ),
-    );
+        ],
+    ];
 
     /**
      * Test Fallbacks()

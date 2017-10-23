@@ -25,17 +25,17 @@ final class DateTimeTypeExtension extends AbstractTypeExtension
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
-            array(
+            [
                 'format' => 'd/MM/y H:i',
                 'maximum_date' => null,
                 'minimum_date' => null,
-            )
+            ]
         );
 
-        $resolver->setAllowedValues('widget', array(
+        $resolver->setAllowedValues('widget', [
             'single_text',
             'choice',
-        ));
+        ]);
     }
 
     /**

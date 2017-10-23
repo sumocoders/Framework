@@ -23,9 +23,9 @@ final class BirthdayTypeExtension extends AbstractTypeExtension
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
-            array(
+            [
                 'maximum_date' => new DateTime(),
-            )
+            ]
         );
     }
 }

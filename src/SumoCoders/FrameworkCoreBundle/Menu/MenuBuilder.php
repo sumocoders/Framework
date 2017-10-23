@@ -79,9 +79,9 @@ class MenuBuilder
      */
     protected function reorderMenuItems(ItemInterface $menu)
     {
-        $menuOrderArray = array();
-        $addLast = array();
-        $alreadyTaken = array();
+        $menuOrderArray = [];
+        $addLast = [];
+        $alreadyTaken = [];
 
         foreach ($menu->getChildren() as $menuItem) {
             if ($menuItem->hasChildren()) {
@@ -114,7 +114,7 @@ class MenuBuilder
 
                 $menuOrderArray = array_merge(
                     array_slice($menuOrderArray, 0, $position),
-                    array($value),
+                    [$value],
                     array_slice($menuOrderArray, $position)
                 );
             }

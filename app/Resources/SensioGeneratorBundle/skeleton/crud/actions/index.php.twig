@@ -34,12 +34,12 @@
 
 {% block method_return %}
 {% if 'annotation' == format %}
-        return array(
+        return [
             '{{ niceEntityNamePlural }}' => $paginated{{ entity }}s,
-        );
+        ];
 {% else %}
-        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:index.html.twig', array(
+        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:index.html.twig', [
             '{{ niceEntityNamePlural }}' => $paginated{{ entity }}s,
-        ));
+        ]);
 {% endif %}
 {% endblock method_return %}

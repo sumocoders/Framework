@@ -32,7 +32,7 @@ class ScriptHandler
             $information = $installer->extractInformationFromPath($rootDir);
 
             // ask all the information we need
-            $config = array();
+            $config = [];
             $config['client'] = $installer->ask($io, 'client name', $information['client']);
             $config['project'] = $installer->ask($io, 'project name', $information['project']);
 

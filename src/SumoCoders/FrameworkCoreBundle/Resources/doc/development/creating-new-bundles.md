@@ -244,10 +244,10 @@ sections: Installation and Usage.
     public function registerBundles()
     {
         // ...
-        $bundles = array(
+        $bundles = [
             // ...
             new SumoCoders\FrameworkXXXBundle\SumoCodersFrameworkXXXBundle(),
-        );
+        ];
     }
     ```
     

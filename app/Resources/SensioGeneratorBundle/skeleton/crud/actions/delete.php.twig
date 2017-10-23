@@ -37,9 +37,9 @@
                 'success',
                 $this->get('translator')->trans(
                     '{{ niceBundleName }}.flash.success.delete',
-                    array(
+                    [
                         '%{{ niceEntityName }}%' => ${{ niceEntityName }},
-                    )
+                    ]
                 )
             );
         }
@@ -64,31 +64,31 @@
             ->setAction(
                 $this->generateUrl(
                     '{{ baseRoute }}_delete',
-                    array(
+                    [
                         'id' => ${{ niceEntityName }}->getId(),
-                    )
+                    ]
                 )
             )
             ->setMethod('DELETE')
             ->add(
                 'submit',
                 'submit',
-                array(
+                [
                     'label' => ucfirst(
                         $this->get('translator')->trans(
                             'header.navigation.actions.delete'
                         )
                     ),
-                    'attr' => array(
+                    'attr' => [
                         'class' => 'fa fa-trash confirm',
                         'data-message' => $this->get('translator')->trans(
                             'dialogs.messages.confirmDelete',
-                            array(
+                            [
                                 '%entity%' => ${{ niceEntityName }},
-                            )
+                            ]
                         ),
-                    ),
-                )
+                    ],
+                ]
             )
             ->getForm();
     }

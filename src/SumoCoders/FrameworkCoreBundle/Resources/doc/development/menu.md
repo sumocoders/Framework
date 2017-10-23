@@ -23,18 +23,18 @@ class MenuListener extends DefaultMenuListener
         $menu = $event->getMenu();
 
         // if you need to add a menu with subitems you can use a shortcut like this
-        $childs = array(
+        $childs = [
             'this.is.the.label' => 'sumocoders_frameworkexample_route_name',
             'another.label' => $event->getFactory()->createItem(
                 'another.label',
-                array(
+                [
                     'route' => 'sumocoders_frameworkexample_default_hello',
-                    'routeParameters' => array(
+                    'routeParameters' => [
                         'name' => 'John Doe',
-                    ),
-                )
+                    ],
+                ]
             ),
-        );
+        ];
 
         $menuItem = $this->createItemWithChilds(
             $event->getFactory(),
@@ -47,9 +47,9 @@ class MenuListener extends DefaultMenuListener
 
         $menuItem = $event->getFactory()->createItem(
             'example.menu.overview',
-            array(
+            [
                 'route' => 'sumocoders_frameworkexample_route_name',
-            )
+            ]
         );
     }
 }

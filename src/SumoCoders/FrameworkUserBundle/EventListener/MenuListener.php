@@ -16,9 +16,9 @@ final class MenuListener extends DefaultMenuListener
         $menu = $event->getMenu();
         $menuItem = $event->getFactory()->createItem(
             'user.menu.index',
-            array(
+            [
                 'route' => 'sumocoders_frameworkuser_index_index',
-            )
+            ]
         );
         $menuItem->setExtra('orderNumber', 50);
 

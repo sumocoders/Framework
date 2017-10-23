@@ -66,11 +66,11 @@ class Installer
      */
     public function extractInformationFromPath($path)
     {
-        $defaultReturn = array(
+        $defaultReturn = [
             'is_local' => (substr($path, 0, 7) == '/Users/'),
             'client' => null,
             'project' => null,
-        );
+        ];
         $chunks = explode('/', mb_strtolower(trim($path, '/')));
         $sitesOffset = array_search('sites', $chunks);
 
@@ -136,9 +136,9 @@ class Installer
         try {
             $content = $yamlParser->parse(file_get_contents($path));
 
-            $newContent = array(
+            $newContent = [
                 'parameters' => $this->arrayReplaceExisting($content['parameters'], $config)
-            );
+            ];
 
             $yamlString = $yamlDumper->dump($newContent, 2);
             file_put_contents($path, $yamlString);

@@ -143,7 +143,7 @@ class BreadCrumbBuilderTest extends \PHPUnit_Framework_TestCase
         $this->createSimpleBreadCrumb();
 
         $this->breadCrumbBuilder->addSimpleItem('first', 'http://www.example.org');
-        $this->breadCrumbBuilder->overwriteItems(array());
+        $this->breadCrumbBuilder->overwriteItems([]);
 
         $requestStack = $this->getMockBuilder(RequestStack::class)
             ->getMock();

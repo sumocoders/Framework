@@ -95,10 +95,10 @@ EXPECTED;
 
         $this->installer->updateCapfile(
             $tempFile,
-            array(
+            [
                 'first_name' => 'John',
                 'last_name' => 'Doe',
-            )
+            ]
         );
 
         $this->assertEquals(
@@ -129,10 +129,10 @@ EXPECTED;
 
         $this->installer->updateYmlFile(
             $tempFile,
-            array(
+            [
                 'first_name' => 'John',
                 'last_name' => 'Doe',
-            )
+            ]
         );
 
         $this->assertEquals(

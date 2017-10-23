@@ -57,10 +57,10 @@ class DefaultMenuListener
     {
         $menuItem = $menuFactory->createItem(
             $label,
-            array(
+            [
                 'uri' => '#',
                 'label' => $label,
-            )
+            ]
         );
 
         $menuItem->setExtra('orderNumber', $order);
@@ -71,10 +71,10 @@ class DefaultMenuListener
             if (is_string($value)) {
                 $child = $menuFactory->createItem(
                     $key,
-                    array(
+                    [
                         'route' => $value,
                         'label' => $key,
-                    )
+                    ]
                 );
             } else {
                 $child = $value;
