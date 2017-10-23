@@ -26,4 +26,9 @@ class User extends BaseUser
     {
         return ['ROLE_USER'];
     }
+
+    public function canSwitchTo(BaseUser $user): bool
+    {
+        return false;
+    }
 }

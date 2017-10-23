@@ -17,6 +17,7 @@ user:
       admin: beheerder toevoegen
     settings: instellingen
     logout: uitloggen
+    switchBack: naar originele gebruiker
 
   datagrid:
     email: e-mailadres
@@ -25,11 +26,13 @@ user:
     actions:
       block: blokkeer
       unblock: deblokkeer
+      switchTo: overschakelen
 
   dialogs:
     messages:
       confirmBlock: Ben je zeker dat je "%user%" wilt blokkeren?
       confirmUnblock: Ben je zeker dat je "%user%" wilt deblokkeren?
+      confirmSwitch: Ben je zeker dat je naar "%user%" wilt overschakelen?
 
   types:
     user: gebruiker
