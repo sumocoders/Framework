@@ -3,9 +3,9 @@
 namespace SumoCoders\FrameworkUserBundle\Repository;
 
 use SumoCoders\FrameworkMultiUserBundle\User\AbstractUserRepository;
-use SumoCoders\FrameworkUserBundle\Entity\Admin;
+use SumoCoders\FrameworkUserBundle\Entity\User;
 
-final class AdminRepository extends AbstractUserRepository
+final class UserRepository extends AbstractUserRepository
 {
     /**
      * @param string $class
@@ -14,6 +14,6 @@ final class AdminRepository extends AbstractUserRepository
      */
     public function supportsClass($class)
     {
-        return Admin::class === $class;
+        return User::class === $class;
     }
 }

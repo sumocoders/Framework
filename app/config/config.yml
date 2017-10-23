@@ -8,7 +8,7 @@ services:
     arguments:
       -
         - "@multi_user.base_user.repository"
-        - "@sumo_coders.user.repository.sumo_user"
+        - "@sumo_coders.user.repository.user"
         - "@sumo_coders.user.repository.admin"
 
   sumocoders.user_provider:

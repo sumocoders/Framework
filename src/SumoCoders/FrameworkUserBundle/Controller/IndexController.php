@@ -5,17 +5,17 @@ namespace SumoCoders\FrameworkUserBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use SumoCoders\FrameworkMultiUserBundle\User\UserRepository;
+use SumoCoders\FrameworkMultiUserBundle\User\AbstractUserRepository;
 
 /**
  * @Route(service="sumo_coders.user.controller.index")
  */
 final class IndexController
 {
-    /** @var UserRepository */
+    /** @var AbstractUserRepository */
     private $userRepository;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(AbstractUserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
     }

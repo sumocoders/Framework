@@ -4,7 +4,7 @@ namespace SumoCoders\FrameworkUserBundle\Twig;
 
 use SumoCoders\FrameworkMultiUserBundle\Entity\BaseUser;
 use SumoCoders\FrameworkUserBundle\Entity\Admin;
-use SumoCoders\FrameworkUserBundle\Entity\SumoUser;
+use SumoCoders\FrameworkUserBundle\Entity\User;
 use Twig_Extension;
 use Twig_SimpleTest;
 
@@ -22,7 +22,7 @@ final class UserExtension extends Twig_Extension
             new Twig_SimpleTest(
                 'user',
                 function (BaseUser $user) {
-                    return $user instanceof SumoUser;
+                    return $user instanceof User;
                 }
             ),
         ];

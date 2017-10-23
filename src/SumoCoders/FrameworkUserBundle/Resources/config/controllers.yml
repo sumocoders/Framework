@@ -13,7 +13,7 @@ services:
       - "@translator"
       - "SumoCoders\\FrameworkUserBundle\\Form\\AddUserType"
       - "@multi_user.handler.create_user"
-      - "@sumo_coders.user.repository.sumo_user"
+      - "@sumo_coders.user.repository.user"
       - "sumocoders_frameworkuser_index_index"
 
   sumo_coders.user.controller.add_admin:
@@ -39,7 +39,7 @@ services:
       - "@translator"
       - "SumoCoders\\FrameworkUserBundle\\Form\\EditUserType"
       - "@multi_user.handler.update_user"
-      - "@sumo_coders.user.repository.sumo_user"
+      - "@sumo_coders.user.repository.user"
       - "sumocoders_frameworkuser_index_index"
 
   sumo_coders.user.controller.edit_admin:

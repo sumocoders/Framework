@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="SumoCoders\FrameworkUserBundle\Repository\AdminRepository")
  * @ORM\Table()
  */
-final class Admin extends SumoUser
+final class Admin extends User
 {
     public function getRoles(): array
     {

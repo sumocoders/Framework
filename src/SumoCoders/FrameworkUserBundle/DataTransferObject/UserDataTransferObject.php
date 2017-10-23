@@ -3,7 +3,7 @@
 namespace SumoCoders\FrameworkUserBundle\DataTransferObject;
 
 use SumoCoders\FrameworkMultiUserBundle\DataTransferObject\BaseUserDataTransferObject;
-use SumoCoders\FrameworkUserBundle\Entity\SumoUser;
+use SumoCoders\FrameworkUserBundle\Entity\User;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final class UserDataTransferObject extends BaseUserDataTransferObject
@@ -31,11 +31,11 @@ final class UserDataTransferObject extends BaseUserDataTransferObject
     public $plainPassword;
 
     /**
-     * @var SumoUser
+     * @var User
      */
     protected $user;
 
-    public function getEntity(): SumoUser
+    public function getEntity(): User
     {
         if ($this->user) {
             $this->user->change($this);
@@ -43,7 +43,7 @@ final class UserDataTransferObject extends BaseUserDataTransferObject
             return $this->user;
         }
 
-        return new SumoUser(
+        return new User(
             $this->plainPassword,
             $this->displayName,
             $this->email
