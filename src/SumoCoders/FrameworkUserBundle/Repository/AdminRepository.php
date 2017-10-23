@@ -2,10 +2,10 @@
 
 namespace SumoCoders\FrameworkUserBundle\Repository;
 
-use SumoCoders\FrameworkMultiUserBundle\User\UserRepository as FrameworkUserRepository;
+use SumoCoders\FrameworkMultiUserBundle\User\UserRepository;
 use SumoCoders\FrameworkUserBundle\Entity\Admin;
 
-final class AdminRepository extends FrameworkUserRepository
+final class AdminRepository extends UserRepository
 {
     /**
      * @param string $class

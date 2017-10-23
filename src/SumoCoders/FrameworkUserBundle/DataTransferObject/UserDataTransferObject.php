@@ -2,11 +2,11 @@
 
 namespace SumoCoders\FrameworkUserBundle\DataTransferObject;
 
-use SumoCoders\FrameworkMultiUserBundle\DataTransferObject\UserDataTransferObject as FrameworkUserDataTransferObject;
+use SumoCoders\FrameworkMultiUserBundle\DataTransferObject\BaseUserDataTransferObject;
 use SumoCoders\FrameworkUserBundle\Entity\SumoUser;
 use Symfony\Component\Validator\Constraints as Assert;
 
-final class UserDataTransferObject extends FrameworkUserDataTransferObject
+final class UserDataTransferObject extends BaseUserDataTransferObject
 {
     /**
      * @var string

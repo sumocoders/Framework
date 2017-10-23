@@ -2,11 +2,11 @@
 
 namespace SumoCoders\FrameworkUserBundle\Form;
 
-use SumoCoders\FrameworkMultiUserBundle\Form\AddUserType as FrameworkAddUserType;
+use SumoCoders\FrameworkMultiUserBundle\Form\AddBaseUserType;
 use SumoCoders\FrameworkUserBundle\DataTransferObject\UserDataTransferObject;
 use Symfony\Component\Form\FormBuilderInterface;
 
-final class AddUserType extends FrameworkAddUserType
+final class AddUserType extends AddBaseUserType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

@@ -2,11 +2,11 @@
 
 namespace SumoCoders\FrameworkUserBundle\Form;
 
-use SumoCoders\FrameworkMultiUserBundle\Form\AddUserType as FrameworkAddUserType;
+use SumoCoders\FrameworkMultiUserBundle\Form\AddBaseUserType;
 use SumoCoders\FrameworkUserBundle\DataTransferObject\AdminDataTransferObject;
 use Symfony\Component\Form\FormBuilderInterface;
 
-final class AddAdminType extends FrameworkAddUserType
+final class AddAdminType extends AddBaseUserType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

@@ -2,7 +2,7 @@
 
 namespace SumoCoders\FrameworkUserBundle\Twig;
 
-use SumoCoders\FrameworkMultiUserBundle\Entity\User;
+use SumoCoders\FrameworkMultiUserBundle\Entity\BaseUser;
 use SumoCoders\FrameworkUserBundle\Entity\Admin;
 use SumoCoders\FrameworkUserBundle\Entity\SumoUser;
 use Twig_Extension;
@@ -15,13 +15,13 @@ final class UserExtension extends Twig_Extension
         return [
             new Twig_SimpleTest(
                 'admin',
-                function (User $user) {
+                function (BaseUser $user) {
                     return $user instanceof Admin;
                 }
             ),
             new Twig_SimpleTest(
                 'user',
-                function (User $user) {
+                function (BaseUser $user) {
                     return $user instanceof SumoUser;
                 }
             ),

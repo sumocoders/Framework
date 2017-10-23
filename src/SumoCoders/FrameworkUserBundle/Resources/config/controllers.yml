@@ -2,7 +2,7 @@ services:
   sumo_coders.user.controller.index:
     class: SumoCoders\FrameworkUserBundle\Controller\IndexController
     arguments:
-      - "@multi_user.user.repository"
+      - "@multi_user.base_user.repository"
 
   sumo_coders.user.controller.add_user:
     class: SumoCoders\FrameworkMultiUserBundle\Controller\UserController
@@ -57,7 +57,7 @@ services:
   sumo_coders.user.controller.block:
     class: SumoCoders\FrameworkMultiUserBundle\Controller\BlockController
     arguments:
-      - "@multi_user.user.repository"
+      - "@multi_user.base_user.repository"
       - "@session.flash_bag"
       - "@translator"
       - "@router"

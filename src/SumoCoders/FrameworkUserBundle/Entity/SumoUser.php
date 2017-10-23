@@ -3,14 +3,14 @@
 namespace SumoCoders\FrameworkUserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use SumoCoders\FrameworkMultiUserBundle\Entity\User as FrameworkUser;
+use SumoCoders\FrameworkMultiUserBundle\Entity\BaseUser;
 use SumoCoders\FrameworkMultiUserBundle\Security\PasswordResetToken;
 
 /**
  * @ORM\Entity(repositoryClass="SumoCoders\FrameworkUserBundle\Repository\SumoUserRepository")
  * @ORM\Table()
  */
-class SumoUser extends FrameworkUser
+class SumoUser extends BaseUser
 {
     public function __construct(
         string $plainPassword,
