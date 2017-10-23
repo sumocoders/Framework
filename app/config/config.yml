@@ -4,9 +4,12 @@ imports:
 
 services:
   multi_user.user_repository.collection:
-    class: SumoCoders\FrameworkMultiUserBundle\User\UserRepositoryCollection
+    class: SumoCoders\FrameworkMultiUserBundle\User\BaseUserRepositoryCollection
     arguments:
-      - ["@multi_user.user.repository"]
+      -
+        - "@multi_user.base_user.repository"
+        - "@sumo_coders.user.repository.user"
+        - "@sumo_coders.user.repository.admin"
 
   sumocoders.user_provider:
     class: SumoCoders\FrameworkMultiUserBundle\Security\ObjectUserProvider

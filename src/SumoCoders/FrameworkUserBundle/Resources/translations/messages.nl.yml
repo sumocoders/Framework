@@ -1,0 +1,44 @@
+sumo_coders.user.route:
+  add_user: gebruiker toevoegen
+  add_admin: beheerder toevoegen
+  edit_user: gebruiker bewerken
+  edit_admin: beheerder bewerken
+
+user:
+  header:
+    index: overzicht gebruikers
+
+  menu:
+    index: gebruikers
+
+  actions:
+    add:
+      user: gebruiker toevoegen
+      admin: beheerder toevoegen
+    settings: instellingen
+    logout: uitloggen
+
+  datagrid:
+    email: e-mailadres
+    type: type
+
+    actions:
+      block: blokkeer
+      unblock: deblokkeer
+
+  dialogs:
+    messages:
+      confirmBlock: Ben je zeker dat je "%user%" wilt blokkeren?
+      confirmUnblock: Ben je zeker dat je "%user%" wilt deblokkeren?
+
+  types:
+    user: gebruiker
+    admin: beheerder
+
+  form:
+    submit: opslaan
+
+  displayName: weergavenaam
+  email: e-mailadres
+  plainPassword.first: wachtwoord
+  plainPassword.second: herhaal wachtwoord

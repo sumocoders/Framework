@@ -14,3 +14,10 @@ sumo_coders_framework_multi_user:
 
 fos_js_routing:
   resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+sumo_coders_framework_user_bundle_crud:
+  resource: "@SumoCodersFrameworkUserBundle/Resources/config/routing.yml"
+
+sumo_coders_framework_user_bundle:
+  resource: "@SumoCodersFrameworkUserBundle/Controller"
+  type: annotation

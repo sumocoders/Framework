@@ -1,0 +1,12 @@
+services:
+  sumo_coders.user.repository.user:
+    class: SumoCoders\FrameworkUserBundle\Repository\UserRepository
+    factory: ["@doctrine.orm.default_entity_manager", getRepository]
+    arguments:
+      - SumoCodersFrameworkUserBundle:User
+
+  sumo_coders.user.repository.admin:
+    class: SumoCoders\FrameworkUserBundle\Repository\AdminRepository
+    factory: ["@doctrine.orm.default_entity_manager", getRepository]
+    arguments:
+      - SumoCodersFrameworkUserBundle:Admin
