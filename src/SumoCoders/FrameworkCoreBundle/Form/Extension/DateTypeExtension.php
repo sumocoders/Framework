@@ -25,18 +25,18 @@ final class DateTypeExtension extends AbstractTypeExtension
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
-            array(
+            [
                 'format' => 'd/MM/y',
                 'datepicker' => false,
                 'maximum_date' => null,
                 'minimum_date' => null,
-            )
+            ]
         );
 
-        $resolver->setAllowedValues('widget', array(
+        $resolver->setAllowedValues('widget', [
             'single_text',
             'choice',
-        ));
+        ]);
     }
 
     /**

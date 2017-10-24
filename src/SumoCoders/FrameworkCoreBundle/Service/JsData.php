@@ -35,9 +35,9 @@ class JsData extends ParameterBag
         $currentRequest = $this->requestStack->getCurrentRequest();
 
         if ($currentRequest) {
-            $requestData = array(
+            $requestData = [
                 'locale' => $currentRequest->getLocale(),
-            );
+            ];
 
             $this->set('request', $requestData);
         }

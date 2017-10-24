@@ -16,7 +16,7 @@ class DefaultController extends Controller
      */
     public function generateLocaleAction(Request $request)
     {
-        $translations = array();
+        $translations = [];
 
         // fetch the translations for the fallback languages
         $fallbackLocales = $this->get('translator')->getFallbackLocales();
@@ -66,7 +66,7 @@ class DefaultController extends Controller
             );
         }
 
-        $localesArray = array();
+        $localesArray = [];
         foreach ($catalogue->getDomains() as $domain => $collection) {
             foreach ($collection->all() as $key => $translation) {
                 $localesArray[$key] = $translation->getLocaleString();
@@ -84,7 +84,7 @@ class DefaultController extends Controller
     private function retrieveDirs()
     {
         // Discover translation directories
-        $dirs = array();
+        $dirs = [];
         foreach ($this->container->getParameter('kernel.bundles') as $bundle) {
             $reflection = new \ReflectionClass($bundle);
             if (is_dir($dir = dirname($reflection->getFilename()) . '/Resources/translations')) {

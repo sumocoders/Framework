@@ -64,9 +64,9 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('\Swift_Message', $message);
 
-        $this->assertEquals(array('from@example.com' => 'John From'), $message->getFrom());
-        $this->assertEquals(array('reply-to@example.com' => 'John Reply To'), $message->getReplyTo());
-        $this->assertEquals(array('to@example.com' => 'John To'), $message->getTo());
+        $this->assertEquals(['from@example.com' => 'John From'], $message->getFrom());
+        $this->assertEquals(['reply-to@example.com' => 'John Reply To'], $message->getReplyTo());
+        $this->assertEquals(['to@example.com' => 'John To'], $message->getTo());
     }
 
     public function testCreationOfPlainTextMessage()

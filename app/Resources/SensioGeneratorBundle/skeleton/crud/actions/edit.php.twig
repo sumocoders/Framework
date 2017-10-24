@@ -30,9 +30,9 @@
         $editForm = $this->createForm(
             new {{ entity_class }}Type(),
             ${{ niceEntityName }},
-            array(
+            [
                 'method' => 'PUT',
-            )
+            ]
         );
 
         $editForm->handleRequest($request);
@@ -45,18 +45,18 @@
                 'success',
                 $this->get('translator')->trans(
                     '{{ niceBundleName }}.flash.success.edit',
-                    array(
+                    [
                         '%{{ niceEntityName }}%' => ${{ niceEntityName }},
-                    )
+                    ]
                 )
             );
 
             return $this->redirect(
                 $this->generateUrl(
                     '{{ baseRoute }}_show',
-                    array(
+                    [
                         'id' => ${{ niceEntityName }}->getId(),
-                    )
+                    ]
                 )
             );
         }
@@ -66,17 +66,17 @@
 
 {% block method_return %}
 {% if 'annotation' == format %}
-        return array(
+        return [
             '{{ niceEntityName }}' => ${{ niceEntityName }},
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ];
 {% else %}
-        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:edit.html.twig', array(
+        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:edit.html.twig', [
             '{{ niceEntityName }}' => ${{ niceEntityName }},
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
 {% endif %}
 {% endblock method_return %}
 

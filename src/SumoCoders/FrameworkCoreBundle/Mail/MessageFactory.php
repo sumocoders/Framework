@@ -10,17 +10,17 @@ final class MessageFactory
     /**
      * @var array|string
      */
-    private $sender = array();
+    private $sender = [];
 
     /**
      * @var array|string
      */
-    private $replyTo = array();
+    private $replyTo = [];
 
     /**
      * @var array|string
      */
-    private $to = array();
+    private $to = [];
 
     /**
      * @var EngineInterface
@@ -60,7 +60,7 @@ final class MessageFactory
     public function setDefaultSender($email, $name = null)
     {
         if ($name !== null) {
-            $this->sender = array($email => $name);
+            $this->sender = [$email => $name];
         } else {
             $this->sender = $email;
         }
@@ -75,7 +75,7 @@ final class MessageFactory
     public function setDefaultReplyTo($email, $name = null)
     {
         if ($name !== null) {
-            $this->replyTo = array($email => $name);
+            $this->replyTo = [$email => $name];
         } else {
             $this->replyTo = $email;
         }
@@ -90,7 +90,7 @@ final class MessageFactory
     public function setDefaultTo($email, $name = null)
     {
         if ($name !== null) {
-            $this->to = array($email => $name);
+            $this->to = [$email => $name];
         } else {
             $this->to = $email;
         }
@@ -193,10 +193,10 @@ final class MessageFactory
         $css = file_get_contents($this->cssPath);
         $html = $this->template->render(
             $this->templatePath,
-            array(
+            [
                 'content' => $content,
                 'css' => $css,
-            )
+            ]
         );
 
         $cssToInlineStyles = new CssToInlineStyles();

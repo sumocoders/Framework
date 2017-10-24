@@ -31,9 +31,9 @@ class FrameworkExtensionTest extends \PHPUnit_Framework_TestCase
         $container->method('getParameter')
             ->will(
                 $this->returnValue(
-                    array(
+                    [
                         'existing' => null,
-                    )
+                    ]
                 )
             );
 

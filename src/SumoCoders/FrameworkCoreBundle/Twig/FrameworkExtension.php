@@ -26,16 +26,16 @@ class FrameworkExtension extends \Twig_Extension
      */
     public function getFunctions()
     {
-        return array(
+        return [
             new \Twig_SimpleFunction(
                 'bundleExists',
-                array($this, 'bundleExists')
+                [$this, 'bundleExists']
             ),
             new \Twig_SimpleFunction(
                 'toTranslation',
-                array($this, 'convertToTranslation')
+                [$this, 'convertToTranslation']
             ),
-        );
+        ];
     }
 
     /**
@@ -62,7 +62,7 @@ class FrameworkExtension extends \Twig_Extension
     {
         $stringToConvert = trim($stringToConvert);
         $stringToConvert = str_replace(
-            array('_', '-', ' ', 'framework', 'Framework'),
+            ['_', '-', ' ', 'framework', 'Framework'],
             '.',
             $stringToConvert
         );

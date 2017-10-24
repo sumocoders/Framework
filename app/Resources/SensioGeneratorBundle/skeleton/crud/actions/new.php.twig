@@ -38,9 +38,9 @@
                 'success',
                 $this->get('translator')->trans(
                     '{{ niceBundleName }}.flash.success.add',
-                    array(
+                    [
                         '%{{ niceEntityName }}%' => ${{ niceEntityName }},
-                    )
+                    ]
                 )
             );
 
@@ -48,9 +48,9 @@
                 return $this->redirect(
                 $this->generateUrl(
                     '{{ baseRoute }}_show',
-                    array(
+                    [
                         'id' => ${{ niceEntityName }}->getId(),
-                    )
+                    ]
                 )
             );
             {%- else -%}
@@ -66,14 +66,14 @@
 
 {% block method_return %}
 {% if 'annotation' == format %}
-        return array(
+        return [
             '{{ niceEntityName }}' => ${{ niceEntityName }},
             'form' => $form->createView(),
-        );
+        ];
 {% else %}
-        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:new.html.twig', array(
+        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:new.html.twig', [
             '{{ niceEntityName }}' => ${{ niceEntityName }},
             'form' => $form->createView(),
-        ));
+        ]);
 {% endif %}
 {% endblock method_return %}

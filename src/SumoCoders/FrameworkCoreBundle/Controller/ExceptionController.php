@@ -32,10 +32,10 @@ final class ExceptionController extends Controller
 
         return $this->render(
             '@SumoCodersFrameworkCore/Exception/error.html.twig',
-            array(
+            [
                 'status_code' => $exception->getStatusCode(),
                 'status_text' => $message,
-            )
+            ]
         );
     }
 }

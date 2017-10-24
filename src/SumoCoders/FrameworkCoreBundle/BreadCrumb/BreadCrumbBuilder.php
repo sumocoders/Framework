@@ -28,7 +28,7 @@ final class BreadCrumbBuilder
     /**
      * @var array
      */
-    private $items = array();
+    private $items = [];
 
     /**
      * @param FactoryInterface         $factory
@@ -151,7 +151,7 @@ final class BreadCrumbBuilder
     private function addItemsBasedOnTheChild(MenuItem $item, $locale)
     {
         if ($item !== null) {
-            $items = array();
+            $items = [];
             $temporaryItem = $item;
 
             while ($temporaryItem->getParent() !== null) {
