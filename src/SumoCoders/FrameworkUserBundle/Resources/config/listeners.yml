@@ -6,3 +6,10 @@ services:
       - "@security.token_storage"
     tags:
       - { name: kernel.event_listener, event: framework_core.configure_menu, method: onConfigureMenu }
+
+  sumo_coders.user.listener.switch_user:
+    class: SumoCoders\FrameworkUserBundle\EventListener\SwitchUserListener
+    arguments:
+      - "@security.token_storage"
+    tags:
+      - { name: kernel.event_listener, event: security.switch_user, method: onSwitchUser }

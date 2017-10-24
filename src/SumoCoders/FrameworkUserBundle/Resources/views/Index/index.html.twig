@@ -25,6 +25,7 @@
         <th>{{ 'user.datagrid.type'|trans|capitalize }}</th>
         <th></th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -36,6 +37,20 @@
               {{ 'user.types.admin'|trans }}
             {% else %}
               {{ 'user.types.user'|trans }}
+            {% endif %}
+          </td>
+          <td class="action">
+            {% if not user.isBlocked() and app.user.canSwitchTo(user) %}
+              {# todo switch route to homepage? #}
+              <a
+                href="{{ path('sumocoders_frameworkexample_bootstrap_select2') }}?_switch_user={{ user.username }}"
+                class="fa fa-refresh confirm"
+                data-toggle="tooltip"
+                title="{{ 'user.datagrid.actions.switchTo'|trans }}"
+                data-message="{{ 'user.dialogs.messages.confirmSwitch'|trans({'%user%': user.username}) }}"
+              >
+                <span class="hide">{{ 'user.datagrid.actions.switchTo'|trans }}</span>
+              </a>
             {% endif %}
           </td>
           <td class="action">

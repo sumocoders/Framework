@@ -1,0 +1,47 @@
+sumo_coders.user.route:
+  add_user: add user
+  add_admin: add admin
+  edit_user: edit user
+  edit_admin: edit admin
+
+user:
+  header:
+    index: overview users
+
+  menu:
+    index: users
+
+  actions:
+    add:
+      user: add user
+      admin: add admin
+    settings: settings
+    logout: logout
+    switchBack: back to original user
+
+  datagrid:
+    email: e-mail
+    type: type
+
+    actions:
+      block: block
+      unblock: unblock
+      switchTo: switch to
+
+  dialogs:
+    messages:
+      confirmBlock: Are you sure you want to block user "%user%"?
+      confirmUnblock: Are you sure you want to unblock user "%user%"?
+      confirmSwitch: Are you sure you want to switch to user "%user%"?
+
+  types:
+    user: user
+    admin: admin
+
+  form:
+    submit: save
+
+  displayName: display name
+  email: e-mail
+  plainPassword.first: password
+  plainPassword.second: confirm password
