@@ -24,7 +24,7 @@ final class Admin extends BaseUser
 
     public function getRoles(): array
     {
-        return ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_ALLOWED_TO_SWITCH'];
+        return ['ROLE_ADMIN', 'ROLE_ALLOWED_TO_SWITCH'];
     }
 
     public function canSwitchTo(BaseUser $user): bool
