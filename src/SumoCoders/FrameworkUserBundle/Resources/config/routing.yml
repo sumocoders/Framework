@@ -15,5 +15,9 @@ sumo_coders.user.route.edit_admin:
   path: /user/{id}/edit-admin
 
 sumocoders.user.route.block:
-    defaults: { _controller: sumo_coders.user.controller.block:toggleAction }
-    path: /user/{id}/block
+  defaults: { _controller: sumo_coders.user.controller.block:toggleAction }
+  path: /user/{id}/block
+
+sumocoders.user.route.delete:
+  defaults: { _controller: sumo_coders.user.controller.delete:deleteAction }
+  path: /user/{id}/delete
