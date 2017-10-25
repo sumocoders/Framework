@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "35429212e6e3547f32088555593792d8",
+    "content-hash": "2165ddcbd1875e83b272729d92fc69d3",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -3128,17 +3128,17 @@
         },
         {
             "name": "sumocoders/framework-search-bundle",
-            "version": "v4.0.0",
+            "version": "5.0.1",
             "target-dir": "SumoCoders/FrameworkSearchBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "a4395d171bc89def772d69057b640d93e0bede56"
+                "reference": "88d6e4ab577abe454eaab1449108220cdc6df44b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/a4395d171bc89def772d69057b640d93e0bede56",
-                "reference": "a4395d171bc89def772d69057b640d93e0bede56",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/88d6e4ab577abe454eaab1449108220cdc6df44b",
+                "reference": "88d6e4ab577abe454eaab1449108220cdc6df44b",
                 "shasum": ""
             },
             "require": {
@@ -3174,7 +3174,7 @@
                 "SumoCoders",
                 "search"
             ],
-            "time": "2017-07-06T14:15:20+00:00"
+            "time": "2017-08-09T12:00:20+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
