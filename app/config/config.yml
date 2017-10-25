@@ -183,3 +183,9 @@ jms_translation:
       excluded_names: ["*TestCase.php", "*Test.php", "DefaultMenuListener.php"]
       excluded_dirs: [cache, data, logs]
       extractors: [jms_i18n_routing]
+
+sumo_coders_framework_multi_user:
+  redirect_routes:
+    SumoCoders\FrameworkUserBundle\Entity\Admin: sumocoders_frameworkuser_index_index
+    # todo when you add a page accessable by user, will default to "/"
+#    SumoCoders\FrameworkUserBundle\Entity\User:
