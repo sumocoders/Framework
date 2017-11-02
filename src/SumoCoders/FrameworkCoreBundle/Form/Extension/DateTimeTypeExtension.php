@@ -26,7 +26,7 @@ final class DateTimeTypeExtension extends AbstractTypeExtension
     {
         $resolver->setDefaults(
             [
-                'format' => 'd/MM/y H:i',
+                'format' => 'dd/MM/y H:i',
                 'maximum_date' => null,
                 'minimum_date' => null,
             ]
@@ -51,6 +51,6 @@ final class DateTimeTypeExtension extends AbstractTypeExtension
 
     private function convertToJsFormat(string $intlFormat): string
     {
-        return str_replace(['y', 'MM', 'd', 'H', 'i'], ['YYYY','MM', 'DD', 'HH', 'mm'], $intlFormat);
+        return str_replace(['y', 'MM', 'dd', 'H', 'i'], ['YYYY','MM', 'DD', 'HH', 'mm'], $intlFormat);
     }
 }
