@@ -71,7 +71,7 @@
           </td>
           <td class="action">
             <a
-              href="{{ path('sumocoders.user.route.block', {'id': user.id}) }}"
+              href="{{ path('sumo_coders.user.route.block', {'id': user.id}) }}"
               {% if user.isBlocked() %}
                 class="fa fa-check confirm" data-toggle="tooltip"
                 title="{{ 'user.datagrid.actions.unblock'|trans }}"

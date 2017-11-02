@@ -19,7 +19,7 @@
   {{ form_end(form) }}
 
   {% if deleteForm is defined %}
-    {{ form_start(deleteForm, {'action': path('sumocoders.user.route.delete', {'id': user.id})}) }}
+    {{ form_start(deleteForm, {'action': path('sumo_coders.user.route.delete', {'id': user.id})}) }}
     <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
