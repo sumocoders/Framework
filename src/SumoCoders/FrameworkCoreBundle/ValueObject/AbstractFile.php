@@ -3,6 +3,11 @@
 namespace SumoCoders\FrameworkCoreBundle\ValueObject;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation\Slug;
+use Gedmo\Mapping\Annotation\SlugHandler;
+use Gedmo\Sluggable\Sluggable;
+use Gedmo\Sluggable\SluggableListener;
+use Gedmo\Sluggable\Util\Urlizer;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
@@ -10,15 +15,15 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  *
  * You need to implement the method getUploadDir.
  * When using this class in an entity certain life cycle callbacks should be called
- * prepareToUpload for @ORM\PrePersist() and @ORM\PreUpdate()
- * upload for @ORM\PostPersist() and @ORM\PostUpdate()
- * remove for @ORM\PostRemove()
+ * prepareToUpload for PrePersist() and PreUpdate()
+ * upload for PostPersist() and PostUpdate()
+ * remove for PostRemove()
  */
 abstract class AbstractFile
 {
     /**
      * @var string
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * Column(type="string", length=255, nullable=true)
      */
     protected $fileName = null;
 
@@ -33,33 +38,26 @@ abstract class AbstractFile
     protected $oldFileName;
 
     /**
-     * @param string $fileName
+     * @var string
      */
-    protected function __construct($fileName)
+    protected $namePrefix;
+
+    protected function __construct(?string $fileName)
     {
         $this->fileName = $fileName;
     }
 
-    /**
-     * @return string
-     */
-    public function getFileName()
+    public function getFileName(): ?string
     {
         return $this->fileName;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getAbsolutePath()
+    public function getAbsolutePath(): ?string
     {
         return $this->fileName === null ? null : $this->getUploadRootDir() . '/' . $this->fileName;
     }
 
-    /**
-     * @return string
-     */
-    public function getWebPath()
+    public function getWebPath(): string
     {
         $file = $this->getAbsolutePath();
         if (is_file($file) && file_exists($file)) {
@@ -69,46 +67,33 @@ abstract class AbstractFile
         return '';
     }
 
-    /**
-     * @return string
-     */
-    protected function getUploadRootDir()
+    protected function getUploadRootDir(): string
     {
         // the absolute directory path where uploaded documents should be saved
-        return __DIR__ . '/../../../../web/' . $this->getTrimmedUploadDir();
+        return __DIR__ . '/../../../../web/files/' . $this->getTrimmedUploadDir();
     }
 
-    /**
-     * @return string
-     */
-    protected function getTrimmedUploadDir()
+    protected function getTrimmedUploadDir(): string
     {
         return trim($this->getUploadDir(), '/\\');
     }
 
     /**
      * The dir in the web folder where the file needs to be uploaded.
-     * The base directory is always the src/Frontend/Files/ directory
+     * The base directory is always the web/files directory
      *
      * @return string
      */
-    abstract protected function getUploadDir();
+    abstract protected function getUploadDir(): string;
 
-    /**
-     * Sets file.
-     *
-     * @param UploadedFile $file
-     *
-     * @return static
-     */
-    public function setFile(UploadedFile $file = null)
+    public function setFile(UploadedFile $file = null): self
     {
         if ($file === null) {
             return $this;
         }
 
         $this->file = $file;
-        // check if we have an old image path
+        // check if we have an old file path
         if ($this->fileName === null) {
             return $this;
         }
@@ -122,31 +107,35 @@ abstract class AbstractFile
 
     /**
      * @param UploadedFile|null $uploadedFile
+     * @param string|null $namePrefix If set this will be prepended to the generated filename
      *
      * @return static
      */
-    public static function fromUploadedFile(UploadedFile $uploadedFile = null)
+    public static function fromUploadedFile(UploadedFile $uploadedFile = null, string $namePrefix = null)
     {
         $file = new static(null);
         $file->setFile($uploadedFile);
+        if ($namePrefix !== null) {
+            $file->setNamePrefix($namePrefix);
+        }
 
         return $file;
     }
 
-    /**
-     * Get file.
-     *
-     * @return UploadedFile
-     */
-    public function getFile()
+    public function getFile(): ?UploadedFile
     {
         return $this->file;
     }
 
+    final public function hasFile(): bool
+    {
+        return $this->file instanceof UploadedFile;
+    }
+
     /**
-     * This function should be called for the life cycle events @ORM\PrePersist() and @ORM\PreUpdate()
+     * This function should be called for the life cycle events PrePersist() and PreUpdate()
      */
-    public function prepareToUpload()
+    public function prepareToUpload(): void
     {
         if ($this->getFile() === null) {
             return;
@@ -154,26 +143,23 @@ abstract class AbstractFile
 
         // do whatever you want to generate a unique name
         $filename = sha1(uniqid(mt_rand(), true));
+        if ($this->namePrefix !== null) {
+            $filename = Urlizer::urlize($this->namePrefix) . '_' . $filename;
+        }
         $this->fileName = $filename . '.' . $this->getFile()->guessExtension();
     }
 
     /**
-     * This function should be called for the life cycle events @ORM\PostPersist() and @ORM\PostUpdate()
+     * This function should be called for the life cycle events PostPersist() and PostUpdate()
      */
-    public function upload()
+    public function upload(): void
     {
         // check if we have an old image
         if ($this->oldFileName !== null) {
-            // delete the old image
-            $oldFile = $this->getUploadRootDir() . '/' . $this->oldFileName;
-            if (is_file($oldFile) && file_exists($oldFile)) {
-                unlink($oldFile);
-            }
-            // clear the $this->oldFileName image path
-            $this->oldFileName = null;
+            $this->removeOldFile();
         }
 
-        if ($this->getFile() === null) {
+        if (!$this->hasFile()) {
             return;
         }
 
@@ -182,20 +168,36 @@ abstract class AbstractFile
         $this->file = null;
     }
 
+
+
+    /**
+     * This will remove the old file, can be extended to add extra functionality
+     */
+    protected function removeOldFile(): void
+    {
+        // delete the old file
+        $oldFile = $this->getUploadRootDir() . '/' . $this->oldFileName;
+        if (is_file($oldFile) && file_exists($oldFile)) {
+            unlink($oldFile);
+        }
+
+        $this->oldFileName = null;
+    }
+
     /**
      * if there is an error when moving the file, an exception will
      * be automatically thrown by move(). This will properly prevent
      * the entity from being persisted to the database on error
      */
-    protected function writeFileToDisk()
+    protected function writeFileToDisk(): void
     {
         $this->getFile()->move($this->getUploadRootDir(), $this->fileName);
     }
 
     /**
-     * This function should be called for the life cycle event @ORM\PostRemove()
+     * This function should be called for the life cycle event PostRemove()
      */
-    public function remove()
+    public function remove(): void
     {
         $file = $this->getAbsolutePath();
         if (!is_file($file) || !file_exists($file)) {
@@ -205,37 +207,51 @@ abstract class AbstractFile
         unlink($file);
     }
 
-    /**
-     * Returns a string representation of the image.
-     *
-     * @return string
-     */
-    public function __toString()
+    public function __toString(): string
     {
         return (string) $this->fileName;
     }
 
-    /**
-     * @param string $fileName
-     *
-     * @return static
-     */
-    public static function fromString($fileName)
+    public static function fromString(?string $fileName): ?self
     {
-        return new static($fileName);
+        return $fileName !== null ? new static($fileName) : null;
     }
 
     /**
-     * {@inheritdoc}
+     * The next time doctrine saves this to the database the file will be removed
      */
-    public function jsonSerialize()
-    {
-        return (string) $this->getWebPath();
-    }
-
-    public function markForDeletion()
+    public function markForDeletion(): void
     {
         $this->oldFileName = $this->fileName;
         $this->fileName = null;
+    }
+
+    /**
+     * @param string $namePrefix If set this will be prepended to the generated filename
+     *
+     * @return self
+     */
+    public function setNamePrefix(string $namePrefix): self
+    {
+        $this->namePrefix = $namePrefix;
+
+        return $this;
+    }
+
+    /**
+     * @internal Used by the form types
+     *
+     * @param bool $isPendingDeletion
+     */
+    public function setPendingDeletion($isPendingDeletion): void
+    {
+        if ($isPendingDeletion) {
+            $this->markForDeletion();
+        }
+    }
+
+    public function jsonSerialize(): string
+    {
+        return $this->getWebPath();
     }
 }
