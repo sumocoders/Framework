@@ -418,7 +418,7 @@
         {% if show_preview and preview_url %}
           <a href="{{ preview_url }}" class="btn btn-xs btn-default" target="_blank">
             <span class="fa fa-eye" aria-hidden="true"></span>
-            {{ preview_label|trans|ucfirst }}
+            {{ preview_label|trans|capitalize }}
           </a>
         {% endif %}
         {% if show_remove_file %}
