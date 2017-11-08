@@ -20,31 +20,26 @@ abstract class AbstractImageType extends Type
     }
 
     /**
-     * @param string $imageFileName
+     * @param string $imageName
      * @param AbstractPlatform $platform
      *
-     * @return AbstractImage
+     * @return AbstractImage|null
      */
-    public function convertToPHPValue($imageFileName, AbstractPlatform $platform)
+    public function convertToPHPValue($imageName, AbstractPlatform $platform): ?AbstractImage
     {
-        return $this->createFromString($imageFileName);
+        return $this->createFromString($imageName);
     }
 
     /**
      * @param AbstractImage $image
      * @param AbstractPlatform $platform
      *
-     * @return string
+     * @return string|null
      */
-    public function convertToDatabaseValue($image, AbstractPlatform $platform)
+    public function convertToDatabaseValue($image, AbstractPlatform $platform): ?string
     {
-        return (string) $image;
+        return $image !== null ? (string) $image : null;
     }
 
-    /**
-     * @param string $imageFileName
-     *
-     * @return AbstractImage
-     */
-    abstract protected function createFromString($imageFileName);
+    abstract protected function createFromString(string $imageName): ?AbstractImage;
 }
