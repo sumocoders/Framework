@@ -98,3 +98,18 @@ services:
     public: false
     tags: [{ name: pagerfanta.view, alias: sumocoders }]
 
+  sumocoders_other_choice_option_repository:
+    public: false
+    class: Doctrine\ORM\EntityRepository
+    factory: ["@doctrine.orm.entity_manager", getRepository]
+    arguments:
+      - SumoCoders\FrameworkCoreBundle\Entity\OtherChoiceOption
+
+  sumocoders_form_type_other_choice_type:
+    class: SumoCoders\FrameworkCoreBundle\Form\Type\OtherChoiceType
+    arguments:
+      - "@sumocoders_other_choice_option_repository"
+      - "@translator"
+    tags:
+      - { name: form.type, alias: otherChoiceType }
+
