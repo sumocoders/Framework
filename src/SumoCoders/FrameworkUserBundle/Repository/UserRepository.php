@@ -7,12 +7,7 @@ use SumoCoders\FrameworkUserBundle\Entity\User;
 
 final class UserRepository extends AbstractUserRepository
 {
-    /**
-     * @param string $class
-     *
-     * @return bool
-     */
-    public function supportsClass($class)
+    public function supportsClass(string $class): bool
     {
         return User::class === $class;
     }

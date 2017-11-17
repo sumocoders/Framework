@@ -9,6 +9,7 @@ use SumoCoders\FrameworkMultiUserBundle\Controller\UserController;
 use SumoCoders\FrameworkMultiUserBundle\User\Interfaces\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -60,11 +61,11 @@ final class EditController extends UserController
      * @param Request $request
      * @param int|null $id
      *
-     * @return array
+     * @return array|RedirectResponse
      *
      * @throws AccessDeniedHttpException if not allowed to edit user
      */
-    public function editAction(Request $request, ?int $id): array
+    public function editAction(Request $request, ?int $id)
     {
         if (!$this->authorizationChecker->isGranted('ROLE_ADMIN')
             && $this->tokenStorage->getToken()->getUser()->getId() !== $id

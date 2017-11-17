@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "57749dd801e4cfacbe9a25d6ecb18fb6",
+    "content-hash": "39cd3060831c1bf28ad9b36ea904627b",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -3059,17 +3059,17 @@
         },
         {
             "name": "sumocoders/framework-multi-user-bundle",
-            "version": "8.2.0",
+            "version": "9.0.0",
             "target-dir": "SumoCoders/FrameworkMultiUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkMultiUserBundle.git",
-                "reference": "b362c6888ac1ef14f84ea8326708619fe4d4a844"
+                "reference": "0969a63d408adbb9db76c8830f64e9951ad9d90e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkMultiUserBundle/zipball/b362c6888ac1ef14f84ea8326708619fe4d4a844",
-                "reference": "b362c6888ac1ef14f84ea8326708619fe4d4a844",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkMultiUserBundle/zipball/0969a63d408adbb9db76c8830f64e9951ad9d90e",
+                "reference": "0969a63d408adbb9db76c8830f64e9951ad9d90e",
                 "shasum": ""
             },
             "require": {
@@ -3124,7 +3124,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2017-10-25T14:15:47+00:00"
+            "time": "2017-11-27T12:03:17+00:00"
         },
         {
             "name": "sumocoders/framework-search-bundle",
