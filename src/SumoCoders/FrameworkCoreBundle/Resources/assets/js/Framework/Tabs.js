@@ -1,6 +1,5 @@
 export class Tabs {
   initEventListeners () {
-    this.loadTab()
     $('.nav-tabs a').on('click', $.proxy(this.changeTab, this))
   }
 

@@ -37,6 +37,7 @@ export class Index {
     searchBar.initEventListeners()
     table.initEventListeners()
     tabs.initEventListeners()
+    tabs.loadTab()
 
     this.initializeSliders()
     this.initializeSortables()
