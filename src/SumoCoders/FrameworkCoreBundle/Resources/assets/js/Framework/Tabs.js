@@ -1,5 +1,6 @@
 export class Tabs {
   initEventListeners () {
+    this.loadTab()
     $('.nav-tabs a').on('click', $.proxy(this.changeTab, this))
   }
 
@@ -17,5 +18,16 @@ export class Tabs {
       $(window).scrollTop(scrolled)
     }
     $current.tab('show')
+  }
+
+  loadTab () {
+    let url = document.location.toString()
+    if (url.match('#')) {
+      let anchor = '#' + url.split('#')[1]
+
+      if ($('.nav-tabs a[href=' + anchor + ']').length > 0) {
+        $('.nav-tabs a[href=' + anchor + ']').tab('show')
+      }
+    }
   }
 }
