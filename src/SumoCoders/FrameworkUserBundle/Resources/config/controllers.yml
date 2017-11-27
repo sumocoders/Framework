@@ -14,6 +14,11 @@ services:
       - "SumoCoders\\FrameworkUserBundle\\Form\\AddUserType"
       - "@multi_user.handler.create_user"
       - "@sumo_coders.user.repository.user"
+      - "@framework.breadcrumb_builder"
+      -
+        - {"route": "", "label": "Home"}
+        - {"route": "sumocoders_frameworkuser_index_index", "label": "user.header.index"}
+        - {"route": "", "label": "user.header.add_user"}
       - "sumocoders_frameworkuser_index_index"
 
   sumo_coders.user.controller.add_admin:
@@ -26,6 +31,11 @@ services:
       - "SumoCoders\\FrameworkUserBundle\\Form\\AddAdminType"
       - "@multi_user.handler.create_user"
       - "@sumo_coders.user.repository.admin"
+      - "@framework.breadcrumb_builder"
+      -
+        - {"route": "", "label": "Home"}
+        - {"route": "sumocoders_frameworkuser_index_index", "label": "user.header.index"}
+        - {"route": "", "label": "user.header.add_admin"}
       - "sumocoders_frameworkuser_index_index"
 
   sumo_coders.user.controller.edit_user:
@@ -40,6 +50,11 @@ services:
       - "SumoCoders\\FrameworkUserBundle\\Form\\EditUserType"
       - "@multi_user.handler.update_user"
       - "@sumo_coders.user.repository.user"
+      - "@framework.breadcrumb_builder"
+      -
+        - {"route": "", "label": "Home"}
+        - {"route": "sumocoders_frameworkuser_index_index", "label": "user.header.index"}
+        - {"route": "", "label": "user.header.edit_user"}
       - "sumocoders_frameworkuser_index_index"
 
   sumo_coders.user.controller.edit_admin:
@@ -52,6 +67,11 @@ services:
       - "SumoCoders\\FrameworkUserBundle\\Form\\EditAdminType"
       - "@multi_user.handler.update_user"
       - "@sumo_coders.user.repository.admin"
+      - "@framework.breadcrumb_builder"
+      -
+        - {"route": "", "label": "Home"}
+        - {"route": "sumocoders_frameworkuser_index_index", "label": "user.header.index"}
+        - {"route": "", "label": "user.header.edit_admin"}
       - "sumocoders_frameworkuser_index_index"
 
   sumo_coders.user.controller.block:

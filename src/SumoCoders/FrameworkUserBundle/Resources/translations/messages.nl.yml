@@ -7,6 +7,10 @@ sumo_coders.user.route:
 user:
   header:
     index: overzicht gebruikers
+    add_user: gebruiker toevoegen
+    add_admin: beheerder toevoegen
+    edit_user: gebruiker bewerken
+    edit_admin: beheerder bewerken
 
   menu:
     index: gebruikers
