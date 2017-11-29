@@ -3,6 +3,11 @@ imports:
   - { resource: security.yml }
 
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
   multi_user.user_repository.collection:
     class: SumoCoders\FrameworkMultiUserBundle\User\BaseUserRepositoryCollection
     arguments:
