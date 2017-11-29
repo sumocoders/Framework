@@ -386,49 +386,46 @@
   {% endif %}
 {%- endblock form_errors -%}
 
-{% block image_row %}
+{% block image_widget %}
   {% spaceless %}
     <div class="form-group">
-      {{ form_label(form) }}
-      <div class="col-sm-9">
-        {{ form_widget(form.file) }}
-      </div>
-      {% set show_preview = show_preview and data is not null and data.fileName is not empty %}
-      {% if show_preview or show_remove_image %}
-        <div class="col-sm-offset-3 col-sm-9">
-          {% if show_preview %}
-            <img class="img-responsive {% if preview_class is defined and preview_class is not empty %}{{ preview_class }}{% endif %}" src="{{ data.webPath }}">
-          {% endif %}
-          {% if show_remove_image %}
-            {{ form_widget(form.remove) }}
-          {% endif %}
-        </div>
-      {% endif %}
+      {{ form_widget(form.file) }}
+      {{ form_errors(form.file) }}
     </div>
-    {{ block('form_error') }}
+    {% set show_preview = show_preview and data is not null and data.fileName is not empty %}
+    {% if show_preview or show_remove_image %}
+      <div class="form-group">
+        {% if show_preview and preview_url %}
+          <img class="{% if preview_class is defined and preview_class is not empty %}{{ preview_class }}{% endif %}" src="{{ preview_url }}">
+        {% endif %}
+        {% if show_remove_image %}
+          {{ form_widget(form.remove) }}
+        {% endif %}
+      </div>
+    {% endif %}
   {% endspaceless %}
 {% endblock %}
 
-{% block sumoFile_row %}
+{% block sumoFile_widget %}
   {% spaceless %}
     <div class="form-group">
-      {{ form_label(form) }}
-      <div class="col-sm-9">
-        {{ form_widget(form.file) }}
-      </div>
-      {% set show_preview = show_preview and data is not null and data.fileName is not empty %}
-      {% if show_preview or show_remove_file%}
-        <div class="col-sm-offset-3 col-sm-9">
-          {% if show_preview %}
-              <a href="{{ data.webPath }}" target="_blank">{{ preview_label|trans({}, translation_domain) }}</a>
-          {% endif %}
-          {% if show_remove_file %}
-            {{ form_widget(form.remove) }}
-          {% endif %}
-        </div>
-      {% endif %}
+      {{ form_widget(form.file) }}
+      {{ form_errors(form.file) }}
     </div>
-    {{ block('form_error') }}
+    {% set show_preview = show_preview and data is not null and data.fileName is not empty %}
+    {% if show_preview or show_remove_file %}
+      <div class="form-group">
+        {% if show_preview and preview_url %}
+          <a href="{{ preview_url }}" class="btn btn-xs btn-default" target="_blank">
+            <span class="fa fa-eye" aria-hidden="true"></span>
+            {{ preview_label|trans|capitalize }}
+          </a>
+        {% endif %}
+        {% if show_remove_file %}
+          {{ form_widget(form.remove) }}
+        {% endif %}
+      </div>
+    {% endif %}
   {% endspaceless %}
 {% endblock %}
 

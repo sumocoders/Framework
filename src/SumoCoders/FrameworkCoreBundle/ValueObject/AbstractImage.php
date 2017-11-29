@@ -9,9 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * You need to implement the method getUploadDir.
  * When using this class in an entity certain life cycle callbacks should be called
- * prepareToUpload for @ORM\PrePersist() and @ORM\PreUpdate()
- * upload for @ORM\PostPersist() and @ORM\PostUpdate()
- * remove for @ORM\PostRemove()
+ * prepareToUpload for PrePersist() and PreUpdate()
+ * upload for PostPersist() and PostUpdate()
+ * remove for PostRemove()
  *
  * The following things are optional
  * A fallback image can be set by setting the full path of the image to the FALLBACK_IMAGE constant
@@ -23,24 +23,20 @@ abstract class AbstractImage extends AbstractFile
      */
     const FALLBACK_IMAGE = null;
 
-    /**
-     * @return string
-     */
-    public function getWebPath()
+    public function getWebPath(): string
     {
         $webPath = parent::getWebPath();
 
-        if (empty($webPath)) {
-            return static::FALLBACK_IMAGE;
+        $file = $this->getAbsolutePath();
+
+        if (is_file($file) && file_exists($file)) {
+            return $webPath . $this->fileName;
         }
 
-        return $webPath;
+        return static::FALLBACK_IMAGE;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getFallbackImage()
+    public function getFallbackImage(): ?string
     {
         return static::FALLBACK_IMAGE;
     }
