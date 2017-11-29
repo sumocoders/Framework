@@ -3,6 +3,7 @@
 namespace SumoCoders\FrameworkUserBundle\DataTransferObject;
 
 use SumoCoders\FrameworkMultiUserBundle\DataTransferObject\BaseUserDataTransferObject;
+use SumoCoders\FrameworkMultiUserBundle\User\Interfaces\User;
 use SumoCoders\FrameworkUserBundle\Entity\Admin;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -35,7 +36,7 @@ final class AdminDataTransferObject extends BaseUserDataTransferObject
      */
     protected $user;
 
-    public function getEntity(): Admin
+    public function getEntity(): User
     {
         if ($this->user) {
             $this->user->change($this);

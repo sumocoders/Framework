@@ -12,7 +12,7 @@ final class AdminRepository extends AbstractUserRepository
      *
      * @return bool
      */
-    public function supportsClass($class)
+    public function supportsClass(string $class): bool
     {
         return Admin::class === $class;
     }
