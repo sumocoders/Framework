@@ -10,12 +10,23 @@ export class Tabs {
     if (window.history && window.history.pushState) {
       /* an empty state object for now — either we implement a proper
        popstate handler ourselves, or wait for jQuery UI upstream */
-      window.history.pushState({}, document.title, $current.href)
+      window.history.pushState({}, document.title, $current.attr('href'))
     } else {
       let scrolled = $(window).scrollTop()
-      window.location.hash = '#' + $current.href.split('#')[1]
+      window.location.hash = '#' + $current.attr('href').split('#')[1]
       $(window).scrollTop(scrolled)
     }
     $current.tab('show')
+  }
+
+  loadTab () {
+    let url = document.location.toString()
+    if (url.match('#')) {
+      let anchor = '#' + url.split('#')[1]
+
+      if ($('.nav-tabs a[href=' + anchor + ']').length > 0) {
+        $('.nav-tabs a[href=' + anchor + ']').tab('show')
+      }
+    }
   }
 }
