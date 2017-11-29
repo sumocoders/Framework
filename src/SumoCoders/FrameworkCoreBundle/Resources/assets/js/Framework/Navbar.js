@@ -1,4 +1,8 @@
 export class Navbar {
+  constructor () {
+    this.initNavbar()
+  }
+
   initNavbar () {
     $('#main-menu-inner .dropdown-toggle').on('click', $.proxy(this.toggleDrowdown, this))
     this.setClassesBasedOnSubNavigation()

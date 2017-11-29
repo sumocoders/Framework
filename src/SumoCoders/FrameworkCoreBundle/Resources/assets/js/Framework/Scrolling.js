@@ -1,4 +1,8 @@
 export class Scrolling {
+  constructor () {
+    this.initEventListeners()
+  }
+
   initEventListeners () {
     $('a[href*=#]').on('click', $.proxy(this.scrollTo, this))
   }

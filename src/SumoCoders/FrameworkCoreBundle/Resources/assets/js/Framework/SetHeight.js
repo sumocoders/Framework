@@ -1,4 +1,8 @@
 export class SetHeight {
+  constructor () {
+    this.setContentHeight()
+  }
+
   setContentHeight () {
     $('#content').css('minHeight', $(window).height())
     let timeout = null

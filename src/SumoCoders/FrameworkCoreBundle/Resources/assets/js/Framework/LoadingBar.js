@@ -1,4 +1,8 @@
 export class LoadingBar {
+  constructor () {
+    this.initEventListeners()
+  }
+
   initEventListeners () {
     $(document).on(' form_submitting', $.proxy(this.showLoadingBar, this))
     $(document).on('ajax_start', $.proxy(this.showLoadingBar, this))

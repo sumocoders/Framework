@@ -4,6 +4,7 @@ const locale = new Locale()
 
 export class Form {
   constructor (form) {
+    this.initForm()
     this.form = form
   }
 
