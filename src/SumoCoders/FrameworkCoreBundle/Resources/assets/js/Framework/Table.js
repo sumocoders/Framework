@@ -1,4 +1,8 @@
 export class Table {
+  constructor () {
+    this.initEventListeners
+  }
+
   initEventListeners () {
     $('.table tr').on('click', $.proxy(this.clickableTablerow, this))
   }

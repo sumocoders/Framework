@@ -3,8 +3,8 @@ import {Locale} from 'Framework/Locale'
 const locale = new Locale()
 
 export class Form {
-  constructor (form) {
-    this.form = form
+  constructor () {
+    this.initForm()
   }
 
   initForm () {

@@ -1,4 +1,8 @@
 export class Searchbar {
+  constructor () {
+    this.initEventListeners()
+  }
+
   initEventListeners () {
     $('a.toggle-searchbar').on('click', $.proxy(this.toggleSearchbar, this))
   }

@@ -14,30 +14,18 @@ import {Table} from './Framework/Table'
 import {Tabs} from './Framework/Tabs'
 import {Tooltip} from './Framework/Tooltip'
 
-const ajax = new Ajax()
-const form = new Form()
-const link = new Link()
-const loadingBar = new LoadingBar()
-const navbar = new Navbar()
-const scrolling = new Scrolling()
-const setHeight = new SetHeight()
-const searchBar = new Searchbar()
-const table = new Table()
-const tabs = new Tabs()
-
 export class Index {
   constructor () {
-    ajax.initAjax()
-    form.initForm()
-    link.initLink()
-    loadingBar.initEventListeners()
-    navbar.initNavbar()
-    scrolling.initEventListeners()
-    setHeight.setContentHeight()
-    searchBar.initEventListeners()
-    table.initEventListeners()
-    tabs.initEventListeners()
-    tabs.loadTab()
+    this.ajax = new Ajax()
+    this.form = new Form()
+    this.link = new Link()
+    this.loadingBar = new LoadingBar()
+    this.navbar = new Navbar()
+    this.scrolling = new Scrolling()
+    this.setHeight = new SetHeight()
+    this.searchBar = new Searchbar()
+    this.table = new Table()
+    this.tabs = new Tabs()
 
     this.initializeSliders()
     this.initializeSortables()

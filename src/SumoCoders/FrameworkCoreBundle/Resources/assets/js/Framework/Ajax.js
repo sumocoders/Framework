@@ -3,6 +3,10 @@ import {Flash} from 'Framework/Flash'
 const locale = new Locale()
 
 export class Ajax {
+  constructor () {
+    this.initAjax()
+  }
+
   initAjax () {
     /* set some defaults for AJAX-request */
     $.ajaxSetup(
