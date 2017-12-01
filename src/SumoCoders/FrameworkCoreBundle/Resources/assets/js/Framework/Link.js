@@ -2,6 +2,7 @@ export class Link {
   constructor () {
     this.initLink()
   }
+  
   initLink () {
     $('a.confirm').on('click', $.proxy(this.askConfirmation, this))
     $('button.confirm').on('click', $.proxy(this.askConfirmationAndSubmit, this))
