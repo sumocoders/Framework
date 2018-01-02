@@ -94,12 +94,12 @@ framework:
 
 # Twig Configuration
 twig:
-  debug:  %kernel.debug%
-  strict_variables: %kernel.debug%
+  debug: "%kernel.debug%"
+  strict_variables: "%kernel.debug%"
   globals:
     fallbacks: "@framework.fallbacks"
     jsData: "@framework.jsdata"
-    locales: %locales%
+    locales: "%locales%"
   form_themes:
     - 'SumoCodersFrameworkCoreBundle:Form:fields.html.twig'
 
@@ -131,7 +131,7 @@ doctrine:
         MATCH_AGAINST: SumoCodersFrameworkCoreBundle\Extensions\Doctrine\MatchAgainst
 
 doctrine_migrations:
-    dir_name: %kernel.root_dir%/migrations
+    dir_name: "%kernel.root_dir%/migrations"
     namespace: SumoCodersFramework\Migrations
     table_name: migration_versions
     name: Application Migrations
@@ -139,7 +139,7 @@ doctrine_migrations:
 # I18n Configuration
 jms_i18n_routing:
   default_locale: "%locale%"
-  locales: %locales%
+  locales: "%locales%"
   strategy: prefix
 
 # Mopa Configuration
@@ -182,8 +182,8 @@ swiftmailer:
 jms_translation:
   configs:
     app:
-      dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
-      output_dir: %kernel.root_dir%/Resources/translations
+      dirs: ["%kernel.root_dir%", "%kernel.root_dir%/../src"]
+      output_dir: "%kernel.root_dir%/Resources/translations"
       ignored_domains: [routes]
       excluded_names: ["*TestCase.php", "*Test.php", "DefaultMenuListener.php"]
       excluded_dirs: [cache, data, logs]
