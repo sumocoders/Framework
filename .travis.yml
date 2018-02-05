@@ -43,7 +43,7 @@ before_script:
   - php app/console assets:instal --env=test
 
 script:
-  - bin/phpunit -c app/ --coverage-clover=coverage.clover
+  - SYMFONY_DEPRECATIONS_HELPER=weak bin/phpunit -c app/ --coverage-clover=coverage.clover
 
 after_success:
   - if [[ "$TRAVIS_PHP_VERSION" != "hhvm" ]] && [[ "$TRAVIS_PHP_VERSION" != "7" ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi
