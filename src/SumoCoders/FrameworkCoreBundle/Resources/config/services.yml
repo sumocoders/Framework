@@ -1,7 +1,7 @@
 services:
   framework.fallbacks:
     class:  SumoCoders\FrameworkCoreBundle\Service\Fallbacks
-    arguments: [%fallbacks%]
+    arguments: ["%fallbacks%"]
 
   framework.jsdata:
     class: SumoCoders\FrameworkCoreBundle\Service\JsData
