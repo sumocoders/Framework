@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fc52da7f2fa35049688c8c226cf5c8b",
+    "content-hash": "48035d5ad1e938a3ce4558895053c871",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -3074,17 +3074,17 @@
         },
         {
             "name": "sumocoders/framework-multi-user-bundle",
-            "version": "9.0.0",
+            "version": "10.0.0",
             "target-dir": "SumoCoders/FrameworkMultiUserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkMultiUserBundle.git",
-                "reference": "0969a63d408adbb9db76c8830f64e9951ad9d90e"
+                "reference": "a1a6a45f227ba950a15389a8355c0f35085ad809"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkMultiUserBundle/zipball/0969a63d408adbb9db76c8830f64e9951ad9d90e",
-                "reference": "0969a63d408adbb9db76c8830f64e9951ad9d90e",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkMultiUserBundle/zipball/a1a6a45f227ba950a15389a8355c0f35085ad809",
+                "reference": "a1a6a45f227ba950a15389a8355c0f35085ad809",
                 "shasum": ""
             },
             "require": {
@@ -3132,6 +3132,10 @@
                 {
                     "name": "Dylan Moerman",
                     "email": "dylan@sumocoders.be"
+                },
+                {
+                    "name": "Bruno Vitorino",
+                    "email": "bruno@sumocoders.be"
                 }
             ],
             "description": "The new multi user bundle for our mini-framework",
@@ -3139,7 +3143,7 @@
                 "SumoCoders",
                 "framework"
             ],
-            "time": "2017-11-27T12:03:17+00:00"
+            "time": "2018-01-11T13:51:55+00:00"
         },
         {
             "name": "sumocoders/framework-search-bundle",
