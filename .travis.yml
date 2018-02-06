@@ -21,7 +21,6 @@ before_script:
   - mysql -e 'create database app_test'
   - "sed 's/database.name:*/database.name: app_test/' app/config/parameters.yml.dist | sed 's/database.user:*/database.user: root/' | sed 's/database.password:*/database.password:/' > app/config/parameters.yml"
   - composer install --prefer-source --no-interaction --no-scripts
-  - composer run-script post-travis
   - php app/console doctrine:migration:migrate --env=test --no-interaction
 #  - php app/console doctrine:fixtures:load --env=test --no-interaction
 
