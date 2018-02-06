@@ -46,6 +46,7 @@ export class Form {
         format: format,
         minDate: startDate,
         maxDate: endDate,
+        useCurrent: false,
         keepOpen: true,
         icons: {
           time: "fa fa-clock-o",
