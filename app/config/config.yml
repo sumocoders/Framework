@@ -2,6 +2,9 @@ imports:
   - { resource: parameters.yml }
   - { resource: security.yml }
 
+parameters:
+  container.autowiring.strict_mode: true
+
 services:
   _defaults:
     autowire: true
@@ -64,7 +67,6 @@ services:
       - { name: doctrine.event_subscriber, connection: default }
     calls:
       - [ setAnnotationReader, [ "@annotation_reader" ] ]
-
 
 # Framework configuration
 framework:
