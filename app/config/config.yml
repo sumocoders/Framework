@@ -2,6 +2,9 @@ imports:
   - { resource: parameters.yml }
   - { resource: security.yml }
 
+parameters:
+  container.autowiring.strict_mode: true
+
 services:
   _defaults:
     autowire: true
@@ -64,7 +67,6 @@ services:
       - { name: doctrine.event_subscriber, connection: default }
     calls:
       - [ setAnnotationReader, [ "@annotation_reader" ] ]
-
 
 # Framework configuration
 framework:
@@ -177,17 +179,6 @@ swiftmailer:
   host: "%mailer.host%"
   username: "%mailer.user%"
   password: "%mailer.password%"
-
-# Translation configuration
-jms_translation:
-  configs:
-    app:
-      dirs: ["%kernel.root_dir%", "%kernel.root_dir%/../src"]
-      output_dir: "%kernel.root_dir%/Resources/translations"
-      ignored_domains: [routes]
-      excluded_names: ["*TestCase.php", "*Test.php", "DefaultMenuListener.php"]
-      excluded_dirs: [cache, data, logs]
-      extractors: [jms_i18n_routing]
 
 sumo_coders_framework_multi_user:
   redirect_routes:
