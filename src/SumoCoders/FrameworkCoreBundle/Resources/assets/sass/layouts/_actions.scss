@@ -1,10 +1,17 @@
 .action-buttons {
-  form.form-inline {
-    display: inline;
+  form {
+    float: left;
 
-    div {
+    &.form-inline {
       display: inline;
+
+      div {
+        display: inline;
+      }
     }
   }
-}
 
+  .btn {
+    margin: 0 0 0 6px;
+  }
+}
