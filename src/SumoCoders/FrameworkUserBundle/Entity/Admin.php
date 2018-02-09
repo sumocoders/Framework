@@ -10,7 +10,7 @@ use SumoCoders\FrameworkMultiUserBundle\Security\PasswordResetToken;
  * @ORM\Entity(repositoryClass="SumoCoders\FrameworkUserBundle\Repository\AdminRepository")
  * @ORM\Table()
  */
-final class Admin extends BaseUser
+class Admin extends BaseUser
 {
     public function __construct(
         string $plainPassword,
