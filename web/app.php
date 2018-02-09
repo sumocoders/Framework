@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 $env = getenv('SYMFONY_ENV') ?: 'prod';
 $debug = getenv('SYMFONY_DEBUG') === '1';
 
-if (isset($_SERVER['HTTP_HOST']) && substr_count($_SERVER['HTTP_HOST'], '.dev')) {
+if (isset($_SERVER['HTTP_HOST']) && substr_count($_SERVER['HTTP_HOST'], '.localhost')) {
     $env = 'dev';
     $debug = true;
 }
