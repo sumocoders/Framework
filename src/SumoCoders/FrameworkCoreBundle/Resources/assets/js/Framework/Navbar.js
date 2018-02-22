@@ -14,10 +14,6 @@ export class Navbar {
     let $parent = $this.parent()
 
     $parent.toggleClass('active')
-
-    $this.next('ul').slideToggle(200, () => {
-      $parent.toggleClass('open')
-    })
   }
 
   setClassesBasedOnSubNavigation () {

@@ -25,10 +25,8 @@ export class Tabs {
   }
 
   loadTab () {
-    let url = document.location.toString()
-    if (url.match('#')) {
-      let anchor = '#' + url.split('#')[1]
-
+    let anchor = document.location.hash
+    if (anchor !== '') {
       if ($('.nav-tabs a[href=' + anchor + ']').length > 0) {
         $('.nav-tabs a[href=' + anchor + ']').tab('show')
       }

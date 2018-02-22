@@ -4,7 +4,7 @@ export class Scrolling {
   }
 
   initEventListeners () {
-    $('a[href*=#]').on('click', $.proxy(this.scrollTo, this))
+    $('a[href*=\\#]').on('click', $.proxy(this.scrollTo, this))
   }
 
   scrollTo (event) {
@@ -12,6 +12,11 @@ export class Scrolling {
     let href = $anchor.attr('href')
     let url = href.substr(0, href.indexOf('#'))
     let hash = href.substr(href.indexOf('#'))
+
+    // If the hash is only a hash, there's nowhere to go to
+    if (hash === '#') {
+      return
+    }
 
     /* check if we have an url, and if it is on the current page and the element exists disabled for nav-tabs */
     if (
