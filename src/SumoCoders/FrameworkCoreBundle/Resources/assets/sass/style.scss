@@ -1,57 +1,57 @@
 // Base
-@import 'sumocodersframework/src/sass/base/fonts';
-@import 'font-awesome/scss/font-awesome';
+@import '~frameworkstylepackage/src/sass/base/fonts';
+@import '~font-awesome/scss/font-awesome';
 
 // Bootstrap
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
 @import 'bootstrap-variables';
 @import 'bootstrap-imports';
 
-@import 'sumocodersframework/src/sass/mixins/reset-filter';
+@import '~frameworkstylepackage/src/sass/mixins/reset-filter';
 
 // Icons @todo: can this be removed??
-@import 'sumocodersframework/src/sass/base/icons';
+@import '~frameworkstylepackage/src/sass/base/icons';
 
 // Custom icon font generated with gulp-webfont
 @import 'icons';
 
 // Plugins
-@import 'select2-bootstrap-css/lib/select2-bootstrap';
-@import 'sumocodersframework/src/sass/plugins/bootstrap-tagsinput';
-@import 'sumocodersframework/src/sass/plugins/jquery-ui';
-@import 'sumocodersframework/src/sass/plugins/select2';
-@import 'sumocodersframework/src/sass/plugins/collections';
+@import '~select2-bootstrap-css/lib/select2-bootstrap.scss';
+@import '~frameworkstylepackage/src/sass/plugins/bootstrap-tagsinput';
+@import '~frameworkstylepackage/src/sass/plugins/jquery-ui';
+@import '~frameworkstylepackage/src/sass/plugins/select2';
+@import '~frameworkstylepackage/src/sass/plugins/collections';
 
 // Components
-@import 'sumocodersframework/src/sass/components/alerts';
-@import 'sumocodersframework/src/sass/components/autocomplete';
-@import 'sumocodersframework/src/sass/components/breadcrumb';
-@import 'sumocodersframework/src/sass/components/carousel';
-@import 'sumocodersframework/src/sass/components/datagrids';
-@import 'sumocodersframework/src/sass/components/datepicker';
-@import 'sumocodersframework/src/sass/components/dropdowns';
-@import 'sumocodersframework/src/sass/components/forms';
-@import 'sumocodersframework/src/sass/components/helper-classes';
-@import 'sumocodersframework/src/sass/components/input-group';
-@import 'sumocodersframework/src/sass/components/logo';
-@import 'sumocodersframework/src/sass/components/modal';
-@import 'sumocodersframework/src/sass/components/navbar';
-@import 'sumocodersframework/src/sass/components/navs';
-@import 'sumocodersframework/src/sass/components/page-header';
-@import 'sumocodersframework/src/sass/components/pagination';
-@import 'sumocodersframework/src/sass/components/panels';
-@import 'sumocodersframework/src/sass/components/progress-bars';
-@import 'sumocodersframework/src/sass/components/slider';
-@import 'sumocodersframework/src/sass/components/sortable';
-@import 'sumocodersframework/src/sass/components/tables';
-@import 'sumocodersframework/src/sass/components/tagbox';
-@import 'sumocodersframework/src/sass/components/type';
-@import 'sumocodersframework/src/sass/components/wells';
+@import '~frameworkstylepackage/src/sass/components/alerts';
+@import '~frameworkstylepackage/src/sass/components/autocomplete';
+@import '~frameworkstylepackage/src/sass/components/breadcrumb';
+@import '~frameworkstylepackage/src/sass/components/carousel';
+@import '~frameworkstylepackage/src/sass/components/datagrids';
+@import '~frameworkstylepackage/src/sass/components/datepicker';
+@import '~frameworkstylepackage/src/sass/components/dropdowns';
+@import '~frameworkstylepackage/src/sass/components/forms';
+@import '~frameworkstylepackage/src/sass/components/helper-classes';
+@import '~frameworkstylepackage/src/sass/components/input-group';
+@import '~frameworkstylepackage/src/sass/components/logo';
+@import '~frameworkstylepackage/src/sass/components/modal';
+@import '~frameworkstylepackage/src/sass/components/navbar';
+@import '~frameworkstylepackage/src/sass/components/navs';
+@import '~frameworkstylepackage/src/sass/components/page-header';
+@import '~frameworkstylepackage/src/sass/components/pagination';
+@import '~frameworkstylepackage/src/sass/components/panels';
+@import '~frameworkstylepackage/src/sass/components/progress-bars';
+@import '~frameworkstylepackage/src/sass/components/slider';
+@import '~frameworkstylepackage/src/sass/components/sortable';
+@import '~frameworkstylepackage/src/sass/components/tables';
+@import '~frameworkstylepackage/src/sass/components/tagbox';
+@import '~frameworkstylepackage/src/sass/components/type';
+@import '~frameworkstylepackage/src/sass/components/wells';
 
 // Layouts
-@import 'sumocodersframework/src/sass/layouts/framework';
-@import 'sumocodersframework/src/sass/layouts/user';
-@import 'sumocodersframework/src/sass/layouts/search';
-@import 'sumocodersframework/src/sass/layouts/header';
-@import 'sumocodersframework/src/sass/layouts/actions';
+@import '~frameworkstylepackage/src/sass/layouts/framework';
+@import '~frameworkstylepackage/src/sass/layouts/user';
+@import '~frameworkstylepackage/src/sass/layouts/search';
+@import '~frameworkstylepackage/src/sass/layouts/header';
+@import '~frameworkstylepackage/src/sass/layouts/actions';
