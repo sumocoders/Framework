@@ -33,47 +33,25 @@ gulp.plumbedSrc = function() {
       .pipe(plumber());
 };
 
-var commonWebpackConfig = {
-  output: {
-    filename: "Bundle.js"
-  },
-  devtool: "source-maps",
-  module: {
-    loaders: [
-      {
-        test: /.js?$/,
-        loader: "babel",
-        exclude: /node_modules/
-      }
-    ]
-  },
-  resolve: {
-    alias: {
-      Framework: path.resolve(__dirname, './src/SumoCoders/FrameworkCoreBundle/Resources/assets/js/Framework/'),
-      Exception: path.resolve(__dirname, './src/SumoCoders/FrameworkCoreBundle/Resources/assets/js/Exception/')
-    }
-  }
-};
+var commonWebpackConfig = require('./webpack.config')
 
-gulp.task('webpack:generate-production-js', function() {
+gulp.task('webpack:generatsqdfe-production-js', function() {
   return gulp.src([
     'src/**/Resources/assets/js/Index.js',
     'vendor/sumocoders/**/Resources/assets/js/**'
   ])
-      .pipe(webpackStream(Object.assign({}, commonWebpackConfig, {
-        plugins: [
-          new webpack.optimize.UglifyJsPlugin({
-            compress: {
-              warnings: false
-            }
-          }),
-          new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"production"'
-          })
-        ]
-      }, webpack)))
+      .pipe(webpackStream(Object.assign(commonWebpackConfig, webpack)))
       .pipe(gulp.dest(config.assetsDir + '/js'))
 });
+
+gulp.task('webpack:generate-production-js', function () {
+  return gulp.src([
+    'src/**/Resources/assets/js/Index.js',
+    'vendor/sumocoders/**/Resources/assets/js/**'
+  ])
+  .pipe(webpackStream(commonWebpackConfig, webpack))
+  .pipe(gulp.dest(config.assetsDir + '/js'))
+})
 
 gulp.task('js', function() {
   return gulp.src('src/**/Resources/assets/js/SumoPlugins.js')
@@ -191,8 +169,7 @@ gulp.task('sass:generate_css', ['icons'], function() {
       .pipe(plumber())
       .pipe(sass({
         includePaths: [
-          './node_modules/bootstrap-sass/assets/stylesheets',
-          './node_modules/'
+          'node_modules/'
         ],
         outputStyle:  minify ? 'compressed' : 'expanded',
         precision:    10
