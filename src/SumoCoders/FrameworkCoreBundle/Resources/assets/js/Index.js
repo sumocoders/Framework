@@ -32,6 +32,7 @@ export class Index {
     this.initializePopovers()
     this.initializeTooltips()
     this.initializeSelects()
+    this.initializeOtherChoiceTypes()
   }
 
   initializeSliders () {
@@ -61,6 +62,24 @@ export class Index {
   initializeSelects () {
     $('.select2').each((index, element) => {
       element.select2 = new Select($(element))
+    })
+  }
+
+  initializeOtherChoiceTypes () {
+    $(function() {
+      $('[data-role=other-choice-list]').on('change', function() {
+        let $select = $(this)
+        let $textField = $select.closest('[data-role=other-choice-wrapper]').find('[data-role=other-choice-text-input]')
+        if ($select.val() === 'other') {
+          $textField.show().focus()
+          $select.hide()
+
+          return
+        }
+
+        $textField.hide()
+        $select.show()
+      }).trigger('change')
     })
   }
 }
