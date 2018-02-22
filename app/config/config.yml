@@ -146,6 +146,7 @@ jms_i18n_routing:
 mopa_bootstrap:
   form:
     show_legend: false
+    horizontal: false
     render_required_asterisk: true
     render_optional_text: false
     help_label:
