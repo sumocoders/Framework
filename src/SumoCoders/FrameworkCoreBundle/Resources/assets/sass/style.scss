@@ -1,57 +1,57 @@
 // Base
-@import 'base/fonts';
+@import 'sumocodersframework/src/sass/base/fonts';
 @import 'font-awesome/scss/font-awesome';
 
-// make sure we have to bootstrap first and overrule them with our values
-@import 'bootstrap/variables';
-
 // Bootstrap
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
 @import 'bootstrap-variables';
 @import 'bootstrap-imports';
 
+@import 'sumocodersframework/src/sass/mixins/reset-filter';
 
 // Icons @todo: can this be removed??
-@import 'base/icons';
+@import 'sumocodersframework/src/sass/base/icons';
 
 // Custom icon font generated with gulp-webfont
 @import 'icons';
 
 // Plugins
 @import 'select2-bootstrap-css/lib/select2-bootstrap';
-@import 'plugins/bootstrap-tagsinput';
-@import 'plugins/jquery-ui';
-@import 'plugins/select2';
-@import 'plugins/collections';
+@import 'sumocodersframework/src/sass/plugins/bootstrap-tagsinput';
+@import 'sumocodersframework/src/sass/plugins/jquery-ui';
+@import 'sumocodersframework/src/sass/plugins/select2';
+@import 'sumocodersframework/src/sass/plugins/collections';
 
 // Components
-@import 'components/alerts';
-@import 'components/autocomplete';
-@import 'components/breadcrumb';
-@import 'components/carousel';
-@import 'components/datagrids';
-@import 'components/datepicker';
-@import 'components/dropdowns';
-@import 'components/forms';
-@import 'components/helper-classes';
-@import 'components/input-group';
-@import 'components/logo';
-@import 'components/modal';
-@import 'components/navbar';
-@import 'components/navs';
-@import 'components/page-header';
-@import 'components/pagination';
-@import 'components/panels';
-@import 'components/progress-bars';
-@import 'components/slider';
-@import 'components/sortable';
-@import 'components/tables';
-@import 'components/tagbox';
-@import 'components/type';
-@import 'components/wells';
+@import 'sumocodersframework/src/sass/components/alerts';
+@import 'sumocodersframework/src/sass/components/autocomplete';
+@import 'sumocodersframework/src/sass/components/breadcrumb';
+@import 'sumocodersframework/src/sass/components/carousel';
+@import 'sumocodersframework/src/sass/components/datagrids';
+@import 'sumocodersframework/src/sass/components/datepicker';
+@import 'sumocodersframework/src/sass/components/dropdowns';
+@import 'sumocodersframework/src/sass/components/forms';
+@import 'sumocodersframework/src/sass/components/helper-classes';
+@import 'sumocodersframework/src/sass/components/input-group';
+@import 'sumocodersframework/src/sass/components/logo';
+@import 'sumocodersframework/src/sass/components/modal';
+@import 'sumocodersframework/src/sass/components/navbar';
+@import 'sumocodersframework/src/sass/components/navs';
+@import 'sumocodersframework/src/sass/components/page-header';
+@import 'sumocodersframework/src/sass/components/pagination';
+@import 'sumocodersframework/src/sass/components/panels';
+@import 'sumocodersframework/src/sass/components/progress-bars';
+@import 'sumocodersframework/src/sass/components/slider';
+@import 'sumocodersframework/src/sass/components/sortable';
+@import 'sumocodersframework/src/sass/components/tables';
+@import 'sumocodersframework/src/sass/components/tagbox';
+@import 'sumocodersframework/src/sass/components/type';
+@import 'sumocodersframework/src/sass/components/wells';
 
 // Layouts
-@import 'layouts/framework';
-@import 'layouts/user';
-@import 'layouts/search';
-@import 'layouts/header';
-@import 'layouts/actions';
+@import 'sumocodersframework/src/sass/layouts/framework';
+@import 'sumocodersframework/src/sass/layouts/user';
+@import 'sumocodersframework/src/sass/layouts/search';
+@import 'sumocodersframework/src/sass/layouts/header';
+@import 'sumocodersframework/src/sass/layouts/actions';
