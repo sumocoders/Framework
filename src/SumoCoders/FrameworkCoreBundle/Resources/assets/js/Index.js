@@ -66,21 +66,19 @@ export class Index {
   }
 
   initializeOtherChoiceTypes () {
-    $(function() {
-      $('[data-role=other-choice-list]').on('change', function() {
-        let $select = $(this)
-        let $textField = $select.closest('[data-role=other-choice-wrapper]').find('[data-role=other-choice-text-input]')
-        if ($select.val() === 'other') {
-          $textField.show().focus()
-          $select.hide()
+    $('[data-role=other-choice-list]').on('change', function () {
+      let $select = $(this)
+      let $textField = $select.closest('[data-role=other-choice-wrapper]').find('[data-role=other-choice-text-input]')
+      if ($select.val() === 'other') {
+        $textField.show().focus()
+        $select.hide()
 
-          return
-        }
+        return
+      }
 
-        $textField.hide()
-        $select.show()
-      }).trigger('change')
-    })
+      $textField.hide()
+      $select.show()
+    }).trigger('change')
   }
 }
 
