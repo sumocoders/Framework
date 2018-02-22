@@ -8,6 +8,11 @@
     {% endif %}
 {% endblock %}
 
+{% block item %}
+  {% set item = item.setAttributes({ 'class': 'breadcrumb-item' }) %}
+  {{ parent() }}
+{% endblock %}
+
 {% block label %}
     {{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'messages'))|capitalize }}
 {% endblock %}
