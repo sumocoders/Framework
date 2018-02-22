@@ -64,7 +64,7 @@
               data-toggle="tooltip"
               title="{{ 'datagrids.actions.edit'|trans }}"
             >
-              <span class="hide">
+              <span class="sr-only">
                 {{ 'datagrids.actions.edit'|trans }}
               </span>
             </a>
@@ -82,7 +82,7 @@
                 data-message="{{ 'user.dialogs.messages.confirmBlock'|trans({'%user%': user.username}) }}"
               {% endif %}
             >
-              <span class="hide">
+              <span class="sr-only">
                 {% if user.isBlocked() %}
                   {{ 'user.datagrid.actions.unblock'|trans }}
                 {% else %}
