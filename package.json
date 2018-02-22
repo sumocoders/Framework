@@ -18,7 +18,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "sumocodersframework": "file:../SumocodersFramework"
+    "frameworkstylepackage": "../frameworkstylepackage"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -41,6 +41,7 @@
     "gulp-shell": "^0.5.2",
     "gulp-uglify": "^1.5",
     "jquery": "^3.3.1",
+    "node-sass-tilde-importer": "^1.0.1",
     "standard": "^10.0.3",
     "webpack": "^3.10.0",
     "webpack-stream": "^4.0.0"

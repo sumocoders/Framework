@@ -17,7 +17,8 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     parseTwig = require('./gulp-helpers/parse-twig'),
     stripPath = require('./gulp-helpers/strip-path'),
-    path = require('path');
+    path = require('path'),
+    tildeImporter = require('node-sass-tilde-importer');
 
 const webpackStream = require("webpack-stream");
 const webpack = require("webpack");
@@ -168,9 +169,7 @@ gulp.task('sass:generate_css', ['icons'], function() {
       .pipe(gulpif(minify == false, sourcemaps.init()))
       .pipe(plumber())
       .pipe(sass({
-        includePaths: [
-          'node_modules/'
-        ],
+        importer: tildeImporter,
         outputStyle:  minify ? 'compressed' : 'expanded',
         precision:    10
 
