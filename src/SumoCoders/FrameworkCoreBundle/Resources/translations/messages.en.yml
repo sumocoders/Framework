@@ -102,6 +102,7 @@ forms:
         removeImage: remove image
         removeFile: remove file
         viewCurrentFile: view current file
+        other: other
 
     buttons:
         new: add
