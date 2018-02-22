@@ -23,10 +23,17 @@ class OtherChoiceType extends AbstractType
     /** @var OtherChoiceOption */
     private $otherChoiceOption;
 
+    /** @var TranslatorInterface */
+    private $translator;
+
     public function __construct(EntityRepository $repository, TranslatorInterface $translator)
     {
         $this->repository = $repository;
-        $this->otherChoiceOption = OtherChoiceOption::getOtherOption($translator->trans('forms.labels.other'));
+        $this->translator = $translator;
+        $this->otherChoiceOption = OtherChoiceOption::getOtherOption(
+            $translator->trans('forms.labels.other'),
+            $translator->getLocale()
+        );
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -39,7 +46,10 @@ class OtherChoiceType extends AbstractType
                 'label' => false,
                 'choice_loader' => new CallbackChoiceLoader(
                     function () use ($category) : array {
-                        $choices = (array) $this->repository->findBy(['category' => $category], ['label' => 'ASC']);
+                        $choices = (array) $this->repository->findBy(
+                            ['category' => $category, 'locale' => $this->translator->getLocale()],
+                            ['label' => 'ASC']
+                        );
                         $choices[] = $this->otherChoiceOption->getWithNewChoiceOptionCategory($category);
 
                         return $choices;

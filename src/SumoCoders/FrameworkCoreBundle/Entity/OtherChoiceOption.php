@@ -40,13 +40,20 @@ class OtherChoiceOption
     private $label;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=2)
+     */
+    private $locale;
+
+    /**
      * Used to create new choice options in the form type
      *
      * @var string
      */
     private $newChoiceOptionCategory;
 
-    public function __construct(string $category, string $label)
+    public function __construct(string $category, string $label, string $locale)
     {
         if ($category === 'other') {
             throw new InvalidArgumentException('The category "other" is reserved');
@@ -54,6 +61,7 @@ class OtherChoiceOption
 
         $this->category = $category;
         $this->label = $label;
+        $this->locale = $locale;
     }
 
     public function getId(): string
@@ -80,14 +88,19 @@ class OtherChoiceOption
         return $this->label;
     }
 
+    public function getLocale(): string
+    {
+        return $this->locale;
+    }
+
     public function __toString(): string
     {
         return $this->label;
     }
 
-    public static function getOtherOption(string $label): self
+    public static function getOtherOption(string $label, string $locale): self
     {
-        $otherOption = new self('tmp', $label);
+        $otherOption = new self('tmp', $label, $locale);
         // hack to be able to set other while it is restricted;
         $otherOption->category = 'other';
 
