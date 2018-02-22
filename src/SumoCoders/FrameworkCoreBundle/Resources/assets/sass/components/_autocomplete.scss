@@ -1,9 +1,9 @@
 .ui-autocomplete.ui-widget-content {
-  border-color: $gray-lines;
+  border-color: $gray-700;
   z-index: 100000;
 
   .ui-menu-item a {
-    color: $gray-light;
+    color: $gray-100;
   }
 
   .ui-state-focus a {
@@ -11,8 +11,8 @@
   }
 
   .ui-state-focus {
-    background: $brand-primary;
-    border-color: $brand-primary;
+    background: theme-color('primary');
+    border-color: theme-color('primary');
     color: $white;
   }
 }
@@ -23,7 +23,7 @@
 }
 
 .ui-state-focus {
-  background: $brand-primary;
+  background: theme-color('primary');
   border: 0;
   color: $white;
   margin: 0;

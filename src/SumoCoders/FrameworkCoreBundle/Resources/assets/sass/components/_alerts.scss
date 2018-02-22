@@ -7,15 +7,9 @@
 
     &:hover,
     &:focus {
-      color: $gray-dark;
+      color: $gray-900;
     }
   }
-}
-
-.alert-dismissible .close {
-  color: $white;
-  opacity: 1;
-  position: static;
 }
 
 .alert a {

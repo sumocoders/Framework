@@ -4,7 +4,5 @@
 
 .collection-item {
   @include clearfix;
-  @extend .well;
-  @extend .well-sm;
   margin-bottom: $font-size-base * .7;
 }

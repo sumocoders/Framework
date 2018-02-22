@@ -8,7 +8,7 @@ h5,
 h6,
 p,
 td {
-  color: $text-color;
+  color: $body-color;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: $line-height-base;
@@ -27,35 +27,35 @@ h6 {
 }
 
 h1 {
-  font-size: $font-size-h1;
+  font-size: 25px;
 }
 
 h2 {
-  font-size: $font-size-h2;
+  font-size: 21px;
 }
 
 h3 {
-  font-size: $font-size-h3;
+  font-size: 17px;
 }
 
 h4 {
-  font-size: $font-size-h4;
+  font-size: 15px;
 }
 
 h5 {
-  font-size: $font-size-h5;
+  font-size: 14px;
 }
 
 h6 {
-  font-size: $font-size-h6;
+  font-size: 12px;
 }
 
 body,
 table.body,
 p,
 td {
-  font-size: $font-size-base;
-  line-height: $line-height-base;
+  font-size: 14px;
+  line-height: 14px;
 }
 
 p.lead,

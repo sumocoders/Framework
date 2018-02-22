@@ -4,13 +4,13 @@
 }
 
 .header-title-bar {
-  border-bottom: 1px $gray-lines solid;
-  border-top: 1px $gray-lines solid;
+  border-bottom: 1px $gray-500 solid;
+  border-top: 1px $gray-500 solid;
   overflow: hidden;
   padding: 20px 19px;
 
   h2 {
-    color: $gray;
+    color: $gray-500;
     font-style: normal;
     font-weight: normal;
     margin: 0;
@@ -19,12 +19,12 @@
 
 .actions {
   background-color: $dropdown-bg;
-  border-bottom: 1px $gray-lines solid;
+  border-bottom: 1px $gray-500 solid;
   display: block;
   padding: 14px 15px 10px 20px;
 
   .btn-info {
-    background-color: $brand-info;
+    background-color: theme-color('info');
     border-color: transparent;
     -webkit-font-smoothing: antialiased;
     font-style: normal;
@@ -32,7 +32,7 @@
 
     &:hover,
     &:focus {
-      background-color: darken($brand-info, 15%);
+      background-color: darken(theme-color('info'), 15%);
     }
   }
 
@@ -54,7 +54,7 @@
 }
 
 
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .header-title {
     padding-top: 55px;
   }

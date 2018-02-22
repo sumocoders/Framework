@@ -1,13 +1,19 @@
 .breadcrumb {
+  background: none;
   font-weight: 600;
   margin: 0;
   white-space: nowrap;
   z-index: 99;
 
+  .breadcrumb-item {
+    float: none;
+    display: inline-block;
+  }
+
   > li + li:before {
-    @extend .icon;
-    @extend .icon-angle;
-    font-size: $font-size-icon-smallest;
+    //@extend .icon;
+    //@extend .icon-angle;
+    font-size: $font-size-icon-smaller;
     padding-right: 10px;
   }
 

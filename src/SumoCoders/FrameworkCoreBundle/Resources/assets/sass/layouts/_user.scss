@@ -28,7 +28,7 @@
     }
 
     .control-label {
-      color: $gray;
+      color: $gray-500;
       font-size: 1.29 * $font-size-base;
       font-weight: bold;
       margin-bottom: 15px;
@@ -40,7 +40,7 @@
       .input-group-addon,
       .btn,
       .form-control {
-        color: $gray;
+        color: $gray-500;
         display: inline-block;
         float: none;
         vertical-align: middle;
@@ -54,7 +54,7 @@
         &.icon-lock {
           border: 1px solid $input-border;
           border-right: 0;
-          color: $gray-light;
+          color: $gray-300;
           font-size: 24px;
           line-height: 44px;
         }
@@ -96,7 +96,7 @@
   }
 }
 
-@media screen and (min-width: $screen-sm) {
+@include media-breakpoint-up(sm) {
   #users.login,
   #users.forgot_password,
   #users.reset_password {

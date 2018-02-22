@@ -36,10 +36,10 @@
 }
 
 .pager li a {
-  color: $pager-color;
+  color: $gray-500;
 
   &:hover {
-    color: $pager-hover-color;
+    color: $gray-700;
   }
 }
 

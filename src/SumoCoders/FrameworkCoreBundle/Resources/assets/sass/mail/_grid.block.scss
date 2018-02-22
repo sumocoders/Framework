@@ -6,34 +6,34 @@
 
   td {
     display: inline-block;
-    padding: $padding-base-vertical $padding-base-horizontal;
+    padding: 6px 12px;
   }
 }
 
 .two-up td {
-  width: floor($min-width / 2 - ($padding-base-horizontal * 2));
+  width: floor($min-width / 2 - (12px * 2));
 }
 
 .three-up td {
-  width: floor($min-width / 3 - ($padding-base-horizontal * 2));
+  width: floor($min-width / 3 - (12px * 2));
 }
 
 .four-up td {
-  width: floor($min-width / 4 - ($padding-base-horizontal * 2));
+  width: floor($min-width / 4 - (12px * 2));
 }
 
 .five-up td {
-  width: floor($min-width / 5 - ($padding-base-horizontal * 2));
+  width: floor($min-width / 5 - (12px * 2));
 }
 
 .six-up td {
-  width: floor($min-width / 6 - ($padding-base-horizontal * 2));
+  width: floor($min-width / 6 - (12px * 2));
 }
 
 .seven-up td {
-  width: floor($min-width / 7 - ($padding-base-horizontal * 2));
+  width: floor($min-width / 7 - (12px * 2));
 }
 
 .eight-up td {
-  width: floor($min-width / 8 - ($padding-base-horizontal * 2));
+  width: floor($min-width / 8 - (12px * 2));
 }

@@ -7,15 +7,15 @@
 }
 
 .text-success {
-  color: $state-success-bg;
+  color: theme-color('success');
 }
 
 .text-warning {
-  color: $state-warning-bg;
+  color: theme-color('warning');
 }
 
 .text-danger {
-  color: $state-danger-bg;
+  color: theme-color('danger');
 }
 
 .helper-classes-bg p {

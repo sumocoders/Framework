@@ -18,7 +18,7 @@ h6 {
   font-weight: 600;
 }
 
-@media screen and (min-width: 767px) {
+@include media-breakpoint-up(sm){
   h1 {
     font-size: 28px;
   }

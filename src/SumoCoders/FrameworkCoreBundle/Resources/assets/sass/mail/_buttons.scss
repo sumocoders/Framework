@@ -14,33 +14,33 @@ table.tiny-button td,
 table.small-button td,
 table.medium-button td,
 table.large-button td {
-  background: $btn-default-bg;
-  border: 1px solid $btn-default-border;
+  background: theme-color('primary');
+  border: 1px solid theme-color('primary');
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  color: $btn-default-color;
+  color: $white;
   display: block;
   line-height: initial !important;
-  padding: $padding-base-horizontal 0;
+  padding: 12px 0;
   text-align: center;
   width: auto !important;
 }
 
 table.tiny-button td {
-  padding: $padding-xs-vertical 0;
+  padding: 1px 0;
 }
 
 table.small-button td {
-  padding: $padding-small-vertical 0;
+  padding: 5px 0;
 }
 
 table.medium-button td {
-  padding: $padding-base-vertical 0;
+  padding: 6px 0;
 }
 
 table.large-button td {
-  padding: $padding-large-vertical 0;
+  padding: 10px 0;
 }
 
 table.button td a,
@@ -48,7 +48,7 @@ table.tiny-button td a,
 table.small-button td a,
 table.medium-button td a,
 table.large-button td a {
-  color: $btn-default-color;
+  color: theme-color('primary');
   display: block;
   font-family: Helvetica, Arial, sans-serif;
   font-size: $font-size-base;
@@ -59,32 +59,32 @@ table.large-button td a {
 }
 
 table.tiny-button td a {
-  font-size: $font-size-small;
+  font-size: 12px;
   font-weight: normal;
 }
 
 table.small-button td a {
-  font-size: $font-size-small;
+  font-size: 12px;
 }
 
 table.medium-button td a {
-  font-size: $font-size-base;
+  font-size: 14px;
 }
 
 table.large-button td a {
-  font-size: $font-size-large;
+  font-size: 18px;
 }
 
 table.button:hover td,
 table.button:visited td,
 table.button:active td {
-  background: $btn-default-bg !important;
+  background: theme-color('primary') !important;
 }
 
 table.button:hover td a,
 table.button:visited td a,
 table.button:active td a {
-  color: $brand-primary !important;
+  color: theme-color('primary') !important;
 }
 
 table.button:hover td,
@@ -92,7 +92,7 @@ table.tiny-button:hover td,
 table.small-button:hover td,
 table.medium-button:hover td,
 table.large-button:hover td {
-  background: $brand-primary !important;
+  background: theme-color('primary') !important;
 }
 
 table.button:hover td a,
@@ -110,52 +110,52 @@ table.medium-button td a:visited,
 table.large-button:hover td a,
 table.large-button:active td a,
 table.large-button td a:visited {
-  color: $btn-default-color !important;
+  color: theme-color('primary') !important;
 }
 
 table.secondary td {
-  background: $gray-lighter;
-  border-color: $gray-lines;
-  color: $gray;
+  background: $gray-100;
+  border-color: gray-400;
+  color: $black;
 }
 
 table.secondary td a {
-  color: $gray;
+  color: $black;
 }
 
 table.secondary:hover td {
-  background: $gray-light !important;
-  color: $gray;
+  background: $gray-100 !important;
+  color: $black;
 }
 
 table.secondary:hover td a,
 table.secondary td a:visited,
 table.secondary:active td a {
-  color: $gray !important;
+  color: $black !important;
 }
 
 table.success td {
-  background: $btn-success-bg;
-  border-color: $btn-success-border;
+  background: theme-color('success');
+  border-color: theme-color('success');
 }
 
 table.success:hover td {
-  background: darken($btn-success-bg, 15%) !important;
+  background: darken(theme-color('success'), 15%) !important;
 }
 
 table.alert td {
-  background: $btn-danger-bg;
-  border-color: $btn-danger-border;
+  background: theme-color('danger');
+  border-color: theme-color('danger');
 }
 
 table.alert:hover td {
-  background: darken($btn-danger-bg, 15%) !important;
+  background: darken(theme-color('danger'), 15%) !important;
 }
 
 table.radius td {
-  -moz-border-radius: $border-radius-base;
-  -webkit-border-radius: $border-radius-base;
-  border-radius: $border-radius-base;
+  -moz-border-radius: $border-radius;
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
 }
 
 table.round td {

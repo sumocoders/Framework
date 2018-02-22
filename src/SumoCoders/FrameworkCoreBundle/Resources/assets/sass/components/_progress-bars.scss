@@ -8,7 +8,7 @@
 
   .progress-bar {
     //background-size: 100px 100px;
-    background-color: lighten($brand-primary, 30%);
+    background-color: lighten(theme-color('primary'), 30%);
     text-align: left;
     width: 100%;
   }
@@ -18,7 +18,7 @@
   }
 }
 
-@media screen and (min-width: $screen-sm) {
+@include media-breakpoint-up(sm){
   .header-title .progress .progress-bar {
     width: 100%;
   }

@@ -11,7 +11,7 @@
 }
 
 .wrapper-brand {
-  background-color: $brand-primary;
+  background-color: theme-color('primary');
   padding: 20px;
 
   .logo img {
@@ -29,18 +29,18 @@
 .navbar-default {
 
   .navbar-brand {
-    background-color: $navbar-default-bg;
+    background-color: $gray-300;
     font-style: normal;
     font-weight: normal;
 
     &:hover {
-      background-color: $navbar-default-bg;
-      color: $gray-dark;
+      background-color: $gray-300;
+      color: $gray-700;
     }
   }
 
   .navbar-header {
-    background-color: $navbar-default-bg;
+    background-color: $gray-300;
   }
 }
 
@@ -60,7 +60,7 @@
 
     .navbar-brand {
       background-color: transparent;
-      color: $gray-light;
+      color: $gray-300;
     }
 
     .navbar-header {
@@ -75,29 +75,34 @@
       margin-top: 0;
     }
 
-    .current .menu-item {
+    .current .nav-link {
       background-color: transparent;
-      border-left: 10px $brand-primary solid;
-      color: $gray;
+      border-left: 10px theme-color('primary') solid;
+      color: $gray-700;
     }
 
-    .menu-item {
+    .nav-link {
       border-left: 10px transparent solid;
-      color: $gray;
+      color: $gray-700;
       font-style: normal;
       font-weight: bold;
       padding: 12px 50px 12px 10px;
+      position: relative;
 
       &:hover,
       &:focus {
         background-color: transparent;
-        border-left: 10px $brand-primary solid;
-        color: $gray;
+        border-left: 10px theme-color('primary') solid;
+        color: $gray-900;
+      }
+
+      &.dropdown-toggle:after {
+        display: none;
       }
     }
 
     li {
-      border-top: 1px $gray-lines solid;
+      border-top: 1px $gray-500 solid;
     }
 
     .dropdown-menu {
@@ -109,16 +114,20 @@
       border: none;
 
       li a {
-        color: $gray-light;
+        color: $gray-600;
         font-style: normal;
         font-weight: 600;
         margin-left: 10px;
         padding: 7px 20px;
+
+        &:active {
+          color: $white;
+        }
       }
     }
 
     .icon-angle {
-      margin-top: -8px;
+      margin-top: -11px;
       position: absolute;
       right: 15px;
       top: 50%;
@@ -132,10 +141,11 @@
         padding-bottom: 0;
         padding-top: 0;
         position: relative;
+        display: block;
 
-        .current .sub-menu-item,
+        .current .dropdown-item,
         li a:hover {
-          background-color: $brand-primary;
+          background-color: theme-color('primary');
           color: $white;
         }
       }
@@ -148,15 +158,15 @@
       & > .dropdown-toggle:focus,
       & > .dropdown-toggle:hover {
         background-color: transparent;
-        border-left: 10px $brand-primary solid;
+        border-left: 10px theme-color('primary') solid;
       }
 
       .menu-item {
-        color: $gray;
+        color: $gray-500;
 
         &:hover,
         &:focus {
-          color: $gray;
+          color: $gray-500;
         }
       }
 
@@ -168,7 +178,7 @@
   }
 }
 
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm){
   .logo {
     background-size: 80% auto;
   }
@@ -178,7 +188,7 @@
   }
 
   .main-menu {
-    background-color: $navbar-default-bg;
+    background-color: $gray-300;
     box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
     height: 100%;
     left: 0;

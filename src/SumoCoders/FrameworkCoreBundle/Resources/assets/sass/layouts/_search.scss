@@ -1,6 +1,6 @@
 .user-nav {
-  border-bottom: 5px $brand-primary solid;
-  border-top: 1px $gray-lines solid;
+  border-bottom: 5px theme-color('primary') solid;
+  border-top: 1px $gray-500 solid;
 
   .search-box {
     margin-left: 50px;
@@ -36,14 +36,14 @@
     }
 
     .fa-search {
-      color: $gray-light;
+      color: $gray-700;
       float: right;
       font-size: $font-size-icon-small;
       width: 0;
 
       &:hover,
       &:focus {
-        background-color: $gray-darker;
+        background-color: $gray-700;
         color: $white;
       }
     }
@@ -58,14 +58,14 @@
   }
 }
 
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm) {
 
   .sub-nav .user-nav {
     border-bottom: 0;
     border-top: 0;
 
     .search-box {
-      border-left: 1px $gray-lines solid;
+      border-left: 1px $gray-500 solid;
       display: inline-block;
       float: right;
       margin-left: 0;
@@ -113,19 +113,19 @@
     }
 
     .controls .btn {
-      padding: 11px 20px;
+      padding: 12px 20px 13px;
       width: auto;
     }
   }
 }
 
-@media (min-width: $screen-md-min) {
+@include media-breakpoint-up(md) {
   .sub-nav .user-nav .search-box.open .search-form {
     width: 245px;
   }
 }
 
-@media (min-width: $screen-lg-min) {
+@include media-breakpoint-up(lg) {
   .sub-nav .user-nav .search-box.open .search-form {
     width: 395px;
   }

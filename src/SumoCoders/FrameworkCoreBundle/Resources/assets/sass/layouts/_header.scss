@@ -25,26 +25,26 @@
   z-index: 1;
 
 
-  .icon-angle:before {
+  .fa-chevron-right:before {
     font-size: $font-size-icon-smallest;
     padding: 0 0 2px 0;
     transform: rotate(0deg);
     transition: transform .4s;
   }
 
-  .open {
+  .show {
     > .btn-default.dropdown-toggle {
-      background-color: $gray-darker;
+      background-color: $gray-700;
       color: $white;
     }
 
-    .icon-angle:before {
+    .fa-chevron-right:before {
       transform: rotate(90deg);
     }
   }
 
   .btn-group {
-    border-right: 1px $gray-lines solid;
+    border-right: 1px $gray-500 solid;
     position: absolute;
     top: 0;
     z-index: 700;
@@ -54,18 +54,23 @@
     }
 
     .btn-default {
-      color: $gray-light;
+      color: $gray-700;
       overflow: hidden;
+      background: none;
 
       &:hover,
       &:focus {
-        background-color: $gray-darker;
+        background-color: $gray-700;
         color: $white;
+      }
+
+      &:after {
+        display: none;
       }
     }
 
     .dropdown-menu {
-      background-color: $gray-darker;
+      background-color: $gray-700;
       border: 0;
       border-radius: 0;
       -webkit-font-smoothing: antialiased;
@@ -77,10 +82,11 @@
     a {
       color: $white;
       padding: 7px 20px;
+      display: block;
 
       &:hover,
       &:focus {
-        background-color: lighten($gray-dark, .5%);
+        background-color: lighten($gray-600, .5%);
       }
     }
   }
@@ -92,14 +98,14 @@
     padding: 0;
   }
 
-  .icon-avatar {
+  .fa-user-circle-o {
     display: inline-block;
     font-size: $font-size-icon-base;
     padding: 5px 15px 9px;
   }
 }
 
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm) {
 
   .main-wrapper {
     padding-left: 235px;
@@ -128,13 +134,13 @@
   }
 
   .sub-nav {
-    border-bottom: 5px $brand-primary solid;
+    border-bottom: 5px theme-color('primary') solid;
     border-radius: 0;
   }
 
   .user-nav {
     .btn-group {
-      border-left: 1px $gray-lines solid;
+      border-left: 1px $gray-500 solid;
       border-right: 0;
       display: inline-block;
       float: right;
@@ -151,8 +157,8 @@
       }
     }
 
-    .icon-avatar {
-      padding: 7px 0 11px;
+    .fa-user-circle-o {
+      padding:14px 0 11px;
 
       &:before {
         padding: 5px 15px 0;
@@ -161,8 +167,8 @@
   }
 }
 
-@media (min-width: $screen-md-min) {
-  .user-nav .btn-group .icon-angle {
+@include media-breakpoint-up(md) {
+  .user-nav .btn-group .fa-chevron-right {
     margin: 5px 0;
     padding: 0 15px 0 10px;
   }

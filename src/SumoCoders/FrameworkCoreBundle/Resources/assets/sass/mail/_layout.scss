@@ -1,11 +1,11 @@
 td.logo {
-  padding-bottom: $padding-large-vertical * 3;
-  padding-top: $padding-large-vertical * 3;
+  padding-bottom: 10px * 3;
+  padding-top: 10px * 3;
 }
 
 td.banner {
-  background-color: $brand-primary;
-  border: 1px solid $brand-primary;
+  background-color: theme-color('primary');
+  border: 1px solid theme-color('primary');
 
   table.columns td {
     padding-bottom: 0 !important;
@@ -13,13 +13,13 @@ td.banner {
 }
 
 table.main {
-  border: 1px solid $gray-lines;
-  margin-bottom: $padding-large-vertical * 3;
+  border: 1px solid $gray-700;
+  margin-bottom: 10px * 3;
 }
 
 table.content {
   p {
-    padding-bottom: $padding-base-vertical;
+    padding-bottom: 6px;
   }
 }
 

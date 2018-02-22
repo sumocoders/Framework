@@ -1,74 +1,74 @@
 .help-block {
-  color: $gray-light;
-  font-size: $font-size-small;
+  color: $gray-300;
+  font-size: $font-size-sm;
 }
 
 .has-error {
   .form-control {
     background: $white;
-    border-color: $state-danger-bg;
+    border-color: theme-color('danger');
     box-shadow: none;
 
     &:focus {
-      border-color: $state-danger-bg;
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($state-danger-bg, .6);
+      border-color: theme-color('danger');
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba(theme-color('danger'), .6);
     }
   }
 
   .form-control-feedback {
-    color: $state-danger-bg;
+    color: theme-color('danger');
   }
 
   .checkbox,
   .control-label {
-    color: $state-danger-bg;
+    color: theme-color('danger');
   }
 }
 
 .has-warning {
 
   .form-control {
-    border-color: $state-warning-bg;
+    border-color: theme-color('warning');
     box-shadow: none;
 
     &:focus {
-      border-color: $state-warning-bg;
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($state-warning-bg, .6);
+      border-color: theme-color('warning');
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba(theme-color('warning'), .6);
     }
   }
 
   .form-control-feedback {
-    color: $state-warning-bg;
+    color: theme-color('warning');
   }
 
   .checkbox,
   .control-label {
-    color: $state-warning-bg;
+    color: theme-color('warning');
   }
 }
 
 .has-success {
 
   .form-control {
-    border-color: $state-success-bg;
+    border-color: theme-color('success');
 
     &:focus {
-      border-color: $state-success-bg;
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($state-success-bg, .6);
+      border-color: theme-color('success');
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba(theme-color('success'), .6);
     }
   }
 
   .form-control-feedback {
-    color: $state-success-bg;
+    color: theme-color('success');
   }
 
   .checkbox,
   .control-label {
-    color: $state-success-bg;
+    color: theme-color('success');
   }
 
   .input-group-addon {
-    border-color: $state-success-bg;
+    border-color: theme-color('success');
     color: $white;
   }
 }
@@ -86,7 +86,7 @@
   }
 
   &.placeholder {
-    color: $input-color-placeholder;
+    color: $gray-700;
   }
 }
 
@@ -138,7 +138,7 @@ label abbr[title] {
   width: 250px;
 }
 
-@media (min-width: $screen-md-min) {
+@include media-breakpoint-up(md) {
 
   .popover {
     width: 300px;
@@ -147,11 +147,11 @@ label abbr[title] {
 
 // Feedback states
 .has-success .help-block {
-  color: $brand-success;
+  color: theme-color('success');
 }
 .has-warning .help-block {
-  color: $brand-warning;
+  color: theme-color('warning');
 }
 .has-error .help-block {
-  color: $brand-danger;
+  color: theme-color('danger');
 }
