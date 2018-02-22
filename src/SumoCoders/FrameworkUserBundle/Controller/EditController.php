@@ -4,6 +4,7 @@ namespace SumoCoders\FrameworkUserBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use SumoCoders\FrameworkCoreBundle\BreadCrumb\BreadCrumbBuilder;
 use SumoCoders\FrameworkMultiUserBundle\Command\Handler;
 use SumoCoders\FrameworkMultiUserBundle\Controller\UserController;
 use SumoCoders\FrameworkMultiUserBundle\User\Interfaces\UserRepository;
@@ -38,6 +39,8 @@ final class EditController extends UserController
         string $form,
         Handler $handler,
         UserRepository $userRepository,
+        BreadCrumbBuilder $breadCrumbBuilder,
+        array $breadcrumbs,
         $redirectRoute = null
     ) {
         $this->authorizationChecker = $authorizationChecker;
@@ -51,6 +54,8 @@ final class EditController extends UserController
             $form,
             $handler,
             $userRepository,
+            $breadCrumbBuilder,
+            $breadcrumbs,
             $redirectRoute
         );
     }
