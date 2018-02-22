@@ -100,7 +100,7 @@ services:
 
   sumocoders_other_choice_option_repository:
     public: false
-    class: Doctrine\ORM\EntityRepository
+    class: SumoCoders\FrameworkCoreBundle\Repository\OtherChoiceOptionRepository
     factory: ["@doctrine.orm.entity_manager", getRepository]
     arguments:
       - SumoCoders\FrameworkCoreBundle\Entity\OtherChoiceOption

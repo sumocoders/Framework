@@ -7,7 +7,7 @@ use InvalidArgumentException;
 use RuntimeException;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SumoCoders\FrameworkCoreBundle\Repository\OtherChoiceOptionRepository")
  * @ORM\Table(
  *     name="OtherChoiceOption",
  *     indexes={@ORM\Index(name="category_index", columns={"category"})},

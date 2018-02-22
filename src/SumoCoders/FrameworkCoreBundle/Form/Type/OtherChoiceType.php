@@ -4,6 +4,7 @@ namespace SumoCoders\FrameworkCoreBundle\Form\Type;
 
 use Doctrine\ORM\EntityRepository;
 use SumoCoders\FrameworkCoreBundle\Entity\OtherChoiceOption;
+use SumoCoders\FrameworkCoreBundle\Repository\OtherChoiceOptionRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\ChoiceList\Loader\CallbackChoiceLoader;
@@ -16,7 +17,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class OtherChoiceType extends AbstractType
 {
-    /** @var EntityRepository */
+    /** @var OtherChoiceOptionRepository */
     private $repository;
 
     /** @var OtherChoiceOption */
@@ -76,7 +77,7 @@ class OtherChoiceType extends AbstractType
                         'other' => null,
                     ];
                 },
-                function (array $data) : ?OtherChoiceOption {
+                function (array $data) use ($options) : ?OtherChoiceOption {
                     if ($data['choices'] === null) {
                         return null;
                     }
@@ -85,7 +86,17 @@ class OtherChoiceType extends AbstractType
                         if (empty($data['other'])) {
                             throw new TransformationFailedException('other value must be filled');
                         }
+
+                        // check that they didn't retype a value that is already in there
+                        $existingChoice = $this->repository->findOneBy(
+                            ['category' => $options['choices_category'], 'label' => $data['other']]
+                        );
+                        if ($existingChoice instanceof OtherChoiceOption) {
+                            return $existingChoice;
+                        }
+
                         $data['choices']->transformToActualChoiceOption($data['other']);
+                        $this->repository->create($data['choices']);
                     }
 
                     return $data['choices'];
