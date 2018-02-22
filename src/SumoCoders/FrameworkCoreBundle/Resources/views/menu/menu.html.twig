@@ -9,13 +9,14 @@
 
 {% block item %}
     {% if item.parent.name == 'root' and item.hasChildren %}
-        {% set item = item.setLinkAttributes({ 'class': 'menu-item dropdown-toggle', 'role': 'button', 'aria-expended': false }) %}
-        {% set item = item.setAttributes({ 'class': 'dropdown', 'icon': 'icon icon-angle' }) %}
+        {% set item = item.setLinkAttributes({ 'class': 'nav-link dropdown-toggle', 'role': 'button', 'aria-expended': false }) %}
+        {% set item = item.setAttributes({ 'class': 'dropdown nav-item', 'icon': 'icon icon-angle' }) %}
         {% set item = item.setChildrenAttributes({ 'class': 'dropdown-menu', 'role': 'menu' }) %}
     {% elseif item.parent.name == 'root' and not item.hasChildren %}
-        {% set item = item.setLinkAttributes({ 'class': 'menu-item' }) %}
+        {% set item = item.setAttributes({ 'class': 'nav-item' }) %}
+        {% set item = item.setLinkAttributes({ 'class': 'nav-link' }) %}
     {% elseif item.parent.name != 'root' and not item.hasChildren %}
-        {% set item = item.setLinkAttributes({ 'class': 'sub-menu-item' }) %}
+        {% set item = item.setLinkAttributes({ 'class': 'dropdown-item' }) %}
     {% endif %}
     {{ parent() }}
 {% endblock %}
