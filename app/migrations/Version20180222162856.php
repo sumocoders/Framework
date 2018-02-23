@@ -23,7 +23,6 @@ class Version20180222162856 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE User DROP FOREIGN KEY FK_2DA17977ED646567');
         $this->addSql('DROP TABLE OtherChoiceOption');
     }
 }
