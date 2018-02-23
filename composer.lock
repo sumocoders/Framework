@@ -1651,17 +1651,17 @@
         },
         {
             "name": "jms/translation-bundle",
-            "version": "1.3.2",
+            "version": "1.4.1",
             "target-dir": "JMS/TranslationBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSTranslationBundle.git",
-                "reference": "08b8db92aa376b8e50ce4e779e849916abffd805"
+                "reference": "a5f47128fdd1665206ebeef4be5d24cf9d87269a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSTranslationBundle/zipball/08b8db92aa376b8e50ce4e779e849916abffd805",
-                "reference": "08b8db92aa376b8e50ce4e779e849916abffd805",
+                "url": "https://api.github.com/repos/schmittjoh/JMSTranslationBundle/zipball/a5f47128fdd1665206ebeef4be5d24cf9d87269a",
+                "reference": "a5f47128fdd1665206ebeef4be5d24cf9d87269a",
                 "shasum": ""
             },
             "require": {
@@ -1669,10 +1669,10 @@
                 "php": "^5.3.3 || ^7.0",
                 "symfony/console": "^2.3 || ^3.0",
                 "symfony/framework-bundle": "^2.3 || ^3.0",
+                "symfony/validator": "^2.3 || ^3.0",
                 "twig/twig": "^1.27 || ^2.0"
             },
             "require-dev": {
-                "jms/di-extra-bundle": "^1.1",
                 "matthiasnoback/symfony-dependency-injection-test": "^0.7.6",
                 "nyholm/nsa": "^1.0.1",
                 "phpunit/phpunit": "4.8.27",
@@ -1694,7 +1694,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache2"
+                "Apache-2.0"
             ],
             "authors": [
                 {
@@ -1714,7 +1714,7 @@
                 "ui",
                 "webinterface"
             ],
-            "time": "2017-04-20T19:44:02+00:00"
+            "time": "2018-02-09T19:28:20+00:00"
         },
         {
             "name": "knplabs/knp-menu",
