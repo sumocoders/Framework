@@ -439,3 +439,10 @@
     {% endif %}
   </a>
 {% endblock collection_button %}
+
+{% block other_choice_widget %}
+  <div data-role="other-choice-wrapper">
+    {{ form_widget(form.choices) }}
+    {{ form_widget(form.other) }}
+  </div>
+{% endblock %}

@@ -102,6 +102,7 @@ forms:
         removeImage: verwijder afbeelding
         removeFile: verwijder bestand
         viewCurrentFile: bekijk huidig bestand
+        other: andere
 
     buttons:
         new: toevoegen
