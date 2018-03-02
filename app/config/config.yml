@@ -26,6 +26,11 @@ services:
     tags:
       - { name: twig.extension }
 
+  twig.extension.intl:
+    class: Twig_Extensions_Extension_Intl
+    tags:
+      - { name: twig.extension }
+
   extension.listener:
     class: SumoCoders\FrameworkCoreBundle\EventListener\DoctrineExtensionListener
     arguments:
