@@ -26,6 +26,8 @@ services:
     arguments:
       - "@knp_menu.factory"
       - "@event_dispatcher"
+    public: true
+
   framework.breadcrumb.main:
     class: Kpn\Menu\MenuItem
     factory: ["@framework.breadcrumb_builder", "createBreadCrumb"]
