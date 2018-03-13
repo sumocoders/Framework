@@ -250,6 +250,16 @@ abstract class AbstractFile
         }
     }
 
+    /**
+     * @internal Used by the form types
+     *
+     * @return bool
+     */
+    public function isPendingDeletion()
+    {
+        return \strlen($this->oldFileName) > 0 && $this->fileName === null;
+    }
+
     public function jsonSerialize(): string
     {
         return $this->getWebPath();
