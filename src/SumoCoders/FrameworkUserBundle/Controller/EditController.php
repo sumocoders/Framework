@@ -78,6 +78,12 @@ final class EditController extends UserController
             throw new AccessDeniedHttpException('Access denied.');
         }
 
-        return parent::baseAction($request, $id);
+        $response = parent::baseAction($request, $id);
+
+        if ($response instanceof RedirectResponse && !$this->authorizationChecker->isGranted('ROLE_ADMIN')) {
+            return RedirectResponse::create($request->getPathInfo());
+        }
+
+        return $response;
     }
 }
