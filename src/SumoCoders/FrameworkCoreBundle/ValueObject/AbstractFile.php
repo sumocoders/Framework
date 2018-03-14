@@ -255,7 +255,7 @@ abstract class AbstractFile
      *
      * @return bool
      */
-    public function isPendingDeletion()
+    public function isPendingDeletion(): bool
     {
         return \strlen($this->oldFileName) > 0 && $this->fileName === null;
     }
