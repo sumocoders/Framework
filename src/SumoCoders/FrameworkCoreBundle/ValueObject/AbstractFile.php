@@ -61,7 +61,7 @@ abstract class AbstractFile
     {
         $file = $this->getAbsolutePath();
         if (is_file($file) && file_exists($file)) {
-            return '/' . $this->getUploadDir() . '/' . $this->fileName;
+            return '/files/' . $this->getUploadDir() . '/' . $this->fileName;
         }
 
         return '';
@@ -248,6 +248,16 @@ abstract class AbstractFile
         if ($isPendingDeletion) {
             $this->markForDeletion();
         }
+    }
+
+    /**
+     * @internal Used by the form types
+     *
+     * @return bool
+     */
+    public function isPendingDeletion(): bool
+    {
+        return \strlen($this->oldFileName) > 0 && $this->fileName === null;
     }
 
     public function jsonSerialize(): string

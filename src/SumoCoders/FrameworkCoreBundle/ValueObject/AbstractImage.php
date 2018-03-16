@@ -30,7 +30,7 @@ abstract class AbstractImage extends AbstractFile
         $file = $this->getAbsolutePath();
 
         if (is_file($file) && file_exists($file)) {
-            return $webPath . $this->fileName;
+            return $webPath;
         }
 
         return static::FALLBACK_IMAGE;
