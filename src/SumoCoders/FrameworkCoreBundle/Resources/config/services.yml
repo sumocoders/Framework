@@ -113,3 +113,9 @@ services:
     tags:
       - { name: form.type, alias: otherChoiceType }
 
+  sumocoders_validator_unique_data_transfer_object:
+    class: SumoCoders\FrameworkCoreBundle\Validator\UniqueDataTransferObjectValidator
+    arguments:
+      - "@doctrine"
+    tags:
+      - { name: validator.constraint_validator, alias: unique_data_transfer_object }
