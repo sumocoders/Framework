@@ -5,6 +5,8 @@ namespace SumoCoders\FrameworkCoreBundle\Validator;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
@@ -15,6 +17,7 @@ use Symfony\Component\Validator\ConstraintValidator;
  */
 class UniqueDataTransferObjectValidator extends ConstraintValidator
 {
+    /** @var ManagerRegistry */
     private $registry;
 
     public function __construct(ManagerRegistry $registry)
@@ -53,26 +56,9 @@ class UniqueDataTransferObjectValidator extends ConstraintValidator
             return;
         }
 
-        if ($constraint->em) {
-            $em = $this->registry->getManager($constraint->em);
+        $om = $this->getObjectManager($dataTransferObject, $constraint);
 
-            if (!$em) {
-                throw new ConstraintDefinitionException(
-                    sprintf('Object manager "%s" does not exist.', $constraint->em)
-                );
-            }
-        } else {
-            $em = $this->registry->getManagerForClass(
-                $constraint->entityClass ?? \get_class($dataTransferObject->getEntity())
-            );
-
-            if (!$em) {
-                $em = $this->registry->getManager();
-            }
-        }
-
-        $class = $em->getClassMetadata($constraint->entityClass ?? \get_class($dataTransferObject->getEntity()));
-        /* @var $class \Doctrine\Common\Persistence\Mapping\ClassMetadata */
+        $class = $om->getClassMetadata($constraint->entityClass ?? \get_class($dataTransferObject->getEntity()));
 
         $criteria = array();
         $hasNullValue = false;
@@ -104,7 +90,7 @@ class UniqueDataTransferObjectValidator extends ConstraintValidator
                  * read its identifiers. This is necessary because the wrapped
                  * getter methods in the Proxy are being bypassed.
                  */
-                $em->initializeObject($criteria[$fieldName]);
+                $om->initializeObject($criteria[$fieldName]);
             }
         }
 
@@ -119,28 +105,7 @@ class UniqueDataTransferObjectValidator extends ConstraintValidator
             return;
         }
 
-        if ($constraint->entityClass !== null) {
-            /* Retrieve repository from given entity name.
-             * We ensure the retrieved repository can handle the entity
-             * by checking the entity is the same, or subclass of the supported entity.
-             */
-            $repository = $em->getRepository($constraint->entityClass);
-            $supportedClass = $repository->getClassName();
-
-            if ($dataTransferObject->getEntity() !== null
-                && !$dataTransferObject->getEntity() instanceof $supportedClass) {
-                throw new ConstraintDefinitionException(
-                    sprintf(
-                        'The "%s" entity repository does not support the "%s" entity. The entity should be an instance of or extend "%s".',
-                        $constraint->entityClass,
-                        $class->getName(),
-                        $supportedClass
-                    )
-                );
-            }
-        } else {
-            $repository = $em->getRepository(\get_class($dataTransferObject->getEntity()));
-        }
+        $repository = $this->getRepository($dataTransferObject, $constraint, $om, $class);
 
         $result = $repository->{$constraint->repositoryMethod}($criteria);
 
@@ -175,31 +140,21 @@ class UniqueDataTransferObjectValidator extends ConstraintValidator
 
         $this->context->buildViolation($constraint->message)
             ->atPath($errorPath)
-            ->setParameter('{{ value }}', $this->formatWithIdentifiers($em, $class, $invalidValue))
+            ->setParameter('{{ value }}', $this->formatWithIdentifiers($om, $class, $invalidValue))
             ->setInvalidValue($invalidValue)
             ->setCode(UniqueDataTransferObject::NOT_UNIQUE_ERROR)
             ->setCause($result)
             ->addViolation();
     }
 
-    private function formatWithIdentifiers(ObjectManager $em, ClassMetadata $class, $value)
+    private function formatWithIdentifiers(ObjectManager $em, ClassMetadata $class, $value): string
     {
         if (!\is_object($value) || $value instanceof \DateTimeInterface) {
             return $this->formatValue($value, self::PRETTY_DATE);
         }
 
-        if ($class->getName() !== $idClass = \get_class($value)) {
-            // non unique value might be a composite PK that consists of other entity objects
-            if ($em->getMetadataFactory()->hasMetadataFor($idClass)) {
-                $identifiers = $em->getClassMetadata($idClass)->getIdentifierValues($value);
-            } else {
-                // this case might happen if the non unique column has a custom doctrine type and its value is an object
-                // in which case we cannot get any identifiers for it
-                $identifiers = array();
-            }
-        } else {
-            $identifiers = $class->getIdentifierValues($value);
-        }
+        $idClass = \get_class($value);
+        $identifiers = $this->getIdentifiers($em, $class, $value, $idClass);
 
         if (!$identifiers) {
             return sprintf('object("%s")', $idClass);
@@ -219,5 +174,74 @@ class UniqueDataTransferObjectValidator extends ConstraintValidator
         );
 
         return sprintf('object("%s") identified by (%s)', $idClass, implode(', ', $identifiers));
+    }
+
+    private function getIdentifiers(ObjectManager $om, ClassMetadata $class, $value, string $idClass): array
+    {
+        if ($class->getName() === $idClass) {
+            return $class->getIdentifierValues($value);
+        }
+
+        // non unique value might be a composite PK that consists of other entity objects
+        if ($om->getMetadataFactory()->hasMetadataFor($idClass)) {
+            return $om->getClassMetadata($idClass)->getIdentifierValues($value);
+        }
+
+        // this case might happen if the non unique column has a custom doctrine type and its value is an object
+        // in which case we cannot get any identifiers for it
+        return array();
+    }
+
+    private function getRepository($dataTransferObject, Constraint $constraint, ObjectManager $om, ClassMetadata $class): ObjectRepository
+    {
+        if ($constraint->entityClass === null) {
+            return $om->getRepository(\get_class($dataTransferObject->getEntity()));
+        }
+
+        /* Retrieve repository from given entity name.
+         * We ensure the retrieved repository can handle the entity
+         * by checking the entity is the same, or subclass of the supported entity.
+         */
+        $repository = $om->getRepository($constraint->entityClass);
+        $supportedClass = $repository->getClassName();
+
+        if ($dataTransferObject->getEntity() !== null
+            && !$dataTransferObject->getEntity() instanceof $supportedClass) {
+            throw new ConstraintDefinitionException(
+                sprintf(
+                    'The "%s" entity repository does not support the "%s" entity. The entity should be an instance of or extend "%s".',
+                    $constraint->entityClass,
+                    $class->getName(),
+                    $supportedClass
+                )
+            );
+        }
+
+        return $repository;
+    }
+
+    private function getObjectManager($dataTransferObject, Constraint $constraint): ObjectManager
+    {
+        if ($constraint->em) {
+            $om = $this->registry->getManager($constraint->em);
+
+            if (!$om) {
+                throw new ConstraintDefinitionException(
+                    sprintf('Object manager "%s" does not exist.', $constraint->em)
+                );
+            }
+
+            return $om;
+        }
+
+        $om = $this->registry->getManagerForClass(
+            $constraint->entityClass ?? \get_class($dataTransferObject->getEntity())
+        );
+
+        if (!$om) {
+            return $this->registry->getManager();
+        }
+
+        return $om;
     }
 }
