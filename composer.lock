@@ -3147,17 +3147,17 @@
         },
         {
             "name": "sumocoders/framework-search-bundle",
-            "version": "5.0.1",
+            "version": "5.0.2",
             "target-dir": "SumoCoders/FrameworkSearchBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sumocoders/FrameworkSearchBundle.git",
-                "reference": "88d6e4ab577abe454eaab1449108220cdc6df44b"
+                "reference": "f526095afd8006f0c3020b1a042949e2db9cfbe8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/88d6e4ab577abe454eaab1449108220cdc6df44b",
-                "reference": "88d6e4ab577abe454eaab1449108220cdc6df44b",
+                "url": "https://api.github.com/repos/sumocoders/FrameworkSearchBundle/zipball/f526095afd8006f0c3020b1a042949e2db9cfbe8",
+                "reference": "f526095afd8006f0c3020b1a042949e2db9cfbe8",
                 "shasum": ""
             },
             "require": {
@@ -3193,7 +3193,7 @@
                 "SumoCoders",
                 "search"
             ],
-            "time": "2017-08-09T12:00:20+00:00"
+            "time": "2018-01-16T08:32:29+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
