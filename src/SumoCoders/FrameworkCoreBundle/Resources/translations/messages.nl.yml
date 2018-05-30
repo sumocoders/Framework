@@ -6,7 +6,7 @@ core:
         home: home
 
     warnings:
-        oldBrowser: <strong>Warning:</strong> You are using an older browser. If you want to see the site as it is intended, you may want to download a new version or a decent browser like <a href="http://www.google.com/chrome‎">Chrome</a>.
+        oldBrowser: <strong>Opgelet:</strong> Je gebruikt een verouderde browser. Wil je de website zien zoals die bedoeld is dan download je best een recenter versie of een correcte browsers zoals <a href="http://www.google.com/chrome‎">Chrome</a>.
 
 datagrids:
     actions:
@@ -14,13 +14,13 @@ datagrids:
         show: toon
 
 datepicker:
-  pickDate: pick a date
+  pickDate: kies een datum
 
   buttons:
-    close: close
-    next: next
-    previous: previous
-    today: today
+    close: sluiten
+    next: volgende
+    previous: vorige
+    today: vandaag
 
   full:
     days:
