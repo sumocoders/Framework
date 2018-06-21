@@ -21,9 +21,9 @@ namespace :framework do
 
       on roles(:web) do
         stream = StringIO.new("<?php clearstatcache(true); if (function_exists('opcache_reset')) { opcache_reset(); }")
-        upload! stream, "#{current_path}/php-opcache-reset.php"
+        upload! stream, "#{current_path}/web/php-opcache-reset.php"
         execute :curl, '-L --fail --silent --show-error', "#{fetch :opcache_reset_base_url}/php-opcache-reset.php"
-        execute :rm, "#{current_path}/php-opcache-reset.php"
+        execute :rm, "#{current_path}/web/php-opcache-reset.php"
       end
     end
 
