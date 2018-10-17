@@ -9,7 +9,6 @@ set :keep_releases,  2
 set :url, "http://#{fetch :project}.#{fetch :client}.php71.sumocoders.eu"
 
 set :php_bin, 'php7.1'
-set :php_bin_custom_path, fetch(:php_bin)
 
 set :opcache_reset_strategy, 'fcgi'
 set :opcache_reset_fcgi_connection_string, '/var/run/php_71_fpm_sites.sock'
