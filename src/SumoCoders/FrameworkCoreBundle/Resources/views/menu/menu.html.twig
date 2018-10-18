@@ -3,14 +3,17 @@
 {% block label %}
     {% if item.attributes.icon is defined %}
         <i class="{{ item.attributes.icon }}"></i>
+        {% if item.parent.name == 'root' and item.hasChildren %}
+            <i class="icon icon-angle"></i>
+        {% endif %}
     {% endif %}
-   {{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'messages'))|capitalize }}
+    {{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'messages'))|capitalize }}
 {% endblock %}
 
 {% block item %}
     {% if item.parent.name == 'root' and item.hasChildren %}
         {% set item = item.setLinkAttributes({ 'class': 'menu-item dropdown-toggle', 'role': 'button', 'aria-expended': false }) %}
-        {% set item = item.setAttributes({ 'class': 'dropdown', 'icon': 'icon icon-angle' }) %}
+        {% set item = item.setAttributes({ 'class': 'dropdown', 'icon': item.attribute('icon') }) %}
         {% set item = item.setChildrenAttributes({ 'class': 'dropdown-menu', 'role': 'menu' }) %}
     {% elseif item.parent.name == 'root' and not item.hasChildren %}
         {% set item = item.setLinkAttributes({ 'class': 'menu-item' }) %}
