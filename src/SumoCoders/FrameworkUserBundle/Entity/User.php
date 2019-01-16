@@ -21,9 +21,4 @@ class User extends BaseUser
     ) {
         parent::__construct($email, $plainPassword, $displayName, $email, $id, $token);
     }
-
-    public function getRoles(): array
-    {
-        return ['ROLE_USER'];
-    }
 }
