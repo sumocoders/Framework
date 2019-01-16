@@ -1,0 +1,8 @@
+services:
+  user_form_edit_user:
+    class: SumoCoders\FrameworkUserBundle\Form\EditUserType
+    arguments:
+      - "@translator.default"
+      - "@security.authorization_checker"
+    tags:
+      - { name: form.type }

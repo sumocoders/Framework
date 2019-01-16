@@ -2,4 +2,5 @@ imports:
   - { resource: "controllers.yml" }
   - { resource: "listeners.yml" }
   - { resource: "repositories.yml" }
+  - { resource: "forms.yml" }
   - { resource: "twig.yml" }
