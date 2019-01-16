@@ -21,9 +21,9 @@
   <table class="table table-hover">
     <thead>
       <tr>
+        <th>{{ 'user.datagrid.username'|trans|capitalize }}</th>
         <th>{{ 'user.datagrid.email'|trans|capitalize }}</th>
         <th>{{ 'user.datagrid.type'|trans|capitalize }}</th>
-        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -31,7 +31,8 @@
     <tbody>
       {% for user in users %}
         <tr{% if user.isBlocked() %} class="text-muted"{% endif %}>
-          <td>{{ user.email }}</td>
+          <td>{{ user.displayName }}</td>
+          <td>{{ user.username }}</td>
           <td>
             {% for role in user.roles %}
               {{ ('user.types.' ~ role)|trans|capitalize }}<br>
