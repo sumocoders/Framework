@@ -37,7 +37,7 @@
         "jms/di-extra-bundle": "^1.7",
         "sumocoders/framework-search-bundle": "^5.0.0",
         "sumocoders/framework-example-bundle": "^8.0.0",
-        "sumocoders/framework-multi-user-bundle": "^10.0.0",
+        "sumocoders/framework-multi-user-bundle": "11.0.0",
         "simple-bus/symfony-bridge": "^4.1",
         "simple-bus/doctrine-orm-bridge": "^4.0",
         "gedmo/doctrine-extensions": "^2.4",
