@@ -1,16 +1,12 @@
 sumo_coders.user.route:
   add_user: gebruiker toevoegen
-  add_admin: beheerder toevoegen
   edit_user: gebruiker bewerken
-  edit_admin: beheerder bewerken
 
 user:
   header:
     index: overzicht gebruikers
     add_user: gebruiker toevoegen
-    add_admin: beheerder toevoegen
     edit_user: gebruiker bewerken
-    edit_admin: beheerder bewerken
 
   menu:
     index: gebruikers
@@ -18,7 +14,6 @@ user:
   actions:
     add:
       user: gebruiker toevoegen
-      admin: beheerder toevoegen
     settings: instellingen
     logout: uitloggen
     switchBack: naar originele gebruiker

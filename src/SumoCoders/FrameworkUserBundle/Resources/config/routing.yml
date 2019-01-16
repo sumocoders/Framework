@@ -2,17 +2,9 @@ sumo_coders.user.route.add_user:
   defaults: { _controller: sumo_coders.user.controller.add_user:baseAction }
   path: /user/add-user
 
-sumo_coders.user.route.add_admin:
-  defaults: { _controller: sumo_coders.user.controller.add_admin:baseAction }
-  path: /user/add-admin
-
 sumo_coders.user.route.edit_user:
   defaults: { _controller: sumo_coders.user.controller.edit_user:editAction }
   path: /user/{id}/edit-user
-
-sumo_coders.user.route.edit_admin:
-  defaults: { _controller: sumo_coders.user.controller.edit_admin:baseAction }
-  path: /user/{id}/edit-admin
 
 sumo_coders.user.route.block:
   defaults: { _controller: sumo_coders.user.controller.block:toggleAction }

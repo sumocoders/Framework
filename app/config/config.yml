@@ -14,7 +14,6 @@ services:
       -
         - "@multi_user.base_user.repository"
         - "@sumo_coders.user.repository.user"
-        - "@sumo_coders.user.repository.admin"
 
   sumocoders.user_provider:
     class: SumoCoders\FrameworkMultiUserBundle\Security\ObjectUserProvider
@@ -191,6 +190,4 @@ jms_translation:
 
 sumo_coders_framework_multi_user:
   redirect_routes:
-    SumoCoders\FrameworkUserBundle\Entity\Admin: sumocoders_frameworkuser_index_index
-    # todo when you add a page accessable by user, will default to "/"
-#    SumoCoders\FrameworkUserBundle\Entity\User:
+    SumoCoders\FrameworkUserBundle\Entity\User: sumocoders_frameworkuser_index_index

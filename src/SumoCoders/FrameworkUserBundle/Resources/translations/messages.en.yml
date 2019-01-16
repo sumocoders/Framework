@@ -1,8 +1,6 @@
 sumo_coders.user.route:
   add_user: add user
-  add_admin: add admin
   edit_user: edit user
-  edit_admin: edit admin
 
 user:
   header:
@@ -14,7 +12,6 @@ user:
   actions:
     add:
       user: add user
-      admin: add admin
     settings: settings
     logout: logout
     switchBack: back to original user
