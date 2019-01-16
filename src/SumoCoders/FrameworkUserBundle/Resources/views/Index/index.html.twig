@@ -33,11 +33,9 @@
         <tr{% if user.isBlocked() %} class="text-muted"{% endif %}>
           <td>{{ user.email }}</td>
           <td>
-            {% if user is admin %}
-              {{ 'user.types.admin'|trans }}
-            {% else %}
-              {{ 'user.types.user'|trans }}
-            {% endif %}
+            {% for role in user.roles %}
+              {{ ('user.types.' ~ role)|trans|capitalize }}<br>
+            {% endfor %}
           </td>
           <td class="action">
             {% if not user.isBlocked() and app.user.canSwitchTo(user) %}

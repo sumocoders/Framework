@@ -41,6 +41,8 @@ user:
   types:
     user: gebruiker
     admin: beheerder
+    ROLE_USER: gebruiker
+    ROLE_ADMIN: beheerder
 
   form:
     submit: opslaan

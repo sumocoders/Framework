@@ -37,6 +37,8 @@ user:
   types:
     user: user
     admin: admin
+    ROLE_USER: user
+    ROLE_ADMIN: admin
 
   form:
     submit: save
