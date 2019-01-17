@@ -2,6 +2,7 @@
 
 namespace SumoCoders\FrameworkUserBundle\DataTransferObject;
 
+use Doctrine\Common\Collections\Collection;
 use SumoCoders\FrameworkMultiUserBundle\DataTransferObject\BaseUserDataTransferObject;
 use SumoCoders\FrameworkMultiUserBundle\User\Interfaces\User as UserInterface;
 use SumoCoders\FrameworkUserBundle\Entity\User;
@@ -30,6 +31,16 @@ final class UserDataTransferObject extends BaseUserDataTransferObject
      * @Assert\NotBlank(message="forms.not_blank", groups={"add"})
      */
     public $plainPassword;
+
+    /**
+     * @var Collection
+     *
+     * @Assert\Count(
+     *      min = 1,
+     *      minMessage = "forms.not_blank"
+     * )
+     */
+    public $roles;
 
     /**
      * @var User
