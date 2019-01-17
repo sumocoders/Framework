@@ -6,3 +6,11 @@ services:
       - "@security.authorization_checker"
     tags:
       - { name: form.type }
+
+  user_form_add_user:
+    class: SumoCoders\FrameworkUserBundle\Form\AddUserType
+    arguments:
+          - "@translator.default"
+          - "%locales%"
+    tags:
+      - { name: form.type }

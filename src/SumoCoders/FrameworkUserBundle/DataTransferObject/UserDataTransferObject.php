@@ -47,7 +47,8 @@ final class UserDataTransferObject extends BaseUserDataTransferObject
         return new User(
             $this->plainPassword,
             $this->displayName,
-            $this->email
+            $this->email,
+            $this->roles
         );
     }
 }
