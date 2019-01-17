@@ -50,7 +50,7 @@ services:
       - "sumocoders_frameworkuser_index_index"
 
   sumo_coders.user.controller.delete:
-    class: SumoCoders\FrameworkMultiUserBundle\Controller\DeleteController
+    class: SumoCoders\FrameworkUserBundle\Controller\DeleteController
     arguments:
       - "@form.factory"
       - "@multi_user.handler.delete_user"
@@ -58,3 +58,4 @@ services:
       - "@translator"
       - "@router"
       - "sumocoders_frameworkuser_index_index"
+      - "@security.authorization_checker"
