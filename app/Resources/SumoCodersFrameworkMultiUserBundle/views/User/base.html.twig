@@ -12,13 +12,13 @@
   {{ form_rest(form) }}
   <div class="btn-toolbar">
     <input type="submit" class="btn btn-success pull-right" value="{{ 'user.form.submit'|trans|capitalize }}">
-    {% if deleteForm is defined %}
+    {% if deleteForm is defined and is_granted('ROLE_ADMIN') %}
       <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#deleteUserModal">{{ 'sumocoders.multiuserbundle.form.delete'|trans|capitalize }}</button>
     {% endif %}
   </div>
   {{ form_end(form) }}
 
-  {% if deleteForm is defined %}
+  {% if deleteForm is defined and is_granted('ROLE_ADMIN') %}
     {{ form_start(deleteForm, {'action': path('sumo_coders.user.route.delete', {'id': user.id})}) }}
     <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel">
       <div class="modal-dialog" role="document">
